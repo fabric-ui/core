@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import {useCallback, useEffect, useState} from "react";
-import Requester from "../../misc/requester/Requester";
+import Requester from "../../feedback/requester/Requester";
 
 export default function useDataWithDraft(props) {
     const [changed, setChanged] = useState(false)

@@ -1,4 +1,4 @@
-@import "../../../theme/styles.module.css";
+@import "../../../misc/theme/styles.module.css";
 
 .uploadButton {
     width: fit-content;
@@ -10,7 +10,7 @@
 
     transition: 150ms linear;
     font-size: .8rem;
-    font-family: Roboto;
+    font-family: "Roboto";
     padding: 8px 16px;
     cursor: pointer;
 }

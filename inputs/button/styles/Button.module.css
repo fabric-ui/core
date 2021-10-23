@@ -1,0 +1,138 @@
+.button {
+    outline: none;
+    background: unset;
+    border: none;
+    font-size: .8rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    cursor: pointer;
+    --color: #0095ff;
+    --darker-color: #0080DB;
+    padding: 8px 16px;
+    text-align: center;
+    color: var(--color-1);
+}
+
+.button:disabled {
+    cursor: unset;
+}
+
+.secondaryVariant {
+    --darker-color: #FF2626;
+    --color: #ff5555
+}
+
+/*MINIMAL*/
+
+.minimal {
+
+    position: relative;
+    background: transparent;
+
+    transition: 150ms ease-in;
+}
+
+.button.minimal::before {
+    content: '';
+    position: absolute;
+
+    transition: 150ms ease-in;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-radius: 16px;
+    background: var(--color);
+    height: 3px;
+    width: 50%;
+    opacity: 0;
+}
+
+.minimal:hover::before, .minimalHighlight.minimal::before {
+    opacity: 1;
+}
+
+button.minimal::after, button.outlined::after,  .outlinedHighlight::after{
+    content: '';
+    position: absolute;
+    transition: 150ms ease-in;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: var(--color);
+    z-index: 0;
+    opacity: 0;
+}
+
+.minimal:active::after, .outlined:active::after, .outlinedHighlight.outlined::after{
+    opacity: .15;
+}
+
+.minimal:hover, .minimalHighlight{
+    color: var(--color);
+}
+
+.minimal:disabled::before, .minimal:disabled::after, .outlined:disabled::after, .minimalHighlight.minimal::after{
+    content: none;
+}
+
+.minimal:disabled {
+    color: var(--color-3);
+}
+
+/*MINIMAL*/
+
+
+/*FILLED*/
+.filled {
+    transition: 150ms ease-in;
+    background: var(--color);
+    border-radius: 5px;
+    color: white;
+}
+
+.filled:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.filled:active, .filledHighlight {
+    background: var(--darker-color);
+    box-shadow: none;
+}
+
+.filled:disabled {
+    background: var(--background-2);
+    color: var(--color-3);
+    box-shadow: none;
+    border: var(--border-0) 1px solid;
+}
+
+/*FILLED*/
+
+
+/*OUTLINED*/
+.outlined {
+
+    position: relative;
+    background: transparent;
+    border: var(--border-1) 1px solid;
+    border-radius: 5px;
+    transition: 150ms ease-in;
+}
+
+.outlined:hover {
+    color: var(--color);
+}
+
+.outlined:active, .outlinedHighlight{
+    color: var(--color);
+    border-color: var(--color);
+}
+.outlined:disabled {
+    border-color:transparent;
+    color: var(--color-3);
+    background: transparent;
+}
+
+/*OUTLINED*/

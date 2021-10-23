@@ -6,7 +6,7 @@ import {LaunchRounded} from "@material-ui/icons";
 import PropTypes from "prop-types";
 import shared from '../shared/Input.module.css'
 import Row from "./modules/Row";
-import Modal from "../../misc/modal/Modal";
+import Modal from "../../navigation/modal/Modal";
 
 export default function Selector(props) {
     const [open, setOpen] = useState(false)

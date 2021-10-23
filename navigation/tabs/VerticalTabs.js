@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, {useMemo, useRef, useState} from "react";
 import styles from './styles/Vertical.module.css'
-import Switcher from "../../misc/switcher/Switcher";
+import Switcher from "../switcher/Switcher";
 import Row from "./components/row";
 
 export default function VerticalTabs(props) {

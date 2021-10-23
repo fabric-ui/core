@@ -25,7 +25,7 @@ export default function SelectBox(props) {
 
 SelectBox.propTypes = {
     open: PropTypes.bool,
-    setOpen: PropTypes.bool,
+    setOpen: PropTypes.func,
     children: PropTypes.node,
     reference: PropTypes.object
 }

@@ -2,7 +2,7 @@ import styles from "../styles/Vertical.module.css";
 import {ArrowDropDownRounded} from "@material-ui/icons";
 import React, {useState} from "react";
 import PropTypes from "prop-types";
-import Switcher from "../../../misc/switcher/Switcher";
+import Switcher from "../../switcher/Switcher";
 
 export default function Row(props) {
     const [hidden, setHidden] = useState(false)

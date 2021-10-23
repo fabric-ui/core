@@ -1,4 +1,4 @@
-@import '../../../../../theme/styles.module.css';
+@import '../../../../../misc/theme/styles.module.css';
 
 .buttonLabel{
     margin-left: 8px;
@@ -6,7 +6,7 @@
     overflow: hidden;
     color: var(--color-1);
     font-weight: 600;
-    font-family: Roboto;
+    font-family: "Roboto";
 }
 .buttonContainer {
     outline: none;

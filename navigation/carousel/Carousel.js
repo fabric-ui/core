@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react'
 import Card from "./components/Card";
 import CardGroup from "./components/CardGroup";
 import Panel from "./components/Panel";
-import Switcher from "../../misc/switcher/Switcher";
+import Switcher from "../switcher/Switcher";
 
 export default function Carousel(props) {
     const [currentOnRender, setCurrentOnRender] = useState(0)

@@ -1,4 +1,4 @@
-@import "../../../theme/styles.module.css";
+@import "../../../misc/theme/styles.module.css";
 
 .wrapper {
     height: 100%;
@@ -14,7 +14,7 @@
 }
 
 .header {
-    font-family: Roboto;
+    font-family: "Roboto";
 
     display: flex;
     height: fit-content;

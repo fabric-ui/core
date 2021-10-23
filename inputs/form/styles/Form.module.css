@@ -1,4 +1,4 @@
-@import "../../../theme/styles.module.css";
+@import "../../../misc/theme/styles.module.css";
 
 .container {
     background: var(--background-1);

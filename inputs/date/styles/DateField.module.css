@@ -1,4 +1,4 @@
-@import "../../../theme/styles.module.css";
+@import "../../../misc/theme/styles.module.css";
 
 .fieldsContainer {
     display: flex;
@@ -19,7 +19,7 @@
     box-shadow: unset;
 
     background: var(--background-1);
-    font-family: Roboto;
+    font-family: "Roboto";
     height: 100%;
     width: 30px;
     outline: none;
@@ -97,7 +97,7 @@
     top: 0;
     background: var(--background-1);
     z-index: 999;
-    font-family: Roboto;
+    font-family: "Roboto";
     font-weight: bold;
     font-size: .9rem;
     height: 45px;
@@ -141,7 +141,7 @@
 
     font-size: .85rem;
     font-weight: bold;
-    font-family: Roboto;
+    font-family: "Roboto";
     color: var(--color-2);
     border-radius: 8px;
     border: transparent 2px solid;

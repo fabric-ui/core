@@ -1,4 +1,4 @@
-@import '../../../theme/styles.module.css';
+@import '../../../misc/theme/styles.module.css';
 
 .overflowEllipsis {
     white-space: nowrap;
@@ -40,7 +40,7 @@
     height: 100%;
     color: var(--color-2);
     font-weight: bold;
-    font-family: Roboto;
+    font-family: "Roboto";
 }
 
 .children {

@@ -2,7 +2,7 @@ import styles from './styles/Checkbox.module.css'
 import PropTypes from 'prop-types'
 import {CheckRounded} from "@material-ui/icons";
 import React, {useContext} from 'react'
-import ThemeContext from "../../theme/ThemeContext";
+import ThemeContext from "../../misc/theme/ThemeContext";
 
 export default function Checkbox(props) {
     return (

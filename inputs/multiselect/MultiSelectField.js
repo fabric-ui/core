@@ -5,7 +5,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import {ArrowDropDownRounded} from '@material-ui/icons'
 import LocalePT from '../shared/LocalePT'
 import SelectBox from "../shared/SelectBox";
-import ToolTip from "../../misc/tooltip/ToolTip";
+import ToolTip from "../../feedback/tooltip/ToolTip";
 import Checkbox from "../checkbox/Checkbox";
 
 

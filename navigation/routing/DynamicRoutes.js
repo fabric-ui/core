@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import {useMemo} from "react";
-import Switcher from "../../misc/switcher/Switcher";
+import Switcher from "../switcher/Switcher";
 
 export default function DynamicRoutes(props) {
     const contentIndex = useMemo(() => {

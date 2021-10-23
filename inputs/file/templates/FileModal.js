@@ -3,8 +3,8 @@ import styles from '../styles/File.module.css'
 import {CloseRounded} from "@material-ui/icons";
 import File from "./File";
 import PropTypes from "prop-types";
-import EmptyListIndicator from "../../../shared/components/EmptyListIndicator";
-import Modal from "../../../misc/modal/Modal";
+import Empty from "../../../feedback/empty/Empty";
+import Modal from "../../../navigation/modal/Modal";
 
 export default function FileModal(props) {
     const ref = useRef()
@@ -69,7 +69,7 @@ export default function FileModal(props) {
 
                         }}>
                         {props.files.length === 0 ?
-                            <EmptyListIndicator customLabel={'Arraste seus arquivos aqui'}/>
+                            <Empty customLabel={'Arraste seus arquivos aqui'}/>
                             :
                             files}
                     </div>

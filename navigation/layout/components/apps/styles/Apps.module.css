@@ -1,9 +1,9 @@
-@import '../../../../../theme/styles.module.css';
+@import '../../../../../misc/theme/styles.module.css';
 
 .appLabel{
     font-size: .8rem;
     font-weight: bold;
-    font-family: Roboto;
+    font-family: "Roboto";
     color: var(--color-1);
     max-width: 100%;
 

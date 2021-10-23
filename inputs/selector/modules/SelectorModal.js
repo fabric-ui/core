@@ -1,15 +1,15 @@
 import styles from '../styles/SelectorModal.module.css'
 import {AddRounded, ClearAllRounded, FilterListRounded, RefreshRounded} from "@material-ui/icons";
 import React from "react";
-import Modal from "../../../misc/modal/Modal";
+import Modal from "../../../navigation/modal/Modal";
 import PropTypes from "prop-types";
 import Row from "./Row";
-import useInfiniteScroll from "../../../shared/hooks/useInfiniteScroll";
-import EmptyListIndicator from "../../../shared/components/EmptyListIndicator";
-import ToolTip from "../../../misc/tooltip/ToolTip";
-import Dropdown from "../../../list/components/list/Dropdown";
-import useHeader from "../../../list/hook/useHeader";
-import ListFilter from "../../../shared/components/ListFilter";
+import useInfiniteScroll from "../../../visualization/hooks/useInfiniteScroll";
+import Empty from "../../../feedback/empty/Empty";
+import ToolTip from "../../../feedback/tooltip/ToolTip";
+import Dropdown from "../../../visualization/list/components/list/Dropdown";
+import useHeader from "../../../visualization/list/hook/useHeader";
+import Filter from "../../../visualization/filter/Filter";
 
 export default function SelectorModal(props) {
     const lastElementRef = useInfiniteScroll(props.hook.setCurrentPage, props.hook.currentPage, props.hook.loading, props.hook.hasMore)
@@ -75,7 +75,7 @@ export default function SelectorModal(props) {
 
             </div>
 
-            <ListFilter
+            <Filter
                 keys={props.keys} filters={props.hook.filters} setFilters={props.hook.setFilters}
                 cleanState={props.hook.clean} getType={getType} open={open} setOpen={setOpen}
                 parseDate={parseDate} selectedField={selectedField} setSelectedField={setSelectedField}
@@ -97,7 +97,7 @@ export default function SelectorModal(props) {
 
 
             <div className={styles.rows}>
-                {props.hook.data.length === 0 ? <EmptyListIndicator/> : props.hook.data.map((e, i) => (
+                {props.hook.data.length === 0 ? <Empty/> : props.hook.data.map((e, i) => (
                     <React.Fragment key={e.id + '-selector-modal-row-' + i}>
                         <Row
                             disabled={false} emptyIndicator={false}

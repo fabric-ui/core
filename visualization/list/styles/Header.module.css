@@ -1,0 +1,97 @@
+@import '../../../misc/theme/styles.module.css';
+
+.dropdownLabel{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 10px;
+
+    /*font-size: .9rem;*/
+    font-family: "Roboto";
+}
+.header{
+
+
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+    width: 100%;
+
+
+    /*background-color: var(--background-1);*/
+    /*border: var(--border-0) 1px solid;*/
+    border-radius: 5px;
+
+    font-family: "Roboto";
+    font-size: 1.2rem;
+
+    font-weight: 600;
+    color: var(--color-1);
+
+}
+
+.filter {
+    user-select: none;
+    outline: none;
+    background-color: #0095ff;
+    color: white;
+    border: none;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    border-radius: 5px;
+
+    height: 30px;
+    width: fit-content;
+    cursor: pointer;
+
+    transition: 150ms linear;
+}
+
+.filter:hover {
+    opacity: .9;
+}
+
+.filter:active {
+    opacity: .7;
+    box-shadow: none;
+}
+
+
+.overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.fieldWrapper{
+    display: grid;
+    gap: 16px;
+
+}
+
+.selectWrapper{
+    display: flex;
+    gap: 8px;
+    font-size: .9rem;
+    width: 50%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.secondaryButton{
+    background-color: var(--background-1);
+    border: var(--border-0) 1px solid;
+    color: var(--color-2);
+}
+.secondaryButton:hover{
+    background-color: var(--background-2);
+    color: var(--color-2);
+}
+.secondaryButton:active{
+    background-color: var(--background-3);
+    color: #0095ff;
+}

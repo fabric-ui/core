@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import styles from '../styles/SelectorModal.module.css'
-import ToolTip from "../../../misc/tooltip/ToolTip";
+import ToolTip from "../../../feedback/tooltip/ToolTip";
 import React from "react";
 import RowCell from "./RowCell";
 

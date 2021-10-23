@@ -1,4 +1,4 @@
-@import "../../theme/styles.module.css";
+@import "../../misc/theme/styles.module.css";
 
 .wrapper {
     height: 100px;
@@ -14,12 +14,12 @@
     font-size: .9rem;
     margin-top: auto;
     overflow: hidden;
-    font-family: Roboto;
+    font-family: "Roboto";
     text-transform: capitalize;
 }
 
 .alertLabel {
-    font-family: Roboto;
+    font-family: "Roboto";
     margin-left: auto;
     font-weight: 550;
     font-size: .8rem;
@@ -31,7 +31,7 @@
 
 .selectContainer {
     height: 56px;
-    font-family: Roboto;
+    font-family: "Roboto";
     display: flex;
     justify-content: flex-start;
     gap: 4px;
@@ -82,7 +82,7 @@
     text-overflow: ellipsis;
     text-align: left;
     font-weight: bold;
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: .8rem;
 }
 
@@ -115,7 +115,7 @@
     text-overflow: ellipsis;
     text-align: left;
     font-weight: bold;
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: .8rem;
 }
 
@@ -130,6 +130,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 1rem;
 }

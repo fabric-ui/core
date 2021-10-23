@@ -1,4 +1,4 @@
-import useField from "../../../shared/hooks/useField";
+import useField from "../../../visualization/hooks/useField";
 import PropTypes from 'prop-types'
 
 

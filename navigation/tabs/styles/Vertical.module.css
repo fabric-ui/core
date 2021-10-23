@@ -1,4 +1,4 @@
-@import "../../../theme/styles.module.css";
+@import "../../../misc/theme/styles.module.css";
 
 
 .wrapper {
@@ -43,7 +43,7 @@
 
     color: var(--color-3);
     font-weight: 600;
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: .75rem;
     text-rendering: optimizeLegibility;
 
@@ -78,7 +78,7 @@
     align-items: center;
     justify-content: space-between;
     font-weight: 600;
-    font-family: Roboto;
+    font-family: "Roboto";
     color: var(--color-1);
     font-size: .8rem;
     padding: 4px 0 4px 16px;

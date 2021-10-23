@@ -1,4 +1,4 @@
-@import "../../theme/styles.module.css";
+@import "../../misc/theme/styles.module.css";
 .visibilityContainer {
     margin-left: auto;
     cursor: pointer;
@@ -24,7 +24,7 @@
     transition: box-shadow 150ms linear, border 150ms linear, background 150ms linear;
     background: var(--background-1);
     width: 100%;
-    font-family: Roboto;
+    font-family: "Roboto";
 
 
     outline: none;
@@ -53,7 +53,7 @@
     font-size: .8rem;
     margin-top: auto;
     user-select: none;
-    font-family: Roboto;
+    font-family: "Roboto";
     text-transform: capitalize;
 
     text-overflow: ellipsis;
@@ -64,7 +64,7 @@
 }
 
 .alertLabel {
-    font-family: Roboto;
+    font-family: "Roboto";
     margin-left: auto;
     font-size: .75rem;
     user-select: none;
@@ -169,7 +169,7 @@
     transform: translateY(-50%);
     left: 8px;
     color: var(--color-1);
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: .95rem;
 
     max-width: 25%;

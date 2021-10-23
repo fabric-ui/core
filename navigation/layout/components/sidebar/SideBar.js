@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, {useMemo} from "react";
 import styles from "./styles/SideBar.module.css";
-import ToolTip from "../../../../misc/tooltip/ToolTip";
+import ToolTip from "../../../../feedback/tooltip/ToolTip";
 
 export default function SideBar(props) {
     const buttonStyle = useMemo(() => {

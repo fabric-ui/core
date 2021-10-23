@@ -1,4 +1,4 @@
-@import "../../../theme/styles.module.css";
+@import "../../../misc/theme/styles.module.css";
 
 
 .wrapper {
@@ -39,7 +39,7 @@
 
     color: var(--color-2);
     font-weight: 600;
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: .8rem;
     text-rendering: optimizeLegibility;
 
