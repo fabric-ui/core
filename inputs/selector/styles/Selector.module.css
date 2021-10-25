@@ -26,7 +26,7 @@
 
 
 .button {
-    font-family: "Roboto";
+
 
     position: relative;
     z-index: 10;
@@ -42,8 +42,8 @@
     width: 100%;
     outline: none;
     padding: 5px;
-    font-size: 1rem;
-    color: var(--color-1);
+
+
     cursor: pointer;
     border-radius: 5px;
 

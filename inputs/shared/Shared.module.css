@@ -42,7 +42,7 @@
 .labelContainer {
     transition: visibility 150ms linear, opacity 150ms linear;
 
-    color: var(--color-2);
+    color: var(--color-1);
     font-weight: bold;
     font-size: .8rem;
     margin-top: auto;
@@ -62,5 +62,9 @@
     margin-left: auto;
     font-size: .75rem;
     user-select: none;
+
+}
+
+.inputLabel{
 
 }

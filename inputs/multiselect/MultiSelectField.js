@@ -58,9 +58,9 @@ export default function MultiSelectField(props) {
 
                     style={{
                         height: props.size === 'small' ? '36px' : '56px',
-                        overflow: "hidden"
+                        overflow: "hidden", maxWidth: 'unset'
                     }}
-                    className={[color.className, styles.selectContainer].join(' ')}
+                    className={[color.className, styles.selectContainer, shared.labelContainer].join(' ')}
                     onClick={() => {
                         setOpen(!open)
                     }}

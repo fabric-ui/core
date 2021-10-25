@@ -51,9 +51,9 @@ export default function DropDownField(props) {
                     disabled={props.disabled}
                     style={{
                         height: props.size === 'small' ? '36px' : '56px',
-                        overflow: "hidden"
+                        overflow: "hidden", maxWidth: 'unset'
                     }}
-                    className={[color.className, styles.selectContainer].join(' ')}
+                    className={[color.className, styles.selectContainer, shared.labelContainer].join(' ')}
                     onClick={() => setOpen(!open)}
                 >
                     <Ripple opacity={.15} disabled={props.disabled} accentColor={color.color}/>

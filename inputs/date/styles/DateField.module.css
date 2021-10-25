@@ -8,8 +8,8 @@
     height: 56px;
     border-radius: 5px;
     border: var(--border-0) 1px solid;
-
-
+    color: var(--color-2);
+    background: var(--background-1);
     position: relative;
 }
 

@@ -60,9 +60,9 @@ export default function Selector(props) {
                         disabled={props.disabled}
                         style={{
                             height: props.size === 'small' ? '36px' : '56px',
-                            overflow: "hidden"
+                            overflow: "hidden", maxWidth: 'unset', marginTop: 'unset'
                         }}
-                        className={[color.className, styles.button].join(' ')}
+                        className={[color.className, styles.button, shared.labelContainer].join(' ')}
                         onClick={() => setOpen(true)}
                     >
                         <Ripple opacity={.15} disabled={props.disabled} accentColor={color.color}/>

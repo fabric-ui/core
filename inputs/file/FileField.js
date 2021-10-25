@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react'
+import React, {useContext, useMemo, useState} from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles/FileField.module.css'
 import shared from '../shared/Shared.module.css'
@@ -6,6 +6,7 @@ import {AttachFileRounded} from '@material-ui/icons'
 import LocalePT from '../shared/LocalePT'
 import FileModal from "./templates/FileModal";
 import Ripple from "../../misc/ripple/Ripple";
+import ThemeContext from "../../misc/theme/ThemeContext";
 
 export default function FileField(props) {
     const lang = LocalePT
@@ -31,6 +32,8 @@ export default function FileField(props) {
         else
             return []
     }, [props.files])
+
+    const themes = useContext(ThemeContext)
     return (
         <div style={{
             width: props.width,
@@ -57,26 +60,23 @@ export default function FileField(props) {
                     <div
                         className={shared.labelContainer}
                         style={{
-                            color: '#555555',
                             alignItems: 'center',
                             height: '100%',
                             gap: '16px',
-                            display: 'flex'
+                            display: 'flex',
+                            color: themes ? themes.themes.color1 : '#555555'
                         }}
                     >
                         Anexar arquivos
                         {files.length > 0 ?
-                            <div style={{fontSize: '.7rem', color: '#777777'}}>
+                            <div style={{fontSize: '.7rem',
+                                color: themes ? themes.themes.color2 : '#777777'}}>
                                 ({files.length} Anexados)
                             </div>
                             :
                             null}
                     </div>
-
-
                     <AttachFileRounded style={{fontSize: '1.2rem'}}/>
-
-
                 </button>
             </div>
             <div className={shared.alertLabel}

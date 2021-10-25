@@ -6,7 +6,7 @@ import dStyles from './styles/DateField.module.css'
 import {ArrowBackIosRounded, CalendarTodayRounded} from "@material-ui/icons";
 import Dates from "./misc/Dates";
 import FloatingBox from "../floating_box/FloatingBox";
-import styles from "../file/styles/FileField.module.css";
+import Button from "../button/Button";
 
 export default function DateField(props) {
     const lang = LocalePT
@@ -122,11 +122,15 @@ export default function DateField(props) {
                         }}
                     />
                 </div>
-                <button className={dStyles.buttonContainer} onClick={() => {
-                    setOpen(true)
-                }}>
+                <Button
+                    variant={'minimal'}
+                    disabled={props.disabled}
+                    highlight={open}
+                    onClick={() => {
+                        setOpen(true)
+                    }}>
                     <CalendarTodayRounded style={{fontSize: '1.2rem'}}/>
-                </button>
+                </Button>
 
                 <FloatingBox open={open} setOpen={setOpen} reference={ref.current}>
                     <div className={dStyles.calendar}>
@@ -177,7 +181,7 @@ export default function DateField(props) {
 DateField.propTypes = {
     width: PropTypes.string,
     label: PropTypes.string,
-    handleChange: PropTypes.func,
+    handleChange: PropTypes.func.isRequired,
     value: PropTypes.string,
     required: PropTypes.bool,
     disabled: PropTypes.bool
