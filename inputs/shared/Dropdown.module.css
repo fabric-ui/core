@@ -11,7 +11,7 @@
 .selectContainer {
     position: relative;
     z-index: 5;
-    font-family: "Roboto";
+
     display: flex;
     justify-content: flex-start;
     gap: 4px;
@@ -24,8 +24,7 @@
     width: 100%;
     outline: none;
     padding: 5px;
-    font-size: 1rem;
-    color: var(--color-1);
+
     cursor: pointer;
 
     border-radius: 5px;

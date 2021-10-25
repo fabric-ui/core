@@ -67,7 +67,7 @@ export default function DropDownField(props) {
 
                 </button>
             </div>
-            <FloatingBox open={open} setOpen={setOpen} reference={ref.current}>
+            <FloatingBox open={open} setOpen={setOpen} reference={ref.current}  width={'100%'}>
 
                 <div className={styles.dropDownChoicesContainer}>
                     {props.choices.map((choice, index) => (

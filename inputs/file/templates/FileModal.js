@@ -1,10 +1,12 @@
-import React, {useMemo, useRef} from "react";
+import React, {useContext, useMemo, useRef} from "react";
 import styles from '../styles/File.module.css'
 import {CloseRounded} from "@material-ui/icons";
 import File from "./File";
 import PropTypes from "prop-types";
 import Empty from "../../../feedback/empty/Empty";
 import Modal from "../../../navigation/modal/Modal";
+import ThemeContext from "../../../misc/theme/ThemeContext";
+import Button from "../../button/Button";
 
 export default function FileModal(props) {
     const ref = useRef()
@@ -19,50 +21,55 @@ export default function FileModal(props) {
                 </React.Fragment>
             ))
     }, [props.files])
+    const themes = useContext(ThemeContext)
 
     return (
-        <Modal open={props.open} handleClose={() => props.setOpen(false)} animationStyle={'fade'} blurIntensity={.1}
-               wrapperClassName={styles.modalContent}>
+        <Modal
+            open={props.open}
+            handleClose={() => props.setOpen(false)}
+            animationStyle={'slide-right'}
+            blurIntensity={0}
+            wrapperClassName={styles.modalContent}>
             <div className={styles.header}>
-                Anexe seus arquivos
-                <div className={styles.divider}/>
-                <div className={styles.headerAccepted}>
+                <div style={{width: '100%'}}>
+                    Anexar arquivos
+                </div>
+                <div className={[styles.headerAccepted, styles.overflow].join(' ')} style={{width: '100%'}}>
                     Tipos
                     aceitos: {props.accept.length > 0 ? props.accept.map((e, i) => e.split('.')[e.split('.').length - 1] + ((i < props.accept.length - 1) ? ', ' : '')) : 'todos'}
                 </div>
             </div>
-            <button
+            <Button
                 disabled={!props.multiple && props.files.length > 0}
-                className={styles.uploadButton}
                 onClick={event => {
                     event.preventDefault()
                     ref.current.click()
                 }}>
                 Anexar arquivos
-            </button>
+            </Button>
 
             <div
                 className={[styles.dropArea, props.files.length > 0 ? styles.dropAreaContent : ''].join(' ')}
                 ref={areaRef}
-                style={{background: !props.multiple && props.files.length > 0 ? 'white' : undefined}}
+                style={{background: !props.multiple && props.files.length > 0 ?themes.theme.background1 : undefined}}
                 onDragLeave={(e) => {
                     if (!(!props.multiple && props.files.length > 0)) {
-                        areaRef.current.style.borderColor = '#e0e0e0'
-                        areaRef.current.style.background = '#f9fafb'
+                        areaRef.current.style.borderColor = themes.theme.border1
+                        areaRef.current.style.background = themes.theme.backgroundBase
                     }
                 }}
                 onDragOver={(e) => {
                     e.preventDefault()
                     if (!(!props.multiple && props.files.length > 0)) {
                         areaRef.current.style.borderColor = '#0095ff'
-                        areaRef.current.style.background = '#E8F0FE'
+                        areaRef.current.style.background = themes.theme.background3
                     }
                 }}
                 onDrop={e => {
                     e.preventDefault()
                     if (!(!props.multiple && props.files.length > 0)) {
                         areaRef.current.style.borderColor = '#0095ff'
-                        areaRef.current.style.background = '#E8F0FE'
+                        areaRef.current.style.background = themes.theme.background3
                         props.setFiles([...props.files, ...Array.from(e.dataTransfer.files)])
                     }
 

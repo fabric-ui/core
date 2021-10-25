@@ -23,12 +23,10 @@ export default function DateField(props) {
             let days = Dates[month - 1].days;
             for (let i = 0; i < days; i++) {
                 res.push(
-                    <div
-                        className={dStyles.dayContainer}
-                        style={{
-                            background: selectedDay === (i + 1) ? '#0095ff' : undefined,
-                            color: selectedDay === (i + 1) ? 'white' : undefined
-                        }}
+                    <Button
+                        styles={{padding: '8px', width: '35px', height: '35px'}}
+                        highlight={selectedDay === (i + 1)}
+                        variant={'minimal'}
                         onClick={() => {
                             const date = new Date()
                             setOpen(false)
@@ -39,7 +37,7 @@ export default function DateField(props) {
                         }}
                     >
                         {i + 1}
-                    </div>
+                    </Button>
                 )
             }
         }

@@ -1,5 +1,13 @@
 @import '../../../misc/theme/styles.module.css';
 
+.button{
+    width: 50px;
+    height: 100%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .overflowEllipsis {
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -71,33 +79,4 @@
     width: 100%;
 
     height: 100%;
-}
-
-
-.buttonContainer {
-    outline: none;
-    border: none;
-    background: transparent;
-
-    display: flex;
-    align-items: center;
-    gap: 6px;
-
-    color: var(--color-1);
-    cursor: pointer;
-    max-width: 225px;
-    height: 100%;
-
-    transition: 150ms linear;
-    border-radius: 5px;
-    padding: 8px;
-}
-
-.buttonContainer:hover {
-    background: var(--background-2);
-}
-
-.buttonContainer:active {
-    background: var(--background-3);
-    color: #0095ff;
 }

@@ -1,4 +1,4 @@
-.bottomOptions{
+.bottomOptions {
     position: absolute;
     bottom: 4px;
     width: calc(100% - 8px);
@@ -35,9 +35,7 @@
     border: none;
     background: transparent;
 
-    display: flex;
     align-items: center;
-    gap: 6px;
 
     color: var(--color-1);
     cursor: pointer;
@@ -49,15 +47,9 @@
     border-radius: 5px;
     padding: 8px 2px;
 }
-.buttonContainer:hover{
-    background: var(--background-2);
-}
-.buttonContainer:active{
-    background: var(--background-3);
-    color: #0095ff;
-}
 
-.buttonLabel{
+
+.buttonLabel {
     outline: none;
     background: none;
     border: none;
@@ -71,9 +63,10 @@
     /*font-weight: 575;*/
 }
 
-.buttonLabel:disabled{
+.buttonLabel:disabled {
     color: var(--color-4);
 }
+
 .overflowEllipsis {
     white-space: nowrap;
     text-overflow: ellipsis;

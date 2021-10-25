@@ -75,10 +75,12 @@ export default function MultiSelectField(props) {
                         : props.label}
                 </button>
             </div>
-            <FloatingBox open={open} setOpen={setOpen} reference={ref.current}>
+            <FloatingBox open={open} setOpen={setOpen} reference={ref.current} width={'100%'}>
                 <div className={styles.dropDownChoicesContainer} style={{padding: '0 8px'}}>
                     {props.choices.map((choice, index) => (
-                        <div style={{overflow: "hidden"}} className={styles.multiSelectRow}
+                        <div
+                            style={{overflow: "hidden"}}
+                             className={styles.multiSelectRow}
                               key={'multi-choice-' + index}>
                              <Checkbox
                                  type={'checkbox'}

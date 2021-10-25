@@ -6,6 +6,7 @@ import Apps from './components/apps/Apps'
 import {MenuOpenRounded} from "@material-ui/icons";
 import SideBar from "./components/sidebar/SideBar";
 import Loading from "./templates/Loading";
+import Button from "../../inputs/button/Button";
 
 
 export default function Layout(props) {
@@ -16,19 +17,17 @@ export default function Layout(props) {
             <div className={styles.header}>
                 <Loading loading={props.loading}/>
                 <div className={styles.content}>
-                    <div style={{width: '50px'}}>
-                        <button
-                            className={styles.buttonContainer}
-                            style={{
-                                margin: 'auto',
-                                color: openSideBar ? 'white' : undefined,
-                                background: openSideBar ? '#0095ff' : undefined,
-                            }}
-                            onClick={() => setOpenSideBar(!openSideBar)}
-                        >
-                            <MenuOpenRounded style={{transform: openSideBar ? undefined : 'rotate(180deg)'}}/>
-                        </button>
-                    </div>
+
+                    <Button
+                        highlight={openSideBar}
+                        className={styles.button}
+                        onClick={() => setOpenSideBar(!openSideBar)}
+                    >
+                        <MenuOpenRounded style={{
+                            transform: openSideBar ? undefined : 'rotate(180deg)',
+                            transition: '150ms linear'
+                        }}/>
+                    </Button>
                     <img
                         style={{height: '35px'}}
                         src={props.logo}
@@ -52,7 +51,6 @@ export default function Layout(props) {
 
             <div className={styles.contentWrapper}>
                 <SideBar
-
                     open={openSideBar}
                     setOpen={setOpenSideBar}
                     buttons={props.sideBarButtons}

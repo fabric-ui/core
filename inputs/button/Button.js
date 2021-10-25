@@ -18,23 +18,25 @@ export default function Button(props) {
                     highlight: styles.filledHighlight
                 }
 
-            default:
+            case 'outlined':
                 return {
                     normal: styles.outlined,
                     highlight: styles.outlinedHighlight
                 }
+            default:
+                return {
+                    normal: [styles.default, styles.outlined].join(' '),
+                    highlight: styles.outlinedHighlight
+                }
         }
     }, [props.variant, props.highlight]);
+
     const color = useMemo(() => {
         if (props.color === 'secondary')
             return styles.secondaryVariant
         else
             return undefined
     }, [props.variant]);
-    const onClick = useCallback((event) => {
-        if (props.onClick)
-            props.onClick(event)
-    }, [])
 
 
     const accentColor = useMemo(() => {
@@ -50,21 +52,21 @@ export default function Button(props) {
                 return '#0095ff'
         }
     }, [])
+
     return (
         <button
-            className={[styles.button, variant.normal, props.highlight ? variant.highlight : undefined, color].join(' ')}
-            onClick={onClick} ref={ref}
+            className={[props.className, styles.button, variant.normal, props.highlight ? variant.highlight : undefined, color].join(' ')}
+            onClick={props.onClick} ref={ref}
             style={props.styles}
             disabled={props.disabled}
         >
             <Ripple
                 disabled={props.disabled}
                 opacity={props.variant === 'filled' ? 1 : undefined}
-                accentColor={accentColor}/>
-            <span style={{position: 'relative', zIndex: 10}}>
-                {props.children}
-            </span>
-
+                accentColor={accentColor}
+                keep={props.highlight}
+            />
+            {props.children}
         </button>
     )
 }
@@ -76,5 +78,6 @@ Button.propTypes = {
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
     highlight: PropTypes.bool,
-    color: PropTypes.oneOf(['primary', 'secondary'])
+    color: PropTypes.oneOf(['primary', 'secondary']),
+    className: PropTypes.string
 }
