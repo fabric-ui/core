@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import PropTypes from 'prop-types'
-import styles from './Styles.module.css'
+import styles from './styles/FloatingBox.module.css'
 
-export default function SelectBox(props) {
+export default function FloatingBox(props) {
     const handleMouseDown = (event) => {
         if (event.target.closest('.' + styles.selectBox) === null && props.open)
             props.setOpen(false)
@@ -23,7 +23,7 @@ export default function SelectBox(props) {
     )
 }
 
-SelectBox.propTypes = {
+FloatingBox.propTypes = {
     open: PropTypes.bool,
     setOpen: PropTypes.func,
     children: PropTypes.node,

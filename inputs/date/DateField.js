@@ -1,11 +1,12 @@
-import shared from '../shared/Input.module.css'
+import shared from '../shared/Shared.module.css'
 import PropTypes from 'prop-types'
 import React, {useEffect, useRef, useState} from 'react'
 import LocalePT from '../shared/LocalePT'
 import dStyles from './styles/DateField.module.css'
 import {ArrowBackIosRounded, CalendarTodayRounded} from "@material-ui/icons";
 import Dates from "./misc/Dates";
-import SelectBox from "../shared/SelectBox";
+import FloatingBox from "../floating_box/FloatingBox";
+import styles from "../file/styles/FileField.module.css";
 
 export default function DateField(props) {
     const lang = LocalePT
@@ -127,7 +128,7 @@ export default function DateField(props) {
                     <CalendarTodayRounded style={{fontSize: '1.2rem'}}/>
                 </button>
 
-                <SelectBox open={open} setOpen={setOpen} reference={ref.current}>
+                <FloatingBox open={open} setOpen={setOpen} reference={ref.current}>
                     <div className={dStyles.calendar}>
                         <div className={dStyles.monthContainer}>
                             <button className={dStyles.buttonContainer} style={{width: 'fit-content', margin: 'unset'}}
@@ -160,7 +161,7 @@ export default function DateField(props) {
                         </div>
                     </div>
 
-                </SelectBox>
+                </FloatingBox>
 
 
             </div>

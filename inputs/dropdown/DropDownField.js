@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import React, {useMemo, useRef, useState} from 'react'
 import {ArrowDropDownRounded} from '@material-ui/icons'
 import LocalePT from '../shared/LocalePT'
-import SelectBox from "../shared/SelectBox";
+import FloatingBox from "../floating_box/FloatingBox";
 import ToolTip from "../../feedback/tooltip/ToolTip";
 
-import shared from '../shared/Input.module.css'
+import shared from '../shared/Shared.module.css'
+import Ripple from "../../misc/ripple/Ripple";
 
 export default function DropDownField(props) {
     const [open, setOpen] = useState(false)
@@ -14,9 +15,21 @@ export default function DropDownField(props) {
     const lang = LocalePT
     const ref = useRef()
     const selected = useMemo(() => {
-
         return props.choices.find(e => e.key === props.value)
     }, [props.value])
+
+    const color = useMemo(() => {
+        if (props.colorVariant === 'secondary')
+            return {
+                className: shared.secondaryVariant,
+                color: '#0095ff'
+            }
+        else return {
+            className: undefined,
+            color: '#0095ff'
+        }
+
+    }, [])
 
     return (
         <div
@@ -33,36 +46,34 @@ export default function DropDownField(props) {
                      opacity: (props.value !== undefined && props.value !== null) ? '1' : '0',
                  }}>{props.label}
             </div>
+            <div className={shared.wrapper}>
+                <button
+                    disabled={props.disabled}
+                    style={{
+                        height: props.size === 'small' ? '36px' : '56px',
+                        overflow: "hidden"
+                    }}
+                    className={[color.className, styles.selectContainer].join(' ')}
+                    onClick={() => setOpen(!open)}
+                >
+                    <Ripple opacity={.15} disabled={props.disabled} accentColor={color.color}/>
+                    <ArrowDropDownRounded
+                        style={{transform: !open ? 'unset' : 'rotate(180deg)', transition: '150ms linear'}}/>
+                    {selected ?
+                        <div className={styles.valueContainer} style={{color: selected.color}}>
+                            {selected.value}
+                        </div>
+                        : props.label}
 
-            <button
-                disabled={props.disabled}
-
-                style={{
-                    background: props.disabled ? 'white' : undefined,
-                    border: props.disabled ? '#ecedf2 1px solid' : undefined,
-                    boxShadow: props.disabled ? 'none' : undefined,
-                    overflow: "hidden"
-                }}
-                className={styles.selectContainer}
-                onClick={() => setOpen(!open)}
-            >
-                <ArrowDropDownRounded
-                    style={{transform: !open ? 'unset' : 'rotate(180deg)', transition: '150ms linear'}}/>
-                {selected ?
-                    <div className={styles.valueContainer} style={{color: selected.color}}>
-                        {selected.value}
-                    </div>
-                    : props.label}
-
-            </button>
-            <SelectBox open={open} setOpen={setOpen} reference={ref.current}>
+                </button>
+            </div>
+            <FloatingBox open={open} setOpen={setOpen} reference={ref.current}>
 
                 <div className={styles.dropDownChoicesContainer}>
                     {props.choices.map((choice, index) => (
 
                         <button
                             key={index + '-choice-button'}
-
                             style={{
                                 color: choice.key === props.value ? 'white' : choice.color ? choice.color : undefined,
                                 background: choice.key === props.value ? '#0095ff' : undefined
@@ -81,7 +92,7 @@ export default function DropDownField(props) {
 
                     ))}
                 </div>
-            </SelectBox>
+            </FloatingBox>
             <div className={shared.alertLabel}
                  style={{
                      color: props.value === null || props.value === undefined ? '#ff5555' : '#262626',
@@ -103,8 +114,10 @@ DropDownField.propTypes = {
         value: PropTypes.any.isRequired,
         color: PropTypes.string
     })).isRequired,
-    handleChange: PropTypes.func,
+    handleChange: PropTypes.func.isRequired,
     value: PropTypes.any,
     required: PropTypes.bool,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'default']),
+    colorVariant: PropTypes.oneOf(['default', 'secondary'])
 }

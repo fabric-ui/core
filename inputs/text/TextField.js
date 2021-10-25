@@ -1,9 +1,11 @@
-import styles from '../shared/Input.module.css'
-import React, {useCallback, useState} from 'react'
+import styles from './styles/Input.module.css'
+import React, {useCallback, useMemo, useState} from 'react'
 import InputMask from 'react-input-mask'
 import LocalePT from '../shared/LocalePT'
 import PropTypes from "prop-types";
 import ParseCurrency from "./methods/ParseCurrency";
+import shared from '../shared/Shared.module.css'
+
 
 export default function TextField(props) {
     const lang = LocalePT
@@ -31,9 +33,6 @@ export default function TextField(props) {
                 className={styles.inputContainer}
                 style={{
                     height: props.size === 'small' ? '36px' : '56px',
-                    background: props.disabled ? 'white' : undefined,
-                    border: props.disabled ? '#ecedf2 1px solid' : undefined,
-                    boxShadow: props.disabled ? 'none' : undefined,
                     paddingLeft: props.maskStart ? maskStartWidth + 'px' : undefined,
                     paddingRight: props.maskEnd ? maskEndWidth : undefined
                 }}
@@ -91,6 +90,10 @@ export default function TextField(props) {
                 return null
         }
     }
+    const color = useMemo(() => {
+        if (props.colorVariant === 'secondary')
+            return shared.secondaryVariant
+    }, [])
     return (
         <div
             style={{
@@ -103,7 +106,7 @@ export default function TextField(props) {
             }}
         >
             <div
-                className={styles.labelContainer}
+                className={shared.labelContainer}
                 style={{
                     visibility: (props.value !== undefined && props.value !== null && props.value.length > 0) || props.type === 'time' || props.type === 'number' ? 'visible' : 'hidden',
                     opacity: (props.value !== undefined && props.value !== null && props.value.length > 0) || props.type === 'time' || props.type === 'number' ? '1' : '0',
@@ -112,11 +115,11 @@ export default function TextField(props) {
             >
                 {props.label}
             </div>
-            <div className={styles.fieldsContainer}>
+            <div className={[color, shared.wrapper].join(' ')} disabled={props.disabled}>
                 {getField()}
             </div>
 
-            <div className={styles.alertLabel}
+            <div className={shared.alertLabel}
                  style={{
                      color: (props.value === null || !props.value || props.value.length === 0) ? '#ff5555' : '#262626',
                      visibility: props.required ? 'visible' : 'hidden',
@@ -132,7 +135,7 @@ TextField.propTypes = {
     width: PropTypes.string,
     placeholder: PropTypes.string,
     label: PropTypes.string,
-    handleChange: PropTypes.func,
+    handleChange: PropTypes.func.isRequired,
     value: PropTypes.string,
     required: PropTypes.bool,
 
@@ -150,5 +153,6 @@ TextField.propTypes = {
     maskEnd: PropTypes.any,
     floatFilter: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'default']),
-    noMargin: PropTypes.bool
+    noMargin: PropTypes.bool,
+    colorVariant: PropTypes.oneOf(['default', 'secondary'])
 }

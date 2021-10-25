@@ -1,17 +1,32 @@
-import React, {useState} from 'react'
+import React, {useMemo, useState} from 'react'
 import styles from './styles/Selector.module.css'
 import SelectorsPT from './locales/SelectorsPT'
 import SelectorModal from "./modules/SelectorModal";
 import {LaunchRounded} from "@material-ui/icons";
 import PropTypes from "prop-types";
-import shared from '../shared/Input.module.css'
+import shared from '../shared/Shared.module.css'
 import Row from "./modules/Row";
 import Modal from "../../navigation/modal/Modal";
+import Ripple from "../../misc/ripple/Ripple";
 
 export default function Selector(props) {
     const [open, setOpen] = useState(false)
     const [openCreate, setOpenCreate] = useState(false)
+
     const lang = SelectorsPT
+    const color = useMemo(() => {
+        if (props.colorVariant === 'secondary')
+            return {
+                className: shared.secondaryVariant,
+                color: '#0095ff'
+            }
+        else return {
+            className: undefined,
+            color: '#0095ff'
+        }
+
+    }, [])
+
 
     return (
         <>
@@ -40,23 +55,25 @@ export default function Selector(props) {
                     {props.title}
                 </div>
 
-
-                <button
-                    disabled={props.disabled}
-                    style={{
-                        textTransform: props.value === null || !props.value ? 'capitalize' : undefined
-                    }}
-                    className={styles.button}
-                    onClick={() => setOpen(true)}
-                >
-
-                    {props.value !== null && props.value !== undefined ?
-                        <Row disabled={true} data={props.value} keys={props.keys}/>
-                        :
-                        props.placeholder
-                    }
-                    <LaunchRounded style={{fontSize: '1.2rem', display: props.disabled ? 'none' : undefined}}/>
-                </button>
+                <div className={shared.wrapper}>
+                    <button
+                        disabled={props.disabled}
+                        style={{
+                            height: props.size === 'small' ? '36px' : '56px',
+                            overflow: "hidden"
+                        }}
+                        className={[color.className, styles.button].join(' ')}
+                        onClick={() => setOpen(true)}
+                    >
+                        <Ripple opacity={.15} disabled={props.disabled} accentColor={color.color}/>
+                        {props.value !== null && props.value !== undefined ?
+                            <Row disabled={true} data={props.value} keys={props.keys}/>
+                            :
+                            props.placeholder
+                        }
+                        <LaunchRounded style={{fontSize: '1.2rem'}}/>
+                    </button>
+                </div>
                 <div className={shared.alertLabel}
                      style={{
                          color: props.value === null || props.value === undefined ? '#ff5555' : '#262626',
@@ -103,6 +120,9 @@ Selector.propTypes = {
     })).isRequired,
 
     open: PropTypes.bool,
-    handleClose: PropTypes.func
+    handleClose: PropTypes.func,
+
+    size: PropTypes.oneOf(['small', 'default']),
+    colorVariant: PropTypes.oneOf(['default', 'secondary'])
 }
 

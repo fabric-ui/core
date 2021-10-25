@@ -1,0 +1,79 @@
+.fieldsContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: auto;
+    overflow-x: visible;
+}
+.textArea {
+    border: var(--border-0) 1px solid;
+
+    font-size: 1rem;
+    color: var(--color-1);
+    transition: 150ms ease-in-out;
+    border-radius: 5px;
+    padding: 2px;
+    overflow-x: hidden;
+
+}
+
+.inputContainer {
+    border-radius: 5px;
+    border: var(--border-0) 1px solid;
+    box-shadow: unset;
+    transition: 150ms linear;
+    background: var(--background-1);
+    width: 100%;
+    font-family: "Roboto";
+
+    outline: none;
+    padding: 5px;
+    font-size: 1rem;
+
+    color: var(--color-1);
+}
+
+.inputContainer::-webkit-outer-spin-button,
+.inputContainer::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.inputContainer[type=number] {
+    -moz-appearance: textfield;
+}
+.inputContainer:hover, .textArea:hover {
+    color: var(--color-0);
+    border-color: var(--accent_color);
+}
+
+.textArea:focus, .inputContainer:focus{
+    color: var(--color-0);
+    border-color: var(--accent_color);
+    background: var(--background-3);
+}
+.inputContainer:disabled, .textArea:disabled{
+    border: var(--border-0) 1px solid;
+    background: var(--background-1);
+    color: var(--color-4);
+}
+
+
+
+
+.mask {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 8px;
+    color: var(--color-1);
+    font-family: "Roboto";
+    font-size: .95rem;
+
+    max-width: 25%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+

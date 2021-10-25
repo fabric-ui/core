@@ -21,76 +21,66 @@ export default function FileModal(props) {
     }, [props.files])
 
     return (
-        <Modal open={props.open} handleClose={() => props.setOpen(false)}>
-            <div className={styles.modalContainer}>
-                <div className={[styles.modalContent, styles.modalGrid].join(' ')}>
-                    <div className={styles.header}>
-                        Anexe seus arquivos
-                        <div className={styles.divider}/>
-                        <div className={styles.headerAccepted}>
-                            Tipos
-                            aceitos: {props.accept.length > 0 ? props.accept.map((e, i) => e.split('.')[e.split('.').length - 1] + ((i < props.accept.length - 1) ? ', ' : '')) : 'todos'}
-                        </div>
-                    </div>
-                    <button
-                        disabled={!props.multiple && props.files.length > 0}
-                        className={styles.uploadButton}
-                        onClick={event => {
-                            event.preventDefault()
-                            ref.current.click()
-                        }}>
-                        Anexar arquivos
-                    </button>
-
-                    <div
-                        className={[styles.dropArea, props.files.length > 0 ? styles.dropAreaContent : ''].join(' ')}
-                        ref={areaRef}
-                        style={{background: !props.multiple && props.files.length > 0 ? 'white' : undefined}}
-                        onDragLeave={(e) => {
-                            if (!(!props.multiple && props.files.length > 0)) {
-                                areaRef.current.style.borderColor = '#e0e0e0'
-                                areaRef.current.style.background = '#f9fafb'
-                            }
-                        }}
-                        onDragOver={(e) => {
-                            e.preventDefault()
-                            if (!(!props.multiple && props.files.length > 0)) {
-                                areaRef.current.style.borderColor = '#0095ff'
-                                areaRef.current.style.background = '#E8F0FE'
-                            }
-                        }}
-                        onDrop={e => {
-                            e.preventDefault()
-                            if (!(!props.multiple && props.files.length > 0)) {
-                                areaRef.current.style.borderColor = '#0095ff'
-                                areaRef.current.style.background = '#E8F0FE'
-                                props.setFiles([...props.files, ...Array.from(e.dataTransfer.files)])
-                            }
-
-                        }}>
-                        {props.files.length === 0 ?
-                            <Empty customLabel={'Arraste seus arquivos aqui'}/>
-                            :
-                            files}
-                    </div>
-                    <input type="file" style={{display: 'none'}}
-                           disabled={props.disabled} accept={props.accept}
-                           multiple={props.multiple} ref={ref}
-                           onChange={event => {
-                               props.setFiles(Array.from(event.target.files))
-                               ref.current.value = ''
-                           }}
-                    />
-                    <button
-                        onClick={() => {
-                            props.setOpen(false)
-                        }}
-                        className={styles.closeButton}
-                    >
-                        <CloseRounded/>
-                    </button>
+        <Modal open={props.open} handleClose={() => props.setOpen(false)} animationStyle={'fade'} blurIntensity={.1}
+               wrapperClassName={styles.modalContent}>
+            <div className={styles.header}>
+                Anexe seus arquivos
+                <div className={styles.divider}/>
+                <div className={styles.headerAccepted}>
+                    Tipos
+                    aceitos: {props.accept.length > 0 ? props.accept.map((e, i) => e.split('.')[e.split('.').length - 1] + ((i < props.accept.length - 1) ? ', ' : '')) : 'todos'}
                 </div>
             </div>
+            <button
+                disabled={!props.multiple && props.files.length > 0}
+                className={styles.uploadButton}
+                onClick={event => {
+                    event.preventDefault()
+                    ref.current.click()
+                }}>
+                Anexar arquivos
+            </button>
+
+            <div
+                className={[styles.dropArea, props.files.length > 0 ? styles.dropAreaContent : ''].join(' ')}
+                ref={areaRef}
+                style={{background: !props.multiple && props.files.length > 0 ? 'white' : undefined}}
+                onDragLeave={(e) => {
+                    if (!(!props.multiple && props.files.length > 0)) {
+                        areaRef.current.style.borderColor = '#e0e0e0'
+                        areaRef.current.style.background = '#f9fafb'
+                    }
+                }}
+                onDragOver={(e) => {
+                    e.preventDefault()
+                    if (!(!props.multiple && props.files.length > 0)) {
+                        areaRef.current.style.borderColor = '#0095ff'
+                        areaRef.current.style.background = '#E8F0FE'
+                    }
+                }}
+                onDrop={e => {
+                    e.preventDefault()
+                    if (!(!props.multiple && props.files.length > 0)) {
+                        areaRef.current.style.borderColor = '#0095ff'
+                        areaRef.current.style.background = '#E8F0FE'
+                        props.setFiles([...props.files, ...Array.from(e.dataTransfer.files)])
+                    }
+
+                }}>
+                {props.files.length === 0 ?
+                    <Empty customLabel={'Arraste seus arquivos aqui'}/>
+                    :
+                    files}
+            </div>
+            <input type="file" style={{display: 'none'}}
+                   disabled={props.disabled} accept={props.accept}
+                   multiple={props.multiple} ref={ref}
+                   onChange={event => {
+                       props.setFiles(Array.from(event.target.files))
+                       ref.current.value = ''
+                   }}
+            />
+
         </Modal>
     )
 }

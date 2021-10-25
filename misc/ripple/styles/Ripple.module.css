@@ -1,0 +1,46 @@
+
+.wrapper {
+    --opacity: .15;
+    --size: 16px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 0;
+    background: #0095ff;
+    transform: translate(-50%, -50%);
+}
+
+.rippleExitAnim {
+    width: calc(var(--size) * 2);
+    height: calc(var(--size) * 2);
+    animation: exit 250ms ease-in-out forwards;
+}
+
+@keyframes exit {
+    0% {
+        opacity: var(--opacity);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.rippleAnim {
+    animation: ripple 550ms ease-in-out forwards;
+}
+
+@keyframes ripple {
+    0% {
+        opacity: 0;
+        width: 16px;
+        height: 16px;
+    }
+    100% {
+        opacity: var(--opacity);
+        width: calc(var(--size) * 2);
+        height: calc(var(--size) * 2);
+
+    }
+}

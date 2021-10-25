@@ -1,36 +1,16 @@
 @import "../../misc/theme/styles.module.css";
 
 .wrapper {
-    height: 100px;
     display: grid;
     gap: 4px;
     position: relative;
     overflow: visible;
 }
 
-.labelContainer {
-    transition: visibility 150ms linear, opacity 150ms linear;
-    color: var(--color-0);
-    font-size: .9rem;
-    margin-top: auto;
-    overflow: hidden;
-    font-family: "Roboto";
-    text-transform: capitalize;
-}
-
-.alertLabel {
-    font-family: "Roboto";
-    margin-left: auto;
-    font-weight: 550;
-    font-size: .8rem;
-}
-
-
-/*OLD*/
-
 
 .selectContainer {
-    height: 56px;
+    position: relative;
+    z-index: 5;
     font-family: "Roboto";
     display: flex;
     justify-content: flex-start;
@@ -51,6 +31,14 @@
     border-radius: 5px;
 }
 
+.selectContainer:disabled {
+    border-color: var(--border-0);
+    cursor: default;
+    color: var(--color-4);
+}
+.selectContainer:hover {
+    border-color: var(--accent_color);
+}
 .dropDownContainer {
     display: grid;
 }
@@ -63,10 +51,11 @@
     max-height: 200px;
     height: fit-content;
     overflow: auto;
+
 }
 
 .dropDownButton {
-    height: 40px;
+    height: 35px;
     width: 100%;
     outline: none;
     border: none;
@@ -81,9 +70,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
-    font-weight: bold;
+    font-weight: 600;
     font-family: "Roboto";
-    font-size: .8rem;
+    font-size: .75rem;
 }
 
 .dropDownButton:hover {
@@ -114,7 +103,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
-    font-weight: bold;
+    font-weight: 600;
     font-family: "Roboto";
     font-size: .8rem;
 }
@@ -123,7 +112,7 @@
     cursor: pointer;
 }
 
-.valueContainer{
+.valueContainer {
     user-select: none;
     color: var(--color-1);
     white-space: nowrap;

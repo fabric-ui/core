@@ -10,6 +10,9 @@
     padding: 8px 16px;
     text-align: center;
     color: var(--color-1);
+
+    overflow: hidden;
+    position: relative;
 }
 
 .button:disabled {
@@ -24,7 +27,7 @@
 /*MINIMAL*/
 
 .minimal {
-
+    border-radius: 5px;
     position: relative;
     background: transparent;
 
@@ -51,30 +54,9 @@
     opacity: 1;
 }
 
-button.minimal::after, button.outlined::after,  .outlinedHighlight::after{
-    content: '';
-    position: absolute;
-    transition: 150ms ease-in;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    background: var(--color);
-    z-index: 0;
-    opacity: 0;
-}
 
-.minimal:active::after, .outlined:active::after, .outlinedHighlight.outlined::after{
-    opacity: .15;
-}
-
-.minimal:hover, .minimalHighlight{
+.minimal:hover, .minimalHighlight {
     color: var(--color);
-}
-
-.minimal:disabled::before, .minimal:disabled::after, .outlined:disabled::after, .minimalHighlight.minimal::after{
-    content: none;
 }
 
 .minimal:disabled {
@@ -87,25 +69,38 @@ button.minimal::after, button.outlined::after,  .outlinedHighlight::after{
 /*FILLED*/
 .filled {
     transition: 150ms ease-in;
-    background: var(--color);
     border-radius: 5px;
     color: white;
 }
 
-.filled:hover {
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+.filled::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color);
+    opacity: .85;
 }
 
-.filled:active, .filledHighlight {
-    background: var(--darker-color);
+.filled:hover {
+    opacity: 1;
+}
+.filledHighlight {
+    opacity: 1;
+}
+.filled:active {
     box-shadow: none;
+}
+
+.filled:disabled::before {
+    content: none;
 }
 
 .filled:disabled {
-    background: var(--background-2);
     color: var(--color-3);
     box-shadow: none;
-    border: var(--border-0) 1px solid;
 }
 
 /*FILLED*/
@@ -125,12 +120,13 @@ button.minimal::after, button.outlined::after,  .outlinedHighlight::after{
     color: var(--color);
 }
 
-.outlined:active, .outlinedHighlight{
+.outlined:active, .outlinedHighlight {
     color: var(--color);
     border-color: var(--color);
 }
+
 .outlined:disabled {
-    border-color:transparent;
+    border-color: transparent;
     color: var(--color-3);
     background: transparent;
 }
