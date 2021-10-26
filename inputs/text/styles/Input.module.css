@@ -10,7 +10,7 @@
 
     font-size: 1rem;
     color: var(--color-1);
-    transition: 150ms ease-in-out;
+    transition: 150ms ease-in;
     border-radius: 5px;
     padding: 2px;
     overflow-x: hidden;
@@ -18,10 +18,11 @@
 }
 
 .inputContainer {
+    position: relative;
     border-radius: 5px;
     border: var(--border-0) 1px solid;
     box-shadow: unset;
-    transition: 150ms linear;
+    transition: 150ms ease-in;
     background: var(--background-1);
     width: 100%;
     font-family: "Roboto";
@@ -60,9 +61,28 @@
 }
 
 
+.input::after {
+    content: attr(data-mask-start);
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 8px;
+    color: var(--color-1);
+    font-family: "Roboto";
+    font-size: .95rem;
+
+    max-width: 25%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 
-.mask {
+
+.input::before {
+    content: attr(data-mask-end);
+
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

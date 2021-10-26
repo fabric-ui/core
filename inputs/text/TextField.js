@@ -23,11 +23,12 @@ export default function TextField(props) {
         }
     }, [])
     const content = (value) => (
-        <>
-            <div className={styles.mask} ref={maskStartRef}>{props.maskStart}</div>
+
             <input
                 disabled={props.disabled}
                 placeholder={props.placeholder}
+                data-mask-end={props.maskEnd}
+                data-mask-start={props.maskStart}
                 type={props.type !== 'password' ? props.type : (!props.visible ? 'password' : 'text')}
                 value={value}
                 className={styles.inputContainer}
@@ -45,8 +46,7 @@ export default function TextField(props) {
                 }}
                 maxLength={props.maxLength}
             />
-            <div className={styles.mask} ref={maskEndRef} style={{right: '8px', left: 'unset'}}>{props.maskEnd}</div>
-        </>
+
     )
     const getField = () => {
         switch (true) {

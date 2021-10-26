@@ -2,22 +2,25 @@ import styles from "../styles/Form.module.css";
 import React from "react";
 import EntityLayoutPT from "../locales/EntityLayoutPT";
 import PropTypes from "prop-types";
+import Button from "../../button/Button";
 
 export default function SubmitButton(props) {
     const lang = EntityLayoutPT
     return (
-        <div className={[styles.headerContainer, styles.submitContainer].join(' ')} style={{
+        <div
+            className={[styles.headerContainer, styles.submitContainer].join(' ')}
+             style={{
             padding: props.noPadding ? '0' : undefined,
             height: props.noPadding ? 'fit-content' : undefined,
             border: props.noBorder ? 'none' : undefined
         }}>
-            <button
-                className={styles.saveButton}
+            <Button
+                variant={'filled'} className={styles.saveButton}
                 onClick={() => props.submit(props.data, props.clearState)}
                 disabled={props.disabled}
             >
                 {props.submitLabel ? props.submitLabel : (props.create ? lang.create : lang.save)}
-            </button>
+            </Button>
         </div>
     )
 }

@@ -17,13 +17,12 @@ export default function Form(props) {
 
     return (
         <div ref={ref} className={styles.container} style={{
-
             alignContent: props.noAutoHeight ? 'space-between' : undefined,
             borderColor: props.noBorder ? 'transparent' : undefined
         }}>
             <Header title={props.title} returnButton={props.returnButton} noHeader={props.noHeader}
                     handleClose={props.handleClose}/>
-            <div style={{padding: props.noPadding ? '0' : '16px', overflow: 'visible'}}>
+            <div style={{padding: props.noPadding ? '2px' : '16px', overflow: 'visible'}}>
                 {props.children(props.hook.data, props.hook.handleChange)}
             </div>
             <SubmitButton
@@ -57,5 +56,5 @@ Form.propTypes = {
         type: PropTypes.oneOf(['string', 'number', 'object', 'bool', 'date', 'array'])
     })),
     handleClose: PropTypes.func,
-    submitLabel: PropTypes.func
+    submitLabel: PropTypes.string
 }

@@ -7,6 +7,8 @@
     width: 100%;
     display: grid;
     overflow-y: auto;
+    overflow-x: hidden;
+
     border: var(--border-0) 1px solid;
 
 }
@@ -137,7 +139,7 @@
     padding: 12px 0 24px 0;
     outline: none;
     width: 100%;
-    overflow: visible;
+
     margin: auto;
 }
 
@@ -150,7 +152,7 @@
 }
 
 .formFieldsContainer {
-    overflow: visible;
+
     display: inline-flex;
     flex-flow: row wrap;
     column-gap: 32px;
@@ -161,35 +163,6 @@
 
 
 .saveButton {
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-
-    border-radius: 8px;
-    background: #0095ff;
-    outline: none;
-    border: var(--border-0) 1px solid;
-    transition: 150ms linear;
-    cursor: pointer;
+    text-align: center;
     width: 100%;
-    color: white;
-}
-
-.saveButton:hover {
-    opacity: .8;
-}
-
-
-.saveButton:active {
-    opacity: .6;
-}
-
-.saveButton:disabled {
-    color: var(--color-4);
-    cursor: unset;
-    box-shadow: none;
-    background: var(--background-2);
-    opacity: 1;
 }
