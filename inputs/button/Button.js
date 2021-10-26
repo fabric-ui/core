@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import styles from './styles/Button.module.css'
-import {useMemo, useRef} from "react";
+import {useEffect, useMemo, useRef} from "react";
 import Ripple from "../../misc/ripple/Ripple";
 
 export default function Button(props) {
@@ -10,7 +10,7 @@ export default function Button(props) {
             case 'minimal':
                 return {
                     normal: styles.minimal,
-                    highlight: styles.minimalHighlight
+                    highlight: [styles.minimalHighlight,  styles.baseHighlight].join(' ')
                 }
             case 'filled':
                 return {
@@ -21,12 +21,12 @@ export default function Button(props) {
             case 'outlined':
                 return {
                     normal: styles.outlined,
-                    highlight: styles.outlinedHighlight
+                    highlight: [styles.outlinedHighlight,  styles.baseHighlight].join(' ')
                 }
             default:
                 return {
                     normal: [styles.default, styles.outlined].join(' '),
-                    highlight: styles.outlinedHighlight
+                    highlight: [styles.outlinedHighlight, styles.baseHighlight].join(' ')
                 }
         }
     }, [props.variant, props.highlight]);
@@ -64,7 +64,6 @@ export default function Button(props) {
                 disabled={props.disabled}
                 opacity={props.variant === 'filled' ? 1 : undefined}
                 accentColor={accentColor}
-                keep={props.highlight}
             />
             <span style={{
                 position: 'relative',

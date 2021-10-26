@@ -30,13 +30,7 @@
     cursor: pointer;
 
 }
-.appButton:hover{
-    background: var(--background-2);
-}
-.appButton:active{
-    background: var(--background-3);
-    color: #0095ff;
-}
+
 
 .appsWrapper{
     transform: translate(50%, 16px);

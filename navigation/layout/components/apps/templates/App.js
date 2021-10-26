@@ -8,7 +8,7 @@ export default function App(props) {
     return (
         <Button
             variant={"outlined"}
-            disabled={props.disabled}
+            disabled={props.disabled} className={styles.appButton}
             onClick={() => props.redirect(props.path)}>
             {props.icon}
             <div className={[styles.appLabel, styles.overflowEllipsis].join(' ')}>
