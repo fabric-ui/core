@@ -15,8 +15,6 @@
 }
 
 .rippleExitAnim {
-    width: calc(var(--size) * 2);
-    height: calc(var(--size) * 2);
     animation: exit 250ms ease-in-out forwards;
 }
 

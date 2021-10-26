@@ -1,6 +1,6 @@
 @import '../../../../../misc/theme/styles.module.css';
 
-.buttonLabel{
+.buttonLabel {
     margin-left: 8px;
     font-size: .8rem;
     overflow: hidden;
@@ -8,47 +8,36 @@
     font-weight: 600;
     font-family: "Roboto";
 }
+
 .buttonContainer {
-    outline: none;
-    border: none;
-    background: transparent;
+    min-width: 150px;
 
     display: flex;
     align-items: center;
-    gap: 6px;
+    align-content: center;
 
-    color: var(--color-1);
-    cursor: pointer;
-    max-width: 225px;
+    gap: 8px;
     height: 100%;
+    padding: 8px;
 
-
-    transition: 150ms linear;
-    border-radius: 5px;
-}
-.buttonContainer:hover{
-    background: var(--background-2);
-}
-.buttonContainer:active{
-    background: var(--background-3);
-    color: #0095ff;
 }
 
 .appsContainer {
     position: relative;
     height: 100%;
 }
+
 .overflowEllipsis {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
-.floatingBox{
+.floatingBox {
 
 
     position: absolute;
-    transform: translateY( 16px);
+    transform: translateY(16px);
     right: 0;
     height: auto;
 

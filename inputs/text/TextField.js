@@ -1,5 +1,5 @@
 import styles from './styles/Input.module.css'
-import React, {useCallback, useMemo, useState} from 'react'
+import React, {useEffect, useMemo, useRef} from 'react'
 import InputMask from 'react-input-mask'
 import LocalePT from '../shared/LocalePT'
 import PropTypes from "prop-types";
@@ -9,33 +9,30 @@ import shared from '../shared/Shared.module.css'
 
 export default function TextField(props) {
     const lang = LocalePT
-    const [maskStartWidth, setMaskStartWidth] = useState(32)
-    const [maskEndWidth, setMaskEndWidth] = useState(32)
+    const maskEndRef = useRef()
+    const maskStartRef = useRef()
+    const ref = useRef()
+    useEffect(() => {
+        if (props.maskStart)
+            ref.current.style.paddingLeft = (maskStartRef.current.offsetWidth + 8)+ 'px'
+        if (props.maskEnd)
+            ref.current.style.paddingRight =( maskEndRef.current.offsetWidth + 8)+ 'px'
+    }, [props.maskStart, props.maskEnd])
 
-    const maskStartRef = useCallback(node => {
-        if (node !== null) {
-            setMaskStartWidth(node.getBoundingClientRect().width + 8)
-        }
-    }, [])
-    const maskEndRef = useCallback(node => {
-        if (node !== null) {
-            setMaskEndWidth(node.getBoundingClientRect().width + 8)
-        }
-    }, [])
+
     const content = (value) => (
-
+        <div style={{position: 'relative'}}>
+            <div className={styles.mask} ref={maskStartRef}>
+                {props.maskStart}
+            </div>
             <input
                 disabled={props.disabled}
                 placeholder={props.placeholder}
-                data-mask-end={props.maskEnd}
-                data-mask-start={props.maskStart}
                 type={props.type !== 'password' ? props.type : (!props.visible ? 'password' : 'text')}
-                value={value}
+                value={value} ref={ref}
                 className={styles.inputContainer}
                 style={{
                     height: props.size === 'small' ? '36px' : '56px',
-                    paddingLeft: props.maskStart ? maskStartWidth + 'px' : undefined,
-                    paddingRight: props.maskEnd ? maskEndWidth : undefined
                 }}
                 onChange={e => {
                     let data = e.target.value
@@ -46,6 +43,10 @@ export default function TextField(props) {
                 }}
                 maxLength={props.maxLength}
             />
+            <div className={styles.mask} style={{right: '8px', left: 'unset'}} ref={maskEndRef}>
+                {props.maskEnd}
+            </div>
+        </div>
 
     )
     const getField = () => {

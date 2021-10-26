@@ -56,12 +56,14 @@
 }
 
 
-.minimal:hover, .minimalHighlight{
+.minimal:hover, .minimalHighlight {
     color: var(--color);
 }
+
 .minimal:disabled::before {
     content: none;
 }
+
 .minimal:disabled {
     color: var(--color-3);
 }
@@ -77,6 +79,7 @@
 
 .filled::before {
     content: '';
+    z-index: 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -89,9 +92,11 @@
 .filled:hover {
     opacity: 1;
 }
+
 .filledHighlight {
     opacity: 1;
 }
+
 .filled:active {
     box-shadow: none;
 }
@@ -116,9 +121,11 @@
     border: var(--border-1) 1px solid;
     transition: 150ms ease-in;
 }
-.default{
+
+.default {
     border: none;
 }
+
 .outlined:hover {
     color: var(--color);
 }

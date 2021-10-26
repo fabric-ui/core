@@ -1,6 +1,6 @@
 import styles from '../shared/Dropdown.module.css'
 import PropTypes from 'prop-types'
-import React, {useMemo, useRef, useState} from 'react'
+import React, {useContext, useMemo, useRef, useState} from 'react'
 import {ArrowDropDownRounded} from '@material-ui/icons'
 import LocalePT from '../shared/LocalePT'
 import FloatingBox from "../floating_box/FloatingBox";
@@ -8,10 +8,12 @@ import ToolTip from "../../feedback/tooltip/ToolTip";
 
 import shared from '../shared/Shared.module.css'
 import Ripple from "../../misc/ripple/Ripple";
+import Button from "../button/Button";
+import ThemeContext from "../../misc/theme/ThemeContext";
 
 export default function DropDownField(props) {
     const [open, setOpen] = useState(false)
-
+    const themes = useContext(ThemeContext)
     const lang = LocalePT
     const ref = useRef()
     const selected = useMemo(() => {
@@ -60,35 +62,36 @@ export default function DropDownField(props) {
                     <ArrowDropDownRounded
                         style={{transform: !open ? 'unset' : 'rotate(180deg)', transition: '150ms linear'}}/>
                     {selected ?
-                        <div className={styles.valueContainer} style={{color: selected.color}}>
+                        <div className={styles.overflow} style={{color: selected.color}}>
                             {selected.value}
                         </div>
                         : props.label}
 
                 </button>
             </div>
-            <FloatingBox open={open} setOpen={setOpen} reference={ref.current}  width={'100%'}>
+            <FloatingBox open={open} setOpen={setOpen} reference={ref.current} width={'100%'}>
 
                 <div className={styles.dropDownChoicesContainer}>
                     {props.choices.map((choice, index) => (
-
-                        <button
-                            key={index + '-choice-button'}
-                            style={{
-                                color: choice.key === props.value ? 'white' : choice.color ? choice.color : undefined,
-                                background: choice.key === props.value ? '#0095ff' : undefined
-                            }}
-
-                            onClick={() => {
-                                props.handleChange(choice.key)
-                                setOpen(false)
-                            }}
-                            className={styles.dropDownButton}
-                        >
-                            {choice.value}
-                            <ToolTip content={choice.value}/>
-                        </button>
-
+                        <React.Fragment key={index + '-choice-button'}>
+                            <Button
+                                styles={{
+                                    borderRadius: '0',
+                                    borderTop: index > 0 ? themes.theme?.border0 + ' 1px solid' : 'none'
+                                }}
+                                highlight={choice.key === props.value}
+                                onClick={() => {
+                                    props.handleChange(choice.key)
+                                    setOpen(false)
+                                }}
+                                className={styles.dropDownButton}
+                            >
+                                <div className={styles.overflow}>
+                                    {choice.value}
+                                </div>
+                                <ToolTip content={choice.value}/>
+                            </Button>
+                        </React.Fragment>
 
                     ))}
                 </div>

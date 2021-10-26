@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import styles from './styles/Profile.module.css'
 import AnimationFrame from "../../templates/AnimationFrame";
 import {Avatar} from "@material-ui/core";
+import Button from "../../../../inputs/button/Button";
 
 
 export default function Profile(props) {
@@ -16,27 +17,30 @@ export default function Profile(props) {
                     setOpen(false)
             }}
         >
-            <button
+            <Button
                 className={styles.buttonContainer}
                 onClick={() => props.fallbackProfileButton.onClick()}
-                style={{display: props.profile !== null && props.profile && Object.keys(props.profile).length > 0 ? 'none' : undefined}}
+                styles={{
+                    display: props.profile && Object.keys(props.profile).length > 0 ? 'none' : 'flex',
+                    justifyContent: 'center',
+                    minWidth: '100px',
+                    gap: '8px'
+                }}
             >
-                {props.fallbackProfileButton.label}
+                <div>
+                    {props.fallbackProfileButton.label}
+                </div>
                 {props.fallbackProfileButton.icon}
-            </button>
-            <button
+            </Button>
+            <Button
                 className={styles.buttonContainer}
                 onClick={() => setOpen(!open)}
-                style={{
-                    display: props.profile !== null && props.profile && Object.keys(props.profile).length > 0 ? undefined : 'none',
-                    backgroundColor: open ? '#0095ff' : null,
-                    color: open ? '#f4f5fa' : null
-                }}
+                highlight={open}
+                styles={props.profile && Object.keys(props.profile).length > 0 ? undefined : {display: 'none'}}
             >
                 <div style={{
                     fontSize: '.85rem',
                     fontWeight: 'bold',
-                    color: open ? 'white' : undefined,
                     transition: '150ms linear'
                 }}>
                     Bem vindo
@@ -46,24 +50,26 @@ export default function Profile(props) {
                     {props.profile?.name}
                 </div>
                 <Avatar style={{width: '30px', height: '30px'}} src={props.profile?.image}/>
-            </button>
+            </Button>
             <AnimationFrame render={open}>
                 <div className={styles.floatingBox}>
                     {props.buttons.map((button, index) => !button ? null : (
-                        <button
-                            className={styles.buttonContainer}
-                            key={'profile-button-' + index}
-                            disabled={button.disabled}
-                            onClick={() => button.onClick()}
-                            style={{
-                                width: '100%',
-                                justifyContent: 'space-between',
-                                height: '44px'
-                            }}>
+                        <React.Fragment key={'profile-button-' + index}>
+                            <Button
+                                className={styles.buttonContainer}
 
-                            {button.icon}
-                            <div className={styles.buttonLabel}> {button.label}</div>
-                        </button>
+                                disabled={button.disabled}
+                                onClick={() => button.onClick()}
+                                styles={{
+                                    width: '100%',
+                                    justifyContent: 'space-between',
+                                    height: '44px'
+                                }}>
+
+                                {button.icon}
+                                <div className={styles.buttonLabel}> {button.label}</div>
+                            </Button>
+                        </React.Fragment>
                     ))}
                 </div>
             </AnimationFrame>

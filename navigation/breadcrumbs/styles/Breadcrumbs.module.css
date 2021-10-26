@@ -1,6 +1,6 @@
 @import "../../../misc/theme/styles.module.css";
 
-.wrapper{
+.wrapper {
     display: flex;
     align-items: center;
     align-content: center;
@@ -10,4 +10,10 @@
     background: var(--background-1);
     width: 100%;
     padding: 8px;
+}
+
+.crumbWrapper {
+    display: flex;
+    align-items: center;
+    
 }

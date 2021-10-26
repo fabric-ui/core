@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import styles from './styles/Button.module.css'
-import {useCallback, useMemo, useRef} from "react";
+import {useMemo, useRef} from "react";
 import Ripple from "../../misc/ripple/Ripple";
 
 export default function Button(props) {
@@ -55,7 +55,7 @@ export default function Button(props) {
 
     return (
         <button
-            className={[props.className, styles.button, variant.normal, props.highlight ? variant.highlight : undefined, color].join(' ')}
+            className={[styles.button, variant.normal, props.highlight ? variant.highlight : undefined, color, props.className].join(' ')}
             onClick={props.onClick} ref={ref}
             style={props.styles}
             disabled={props.disabled}
@@ -66,7 +66,20 @@ export default function Button(props) {
                 accentColor={accentColor}
                 keep={props.highlight}
             />
-            {props.children}
+            <span style={{
+                position: 'relative',
+                zIndex: '5',
+                display: 'inherit',
+                justifyItems: 'inherit',
+                justifyContent: 'inherit',
+                alignItems: 'inherit',
+                alignContent: 'inherit',
+                gap: 'inherit',
+                width: '100%',
+                height: '100%'
+            }}>
+                {props.children}
+            </span>
         </button>
     )
 }

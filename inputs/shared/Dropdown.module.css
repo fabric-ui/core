@@ -35,9 +35,11 @@
     cursor: default;
     color: var(--color-4);
 }
+
 .selectContainer:hover {
     border-color: var(--accent_color);
 }
+
 .dropDownContainer {
     display: grid;
 }
@@ -56,33 +58,20 @@
 .dropDownButton {
     height: 35px;
     width: 100%;
-    outline: none;
-    border: none;
-    background: var(--background-1);
-    padding: 8px;
-    border-bottom: var(--border-0) 1px solid;
-    transition: 150ms linear;
-    cursor: pointer;
-
-    color: var(--color-1);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
     text-align: left;
     font-weight: 600;
     font-family: "Roboto";
     font-size: .75rem;
 }
 
-.dropDownButton:hover {
-    background: var(--background-2);
+.overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
-
-.dropDownButton:active {
-    background: var(--background-3);
-    color: #0095ff;
-}
-
 
 .multiSelectRow {
     display: flex;
@@ -109,15 +98,4 @@
 
 .multiSelectRowCheckbox {
     cursor: pointer;
-}
-
-.valueContainer {
-    user-select: none;
-    color: var(--color-1);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: left;
-    font-family: "Roboto";
-    font-size: 1rem;
 }

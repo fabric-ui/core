@@ -166,3 +166,6 @@
     text-align: center;
     width: 100%;
 }
+.saveButton:disabled{
+    border: var(--border-0) 1px solid;
+}

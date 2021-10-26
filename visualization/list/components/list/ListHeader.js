@@ -20,7 +20,7 @@ export default function ListHeader(props) {
 
     return (
         <>
-            <div className={styles.header}  style={{marginBottom: props.filters.length === 0 ? '8px' : undefined}}>
+            <div className={styles.header} style={{marginBottom: props.filters.length === 0 ? '8px' : undefined}}>
                 {props.title}
                 <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
                     <button
@@ -30,14 +30,14 @@ export default function ListHeader(props) {
                         Recarregar
                         <RefreshRounded style={{fontSize: '1.3rem'}}/>
                     </button>
-                    <button
+                    {props.noFilters ? null : <button
                         className={[styles.filter, styles.secondaryButton].join(' ')}
                         onClick={() => props.setOpenSettings(true)}
                     >
                         Configurações
                         <SettingsRounded style={{fontSize: '1.3rem'}}/>
-                    </button>
-                    <Dropdown
+                    </button>}
+                    {props.noFilters ? null : <Dropdown
                         buttonClassname={[styles.filter, styles.secondaryButton].join(' ')}
                         disabled={false}
                         label={(
@@ -47,25 +47,29 @@ export default function ListHeader(props) {
                             </div>
                         )}
                         buttons={props.keys.map(e => getField(e))}
-                    />
+                    />}
                     <button style={{display: props.createOption ? undefined : 'none'}} onClick={() => props.onCreate()}
                             className={styles.filter}>
                         <AddRounded/>
                     </button>
                 </div>
             </div>
-            <Filter
-                keys={props.keys} filters={props.filters} setFilters={props.setFilters}
-                cleanState={props.cleanState} getType={getType} open={open} setOpen={setOpen}
-                parseDate={parseDate} selectedField={selectedField} setSelectedField={setSelectedField}
-            />
+            {props.noFilters
+                ?
+                null :
+                <Filter
+                    keys={props.keys} filters={props.filters} setFilters={props.setFilters}
+                    cleanState={props.cleanState} getType={getType} open={open} setOpen={setOpen}
+                    parseDate={parseDate} selectedField={selectedField} setSelectedField={setSelectedField}
+                />
+            }
         </>
     )
 }
 
 ListHeader.propTypes = {
     hook: PropTypes.object,
-
+    noFilters: PropTypes.bool,
     dispatch: PropTypes.func,
     actions: PropTypes.object,
 

@@ -43,7 +43,6 @@ export default function useQuery(props) {
         }).catch(() => null)
     }
     useEffect(() => {
-        console.log('CURRENT PAGE CALLED')
         if(currentPage > 0)
             fetch()
     }, [currentPage])

@@ -15,7 +15,7 @@ export default function List(props) {
         <div className={styles.container}>
             <Settings open={openSettings} keys={keys} actions={actions} setOpen={setOpenSettings} dispatchKeys={keysDispatcher}/>
             <ListHeader
-                title={props.title}
+                title={props.title} noFilters={props.noFilters}
                 setFilters={props.hook.setFilters}
                 filters={props.hook.filters}
                 createOption={props.createOption}
@@ -46,6 +46,7 @@ export default function List(props) {
 }
 
 List.propTypes = {
+    noFilters: PropTypes.bool,
     hook: PropTypes.object.isRequired,
     onRowClick: PropTypes.func,
     keys: PropTypes.arrayOf(keyTemplate).isRequired,
