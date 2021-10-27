@@ -4,7 +4,6 @@
 .wrapper {
     position: relative;
     width: 100%;
-    /*background: red;*/
     height: 100%;
     display: flex;
 
@@ -24,24 +23,22 @@
 .tabs {
     display: grid;
     align-content: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
 
+    width: 100%;
     padding: 4px 0;
 }
 
 .button {
-    outline: none;
-    border: none;
 
+    padding: 12px 24px;
 
-    padding: 12px 0 12px 20%;
-    cursor: pointer;
+    max-width: 100%;
     width: 100%;
+
     text-align: left;
-    background-color: var(--background-1);
 
-    transition: 150ms linear;
-
-    color: var(--color-3);
     font-weight: 600;
     font-family: "Roboto";
     font-size: .75rem;
@@ -52,25 +49,13 @@
     white-space: nowrap;
 }
 
-.button:hover {
-    background-color: var(--background-2);
+.color {
+    color: var(--color-3)
 }
 
-.button:active {
-    background-color: var(--background-2);
-    color: #0095ff;
+.color:hover, .color:active, .highlight {
+    color: var(--color)
 }
-
-.button:disabled {
-    color: var(--color-4);
-    background-color: var(--background-1);
-}
-
-.highlight, .highlight:hover {
-    background-color: var(--background-3);
-    color: #0095ff;
-}
-
 
 .rowLabel {
     display: flex;

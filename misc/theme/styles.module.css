@@ -1,4 +1,4 @@
-.light{
+.light {
     --background-base: #f9fafb;
     --background-1: white;
     --background-2: #f4f5fa;
@@ -16,7 +16,9 @@
     --box-shadow-1: #e0e0e0;
 }
 
-.dark{
+.dark {
+
+
     --background-base: #1e2121;
     --background-1: #292c2b;
     --background-2: #191C1C;

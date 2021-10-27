@@ -160,3 +160,17 @@
 }
 
 /*OUTLINED*/
+
+.content{
+    color: inherit;
+    position: relative;
+    z-index: 5;
+    display: inherit;
+    justify-items: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    align-content: inherit;
+    gap: inherit;
+    width: 100%;
+    height: 100%;
+}

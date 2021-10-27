@@ -5,6 +5,7 @@ import LocalePT from '../shared/LocalePT'
 import PropTypes from "prop-types";
 import ParseCurrency from "./methods/ParseCurrency";
 import shared from '../shared/Shared.module.css'
+import Ripple from "../../misc/ripple/Ripple";
 
 
 export default function TextField(props) {
@@ -14,20 +15,21 @@ export default function TextField(props) {
     const ref = useRef()
     useEffect(() => {
         if (props.maskStart)
-            ref.current.style.paddingLeft = (maskStartRef.current.offsetWidth + 8)+ 'px'
+            ref.current.style.paddingLeft = (maskStartRef.current.offsetWidth + 8) + 'px'
         if (props.maskEnd)
-            ref.current.style.paddingRight =( maskEndRef.current.offsetWidth + 8)+ 'px'
+            ref.current.style.paddingRight = (maskEndRef.current.offsetWidth + 8) + 'px'
     }, [props.maskStart, props.maskEnd])
 
 
     const content = (value) => (
-        <div style={{position: 'relative'}}>
+        <div style={{position: 'relative', width: '100%'}}>
             <div className={styles.mask} ref={maskStartRef}>
                 {props.maskStart}
             </div>
             <input
-                disabled={props.disabled}
+                disabled={props.disabled} lang={''}
                 placeholder={props.placeholder}
+
                 type={props.type !== 'password' ? props.type : (!props.visible ? 'password' : 'text')}
                 value={value} ref={ref}
                 className={styles.inputContainer}
@@ -35,6 +37,7 @@ export default function TextField(props) {
                     height: props.size === 'small' ? '36px' : '56px',
                 }}
                 onChange={e => {
+
                     let data = e.target.value
                     if (props.type === 'number' && props.floatFilter)
                         data = ParseCurrency(e.target.value)
@@ -51,12 +54,6 @@ export default function TextField(props) {
     )
     const getField = () => {
         switch (true) {
-            case !props.mask:
-                return (
-                    <div style={{width: '100%', position: 'relative'}}>
-                        {content(props.value ? props.value : '')}
-                    </div>
-                )
             case props.variant === 'area':
                 return (
                     <textarea
@@ -65,35 +62,47 @@ export default function TextField(props) {
                         value={props.value ? props.value : ''}
                         className={styles.inputContainer}
                         style={{
-                            background: props.disabled ? 'white' : undefined,
-                            border: props.disabled ? '#ecedf2 1px solid' : undefined,
-                            boxShadow: props.disabled ? 'none' : undefined,
-                            resize: 'vertical'
+                            resize: 'vertical',
+                            zIndex: 5,
+                            position: 'relative',
+                            overflow: 'hidden',
+                            transition: 'border 150ms ease-in, background 150ms ease-in'
                         }}
                         onChange={props.handleChange}
                         maxLength={props.maxLength}
                     />
                 )
-            case props.mask && props.mask !== 'currency':
+
+            case !props.mask && props.variant !== 'area':
+                return content(props.value ? props.value : '')
+
+            case
+            props.mask && props.mask !== 'currency' && props.variant !== 'area'
+            :
                 return (
                     <InputMask
                         mask={props.mask} maskPlaceholder={''}
                         value={props.value ? props.value : ''} alwaysShowMask={false}
                     >
-                        {event =>
-                            <div style={{width: '100%', position: 'relative'}}>
-                                {content(event.value)}
-                            </div>
-                        }
+                        {event => content(event.value)}
                     </InputMask>
                 )
             default:
                 return null
         }
     }
+
     const color = useMemo(() => {
         if (props.colorVariant === 'secondary')
-            return shared.secondaryVariant
+            return {
+                className: shared.secondaryVariant,
+                color: '#0095ff'
+            }
+        else return {
+            className: undefined,
+            color: '#0095ff'
+        }
+
     }, [])
     return (
         <div
@@ -116,13 +125,16 @@ export default function TextField(props) {
             >
                 {props.label}
             </div>
-            <div className={[color, shared.wrapper].join(' ')} disabled={props.disabled}>
-                {getField()}
+            <div className={[color.className, shared.wrapper].join(' ')} disabled={props.disabled}>
+                <div className={styles.focus}>
+                    {getField()}
+                    <Ripple opacity={.15} accentColor={color.color}/>
+                </div>
             </div>
 
             <div className={shared.alertLabel}
                  style={{
-                     color: (props.value === null || !props.value || props.value.length === 0) ? '#ff5555' : '#262626',
+                     color: (props.value === null || !props.value || props.value.length === 0) ? '#ff5555' : undefined,
                      visibility: props.required ? 'visible' : 'hidden',
                      display: props.noMargin && !props.required ? 'none' : undefined
                  }}>{lang.required}

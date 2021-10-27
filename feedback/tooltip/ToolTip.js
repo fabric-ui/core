@@ -29,7 +29,7 @@ export default function ToolTip(props) {
             mountingPoint.current.style.position = 'fixed'
 
             mountingPoint.current.style.zIndex = '999'
-            let {translateX, translateY} = {}
+            let translateX, translateY
             switch (props.align) {
 
                 case 'middle': {
@@ -51,12 +51,12 @@ export default function ToolTip(props) {
             switch (props.justify) {
                 case 'end': {
                     mountingPoint.current.style.left = (rect.left + rect.width + 8) + 'px'
-                    translateX = '0'
+                    translateX = '100%'
                     break
                 }
                 case 'start': {
                     mountingPoint.current.style.left = (rect.left - 8) + 'px'
-                    translateX = '-100%'
+                    translateX = '0'
                     break
                 }
                 default: {

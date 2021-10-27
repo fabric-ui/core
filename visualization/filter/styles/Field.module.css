@@ -44,9 +44,8 @@
 .filter {
     user-select: none;
     outline: none;
-    background-color: #0095ff;
-    color: white;
-    border: none;
+
+    border: var(--border-0) 1px solid;
     padding: 4px;
     display: flex;
     align-items: center;

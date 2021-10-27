@@ -7,9 +7,10 @@ import Row from "./Row";
 import useInfiniteScroll from "../../../visualization/hooks/useInfiniteScroll";
 import Empty from "../../../feedback/empty/Empty";
 import ToolTip from "../../../feedback/tooltip/ToolTip";
-import Dropdown from "../../../visualization/list/components/list/Dropdown";
+import Dropdown from "../../../visualization/list/components/Dropdown";
 import useHeader from "../../../visualization/list/hook/useHeader";
 import Filter from "../../../visualization/filter/Filter";
+import Button from "../../button/Button";
 
 export default function SelectorModal(props) {
     const lastElementRef = useInfiniteScroll(props.hook.setCurrentPage, props.hook.currentPage, props.hook.loading, props.hook.hasMore)
@@ -37,41 +38,50 @@ export default function SelectorModal(props) {
             </div>
             <div className={styles.headerButtons}>
 
-                  <div style={{display: 'flex', gap: '8px'}}>
-                      <button onClick={() => props.onCreate()}
-                              style={{display: props.createOption ? undefined : 'none'}}
-                              className={styles.headerButton}
-                      >
-                          <AddRounded/>
-                          <ToolTip content={'Criar novo'}/>
-                      </button>
-                      <button onClick={() => props.hook.clean()}
-                              className={styles.headerButton}
-                      >
-                          <RefreshRounded/>
-                          <ToolTip content={'Recarregar dados'}/>
-                      </button>
-
-                      <Dropdown
-                          align={'end'}
-                          buttonClassname={styles.headerButton}
-                          label={(
-                              <>
-                                  <FilterListRounded/>
-                                  Filtros
-                                  <ToolTip content={'Filtros'}/>
-                              </>
-                          )}
-                          buttons={props.keys.map(e => getField(e))}/>
-
-                  </div>
-                <button onClick={() => props.handleChange(null)}
+                <div style={{display: 'flex', gap: '8px'}}>
+                    <Button
+                        variant={'outlined'}
+                        onClick={() => props.onCreate()}
+                        style={{display: props.createOption ? undefined : 'none'}}
                         className={styles.headerButton}
-                        disabled={!props.value}>
+                    >
+                        <AddRounded/>
+                        <ToolTip content={'Criar novo'}/>
+                    </Button>
+                    <Button
+                        variant={'outlined'}
+                        onClick={() => props.hook.clean()}
+                        className={styles.headerButton}
+                    >
+                        <RefreshRounded/>
+                        <ToolTip content={'Recarregar dados'}/>
+                    </Button>
+
+                    <Dropdown
+                        align={'end'}
+                        className={styles.headerButton}
+                        label={(
+                            <>
+                                <FilterListRounded/>
+                                Filtros
+                                <ToolTip content={'Filtros'}/>
+                            </>
+                        )}
+                        buttons={props.keys.map(e => getField(e))}/>
+
+                </div>
+                <Button
+                    variant={'outlined'}
+                    onClick={() => {
+                        props.handleChange(null)
+                        props.setOpen(false)
+                    }} color={"secondary"}
+                    className={styles.headerButton}
+                    disabled={!props.value}>
                     <ClearAllRounded/>
                     Limpar selecionado
                     <ToolTip content={'Limpar'}/>
-                </button>
+                </Button>
 
             </div>
 
@@ -82,7 +92,8 @@ export default function SelectorModal(props) {
             />
 
             <Row
-                emptyIndicator={true}
+                main={true}
+                disabled={true}
                 data={props.value}
                 keys={props.keys}
                 onDrop={index => {

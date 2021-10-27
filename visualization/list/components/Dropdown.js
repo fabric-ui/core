@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import PropTypes from "prop-types";
-import styles from '../../styles/Dropdown.module.css'
+import styles from '../styles/Dropdown.module.css'
+import Button from "../../../inputs/button/Button";
 
 export default function Dropdown(props) {
     const [open, setOpen] = useState(false)
@@ -17,9 +18,12 @@ export default function Dropdown(props) {
     }, [])
     return (
         <div className={styles.wrapper}>
-            <button onClick={() => setOpen(true)} disabled={props.disabled} className={props.buttonClassname}>
+            <Button
+                highlight={open}
+                variant={"outlined"} onClick={() => setOpen(true)}
+                disabled={props.disabled} className={props.className}>
                 {props.label}
-            </button>
+            </Button>
             <div style={{
                 visibility: open ? 'visible' : 'hidden',
                 opacity: open ? '1' : '0',
@@ -27,15 +31,22 @@ export default function Dropdown(props) {
                 transform: props.align === 'top' ? 'translateY(-100%)' : undefined
             }} className={styles.buttons} ref={ref}>
                 {props.buttons.map((b, i) => (
-                    <button key={'dropdown-' + i} disabled={b.disabled} onClick={() => {
-                        b.onClick(props.onClickProps)
-                        setOpen(false)
-                    }} className={styles.button}>
+                    <React.Fragment key={'dropdown-' + i}>
+
+
+                        <Button
+                            disabled={b.disabled}
+                            onClick={() => {
+                                b.onClick(props.onClickProps)
+                                setOpen(false)
+                            }}
+                            className={styles.button}>
                             {b.icon}
-                        <div className={styles.buttonLabel} >
-                            {b.label}
-                        </div>
-                    </button>
+                            <div className={styles.buttonLabel}>
+                                {b.label}
+                            </div>
+                        </Button>
+                    </React.Fragment>
                 ))}
             </div>
         </div>
@@ -43,8 +54,8 @@ export default function Dropdown(props) {
 }
 
 Dropdown.propTypes = {
+    className: PropTypes.string,
     onClickProps: PropTypes.any,
-    buttonClassname: PropTypes.string,
     label: PropTypes.any,
     disabled: PropTypes.bool,
     buttons: PropTypes.arrayOf(PropTypes.shape({

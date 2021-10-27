@@ -1,0 +1,55 @@
+.row {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    padding: 0;
+    border-radius: 5px 5px 0 0;
+}
+.row:active{
+    border-color: var(--border-0);
+}
+.cell {
+    color: inherit;
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    font-family: "Roboto";
+
+
+}
+
+.overflow {
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.headerRow {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    background: var(--background-1);
+    height: 30px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: var(--border-0) 1px solid;
+    border-radius: 5px;
+}
+
+
+
+.mainButton{
+    color: var(--color-2);
+    background: var(--background-1);
+    padding: 4px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

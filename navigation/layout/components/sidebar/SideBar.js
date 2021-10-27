@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React, {useMemo} from "react";
 import styles from "./styles/SideBar.module.css";
 import ToolTip from "../../../../feedback/tooltip/ToolTip";
-import shared from '../../styles/Navigation.module.css'
 import Button from "../../../../inputs/button/Button";
 
 export default function SideBar(props) {

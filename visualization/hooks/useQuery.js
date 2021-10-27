@@ -30,7 +30,8 @@ export default function useQuery(props) {
         }
     }
 
-    const fetch = () => {
+    const fetch = (caller) => {
+        console.log('FETCHING', caller)
         setLoading(true)
         const params = fetchParams()
 
@@ -44,18 +45,18 @@ export default function useQuery(props) {
     }
     useEffect(() => {
         if(currentPage > 0)
-            fetch()
+            fetch('effect 1')
     }, [currentPage])
     useEffect(() => {
-        clean()
+        clean('effect 2')
     }, [filters, sorts])
 
-    const clean = () => {
+    const clean = (caller) => {
         dispatchData({type: ACTIONS.EMPTY})
         setHasMore(false)
         setCurrentPage(0)
 
-        fetch()
+        fetch('clean', caller)
     }
 
     return {

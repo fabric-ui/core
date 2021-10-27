@@ -1,19 +1,20 @@
 import PropTypes from 'prop-types'
 import styles from './styles/List.module.css'
-import ListHeader from "./components/list/ListHeader";
+import ListHeader from "./components/ListHeader";
 import React from "react";
 import Empty from "../../feedback/empty/Empty";
 import TableLayout from "./components/table/TableLayout";
 import keyTemplate from "./templates/keyTemplate";
 import useList from "./hook/useList";
-import Settings from "./components/list/Settings";
+import Settings from "./components/Settings";
 
 export default function List(props) {
-    const {maxHeight, keys, keysDispatcher, actions, setOpenSettings,openSettings, wrapperRef} = useList(props.keys)
+    const {maxHeight, keys, keysDispatcher, actions, setOpenSettings, openSettings, wrapperRef} = useList(props.keys)
 
     return (
         <div className={styles.container}>
-            <Settings open={openSettings} keys={keys} actions={actions} setOpen={setOpenSettings} dispatchKeys={keysDispatcher}/>
+            <Settings open={openSettings} keys={keys} actions={actions} setOpen={setOpenSettings}
+                      dispatchKeys={keysDispatcher}/>
             <ListHeader
                 title={props.title} noFilters={props.noFilters}
                 setFilters={props.hook.setFilters}
@@ -26,8 +27,8 @@ export default function List(props) {
             />
             <div
                 className={styles.tableWrapper}
-                ref={wrapperRef}
-                style={{height: props.hook.data.length === 0 ? maxHeight : undefined, maxHeight: maxHeight}}>
+                style={{height: maxHeight}}
+                ref={wrapperRef}>
                 {props.hook.data.length === 0 ?
                     <Empty/>
                     :
@@ -37,7 +38,7 @@ export default function List(props) {
                     data={props.hook.data} keys={keys} controlButtons={props.controlButtons} maxHeight={maxHeight}
                     setCurrentPage={props.hook.setCurrentPage} currentPage={props.hook.currentPage}
                     onRowClick={props.onRowClick} hasMore={props.hook.hasMore}
-                    sorts={props.hook.sorts} clean={props.hook.clean}  onlyVisualization={props.onlyVisualization}
+                    sorts={props.hook.sorts} onlyVisualization={props.onlyVisualization}
                     setSorts={props.hook.setSorts} loading={props.hook.loading}
                 />
             </div>

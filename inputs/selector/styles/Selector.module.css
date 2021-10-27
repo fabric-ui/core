@@ -27,9 +27,8 @@
 
 .button {
 
-
+    user-select: none;
     position: relative;
-    z-index: 10;
 
     display: flex;
     justify-content: space-between;

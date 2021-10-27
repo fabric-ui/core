@@ -5,8 +5,8 @@ import shared from '../shared/Shared.module.css'
 import {AttachFileRounded} from '@material-ui/icons'
 import LocalePT from '../shared/LocalePT'
 import FileModal from "./templates/FileModal";
-import Ripple from "../../misc/ripple/Ripple";
 import ThemeContext from "../../misc/theme/ThemeContext";
+import Button from "../button/Button";
 
 export default function FileField(props) {
     const lang = LocalePT
@@ -47,16 +47,17 @@ export default function FileField(props) {
                      opacity: files.length > 0 ? 1 : 0,
                      transition: 'visibility 0.2s ease,opacity 0.2s ease'
                  }}>{props.label}</div>
-            <div className={shared.wrapper}>
-                <button
-                    style={{
+            <div className={[shared.wrapper, color.className].join(' ')} >
+                <Button
+                    disabled={props.disabled}
+                    highlight={openModal}
+                    styles={{
                         height: props.size === 'small' ? '36px' : '56px',
-                        overflow: "hidden"
-                    }}
-                    className={[color.className, styles.button].join(' ')}
+                        overflow: "hidden", maxWidth: 'unset', marginTop: 'unset'
+                    }} color={props.colorVariant === 'secondary' ? 'secondary' : 'primary'}
+                    className={[styles.button, shared.labelContainer].join(' ')}
                     onClick={() => setOpenModal(true)}
                 >
-                    <Ripple opacity={.15} disabled={props.disabled} accentColor={color.color}/>
                     <div
                         className={shared.labelContainer}
                         style={{
@@ -69,15 +70,17 @@ export default function FileField(props) {
                     >
                         Anexar arquivos
                         {files.length > 0 ?
-                            <div style={{fontSize: '.7rem',
-                                color: themes ? themes.themes.color2 : '#777777'}}>
+                            <div style={{
+                                fontSize: '.7rem',
+                                color: themes ? themes.themes.color2 : '#777777'
+                            }}>
                                 ({files.length} Anexados)
                             </div>
                             :
                             null}
                     </div>
                     <AttachFileRounded style={{fontSize: '1.2rem'}}/>
-                </button>
+                </Button>
             </div>
             <div className={shared.alertLabel}
                  style={{

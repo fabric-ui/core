@@ -21,7 +21,6 @@ const reducer = (state, action) => {
             let newValue = [...state]
             const i = newValue.findIndex(e => e.key === action.payload.key)
             newValue[i].visible = !newValue[i].visible
-            console.log('HERE')
             return newValue
         }
         default:

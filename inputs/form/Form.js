@@ -22,7 +22,12 @@ export default function Form(props) {
         }}>
             <Header title={props.title} returnButton={props.returnButton} noHeader={props.noHeader}
                     handleClose={props.handleClose}/>
-            <div style={{padding: props.noPadding ? '2px' : '16px', overflow: 'visible'}}>
+            <div style={{
+                padding: props.noPadding ? '2px' : '16px',
+                overflow: 'visible',
+                marginBottom: '100px',
+                paddingBottom: '100px'
+            }}>
                 {props.children(props.hook.data, props.hook.handleChange)}
             </div>
             <SubmitButton

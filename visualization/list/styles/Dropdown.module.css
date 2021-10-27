@@ -49,26 +49,10 @@
 
     transition: 150ms linear;
     cursor: pointer;
-    color: var(--color-1);
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.button:hover {
-    background: var(--background-2);
-}
-
-.button:active {
-    background: var(--background-3);
-    color: #0095ff;
-}
-
-.button:disabled {
-    cursor: unset;
-    background: transparent;
-    color: var(--color-3);
 }
 
 .buttonLabel {

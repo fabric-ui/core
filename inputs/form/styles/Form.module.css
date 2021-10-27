@@ -15,12 +15,11 @@
 
 .headerContainer {
     position: sticky;
+    font-family: "Roboto";
     top: 0;
     z-index: 50;
     background: var(--background-1);
-    height: 65px;
-
-    font-size: 1.4rem;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,13 +28,15 @@
 }
 
 .buttonContainer {
+    height: 100%;
+
     outline: none;
     box-shadow: none;
     background: transparent;
     border-radius: 8px;
     border: none;
     transition: 150ms ease-in-out;
-    padding: 12px 8px;
+    padding: 4px;
 
     display: flex;
     justify-content: flex-start;
@@ -46,21 +47,6 @@
     color: var(--color-1);
 }
 
-.buttonContainer:hover {
-    background: var(--background-1);
-    color: var(--color-0);
-}
-
-.buttonContainer:active {
-    background: var(--background-3);
-    color: #0095ff;
-}
-
-.buttonContainer:disabled {
-    background: var(--background-1);
-    color: #999999;
-    cursor: unset;
-}
 
 .returnButton {
     border-bottom: none;
@@ -111,12 +97,13 @@
 }
 
 .header {
-    padding-left: 8px;
+    padding: 4px;
     display: flex;
     gap: 4px;
     align-items: center;
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-family: "Roboto";
+    font-size: 1rem;
+    font-weight: 600;
 
     color: var(--color-1);
 }

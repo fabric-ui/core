@@ -1,10 +1,10 @@
-import Modal from "../../../../navigation/modal/Modal";
+import Modal from "../../../navigation/modal/Modal";
 import PropTypes from 'prop-types'
-import keyTemplate from "../../templates/keyTemplate";
-import styles from '../../styles/Settings.module.css'
-import TextField from "../../../../inputs/text/TextField";
+import keyTemplate from "../templates/keyTemplate";
+import styles from '../styles/Settings.module.css'
+import TextField from "../../../inputs/text/TextField";
 import {VisibilityOffRounded, VisibilityRounded} from "@material-ui/icons";
-import ToolTip from "../../../../feedback/tooltip/ToolTip";
+import ToolTip from "../../../feedback/tooltip/ToolTip";
 
 export default function Settings(props) {
     return (

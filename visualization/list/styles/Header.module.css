@@ -81,17 +81,11 @@
     justify-content: flex-start;
     align-items: center;
 }
-
-.secondaryButton{
-    background-color: var(--background-1);
-    border: var(--border-0) 1px solid;
-    color: var(--color-2);
-}
-.secondaryButton:hover{
-    background-color: var(--background-2);
-    color: var(--color-2);
-}
-.secondaryButton:active{
-    background-color: var(--background-3);
-    color: #0095ff;
+.button{
+    height: 30px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--background-1);
 }

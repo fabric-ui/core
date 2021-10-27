@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 import shared from '../shared/Shared.module.css'
 import Row from "./modules/Row";
 import Modal from "../../navigation/modal/Modal";
-import Ripple from "../../misc/ripple/Ripple";
 import Button from "../button/Button";
 
 export default function Selector(props) {
@@ -27,7 +26,6 @@ export default function Selector(props) {
         }
 
     }, [])
-
 
     return (
         <>
@@ -57,28 +55,30 @@ export default function Selector(props) {
                     {props.title}
                 </div>
 
-                <div className={shared.wrapper} style={{width: '100%'}}>
-                    <Button
-                        disabled={props.disabled}
-                        styles={{
-                            height: props.size === 'small' ? '36px' : '56px',
-                            overflow: "hidden", maxWidth: 'unset', marginTop: 'unset'
-                        }}
-                        className={[styles.button, shared.labelContainer].join(' ')}
-                        onClick={() => setOpen(true)}
-                    >
-                        {/*<Ripple opacity={.15} disabled={props.disabled} accentColor={color.color}/>*/}
-                        {props.value !== null && props.value !== undefined ?
-                            <Row disabled={true} data={props.value} keys={props.keys}/>
-                            :
-                            props.placeholder
-                        }
-                        <LaunchRounded style={{fontSize: '1.2rem'}}/>
-                    </Button>
+                <div
+                    className={[shared.wrapper, color.className].join(' ')}
+                    style={{width: '100%'}}>
+                    {props.value !== null && props.value !== undefined ?
+                        <Row onClick={() => setOpen(true)} data={props.value} keys={props.keys}/>
+                        :
+                        <Button
+                            disabled={props.disabled}
+                            highlight={open}
+                            styles={{
+                                height: props.size === 'small' ? '36px' : '56px',
+                                overflow: "hidden", maxWidth: 'unset', marginTop: 'unset'
+                            }} color={props.colorVariant === 'secondary' ? 'secondary' : 'primary'}
+                            className={[styles.button, shared.labelContainer].join(' ')}
+                            onClick={() => setOpen(true)}
+                        >
+                            {props.placeholder}
+                            <LaunchRounded style={{fontSize: '1.2rem'}}/>
+                        </Button>
+                    }
                 </div>
                 <div className={shared.alertLabel}
                      style={{
-                         color: props.value === null || props.value === undefined ? '#ff5555' : '#262626',
+                         color: props.value === null || props.value === undefined ? '#ff5555' : undefined,
                          visibility: props.required ? 'visible' : 'hidden',
                      }}>{lang.required}</div>
             </div>

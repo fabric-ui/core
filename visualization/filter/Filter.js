@@ -5,6 +5,7 @@ import {CloseRounded} from "@material-ui/icons";
 import React from "react";
 import PropTypes from "prop-types";
 import keyTemplate from "../list/templates/keyTemplate";
+import Button from "../../inputs/button/Button";
 
 export default function Filter(props) {
     return (
@@ -52,14 +53,15 @@ export default function Filter(props) {
                             {e.type === 'date' ? props.parseDate(e.value) : e.value}
                         </div>
                     </ToolTip>
-                    <button className={[styles.filter, styles.removeButton].join(' ')} onClick={() => {
-                        props.cleanState()
-                        let newFilters = [...props.filters]
-                        newFilters.splice(i, 1)
-                        props.setFilters(newFilters)
-                    }}>
+                    <Button
+                        color={'secondary'} styles={{padding: '0'}}
+                        onClick={() => {
+                            let newFilters = [...props.filters]
+                            newFilters.splice(i, 1)
+                            props.setFilters(newFilters)
+                        }}>
                         <CloseRounded style={{fontSize: '1.1rem'}}/>
-                    </button>
+                    </Button>
                 </div>
             ))
             }
@@ -72,7 +74,6 @@ Filter.propTypes = {
     keys: PropTypes.arrayOf(keyTemplate).isRequired,
     open: PropTypes.bool,
     setOpen: PropTypes.func,
-    cleanState: PropTypes.func,
     filters: PropTypes.array,
     setFilters: PropTypes.func,
     getType: PropTypes.func,

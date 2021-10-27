@@ -58,6 +58,7 @@
 }
 
 .alertLabel {
+    color: var(--color-3);
     font-family: "Roboto";
     margin-left: auto;
     font-size: .75rem;

@@ -1,112 +1,34 @@
-import Cell from "./Cell";
 import PropTypes from 'prop-types'
-import styles from '../../styles/Table.module.css'
-import HeaderCell from "./HeaderCell";
 import useInfiniteScroll from "../../../hooks/useInfiniteScroll";
-import React, {useContext, useMemo, useRef} from 'react'
+import React from 'react'
 import keyTemplate from "../../templates/keyTemplate";
-import {ArrowDropDownRounded, SettingsRounded} from "@material-ui/icons";
-import Dropdown from "../list/Dropdown";
-import ThemeContext from "../../../../misc/theme/ThemeContext";
+import Row from "../Row";
+import Header from "../Header";
 
 
 export default function TableLayout(props) {
     const lastElementRef = useInfiniteScroll(props.setCurrentPage, props.currentPage, props.loading, props.hasMore)
-    const listRef = useRef()
-    const keys = useMemo(() => {
-        return props.keys.filter(e => e.visible)
-    }, [props.keys])
-    const theme = useContext(ThemeContext)
-
     return (
-        <table className={styles.table} ref={listRef} style={{maxHeight: props.maxHeight}}>
-            <thead>
-            <tr className={styles.headerRow}>
-                {keys.map((e, i) => (
-                    <React.Fragment key={i + '-header'}>
-                        <HeaderCell
-                            tableRef={listRef.current} type={e.type}
-                            sorts={props.sorts} columnKey={e.key}
-                            setSorts={props.setSorts} clean={props.clean}
-                            additionalWidth={e.additionalWidth !== undefined ? e.additionalWidth : '0px'}
-                            index={i} hasOptions={props.controlButtons !== undefined && props.controlButtons.length > 0}
-                            quantity={props.keys.length}
-                            value={e.label}/>
-                    </React.Fragment>
-
-                ))}
-                {props.controlButtons !== undefined && props.controlButtons.length > 0 ?
-                    <td
-                        className={styles.cell}
-                        style={{
-                            height: '30px',
-                            border: 'none',
-                            width: `30px`
-                        }}>
-                        <div style={{display: 'flex', placeContent: 'center'}}>
-                            <SettingsRounded style={{fontSize: '1.1rem', color: theme.themes.color3}}/>
-                        </div>
-                    </td> : null}
-            </tr>
-            </thead>
-
-            <tbody>
-
-            {props.data.map((e, i) => (
-                <tr
-                    key={'row-' + e.id}
-                    className={styles.row} style={{cursor: props.onlyVisualization ? 'default' : undefined}}
-                    onMouseDown={(event) => {
-
-                        if (!props.onlyVisualization && !document.elementsFromPoint(event.clientX, event.clientY).includes(document.getElementById(('options-' + e.id))) && !event.target.className.includes('Dropdown')) {
-                            event.currentTarget.style.background = theme.themes.background3
-                            event.currentTarget.style.opacity = '.8'
-                        }
-                    }}
-                    onMouseEnter={(event) => {
-                        if (props.onlyVisualization) {
-                            event.currentTarget.style.background = 'transparent'
-                            event.currentTarget.style.opacity = '1'
-                        }
-                    }}
-                    // onMouseUp={(event) => {
-                    //     event.currentTarget.style.background = 'transparent'
-                    //     event.currentTarget.style.opacity = '1'
-                    // }}
-                    // onMouseOut={(event) => {
-                    //     event.currentTarget.style.background = 'transparent'
-                    //     event.currentTarget.style.opacity = '1'
-                    // }}
-                    ref={i === (props.data.length - 1) ? lastElementRef : undefined}
-                >
-                    {keys.map((value, ic) => (
-                        <React.Fragment key={i + '-row-cell-' + ic}>
-                            <Cell
-                                additionalWidth={value.additionalWidth !== undefined ? value.additionalWidth : '0px'}
-                                entry={e.data} field={value} quantity={props.keys.length}
-                                onClick={() => {
-                                    if (!props.onlyVisualization)
-                                        props.onRowClick(e.data)
-                                }}
-                                hasOptions={props.controlButtons !== undefined && props.controlButtons.length > 0}
-                            />
-                        </React.Fragment>
-                    ))}
-                    {props.controlButtons !== undefined && props.controlButtons.length > 0 ?
-                        <td className={styles.cell} style={{width: '30px'}} id={'options-' + e.id}>
-                            <Dropdown
-                                label={<ArrowDropDownRounded style={{color: theme.themes.color3}}/>}
-                                buttons={props.controlButtons}
-                                align={i === (props.data.length - 1) ? 'top' : undefined}
-                                onClickProps={e.data} buttonClassname={styles.optionsButton}/>
-                        </td>
-                        :
-                        null
-                    }
-                </tr>
+        <div style={{width: '100%', height: '100%', position: 'relative'}}>
+            <Header
+                keys={props.keys.filter(e => e.visible)}
+                sorts={props.sorts}
+                setSorts={props.setSorts}
+                hasOptions={props.controlButtons !== undefined && props.controlButtons.length > 0}
+            />
+            {props.data.map((e, index) => (
+                <React.Fragment key={e.id + '-list-row'}>
+                    <Row
+                        onClick={() => props.onRowClick(e.data)}
+                        entry={e.data}
+                        index={index} controlButtons={props.controlButtons}
+                        keys={props.keys.filter(e => e.visible)}
+                        reference={lastElementRef}
+                        hasOptions={props.controlButtons !== undefined && props.controlButtons.length > 0}
+                    />
+                </React.Fragment>
             ))}
-            </tbody>
-        </table>
+        </div>
     )
 }
 
@@ -127,6 +49,5 @@ TableLayout.propTypes = {
     hasMore: PropTypes.bool,
     sorts: PropTypes.array,
     setSorts: PropTypes.func,
-    clean: PropTypes.func,
     onlyVisualization: PropTypes.bool
 }

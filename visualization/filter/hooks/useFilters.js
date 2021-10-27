@@ -117,7 +117,8 @@ export default function useFilter(filter, setFilter) {
             case 'number': {
                 field = dateNumber((
                     <TextField
-                        label={filter.label} width={'100%'} disabled={false} required={false}
+                        label={filter.label} width={'100%'}
+                        disabled={false} required={false}
                         handleChange={value => handleChange(value.target.value)}
                         type={'number'} placeholder={filter.label}
                         value={filter.value}

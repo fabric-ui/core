@@ -1,16 +1,15 @@
 import PropTypes from "prop-types";
 import styles from './styles/Button.module.css'
-import {useEffect, useMemo, useRef} from "react";
+import {useMemo} from "react";
 import Ripple from "../../misc/ripple/Ripple";
 
 export default function Button(props) {
-    const ref = useRef()
     const variant = useMemo(() => {
         switch (props.variant) {
             case 'minimal':
                 return {
                     normal: styles.minimal,
-                    highlight: [styles.minimalHighlight,  styles.baseHighlight].join(' ')
+                    highlight: [styles.minimalHighlight, styles.baseHighlight].join(' ')
                 }
             case 'filled':
                 return {
@@ -21,7 +20,7 @@ export default function Button(props) {
             case 'outlined':
                 return {
                     normal: styles.outlined,
-                    highlight: [styles.outlinedHighlight,  styles.baseHighlight].join(' ')
+                    highlight: [styles.outlinedHighlight, styles.baseHighlight].join(' ')
                 }
             default:
                 return {
@@ -36,7 +35,7 @@ export default function Button(props) {
             return styles.secondaryVariant
         else
             return undefined
-    }, [props.variant]);
+    }, [props.color])
 
 
     const accentColor = useMemo(() => {
@@ -45,18 +44,17 @@ export default function Button(props) {
                 return '#FF2626'
             else
                 return '#0080DB'
-        } else {
-            if (props.color === 'secondary')
-                return '#ff5555'
-            else
-                return '#0095ff'
-        }
-    }, [])
+        } else if (props.color === 'secondary')
+            return '#ff5555'
+        else
+            return '#0095ff'
+
+    }, [props.color])
 
     return (
         <button
             className={[styles.button, variant.normal, props.highlight ? variant.highlight : undefined, color, props.className].join(' ')}
-            onClick={props.onClick} ref={ref}
+            onClick={props.onClick} ref={props.reference}
             style={props.styles}
             disabled={props.disabled}
         >
@@ -65,18 +63,7 @@ export default function Button(props) {
                 opacity={props.variant === 'filled' ? 1 : undefined}
                 accentColor={accentColor}
             />
-            <span style={{
-                position: 'relative',
-                zIndex: '5',
-                display: 'inherit',
-                justifyItems: 'inherit',
-                justifyContent: 'inherit',
-                alignItems: 'inherit',
-                alignContent: 'inherit',
-                gap: 'inherit',
-                width: '100%',
-                height: '100%'
-            }}>
+            <span className={styles.content}>
                 {props.children}
             </span>
         </button>
@@ -84,6 +71,7 @@ export default function Button(props) {
 }
 
 Button.propTypes = {
+    reference: PropTypes.any,
     variant: PropTypes.oneOf(['minimal', 'filled', 'outlined']),
     children: PropTypes.node,
     styles: PropTypes.object,

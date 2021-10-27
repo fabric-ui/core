@@ -1,6 +1,5 @@
 import React, {useContext, useMemo, useRef} from "react";
 import styles from '../styles/File.module.css'
-import {CloseRounded} from "@material-ui/icons";
 import File from "./File";
 import PropTypes from "prop-types";
 import Empty from "../../../feedback/empty/Empty";

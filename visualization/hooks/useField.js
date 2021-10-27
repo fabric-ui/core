@@ -3,7 +3,7 @@ import React, {useMemo} from 'react'
 export default function useField(field, entity) {
 
     return useMemo(() => {
-        if(entity[field.key] !== undefined && entity[field.key] !== null)
+        if(entity && entity[field.key] !== undefined && entity[field.key] !== null)
             switch (field.type) {
                 case 'string':
                     return (field.maskStart ? field.maskStart : '') + entity[field.key] + (field.maskEnd ? field.maskEnd : '')

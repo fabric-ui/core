@@ -1,14 +1,15 @@
 @import '../../../misc/theme/styles.module.css';
 
-.tableWrapper{
+.tableWrapper {
     max-width: 100%;
-
+    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
 
 }
-.container{
+
+.container {
     max-width: 100%;
     padding: 32px 0;
     overflow: visible;
