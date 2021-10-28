@@ -7,11 +7,11 @@ export default function Switcher(props) {
     const [currentChild, setCurrentChild] = useState(props.openChild)
 
     const handleEnter = () => {
-        ref.current.classList.add(styles.exitA)
-        ref.current.addEventListener('animationend', function switcher(e) {
+        ref.current?.classList.add(styles.exitA)
+        ref.current?.addEventListener('animationend', function switcher(e) {
             setCurrentChild(props.openChild)
-            ref.current.classList.remove(styles.exitA)
-            ref.current.classList.add(styles.enterA)
+            ref.current?.classList.remove(styles.exitA)
+            ref.current?.classList.add(styles.enterA)
 
             e.currentTarget.removeEventListener('animationend', switcher)
         })

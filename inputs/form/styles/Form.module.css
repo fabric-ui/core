@@ -117,15 +117,22 @@
     z-index: 50
 }
 
+.wrapper {
 
-.fieldsetContainer {
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 32px;
+    /*row-gap: 16px;*/
+    /*justify-content: center;*/
+    max-width: 100%;
+    overflow: hidden;
+
     border-top: var(--border-0) 1px solid;
     border-bottom: none;
     border-left: none;
     border-right: none;
     padding: 12px 0 24px 0;
     outline: none;
-    width: 100%;
 
     margin: auto;
 }
@@ -138,21 +145,12 @@
     padding-left: 0;
 }
 
-.formFieldsContainer {
-
-    display: inline-flex;
-    flex-flow: row wrap;
-    column-gap: 32px;
-    /*row-gap: 16px;*/
-    justify-content: center;
-    width: 100%;
-}
-
 
 .saveButton {
     text-align: center;
     width: 100%;
 }
-.saveButton:disabled{
+
+.saveButton:disabled {
     border: var(--border-0) 1px solid;
 }

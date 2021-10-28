@@ -1,24 +1,26 @@
 import PropTypes from 'prop-types'
 import styles from "../../styles/Details.module.css";
-import React from "react";
+import React, {useMemo} from "react";
 import AlertPT from "../../locales/LocalesPT";
 import {CloseRounded} from "@material-ui/icons";
 import Modal from "../../../../navigation/modal/Modal";
 
 export default function Details(props) {
     const lang = AlertPT
+    const data = useMemo(() => {
+        let res = props.data.details
+        try {
+            const jsonData = props.data.details && typeof  props.data.details === 'string' ? JSON.parse(props.data.details) : null
+            res = JSON.stringify((jsonData), null, 4)
+        } catch (e) {
+            console.log(e)
+        }
 
+        return res
+    }, [props])
     return (
-        <Modal open={props.open} handleClose={() => props.setOpen()} defaultBackground={true}
+        <Modal open={props.open} handleClose={() => props.handleClose()} defaultBackground={true}
                wrapperClassName={styles.wrapper} blurIntensity={.1} animationStyle={"slide-right"}>
-            <button
-                onClick={() => {
-                    props.setOpen()
-                }}
-                className={styles.closeButton}
-            >
-                <CloseRounded/>
-            </button>
             <div className={styles.header}>
                 {props.data.httpStatusCode >= 300 ? lang.error : lang.success} - {props.data.httpStatusCode}
                 <div className={styles.subHeader}>
@@ -34,9 +36,7 @@ export default function Details(props) {
                         event.target.style.background = 'white'
                         event.target.style.color = '#555555'
                         event.target.style.border = '#ecedf2 1px solid'
-                        console.log(event.target)
                         setTimeout(() => {
-                            console.log('On timeout')
                             event.target.innerText = 'Copiar'
                             event.target.style.background = '#0095ff'
                             event.target.style.color = 'white'
@@ -47,8 +47,8 @@ export default function Details(props) {
                     </button>
                 </div>
                 <pre className={styles.body} style={{overflow: 'auto'}}>
-                                {JSON.stringify((JSON.parse(props.data.details)), null, 4)}
-                            </pre>
+                    {data}
+                </pre>
             </div>
             <div style={{paddingBottom: '16px'}}>
                 {lang.params}
@@ -73,7 +73,7 @@ export default function Details(props) {
 }
 Details.propTypes = {
     open: PropTypes.bool,
-    setOpen: PropTypes.bool,
+    handleClose: PropTypes.func,
 
     data: PropTypes.shape({
         message: PropTypes.string,

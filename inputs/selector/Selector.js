@@ -38,6 +38,7 @@ export default function Selector(props) {
                 style={{
                     width: props.width,
                     maxWidth: props.width,
+                    overflow: 'hidden',
                     display: 'grid',
                     gap: '4px'
                 }}
@@ -54,27 +55,35 @@ export default function Selector(props) {
                 >
                     {props.title}
                 </div>
+                <div style={{width: '100%', overflow: 'hidden', padding: '2px'}}>
 
-                <div
-                    className={[shared.wrapper, color.className].join(' ')}
-                    style={{width: '100%'}}>
-                    {props.value !== null && props.value !== undefined ?
-                        <Row onClick={() => setOpen(true)} data={props.value} keys={props.keys}/>
-                        :
-                        <Button
-                            disabled={props.disabled}
-                            highlight={open}
-                            styles={{
-                                height: props.size === 'small' ? '36px' : '56px',
-                                overflow: "hidden", maxWidth: 'unset', marginTop: 'unset'
-                            }} color={props.colorVariant === 'secondary' ? 'secondary' : 'primary'}
-                            className={[styles.button, shared.labelContainer].join(' ')}
-                            onClick={() => setOpen(true)}
-                        >
-                            {props.placeholder}
-                            <LaunchRounded style={{fontSize: '1.2rem'}}/>
-                        </Button>
-                    }
+
+                    <div
+                        className={[shared.wrapper, color.className].join(' ')}
+                    >
+                        {props.value !== null && props.value !== undefined ?
+                            <Row
+                                onClick={() => setOpen(true)}
+                                data={props.value}
+                                keys={props.keys}
+                                height={props.size === 'small' ? '36px' : '56px'}
+                            />
+                            :
+                            <Button
+                                disabled={props.disabled}
+                                highlight={open}
+                                styles={{
+                                    height: props.size === 'small' ? '36px' : '56px',
+                                    overflow: "hidden", maxWidth: 'unset', marginTop: 'unset'
+                                }} color={props.colorVariant === 'secondary' ? 'secondary' : 'primary'}
+                                className={[styles.button, shared.labelContainer].join(' ')}
+                                onClick={() => setOpen(true)}
+                            >
+                                {props.placeholder}
+                                <LaunchRounded style={{fontSize: '1.2rem'}}/>
+                            </Button>
+                        }
+                    </div>
                 </div>
                 <div className={shared.alertLabel}
                      style={{

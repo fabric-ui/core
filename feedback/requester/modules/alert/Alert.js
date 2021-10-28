@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import styles from '../../styles/Alert.module.css'
 import {CheckCircleRounded, CloseRounded, ErrorRounded, ReportProblemRounded} from '@material-ui/icons'
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useMemo, useRef, useState} from 'react'
 import ReactDOM from "react-dom";
 import AlertPT from "../../locales/LocalesPT";
 import Details from "../details/Details";
@@ -9,12 +9,7 @@ import Details from "../details/Details";
 export default function Alert(props) {
     const lang = AlertPT
     const [open, setOpen] = useState(false)
-    const [visuals, setVisuals] = useState({
-        style: {},
-        icon: undefined,
-        message: undefined,
-        messageCode: undefined
-    })
+
     const ref = useRef()
     const getColor = (type) => {
         let response = {
@@ -98,35 +93,37 @@ export default function Alert(props) {
 
         return response
     }
-    const openRef = useRef(open)
-    openRef.current = open
-
+    const visuals = useMemo(() => {
+        return getColor(props.type)
+    }, [])
     useEffect(() => {
-        setVisuals(getColor(props.type))
-        const parent = ref.current.parentNode
-        setTimeout(() => {
-            if (!openRef.current)
+
+        console.log('SETTING TIMEOUT')
+        const timeout = setTimeout(() => {
+
+            if (!open)
                 try {
                     ReactDOM.unmountComponentAtNode(ref.current?.parentNode);
                 } catch (e) {
                     console.log(e)
                 }
-        }, 7000)
+        }, 5000)
 
         return () => {
-            try {
-                ReactDOM.unmountComponentAtNode(parent);
-            } catch (e) {
-                console.log(e)
-            }
+            console.log('RESETTING TIMEOUT')
+            if (timeout)
+                clearTimeout(timeout)
         }
-    }, [])
+    }, [open])
 
     return (
         <>
             <Details
                 open={open}
-                setOpen={() => setOpen(false)}
+                handleClose={() => {
+                    setOpen(false)
+                    console.log('CLOSING')
+                }}
                 data={props.data}
             />
             <button

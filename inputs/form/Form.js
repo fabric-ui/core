@@ -24,9 +24,10 @@ export default function Form(props) {
                     handleClose={props.handleClose}/>
             <div style={{
                 padding: props.noPadding ? '2px' : '16px',
-                overflow: 'visible',
-                marginBottom: '100px',
-                paddingBottom: '100px'
+                overflow: 'hidden',
+                maxWidth: '100%',
+                // marginBottom: '100px',
+                paddingBottom: '32px'
             }}>
                 {props.children(props.hook.data, props.hook.handleChange)}
             </div>

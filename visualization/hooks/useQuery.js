@@ -1,4 +1,4 @@
-import {useEffect, useReducer, useState} from "react";
+import {useCallback, useEffect, useReducer, useState} from "react";
 import ACTIONS from "./deps/dataActions";
 import dataReducer from "./deps/dataReducer";
 import PropTypes from 'prop-types'
@@ -15,8 +15,14 @@ export default function useQuery(props) {
     const [sorts, setSorts] = useState([])
     const [hasMore, setHasMore] = useState(false)
 
-    const fetchParams = () => {
-        let pack = {page: currentPage, quantity: props.fetchSize, filters: [...filters], sorts: [...sorts]}
+    const fetchParams = (page = undefined) => {
+        console.log(page)
+        let pack = {
+            page: page !== undefined ? page : currentPage,
+            quantity: props.fetchSize,
+            filters: [...filters],
+            sorts: [...sorts]
+        }
         if (typeof props.parsePackage === 'function')
             pack = props.parsePackage(pack)
 
@@ -29,34 +35,35 @@ export default function useQuery(props) {
             params: pack,
         }
     }
-
-    const fetch = (caller) => {
-        console.log('FETCHING', caller)
+    const fetchData = (page = undefined) => {
         setLoading(true)
-        const params = fetchParams()
+        const params = fetchParams(page)
 
         axios(
             params
         ).then(res => {
+            console.log(params.params, res.data, page)
             dispatchData({type: ACTIONS.PUSH, payload: res.data})
             setHasMore(res.data.length > 0)
             setLoading(false)
         }).catch(() => null)
     }
     useEffect(() => {
-        if(currentPage > 0)
-            fetch('effect 1')
+        if (currentPage > 0)
+            fetchData(currentPage)
     }, [currentPage])
+
     useEffect(() => {
-        clean('effect 2')
+        clean()
     }, [filters, sorts])
 
-    const clean = (caller) => {
+    const clean = () => {
+
         dispatchData({type: ACTIONS.EMPTY})
         setHasMore(false)
         setCurrentPage(0)
 
-        fetch('clean', caller)
+        fetchData(0)
     }
 
     return {

@@ -14,7 +14,6 @@ export default function Row(props) {
                 className={styles.button}
                 color={hidden ? 'primary' : "secondary"}
                 styles={{
-                    // color: 'var(--color-1)',
                     display: props.data.label ? 'flex' : 'none',
                     alignItems: 'center',
                     padding: '8px'
@@ -27,17 +26,19 @@ export default function Row(props) {
             </Button>
             <Switcher openChild={hidden ? 0 : 1}>
                 <div/>
-                <div style={{maxWidth: '100%'}}>
+                <div>
                     {props.data.buttons.map((b, bI) => (
                         <React.Fragment key={props.index + '-button-header-tab-' + bI}>
                             <Button
                                 className={[styles.button, styles.color, props.open.classSelected === props.index && props.open.rowSelected === bI ? styles.highlight : undefined].join(' ')}
-                                styles={{fontWeight: 'normal'}}
+                                styles={{fontWeight: 'normal', width: '100%'}}
                                 highlight={props.open.classSelected === props.index && props.open.rowSelected === bI}
                                 onClick={() => {
                                     props.setOpen({classSelected: props.index, rowSelected: bI})
                                 }}>
-                                {b.label}
+                                <div className={styles.overflow}>
+                                    {b.label}
+                                </div>
                             </Button>
                         </React.Fragment>
                     ))}

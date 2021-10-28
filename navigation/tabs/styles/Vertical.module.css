@@ -21,9 +21,7 @@
 }
 
 .tabs {
-    display: grid;
-    align-content: flex-start;
-    justify-content: flex-start;
+
     overflow: hidden;
 
     width: 100%;
@@ -37,16 +35,16 @@
     max-width: 100%;
     width: 100%;
 
-    text-align: left;
 
     font-weight: 600;
     font-family: "Roboto";
     font-size: .75rem;
     text-rendering: optimizeLegibility;
 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
 }
 
 .color {
@@ -68,4 +66,14 @@
     font-size: .8rem;
     padding: 4px 0 4px 16px;
     margin-top: 8px;
+}
+
+.overflow {
+    max-width: 100%;
+
+    text-align: left;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

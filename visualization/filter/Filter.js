@@ -19,7 +19,6 @@ export default function Filter(props) {
                 setSelectedField={props.setSelectedField} keys={props.keys}
                 applyFilter={() => {
                     props.setOpen(false)
-                    props.cleanState()
                     props.setFilters(prevState => {
                         return [
                             ...prevState,

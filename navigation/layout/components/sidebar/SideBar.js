@@ -61,7 +61,6 @@ export default function SideBar(props) {
                                 <div
                                     className={[styles.buttonLabel, styles.overflowEllipsis].join(' ')}
                                     style={{
-                                        color: button.highlight ? 'white' : undefined,
                                         maxWidth: '100%',
                                         fontSize: props.open ? undefined : '.65rem',
                                         textAlign: props.open ? undefined : 'center',
