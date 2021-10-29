@@ -13,10 +13,10 @@ export default function HeaderCell(props) {
     return (
 
         <Button
-            className={styles.cell}
+            className={styles.cell} variant={'minimal-horizontal'}
             styles={{
                 width: `${(1 / props.length) * 100}%`,
-                padding: '4px 2px',
+
                 color: props.value.type === 'object' ? 'var(--color-4)' : 'inherit',
                 justifyContent: props.value.type !== 'object' ? 'space-between' : 'flex-start'
             }}

@@ -1,16 +1,17 @@
 import useField from "../hooks/useField";
 import PropTypes from 'prop-types'
+import keyTemplate from "../list/templates/keyTemplate";
 
 
-export default function RowCell(props){
+export default function RowCell(props) {
     const content = useField(props.field, props.data)
     return (
-        <span>
+        <span style={{color: props.field.getColor ? props.field.getColor(props.data[props.field.key]) : undefined}}>
             {content}
         </span>
     )
 }
-RowCell.propTypes={
+RowCell.propTypes = {
     data: PropTypes.object,
-    field: PropTypes.object
+    field: keyTemplate
 }

@@ -7,7 +7,7 @@ import LocalePT from '../shared/LocalePT'
 import FloatingBox from "../floating_box/FloatingBox";
 import ToolTip from "../../feedback/tooltip/ToolTip";
 import Checkbox from "../checkbox/Checkbox";
-import shared from '../shared/Shared.module.css'
+import shared from '../../misc/theme/Shared.module.css'
 import Ripple from "../../misc/ripple/Ripple";
 
 export default function MultiSelectField(props) {

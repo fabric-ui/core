@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import styles from './styles/Navigation.module.css'
 import PropTypes from 'prop-types'
 import Profile from './components/profile/Profile'
@@ -10,7 +10,17 @@ import Button from "../../inputs/button/Button";
 
 
 export default function Layout(props) {
-    const [openSideBar, setOpenSideBar] = useState(false)
+
+    const components = useMemo(() => {
+        const nodes = React.Children.toArray(props.children)
+        console.log()
+        return {
+            profile: nodes.find(e => e.type === Profile),
+            apps: nodes.find(e => e.type === Apps),
+            sideBar: nodes.find(e => e.type === SideBar),
+            child: nodes.find(e => e.type !== SideBar && e.type !== Apps && e.type !== Profile)
+        }
+    }, [props])
 
     return (
         <div className={styles.wrapper}>
@@ -19,12 +29,12 @@ export default function Layout(props) {
                 <div className={styles.content}>
 
                     <Button
-                        highlight={openSideBar}
+                        highlight={props.openSideBar}
                         className={styles.button}
-                        onClick={() => setOpenSideBar(!openSideBar)}
+                        onClick={() => props.setOpenSideBar(!props.openSideBar)}
                     >
                         <MenuOpenRounded style={{
-                            transform: openSideBar ? undefined : 'rotate(180deg)',
+                            transform: props.openSideBar ? undefined : 'rotate(180deg)',
                             transition: '150ms linear'
                         }}/>
                     </Button>
@@ -36,30 +46,17 @@ export default function Layout(props) {
                     {props.appName}
                 </div>
                 <div className={styles.content} style={{justifyContent: 'flex-end', gap: '8px'}}>
-                    <Apps
-                        redirect={props.redirect}
-                        buttons={props.appButtons}
-                    />
-                    <Profile
-                        buttons={props.profileButtons}
-                        fallbackProfileButton={props.fallbackProfileButton}
-                        profile={props.profile}
-                    />
+                    {components.apps}
+                    {components.profile}
                 </div>
 
             </div>
 
             <div className={styles.contentWrapper}>
-                <SideBar
-                    open={openSideBar}
-                    setOpen={setOpenSideBar}
-                    buttons={props.sideBarButtons}
-                    logo={props.logo}
-                />
+                {components.sideBar}
 
-                <div className={styles.children}
-                     style={{width: openSideBar ? 'calc(100% - 225px)' : 'calc(100% - 60px)'}}>
-                    {props.children}
+                <div className={styles.children}>
+                    {components.child}
                 </div>
             </div>
         </div>
@@ -68,48 +65,10 @@ export default function Layout(props) {
 }
 
 Layout.propTypes = {
-    darkTheme: PropTypes.bool,
-    children: PropTypes.element,
+    children: PropTypes.node,
     appName: PropTypes.string,
     logo: PropTypes.any,
-    profile: PropTypes.shape({
-        name: PropTypes.string,
-        email: PropTypes.string,
-        image: PropTypes.string
-    }),
-
-    redirect: PropTypes.func,
     loading: PropTypes.bool,
-    sideBarButtons: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string,
-            icon: PropTypes.any,
-            onClick: PropTypes.func,
-            highlight: PropTypes.bool,
-            position: PropTypes.oneOf(['bottom', 'default'])
-
-        }),
-    ),
-    appButtons: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string,
-            icon: PropTypes.any,
-            path: PropTypes.string,
-            disabled: PropTypes.bool
-        })
-    ),
-    profileButtons: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string,
-            icon: PropTypes.any,
-            onClick: PropTypes.func,
-            disabled: PropTypes.bool
-        })
-    ),
-    fallbackProfileButton: PropTypes.shape({
-        label: PropTypes.string,
-        icon: PropTypes.any,
-        onClick: PropTypes.func,
-        disabled: PropTypes.bool
-    })
+    openSideBar: PropTypes.bool.isRequired,
+    setOpenSideBar: PropTypes.bool.isRequired
 }

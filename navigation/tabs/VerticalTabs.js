@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 import React, {useMemo, useRef, useState} from "react";
 import styles from './styles/Vertical.module.css'
+import shared from './styles/Tabs.module.css'
 import Switcher from "../switcher/Switcher";
 import Row from "./components/Row";
 
 export default function VerticalTabs(props) {
     const [open, setOpen] = useState({classSelected: 0, rowSelected: 0})
-    const ref = useRef()
+
     const openTab = useMemo(() => {
         let indexClass = 0
         props.classes.forEach((e, i) => {
@@ -17,7 +18,7 @@ export default function VerticalTabs(props) {
     }, [open, props.classes])
 
     return (
-        <div className={styles.wrapper} ref={ref}>
+        <div className={styles.wrapper}>
             <div className={styles.header}>
                 {props.children}
                 <div className={styles.tabs}>
@@ -29,8 +30,12 @@ export default function VerticalTabs(props) {
                 </div>
             </div>
 
-            <Switcher openChild={openTab}>
-                {props.classes.map((e, i) => e.buttons.map((b, bI) => b.children))}
+            <Switcher openChild={openTab} className={styles.content}>
+                {props.classes.map((e, i) => e.buttons.map((b, bI) => (
+                    <React.Fragment key={i + '-vertical-tabs-child-' + bI}>
+                        {b.children}
+                    </React.Fragment>
+                )))}
             </Switcher>
         </div>
     )

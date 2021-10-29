@@ -4,59 +4,30 @@ import {useEffect, useRef} from "react";
 
 export default function Ripple(props) {
     const ref = useRef()
-
+    const wrapperRef = useRef()
     const handleMouseDown = (e) => {
-        if(document.elementsFromPoint(e.clientX, e.clientY).includes(ref.current?.parentNode)) {
-            console.log('mousedown')
-            ref.current.removeAttribute('data-active')
-            ref.current.setAttribute('data-active', true)
-            removeAllAnimations()
+        const parent = wrapperRef.current.parentNode.getBoundingClientRect()
+        wrapperRef.current.style.width = parent.width + 'px'
+        wrapperRef.current.style.height = parent.height + 'px'
 
-            ref.current?.classList.remove(styles.exit)
-
+        const elements = document.elementsFromPoint(e.clientX, e.clientY).filter(e => e.className === styles.wrapper)
+        if (elements.includes(wrapperRef.current) && elements.indexOf(wrapperRef.current) === 0) {
             const rect = ref.current.parentNode.getBoundingClientRect()
+
             ref.current?.style.setProperty('--size', rect.width + 'px')
             ref.current?.style.setProperty('--x', (e.clientX - rect.x) + 'px')
             ref.current?.style.setProperty('--y', (e.clientY - rect.y) + 'px')
-            ref.current?.classList.add(styles.ripple)
+            ref.current.classList.add(styles.ripple)
         }
-    }
-    const handleMouseUp = () => {
-        const active = JSON.parse(ref.current.getAttribute('data-active'))
-        const ended = JSON.parse(ref.current.getAttribute('data-animation-ended'))
-        if (active) {
-            if (ended || ended === null) {
-                ref.current?.classList.remove(styles.ripple)
-                ref.current?.classList.add(styles.exit)
-            }
-
-            ref.current.removeAttribute('data-active')
-            ref.current.setAttribute('data-active', false)
-        }
-    }
-    const handleMouseOut = () => {
-        if (JSON.parse(ref.current.getAttribute('data-animation-ended'))) {
-            ref.current.removeAttribute('data-animation-ended')
-            ref.current.setAttribute('data-animation-ended', true)
-
-            ref.current?.classList.remove(styles.ripple)
-            ref.current?.classList.add(styles.exit)
-
-        }
-
     }
     useEffect(() => {
 
         document.addEventListener('mousedown', handleMouseDown)
-        document.addEventListener('mouseup', handleMouseUp)
-        ref.current?.parentNode.addEventListener('mouseout', handleMouseOut)
         if (props.opacity)
             ref.current?.style.setProperty('--opacity', props.opacity)
 
 
         return () => {
-            ref.current?.parentNode.removeEventListener('mouseout', handleMouseOut)
-            document.removeEventListener('mouseup', handleMouseUp)
             document.removeEventListener('mousedown', handleMouseDown)
         }
     }, [])
@@ -65,35 +36,25 @@ export default function Ripple(props) {
         if (props.accentColor)
             ref.current?.style.setProperty('--accent-color', props.accentColor)
     }, [props.accentColor])
-    const removeAllAnimations = () => {
-        ref.current?.classList.remove(styles.fill)
-        ref.current?.classList.remove(styles.ripple)
-        ref.current?.classList.remove(styles.exit)
-    }
 
-    const handleAnimExit = (active) => {
-        if (ref.current.classList.contains(styles.ripple) && !ref.current.classList.contains(styles.exit) && (props.keep || active)) {
-            ref.current?.classList.add(styles.fill)
-        } else if (!ref.current.classList.contains(styles.exit)) {
-            ref.current?.classList.remove(styles.ripple)
-            ref.current?.classList.add(styles.exit)
-        }
-    }
 
     return (
-        <span
-            className={styles.wrapper}
-            ref={ref}
-            onAnimationStart={() => {
-                if (!ref.current?.classList.contains(styles.exit))
-                    ref.current.setAttribute('data-animation-ended', false)
-            }}
-            onAnimationEnd={e => {
-                ref.current.removeAttribute('data-animation-ended')
-                ref.current.setAttribute('data-animation-ended', true)
-                handleAnimExit(JSON.parse(ref.current.getAttribute('data-active')))
-            }}
-        />
+        <span className={styles.wrapper} ref={wrapperRef}>
+            <span
+                className={styles.content}
+                ref={ref}
+                onAnimationEnd={(e) => {
+                    if (!e.currentTarget.classList.contains(styles.exit)) {
+                        ref.current.classList.add(styles.exit)
+                        ref.current.classList.remove(styles.ripple)
+                    } else {
+                        ref.current.classList.remove(styles.exit)
+                        ref.current.classList.remove(styles.ripple)
+                    }
+
+                }}
+            />
+       </span>
 
     )
 }

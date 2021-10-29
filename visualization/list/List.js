@@ -49,7 +49,7 @@ export default function List(props) {
 List.propTypes = {
     noFilters: PropTypes.bool,
     hook: PropTypes.object.isRequired,
-    onRowClick: PropTypes.func,
+    onRowClick: PropTypes.func.isRequired,
     keys: PropTypes.arrayOf(keyTemplate).isRequired,
     controlButtons: PropTypes.arrayOf(PropTypes.shape({
         icon: PropTypes.element,

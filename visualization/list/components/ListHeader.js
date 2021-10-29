@@ -25,7 +25,7 @@ export default function ListHeader(props) {
                 {props.title}
                 <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
                     <Button
-                        variant={'outlined'}
+
                         className={styles.button}
                         onClick={() => props.cleanState()}
                     >
@@ -36,7 +36,7 @@ export default function ListHeader(props) {
                         null
                         :
                         <Button
-                            variant={'outlined'}
+
                             className={styles.button}
                             onClick={() => props.setOpenSettings(true)}
                         >
@@ -46,7 +46,7 @@ export default function ListHeader(props) {
                     {props.noFilters ? null :
                         <Dropdown
                             className={styles.button}
-                            disabled={false}
+                            disabled={false} variant={'clean'}
                             label={(
                                 <div className={styles.dropdownLabel}>
                                     Filtros
@@ -68,7 +68,7 @@ export default function ListHeader(props) {
                 null :
                 <Filter
                     keys={props.keys} filters={props.filters} setFilters={props.setFilters}
-                     getType={getType} open={open} setOpen={setOpen}
+                    getType={getType} open={open} setOpen={setOpen}
                     parseDate={parseDate} selectedField={selectedField} setSelectedField={setSelectedField}
                 />
             }

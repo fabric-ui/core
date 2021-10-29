@@ -92,7 +92,6 @@ SideBar.propTypes = {
         })
     ),
 
-    open: PropTypes.bool,
-    setOpen: PropTypes.func,
+    open: PropTypes.bool
 
 }

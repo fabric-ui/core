@@ -1,12 +1,23 @@
 @import '../../../../../misc/theme/styles.module.css';
 
+
+.profileButton {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    gap: 8px;
+    height: auto;
+    padding: 8px;
+
+    width: 100%;
+    font-size: .75rem;
+    font-weight: 600;
+}
+
 .buttonLabel {
     margin-left: 8px;
-    font-size: .8rem;
     overflow: hidden;
-    color: var(--color-1);
-    font-weight: 600;
-    font-family: "Roboto";
 }
 
 .buttonContainer {
@@ -43,16 +54,19 @@
     right: 0;
     height: auto;
 
-    width: 180px;
+    width: 250px;
 
     background: var(--background-1);
     box-shadow: var(--box-shadow-1) 0 2px 8px 0px;
 
 
     border-radius: 5px;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    gap: 8px;
 }
 
+
+.divider{
+    height: 1px;
+    width: 100%;
+    background: var(--border-0);
+
+}

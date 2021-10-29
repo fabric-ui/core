@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import styles from './styles/Checkbox.module.css'
-import shared from '../shared/Shared.module.css'
+import shared from '../../misc/theme/Shared.module.css'
 import React from "react";
 import LocalePT from "../shared/LocalePT";
 

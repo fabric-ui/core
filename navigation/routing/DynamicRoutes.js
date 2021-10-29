@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
-import {useMemo} from "react";
+import React, {useMemo} from "react";
 import Switcher from "../switcher/Switcher";
+import styles from './styles/Route.module.css'
 
 export default function DynamicRoutes(props) {
     const contentIndex = useMemo(() => {
@@ -18,10 +19,9 @@ export default function DynamicRoutes(props) {
     }, [contentIndex])
 
     return (
-        <Switcher openChild={Content === null ? 0 : 1}>
-            <div/>
-            {Content !== null ? <Content {...props.componentProps}/> : <div/>}
-        </Switcher>
+        <React.Fragment>
+            {Content !== null ? <Content {...props.componentProps}/> : null}
+        </React.Fragment>
     )
 
 }

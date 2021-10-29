@@ -1,9 +1,14 @@
 @import "../../../misc/theme/styles.module.css";
 
 .container {
+    flex-grow: 1;
+
+
     background: var(--background-1);
     border-radius: 5px;
-    height: 100%;
+
+    max-height: 100%;
+
     width: 100%;
     display: grid;
     overflow-y: auto;

@@ -5,11 +5,12 @@ import Header from "./templates/Header";
 import SubmitButton from "./templates/SubmitButton";
 import PropTypes from "prop-types";
 
+
 export default function Form(props) {
     const {
-        ref, disabled
+        disabled, ref
     } = useForm({
-        noAutoHeight: props.noAutoHeight,
+
         dependencies: props.dependencies,
         data: props.hook.data,
         changed: props.hook.changed
@@ -17,16 +18,15 @@ export default function Form(props) {
 
     return (
         <div ref={ref} className={styles.container} style={{
-            alignContent: props.noAutoHeight ? 'space-between' : undefined,
-            borderColor: props.noBorder ? 'transparent' : undefined
+            borderColor: props.noBorder ? 'transparent' : undefined,
+            // maxHeight: maxHeight
         }}>
             <Header title={props.title} returnButton={props.returnButton} noHeader={props.noHeader}
                     handleClose={props.handleClose}/>
             <div style={{
                 padding: props.noPadding ? '2px' : '16px',
-                overflow: 'hidden',
                 maxWidth: '100%',
-                // marginBottom: '100px',
+
                 paddingBottom: '32px'
             }}>
                 {props.children(props.hook.data, props.hook.handleChange)}
@@ -45,7 +45,6 @@ export default function Form(props) {
     )
 }
 Form.propTypes = {
-    noAutoHeight: PropTypes.bool,
     noHeader: PropTypes.bool,
     noPadding: PropTypes.bool,
     noBorder: PropTypes.bool,

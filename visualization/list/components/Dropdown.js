@@ -20,7 +20,7 @@ export default function Dropdown(props) {
         <div className={styles.wrapper}>
             <Button
                 highlight={open}
-                variant={"outlined"} onClick={() => setOpen(true)}
+                variant={props.variant === 'clean' ? undefined : "outlined"} onClick={() => setOpen(true)}
                 disabled={props.disabled} className={props.className}>
                 {props.label}
             </Button>
@@ -54,6 +54,7 @@ export default function Dropdown(props) {
 }
 
 Dropdown.propTypes = {
+    variant: PropTypes.oneOf(['default', 'clean']),
     className: PropTypes.string,
     onClickProps: PropTypes.any,
     label: PropTypes.any,

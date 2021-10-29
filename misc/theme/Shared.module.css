@@ -3,6 +3,7 @@
     --accent_color: #0095ff;
     position: relative;
     transition: 150ms linear;
+    height: fit-content;
 }
 
 .secondaryVariant {
@@ -63,9 +64,5 @@
     margin-left: auto;
     font-size: .75rem;
     user-select: none;
-
-}
-
-.inputLabel{
 
 }

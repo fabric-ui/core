@@ -1,15 +1,22 @@
 import PropTypes from 'prop-types'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from './styles/Profile.module.css'
 import AnimationFrame from "../../templates/AnimationFrame";
 import {Avatar} from "@material-ui/core";
 import Button from "../../../../inputs/button/Button";
 import ToolTip from "../../../../feedback/tooltip/ToolTip";
 
-
+const profileTemplate = {
+    name: PropTypes.string,
+    email: PropTypes.string,
+    image: PropTypes.string
+}
 export default function Profile(props) {
     const [open, setOpen] = useState(false)
-
+    useEffect(() => {
+        if(!props.profile || Object.keys(props.profile).length === 0)
+            setOpen(false)
+    }, [props.profile])
     return (
         <div
             className={styles.appsContainer}
@@ -29,11 +36,7 @@ export default function Profile(props) {
                         whiteSpace: 'nowrap'
                     }}
                 >
-                    <div style={{
-                        fontSize: '.85rem',
-                        fontWeight: 'bold',
-                        transition: '150ms linear'
-                    }}>
+                    <div style={{fontWeight: 'bold'}}>
                         Bem vindo
                     </div>
 
@@ -62,6 +65,41 @@ export default function Profile(props) {
 
             <AnimationFrame render={open}>
                 <div className={styles.floatingBox}>
+                    <Button
+                        className={styles.profileButton}
+                        disabled={props.disabledProfile}
+                        onClick={() => props.onProfileClick()}
+                    >
+
+                        <Avatar style={{width: '50px', height: '50px'}} src={props.profile.image}/>
+                        <ToolTip content={props.profile.name}/>
+                        <div className={styles.overflowEllipsis} style={{maxWidth: '100%'}}>
+                            {props.profile.name}
+                            <div style={{fontWeight: 'normal'}}>
+                                {props.profile.email}
+                            </div>
+                        </div>
+                    </Button>
+                    <div className={styles.divider}/>
+                    {props.registeredProfiles?.map((b, i) => (
+                        <React.Fragment key={'registered-profile-button-' + i}>
+                            <Button
+                                className={styles.buttonContainer}
+
+                                disabled={b.disabled}
+                                onClick={() => b.onClick}
+                                styles={{
+                                    width: '100%',
+                                    justifyContent: 'space-between',
+                                    height: '44px'
+                                }}>
+                                <Avatar style={{width: '30px', height: '30px'}} src={props.profile.image}/>
+                                {b.name}
+                            </Button>
+                        </React.Fragment>
+                    ))}
+                    <div className={styles.divider}
+                         style={{display: props.registeredProfiles && props.registeredProfiles.length > 0 ? undefined : 'none'}}/>
                     {props.buttons.map((button, index) => !button ? null : (
                         <React.Fragment key={'profile-button-' + index}>
                             <Button
@@ -86,18 +124,20 @@ export default function Profile(props) {
     )
 }
 Profile.propTypes = {
+    onProfileClick: PropTypes.func,
+    disabledProfile: PropTypes.bool,
     fallbackProfileButton: PropTypes.shape({
         label: PropTypes.string,
         icon: PropTypes.any,
         onClick: PropTypes.func,
         disabled: PropTypes.bool
     }),
-    redirect: PropTypes.func,
-    profile: PropTypes.shape({
-        name: PropTypes.string,
-        email: PropTypes.string,
-        image: PropTypes.string
-    }),
+    profile: PropTypes.shape(profileTemplate),
+    registeredProfiles: PropTypes.arrayOf(PropTypes.shape({
+        ...profileTemplate,
+        onClick: PropTypes.func,
+        disabled: PropTypes.bool
+    })),
     buttons: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string,

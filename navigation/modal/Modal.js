@@ -96,8 +96,8 @@ Modal.propTypes = {
     wrapperClassName: PropTypes.string,
     blurIntensity: PropTypes.number,
     componentStyle: PropTypes.object,
-    open: PropTypes.bool,
-    handleClose: PropTypes.func,
+    open: PropTypes.bool.isRequired,
+    handleClose: PropTypes.func.isRequired,
     children: PropTypes.node,
     defaultBackground: PropTypes.bool
 }

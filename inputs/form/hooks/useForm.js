@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useRef} from "react";
 
-export default function useForm({noAutoHeight, data, changed, dependencies}) {
+export default function useForm({data, changed, dependencies}) {
     const ref = useRef()
 
     const disabled = useMemo(() => {
@@ -21,15 +21,6 @@ export default function useForm({noAutoHeight, data, changed, dependencies}) {
 
         return response
     }, [data, dependencies])
-
-
-    useEffect(() => {
-        if (!noAutoHeight) {
-            const newHeight = document.documentElement.offsetHeight - ref.current.getBoundingClientRect().y - 16
-            if (ref.current.offsetHeight > newHeight)
-                ref.current.style.maxHeight = newHeight + 'px'
-        }
-    }, [])
 
     return {
         ref, disabled

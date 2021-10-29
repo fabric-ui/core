@@ -1,4 +1,4 @@
-import shared from '../shared/Shared.module.css'
+import shared from '../../misc/theme/Shared.module.css'
 import PropTypes from 'prop-types'
 import React, {useEffect, useRef, useState} from 'react'
 import LocalePT from '../shared/LocalePT'

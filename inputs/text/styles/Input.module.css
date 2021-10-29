@@ -95,3 +95,7 @@
         opacity: .15;
     }
 }
+
+.textArea:hover, .textArea:focus{
+    border-color: transparent;
+}

@@ -9,15 +9,15 @@ import Dropdown from "./Dropdown";
 
 export default function Row(props) {
     return (
-        <div style={{display: 'flex', borderBottom: ' var(--border-0) 1px solid'}} ref={props.reference}>
-            <Button className={styles.row} onClick={() => props.onClick()} >
+        <div style={{display: 'flex'}} ref={props.reference}>
+            <Button className={styles.row} variant={'minimal-horizontal'} onClick={() => props.onClick()}>
                 {props.keys.map((e, i) => (
                     <div
                         className={styles.cell}
                         key={i + '-row-cell-' + props.index}
                         style={{
                             width: `${(1 / props.keys.length) * 100}%`,
-                            padding: '0 2px'
+                            padding: '0 4px'
                             // color: 'var(--color-2)'
                         }}>
                         <div className={styles.overflow}>
@@ -26,20 +26,25 @@ export default function Row(props) {
                     </div>
                 ))}
             </Button>
-            <div className={styles.cell}
-                 style={{
-                     display: props.hasOptions ? 'flex' : 'none',
-                     justifyContent: 'center',
-                     width: '30px',
-                     alignItems: 'center',
-                     height: '60px'
-                 }}>
-                <Dropdown
-                    className={styles.mainButton}
-                    label={<ArrowDropDownRounded/>}
-                    buttons={props.controlButtons}
-                    onClickProps={props.entry}/>
-            </div>
+            {props.controlButtons ?
+                <>
+                    <div className={styles.divider}/>
+                    <div className={styles.cell}
+                         style={{
+                             width: '30px',
+                             alignItems: 'unset',
+                             height: '60px',
+                             padding: 0
+                         }}>
+                        <Dropdown
+                            className={styles.mainButton}
+                            label={<ArrowDropDownRounded/>}
+                            buttons={props.controlButtons}
+                            onClickProps={props.entry}/>
+                    </div>
+                </>
+                :
+                null}
         </div>
     )
 }

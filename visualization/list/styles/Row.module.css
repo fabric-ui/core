@@ -4,20 +4,26 @@
     height: 60px;
     width: 100%;
     padding: 0;
-    border-radius: 5px 5px 0 0;
+    background: var(--background-1);
+    border-radius: 5px 0 0 5px;
+
 }
-.row:active{
-    border-color: var(--border-0);
+
+.row:hover {
+    padding-left: 2px;
+
 }
+
 .cell {
+    padding: 4px 2px;
     color: inherit;
     display: flex;
     align-items: center;
-
     height: 100%;
-    font-family: "Roboto";
+}
 
-
+.cell:hover {
+    padding-left: 4px;
 }
 
 .overflow {
@@ -28,28 +34,40 @@
 }
 
 .headerRow {
+    border: transparent 1px solid;
     position: sticky;
     top: 0;
     z-index: 50;
 
-    background: var(--background-1);
     height: 30px;
     display: flex;
     align-items: center;
     width: 100%;
-    border: var(--border-0) 1px solid;
+    transition: 150ms linear;
     border-radius: 5px;
+
+}
+
+.scrolledHeader {
+    border-color: var(--border-0);
+    background: var(--background-1);
 }
 
 
-
-.mainButton{
-    color: var(--color-2);
+.mainButton {
+    border: none;
     background: var(--background-1);
+    border-radius: 0 5px 5px 0;
     padding: 4px;
     width: 30px;
-    height: 30px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.divider {
+    height: 50%;
+    width: 1px;
+    background: var(--border-0);
 }

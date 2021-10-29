@@ -4,7 +4,7 @@ import InputMask from 'react-input-mask'
 import LocalePT from '../shared/LocalePT'
 import PropTypes from "prop-types";
 import ParseCurrency from "./methods/ParseCurrency";
-import shared from '../shared/Shared.module.css'
+import shared from '../../misc/theme/Shared.module.css'
 import Ripple from "../../misc/ripple/Ripple";
 
 
@@ -56,21 +56,22 @@ export default function TextField(props) {
         switch (true) {
             case props.variant === 'area':
                 return (
-                    <textarea
-                        disabled={props.disabled}
-                        placeholder={props.placeholder}
-                        value={props.value ? props.value : ''}
-                        className={styles.inputContainer}
-                        style={{
-                            resize: 'vertical',
-                            zIndex: 5,
-                            position: 'relative',
-                            overflow: 'hidden',
-                            transition: 'border 150ms ease-in, background 150ms ease-in'
-                        }}
-                        onChange={props.handleChange}
-                        maxLength={props.maxLength}
-                    />
+                    <div style={{position: 'relative', width: 'calc(100% - 1px)', overflow: 'hidden', zIndex: 5}}>
+                        <textarea
+                            disabled={props.disabled}
+                            placeholder={props.placeholder}
+                            value={props.value ? props.value : ''}
+                            className={[styles.inputContainer, styles.textArea].join(' ')}
+                            style={{
+                                minHeight: props.size === 'small' ? '36px' : '56px',
+                                resize: 'vertical',
+                                overflow: 'hidden',
+                                transition: 'border 150ms ease-in, background 150ms ease-in'
+                            }}
+                            onChange={props.handleChange}
+                            maxLength={props.maxLength}
+                        />
+                    </div>
                 )
 
             case !props.mask && props.variant !== 'area':
@@ -108,7 +109,7 @@ export default function TextField(props) {
         <div
             style={{
                 width: props.width,
-                height: 'auto',
+                height: 'fit-content',
                 display: 'grid',
                 alignItems: props.value ? 'unset' : 'flex-start',
                 gap: '4px',

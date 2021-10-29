@@ -4,7 +4,7 @@ import SelectorsPT from './locales/SelectorsPT'
 import SelectorModal from "./modules/SelectorModal";
 import {LaunchRounded} from "@material-ui/icons";
 import PropTypes from "prop-types";
-import shared from '../shared/Shared.module.css'
+import shared from '../../misc/theme/Shared.module.css'
 import Row from "./modules/Row";
 import Modal from "../../navigation/modal/Modal";
 import Button from "../button/Button";

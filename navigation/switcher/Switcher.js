@@ -4,37 +4,35 @@ import styles from './styles/Switcher.module.css'
 
 export default function Switcher(props) {
     const ref = useRef()
-    const [currentChild, setCurrentChild] = useState(props.openChild)
+    const [currentChild, setCurrentChild] = useState()
 
-    const handleEnter = () => {
-        ref.current?.classList.add(styles.exitA)
-        ref.current?.addEventListener('animationend', function switcher(e) {
-            setCurrentChild(props.openChild)
-            ref.current?.classList.remove(styles.exitA)
-            ref.current?.classList.add(styles.enterA)
-
-            e.currentTarget.removeEventListener('animationend', switcher)
-        })
-    }
     useEffect(() => {
-        if (props.openChild !== currentChild && props.openChild <= React.Children.toArray(props.children).length)
-            handleEnter()
+        if (props.openChild !== currentChild && props.openChild < React.Children.toArray(props.children).length)
+            ref.current?.classList.add(styles.exitA)
 
     }, [props.openChild])
 
     return (
-
-        <div ref={ref} style={{height: '100%', width: '100%'}}>
+        <div
+            ref={ref}
+            className={props.className}
+            onAnimationEnd={() => {
+                setCurrentChild(props.openChild)
+                ref.current?.classList.add(styles.enterA)
+                ref.current?.classList.remove(styles.exitA)
+            }}
+        >
             {React.Children.toArray(props.children).map((c, i) => i !== currentChild ? null : (
-                <div key={i + '-child'} id={i + '-child'} style={{height: '100%', width: '100%'}}>
+                <React.Fragment key={i + '-child'}>
                     {c}
-                </div>
+                </React.Fragment>
             ))}
         </div>
     )
 }
 
 Switcher.propTypes = {
+    className: PropTypes.string,
     children: PropTypes.node,
     openChild: PropTypes.number
 }

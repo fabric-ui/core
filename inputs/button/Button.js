@@ -22,6 +22,11 @@ export default function Button(props) {
                     normal: styles.outlined,
                     highlight: [styles.outlinedHighlight, styles.baseHighlight].join(' ')
                 }
+            case 'minimal-horizontal':
+                return {
+                    normal: [styles.minimal, styles.minimalHorizontal].join(' '),
+                    highlight: [styles.outlinedHighlight, styles.baseHighlight].join(' ')
+                }
             default:
                 return {
                     normal: [styles.default, styles.outlined].join(' '),
@@ -72,7 +77,7 @@ export default function Button(props) {
 
 Button.propTypes = {
     reference: PropTypes.any,
-    variant: PropTypes.oneOf(['minimal', 'filled', 'outlined']),
+    variant: PropTypes.oneOf(['minimal', 'filled', 'outlined', 'minimal-horizontal']),
     children: PropTypes.node,
     styles: PropTypes.object,
     onClick: PropTypes.func,

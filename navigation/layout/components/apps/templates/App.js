@@ -9,7 +9,7 @@ export default function App(props) {
         <Button
             variant={"outlined"}
             disabled={props.disabled} className={styles.appButton}
-            onClick={() => props.redirect(props.path)}>
+            onClick={() => props.onClick()}>
             {props.icon}
             <div className={[styles.appLabel, styles.overflowEllipsis].join(' ')}>
                 {props.label}
@@ -20,8 +20,7 @@ export default function App(props) {
 }
 App.propTypes = {
     disabled: PropTypes.bool,
-    path: PropTypes.string,
-    redirect: PropTypes.func,
+    onClick: PropTypes.func.isRequired,
     icon: PropTypes.object,
     label: PropTypes.string
 }

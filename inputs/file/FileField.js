@@ -1,7 +1,7 @@
 import React, {useContext, useMemo, useState} from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles/FileField.module.css'
-import shared from '../shared/Shared.module.css'
+import shared from '../../misc/theme/Shared.module.css'
 import {AttachFileRounded} from '@material-ui/icons'
 import LocalePT from '../shared/LocalePT'
 import FileModal from "./templates/FileModal";

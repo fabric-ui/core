@@ -29,13 +29,7 @@ export default function Apps(props) {
                 <AppsWrapper>
                     {props.buttons.map((button, index) => (
                         <React.Fragment key={'app-button-' + index}>
-                            <App
-                                redirect={props.redirect}
-                                disabled={button.disabled}
-                                label={button.label}
-                                icon={button.icon}
-                                path={button.path}
-                            />
+                            <App {...button}/>
                         </React.Fragment>
                     ))}
                 </AppsWrapper>
@@ -44,14 +38,13 @@ export default function Apps(props) {
     )
 }
 Apps.propTypes = {
-    redirect: PropTypes.func,
 
     buttons: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string,
             icon: PropTypes.any,
-            path: PropTypes.string,
             disabled: PropTypes.bool,
+            onClick: PropTypes.func.isRequired
         })
     )
 }

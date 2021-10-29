@@ -1,20 +1,33 @@
 @import "../../../misc/theme/styles.module.css";
 
+.content {
+    flex-grow: 1;
+}
 
 .wrapper {
+    flex-grow: 1;
+
+    overflow: hidden;
+    max-height: 100%;
+    height: 100%;
     position: relative;
     width: 100%;
-    height: 100%;
+
     display: flex;
+    padding: 8px;
+
 
 }
 
+
 .header {
-    border-right: var(--border-0) 1px solid;
-    width: 13vw;
+    flex-grow: 1;
+    width: 25%;
     background-color: var(--background-1);
+
     display: grid;
     gap: 24px;
+    border-radius: 8px;
 
     transition: 150ms linear;
     height: 100%;
@@ -25,7 +38,7 @@
     overflow: hidden;
 
     width: 100%;
-    padding: 4px 0;
+    padding: 4px;
 }
 
 .button {

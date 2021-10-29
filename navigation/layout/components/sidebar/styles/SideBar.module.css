@@ -22,11 +22,9 @@
     /*width: 60px;*/
     transition: 150ms linear;
     background: var(--background-1);
-
-    border-right: var(--border-0) 1px solid;
     position: sticky;
     left: 0;
-    height: calc(100% - 45px);
+    height: 100%;
 
 }
 

@@ -8,8 +8,11 @@ export default function Tabs(props) {
     const [open, setOpen] = useState(0)
 
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.header}>
+        <div
+            className={styles.wrapper}
+            style={{background: props.noChildHighlight ? 'unset' : undefined}}>
+            <div className={styles.header}
+                 style={{background: props.noChildHighlight ? 'var(--background-1)' : undefined}}>
                 {props.children}
                 <div className={styles.tabs}>
                     {props.buttons.map((e, i) => (
@@ -27,14 +30,21 @@ export default function Tabs(props) {
                     ))}
                 </div>
             </div>
-            <Switcher openChild={open}>
-                {props.buttons.map(e => e.children)}
-            </Switcher>
+            <div className={props.noChildHighlight ? undefined : styles.children}>
+                <Switcher openChild={open} className={props.className}>
+                    {props.buttons.map((e, i) => (
+                        <React.Fragment key={'horizontal-tabs-child-' + i}>
+                            {e.children}
+                        </React.Fragment>
+                    ))}
+                </Switcher>
+            </div>
         </div>
     )
 }
 
 Tabs.proptypes = {
+    className: PropTypes.string,
     buttons: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string,
@@ -42,5 +52,6 @@ Tabs.proptypes = {
             onClick: PropTypes.func
         })
     ),
-    children: PropTypes.node
+    children: PropTypes.node,
+    noChildHighlight: PropTypes.bool
 }
