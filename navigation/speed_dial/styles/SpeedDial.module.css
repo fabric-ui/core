@@ -1,0 +1,36 @@
+@import "../../../misc/theme/styles.module.css";
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px;
+    height: 30px;
+    width: 30px;
+}
+
+.contentButton {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    padding: 8px;
+    background: var(--background-1);
+    box-shadow: var(--box-shadow-1) 0 0 1px 1px;
+}
+.content{
+    transition: 150ms linear;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    display: grid;
+    justify-content: center;
+    gap: 8px;
+    width: 50px;
+    padding-bottom: 16px;
+    z-index: 999
+}

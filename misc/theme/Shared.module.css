@@ -31,7 +31,7 @@
     border-radius: 5px;
 }
 
-.wrapper:hover::after, .wrapper:focus-within::after {
+.wrapper:hover::after, .wrapper:focus-within::after, .wrapper[highlight]::after {
     border-color: var(--accent_color);
 }
 
@@ -44,7 +44,7 @@
     transition: visibility 150ms linear, opacity 150ms linear;
 
     color: var(--color-1);
-    font-weight: bold;
+    /*font-weight: 600;*/
     font-size: .8rem;
     margin-top: auto;
     user-select: none;

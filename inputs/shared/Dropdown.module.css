@@ -16,7 +16,7 @@
     justify-content: flex-start;
     gap: 4px;
     align-items: center;
-    border: var(--border-0) 1px solid;
+
 
     box-shadow: unset;
     transition: 150ms linear;
@@ -34,10 +34,6 @@
     border-color: var(--border-0);
     cursor: default;
     color: var(--color-4);
-}
-
-.selectContainer:hover {
-    border-color: var(--accent_color);
 }
 
 .dropDownContainer {

@@ -2,6 +2,9 @@
 
 .content {
     flex-grow: 1;
+    border-radius: 5px 5px 0 0 ;
+    padding: 8px;
+    background-color: var(--background-base);
 }
 
 .wrapper {
@@ -12,22 +15,19 @@
     height: 100%;
     position: relative;
     width: 100%;
-
+    background-color: var(--background-1);
     display: flex;
-    padding: 8px;
-
-
 }
 
 
 .header {
     flex-grow: 1;
     width: 25%;
-    background-color: var(--background-1);
+    max-width: 250px;
 
     display: grid;
     gap: 24px;
-    border-radius: 8px;
+
 
     transition: 150ms linear;
     height: 100%;

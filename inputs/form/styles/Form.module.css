@@ -2,20 +2,10 @@
 
 .container {
     flex-grow: 1;
-
-
-    background: var(--background-1);
-    border-radius: 5px;
-
     max-height: 100%;
-
     width: 100%;
-    display: grid;
     overflow-y: auto;
-    overflow-x: hidden;
-
-    border: var(--border-0) 1px solid;
-
+    overflow-x: visible;
 }
 
 .headerContainer {
@@ -53,54 +43,6 @@
 }
 
 
-.returnButton {
-    border-bottom: none;
-    padding: 8px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-    color: var(--color-0);
-    height: 40px;
-    width: 40px;
-}
-
-.returnButton:hover {
-    color: #ff5555;
-    background: var(--background-2);
-}
-
-.returnButton:active {
-    color: var(--color-0);
-    background: var(--background-2);
-}
-
-.optionsContainer {
-    display: grid;
-    gap: 4px;
-    padding: 8px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-    border-radius: 8px;
-    position: absolute;
-    z-index: 999;
-    background: var(--background-1);
-    /*border: #0095ff 2px solid;*/
-    top: 56px;
-    right: 0px;
-    animation: popIn 150ms linear;
-}
-
-@keyframes popIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 .header {
     padding: 4px;
     display: flex;
@@ -114,40 +56,17 @@
 }
 
 .submitContainer {
-    bottom: 0;
-    border-radius: 0 0 5px 5px;
-    border-bottom: none;
-    border-top: var(--border-0) 1px solid;
-    padding: 8px;
-    z-index: 50
-}
+    height: 46px;
 
-.wrapper {
+    border-radius: 5px;
+    bottom: 0;
+    border: var(--border-0) 1px solid;
+    padding: 8px;
+    z-index: 50;
 
     display: flex;
-    flex-flow: row wrap;
-    column-gap: 32px;
-    /*row-gap: 16px;*/
-    /*justify-content: center;*/
-    max-width: 100%;
-    overflow: hidden;
-
-    border-top: var(--border-0) 1px solid;
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    padding: 12px 0 24px 0;
-    outline: none;
-
-    margin: auto;
-}
-
-.legend {
-    padding-right: 16px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-2);
-    padding-left: 0;
+    justify-content: space-between;
+    align-items: center;
 }
 
 

@@ -21,13 +21,8 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-
     font-size: 1.2rem;
-    /*background-color: var(--background-1);*/
-    /*border: var(--border-0) 1px solid;*/
     border-radius: 5px;
-
-
     font-weight: bold;
     color: var(--color-0);
 }
@@ -42,15 +37,12 @@
     padding: 4px;
     height: 50px;
 
-    border: var(--border-0) 1px solid;
     display: flex;
     align-items: center;
     cursor: pointer;
 
 }
-.row:hover{
-    border-color: var(--color);
-}
+
 .overflowEllipsis {
     overflow: hidden;
     text-overflow: ellipsis;

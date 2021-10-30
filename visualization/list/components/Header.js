@@ -32,8 +32,8 @@ export default function Header(props) {
                     />
                 </React.Fragment>
             ))}
-            <div className={styles.cell}
-                 style={{display: props.hasOptions ? 'flex' : 'none', justifyContent: 'center', width: '30px', padding: 0}}>
+            <div className={styles.cell} disabled={true}
+                 style={{display: props.hasOptions ? 'flex' : 'none', justifyContent: 'center', width: '30px'}}>
                 <SettingsRounded style={{fontSize: '1.1rem', color: 'var(--color-4)'}}/>
             </div>
         </div>

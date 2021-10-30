@@ -21,9 +21,7 @@
 .button:disabled {
     cursor: unset;
 }
-.button:disabled::after{
-    content: none;
-}
+
 .button:hover{
     --delay: 500ms;
 }
@@ -37,6 +35,9 @@
     background: var(--color);
     opacity: 0;
     transition: 150ms linear var(--delay);
+}
+.button:disabled::after{
+    content: none;
 }
 .button:not(:active){
     --delay: 0ms;
@@ -181,7 +182,7 @@
 
     position: relative;
     background: transparent;
-    border: var(--border-1) 1px solid;
+    border: var(--border-0) 1px solid;
     transition: 150ms ease-in;
 }
 

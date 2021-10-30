@@ -1,39 +1,53 @@
 import shared from '../../misc/theme/Shared.module.css'
 import PropTypes from 'prop-types'
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useMemo, useRef, useState} from 'react'
 import LocalePT from '../shared/LocalePT'
-import dStyles from './styles/DateField.module.css'
+import styles from './styles/DateField.module.css'
 import {ArrowBackIosRounded, CalendarTodayRounded} from "@material-ui/icons";
 import Dates from "./misc/Dates";
 import FloatingBox from "../floating_box/FloatingBox";
 import Button from "../button/Button";
+import Ripple from "../../misc/ripple/Ripple";
+import TextField from "../text/TextField";
 
 export default function DateField(props) {
-    const lang = LocalePT
     const [open, setOpen] = useState()
-    const [selectedMonth, setSelectedMonth] = useState()
-    const [selectedDay, setSelectedDay] = useState()
-    const [year, setYear] = useState()
+    const date = useMemo(() => {
+        let day, month, year
+
+        if (props.value) {
+            const d = props.value.split('/')
+            day = d.length >= 1 ? parseInt(d[0]) : undefined
+            month = d.length >= 2 ? parseInt(d[1]) : undefined
+            year = d.length === 3 ? parseInt(d[2]) : undefined
+        }
+
+        return {
+            day: day,
+            month: month,
+            year: year,
+            valid: (!day || (day > 0 && day <= 31)) && (!month || (month > 0 && month <= 12))
+        }
+    }, [props.value])
+
     const ref = useRef()
-    const [mounted, setMounted] = useState(false)
 
     const getDays = (month) => {
         let res = []
-        if (Dates[month - 1] !== undefined) {
+        if ((month - 1) < Dates.length) {
             let days = Dates[month - 1].days;
             for (let i = 0; i < days; i++) {
                 res.push(
                     <Button
                         styles={{padding: '8px', width: '35px', height: '35px'}}
-                        highlight={selectedDay === (i + 1)}
+                        highlight={date.day === (i + 1)}
                         variant={'minimal'}
                         onClick={() => {
-                            const date = new Date()
+                            const currentDate = new Date()
+                            const newDay = i + 1
+
                             setOpen(false)
-                            setSelectedMonth(month)
-                            setSelectedDay(i + 1)
-                            setYear(year === undefined ? date.getFullYear() : year)
-                            props.handleChange(`${year === undefined ? date.getFullYear() : year}-${month}-${i + 1}`)
+                            props.handleChange(`${newDay < 10 ? ('0' + newDay) : newDay}/${month < 10 ? ('0' + month) : month}/${!date.year ? currentDate.getFullYear() : date.year}`)
                         }}
                     >
                         {i + 1}
@@ -43,135 +57,65 @@ export default function DateField(props) {
         }
         return res
     }
-    useEffect(() => {
 
-        if (!mounted && props.value !== undefined && props.value !== null) {
-            setMounted(true)
-
-            let value = new Date(props.value)
-
-            setSelectedDay(parseInt(value.getDate()) + 1)
-            setSelectedMonth(parseInt(value.getMonth() + 1))
-            setYear(parseInt(value.getFullYear()))
-        }
-
-
-    }, [open, props.value])
     return (
-        <div className={dStyles.container} style={{
-            width: props.width,
-            alignItems: props.value ? 'unset' : 'flex-start',
-
-        }} ref={ref}>
-            <div className={shared.labelContainer}>{props.label}</div>
-
-            <div className={dStyles.fieldsContainer}>
-                <div style={{display: 'flex', alignItems: 'center', gap: '4px', width: 'fit-content'}}>
-                    <input
-                        disabled={props.disabled}
-                        className={dStyles.inputContainer}
-                        placeholder={'DD'}
-                        type="text" pattern="\d*" maxLength="2"
-                        value={selectedDay < 10 ? `${selectedDay}` : selectedDay}
-                        style={{width: '40px'}}
-                        onChange={event => {
-                            if ((event.target.value <= 31 && event.target.value >= 1) && event.target.value.length <= 2 || (selectedDay !== undefined && event.target.value.length < selectedDay.length)) {
-                                setSelectedDay(event.target.value.length === 0 ? undefined : event.target.value)
-                                props.handleChange(
-                                    `${year}-${selectedMonth}-${event.target.value}`
-                                )
-                            }
-                        }}
-                    />
-                    <div className={dStyles.divider}/>
-                    <input
-                        disabled={props.disabled}
-                        className={dStyles.inputContainer}
-                        placeholder={'MM'}
-                        value={selectedMonth < 10 ? `${selectedMonth}` : (selectedMonth)}
-                        type="number"
-                        max={12}
-                        min={1}
-                        style={{width: '40px'}}
-                        onChange={event => {
-                            if ((event.target.value <= 12 && event.target.value >= 1) && event.target.value.length <= 2 || (selectedMonth !== undefined && event.target.value.length < selectedMonth.length)) {
-                                setSelectedMonth(event.target.value.length === 0 ? undefined : event.target.value)
-                                props.handleChange(
-                                    `${year}-${event.target.value}-${selectedDay}`
-                                )
-                            }
-                        }}
-                    />
-                    <div className={dStyles.divider}/>
-                    <input
-                        disabled={props.disabled}
-                        className={dStyles.inputContainer}
-                        placeholder={'AAAA'}
-                        value={year}
-                        type="number"
-                        style={{width: '60px'}}
-                        onChange={event => {
-                            if ((event.target.value <= 5000 && event.target.value >= 0) && event.target.value.length <= 4 || (year !== undefined && event.target.value.length < year.length)) {
-                                setYear(event.target.value.length === 0 ? undefined : event.target.value)
-                                props.handleChange(
-                                    `${event.target.value}-${selectedMonth}-${selectedDay}`
-                                )
-                            }
-                        }}
-                    />
-                </div>
-                <Button
-                    variant={'minimal'}
-                    disabled={props.disabled}
-                    highlight={open}
-                    onClick={() => {
-                        setOpen(true)
-                    }}>
-                    <CalendarTodayRounded style={{fontSize: '1.2rem'}}/>
-                </Button>
-
-                <FloatingBox open={open} setOpen={setOpen} reference={ref.current}>
-                    <div className={dStyles.calendar}>
-                        <div className={dStyles.monthContainer}>
-                            <button className={dStyles.buttonContainer} style={{width: 'fit-content', margin: 'unset'}}
-                                    onClick={() => {
-                                        if ((selectedMonth !== undefined && selectedMonth === 1) || (!selectedMonth && new Date().getMonth() === 1)) {
-                                            setSelectedMonth(12)
-                                            setYear(year === undefined ? (new Date().getFullYear() - 1) : (year - 1))
-                                        } else
-                                            setSelectedMonth(selectedMonth === undefined ? (new Date().getMonth() - 1) : (selectedMonth - 1))
-
-
-                                    }}>
-                                <ArrowBackIosRounded style={{fontSize: '1.2rem'}}/>
-                            </button>
-                            {(selectedMonth === undefined || selectedMonth > 12 || selectedMonth < 1) || Dates[selectedMonth - 1] === undefined ? Dates[new Date().getMonth() - 1].month : Dates[selectedMonth - 1].month} - {year === undefined ? new Date().getFullYear() : year}
-                            <button className={dStyles.buttonContainer} style={{width: 'fit-content', margin: 'unset'}}
-                                    onClick={() => {
-                                        if ((selectedMonth !== undefined && selectedMonth === 12) || (!selectedMonth && new Date().getMonth() === 12)) {
-                                            setSelectedMonth(1)
-                                            setYear(year === undefined ? (new Date().getFullYear() + 1) : (year + 1))
-                                        } else
-                                            setSelectedMonth(selectedMonth === undefined ? (new Date().getMonth() + 1) : (selectedMonth + 1))
-                                    }}>
-                                <ArrowBackIosRounded style={{fontSize: '1.2rem', transform: 'rotate(180deg'}}/>
-                            </button>
+        <div  ref={ref} style={{position: 'relative', width: props.width, height: 'fit-content'}}>
+            <TextField
+                handleChange={e => props.handleChange(e.target.value)}
+                disabled={props.disabled}
+                width={'100%'} highlight={open}
+                value={props.value}
+                size={props.size} colorVariant={date.valid ? 'primary' : 'secondary'}
+                placeholder={props.label} label={props.label}
+                mask={'99/99/9999'}
+                maskEnd={(
+                    <Button onClick={() => setOpen(true)}>
+                        <CalendarTodayRounded style={{fontSize: '1.2rem'}}/>
+                    </Button>
+                )} noMargin={true}
+                required={props.required}
+            />
+            <FloatingBox parentNode={ref.current?.parentNode} open={open} setOpen={setOpen} reference={ref.current}>
+                <div className={styles.calendar}>
+                    <div className={styles.monthContainer}>
+                        <button className={styles.buttonContainer} style={{width: 'fit-content', margin: 'unset'}}
+                                onClick={() => {
+                                    const d = new Date()
+                                    const newDay = date.day ? date.day : d.getDate()
+                                    const newMonth = (date.month && date.month === 1) || (!date.month && d.getMonth() === 1) ? 12 : (date.month ? date.month : d.getMonth()) - 1
+                                    const newYear = newMonth === 12 ? (date.year ? date.year - 1 : d.getFullYear() - 1) : (date.year ? date.year : d.getFullYear())
+                                    props.handleChange(`${newDay < 10 ? ('0' + newDay) : newDay}/${newMonth < 10 ? ('0' + newMonth) : newMonth}/${newYear}`)
+                                }}>
+                            <ArrowBackIosRounded style={{fontSize: '1.2rem'}}/>
+                        </button>
+                        <div className={styles.currentDate}>
+                            <div>
+                                {!date.month || date.month > 12 || date.month < 1 ? Dates[(new Date()).getMonth()].month : Dates[date.month - 1].month}
+                            </div>
+                            -
+                            <div>
+                                {!date.year ? new Date().getFullYear() : date.year}
+                            </div>
                         </div>
+                        <button className={styles.buttonContainer} style={{width: 'fit-content', margin: 'unset'}}
+                                onClick={() => {
+                                    const d = new Date()
+                                    const newDay = date.day ? date.day : d.getDate()
+                                    const newMonth = (date.month && date.month === 12) || (!date.month && d.getMonth() === 12) ? 1 : (date.month ? date.month : d.getMonth()) + 1
+                                    const newYear = newMonth === 1 ? (date.year ? date.year + 1 : d.getFullYear() + 1) : (date.year ? date.year : d.getFullYear())
+                                    props.handleChange(`${newDay < 10 ? ('0' + newDay) : newDay}/${newMonth < 10 ? ('0' + newMonth) : newMonth}/${newYear}`)
 
-                        <div className={dStyles.daysContainer}>
-                            {getDays(selectedMonth === undefined ? new Date().getMonth() : selectedMonth).map(e => e)}
-                        </div>
+                                }}>
+                            <ArrowBackIosRounded style={{fontSize: '1.2rem', transform: 'rotate(180deg'}}/>
+                        </button>
                     </div>
 
-                </FloatingBox>
+                    <div className={styles.daysContainer}>
+                        {getDays(!date.month || date.month > 12 || date.month < 1 ? (new Date()).getMonth() : date.month).map(e => e)}
+                    </div>
+                </div>
 
-
-            </div>
-            <div className={shared.alertLabel}
-                 style={{
-                     color: (props.value === null || !props.value) ? '#ff5555' : '#262626',
-                     visibility: props.required ? 'visible' : 'hidden'
-                 }}>{lang.required}</div>
+            </FloatingBox>
         </div>
     )
 }
@@ -182,5 +126,6 @@ DateField.propTypes = {
     handleChange: PropTypes.func.isRequired,
     value: PropTypes.string,
     required: PropTypes.bool,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'default'])
 }

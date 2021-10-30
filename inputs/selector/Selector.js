@@ -50,16 +50,14 @@ export default function Selector(props) {
                         opacity: props.value !== null && props.value !== undefined ? '1' : '0',
                         transition: 'visibility 0.2s ease,opacity 0.2s ease',
                         textTransform: 'capitalize',
-                        color: props.disabled ? '#666666' : undefined
                     }}
                 >
                     {props.title}
                 </div>
                 <div style={{width: '100%', overflow: 'hidden', padding: '2px'}}>
-
-
                     <div
                         className={[shared.wrapper, color.className].join(' ')}
+                        highlight={open}
                     >
                         {props.value !== null && props.value !== undefined ?
                             <Row
@@ -72,9 +70,12 @@ export default function Selector(props) {
                             <Button
                                 disabled={props.disabled}
                                 highlight={open}
+                                variant={'outlined'}
                                 styles={{
                                     height: props.size === 'small' ? '36px' : '56px',
-                                    overflow: "hidden", maxWidth: 'unset', marginTop: 'unset'
+                                    overflow: "hidden",
+                                    maxWidth: 'unset',
+                                    marginTop: 'unset'
                                 }} color={props.colorVariant === 'secondary' ? 'secondary' : 'primary'}
                                 className={[styles.button, shared.labelContainer].join(' ')}
                                 onClick={() => setOpen(true)}

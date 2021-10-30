@@ -48,17 +48,18 @@ export default function DropDownField(props) {
                      opacity: (props.value !== undefined && props.value !== null) ? '1' : '0',
                  }}>{props.label}
             </div>
-            <div className={shared.wrapper}>
-                <button
-                    disabled={props.disabled}
-                    style={{
+            <div className={shared.wrapper} highlight={open}>
+                <Button
+                    disabled={props.disabled} variant={"outlined"}
+                    highlight={open}
+                    styles={{
                         height: props.size === 'small' ? '36px' : '56px',
-                        overflow: "hidden", maxWidth: 'unset'
+                        overflow: "hidden",
+                        maxWidth: 'unset'
                     }}
                     className={[color.className, styles.selectContainer, shared.labelContainer].join(' ')}
                     onClick={() => setOpen(!open)}
                 >
-                    <Ripple opacity={.15} disabled={props.disabled} accentColor={color.color}/>
                     <ArrowDropDownRounded
                         style={{transform: !open ? 'unset' : 'rotate(180deg)', transition: '150ms linear'}}/>
                     {selected ?
@@ -67,9 +68,15 @@ export default function DropDownField(props) {
                         </div>
                         : props.label}
 
-                </button>
+                </Button>
             </div>
-            <FloatingBox open={open} setOpen={setOpen} reference={ref.current} width={'100%'}>
+            <FloatingBox
+                parentNode={ref.current?.parentNode}
+                open={open}
+                setOpen={setOpen}
+                reference={ref.current}
+                width={'100%'}
+            >
 
                 <div className={styles.dropDownChoicesContainer}>
                     {props.choices.map((choice, index) => (

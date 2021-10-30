@@ -7,13 +7,15 @@
     height: 100%;
     position: relative;
     width: 100%;
-
+    border-radius: 5px 5px 0 0;
     display: flex;
     flex-flow: column;
     background-color: var(--background-1);
+
 }
 
 .header {
+    /*border-bottom: var(--border-0) 1px solid;*/
 
     height: fit-content;
     display: grid;
@@ -29,11 +31,6 @@
     gap: 8px;
 }
 
-.children {
-    overflow: hidden;
-    border: var(--border-0) 1px solid;
+.content{
     background: var(--background-base);
-    border-radius: 8px 8px 0 0;
-    height: 100%;
-    width: 100%;
 }

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import styles from './styles/Switcher.module.css'
 
 export default function Switcher(props) {
@@ -7,8 +7,9 @@ export default function Switcher(props) {
     const [currentChild, setCurrentChild] = useState()
 
     useEffect(() => {
-        if (props.openChild !== currentChild && props.openChild < React.Children.toArray(props.children).length)
+        if (props.openChild !== currentChild && props.openChild < React.Children.toArray(props.children).length) {
             ref.current?.classList.add(styles.exitA)
+        }
 
     }, [props.openChild])
 
@@ -16,6 +17,7 @@ export default function Switcher(props) {
         <div
             ref={ref}
             className={props.className}
+            style={props.styles}
             onAnimationEnd={() => {
                 setCurrentChild(props.openChild)
                 ref.current?.classList.add(styles.enterA)
@@ -32,7 +34,9 @@ export default function Switcher(props) {
 }
 
 Switcher.propTypes = {
+    animationType: PropTypes.oneOf(['sideways', 'vertically', 'fade']),
     className: PropTypes.string,
     children: PropTypes.node,
-    openChild: PropTypes.number
+    openChild: PropTypes.number,
+    styles: PropTypes.object
 }

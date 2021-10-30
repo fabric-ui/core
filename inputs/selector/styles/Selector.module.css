@@ -26,40 +26,22 @@
 
 
 .button {
-
     user-select: none;
     position: relative;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: var(--border-0) 1px solid;
 
-    box-shadow: unset;
-    transition: 250ms linear;
+
+    transition: inherit;
     background: var(--background-1);
     width: 100%;
-    outline: none;
+
     padding: 5px;
-
-
-    cursor: pointer;
-    border-radius: 5px;
 
     max-width: 100%;
     overflow: hidden;
-}
-
-.button:hover {
-    border-color: var(--accent_color);
-}
-
-
-.button:disabled {
-    cursor: unset;
-    box-shadow: none;
-    border: var(--border-1) 1px solid;
-    background: var(--background-1);
 }
 
 .alertLabel {

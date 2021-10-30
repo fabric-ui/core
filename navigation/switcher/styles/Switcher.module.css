@@ -1,10 +1,10 @@
 
 .enterA {
-    animation: enter 250ms ease;
+    animation: enter 150ms ease-in-out;
 }
 
 .exitA {
-    animation: exit 250ms ease;
+    animation: exit 150ms ease-in-out;
 }
 
 @keyframes exit {

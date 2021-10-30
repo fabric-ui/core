@@ -22,7 +22,7 @@
     height: 100%;
 }
 
-.cell:hover {
+.cell:not([disabled]):hover {
     padding-left: 4px;
 }
 

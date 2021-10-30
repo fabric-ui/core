@@ -15,9 +15,9 @@ export default function TextField(props) {
     const ref = useRef()
     useEffect(() => {
         if (props.maskStart)
-            ref.current.style.paddingLeft = (maskStartRef.current.offsetWidth + 8) + 'px'
+            ref.current.style.paddingLeft = (maskStartRef.current.offsetWidth + 12) + 'px'
         if (props.maskEnd)
-            ref.current.style.paddingRight = (maskEndRef.current.offsetWidth + 8) + 'px'
+            ref.current.style.paddingRight = (maskEndRef.current.offsetWidth + 12) + 'px'
     }, [props.maskStart, props.maskEnd])
 
 
@@ -61,7 +61,7 @@ export default function TextField(props) {
                             disabled={props.disabled}
                             placeholder={props.placeholder}
                             value={props.value ? props.value : ''}
-                            className={[styles.inputContainer, styles.textArea].join(' ')}
+                            className={styles.inputContainer}
                             style={{
                                 minHeight: props.size === 'small' ? '36px' : '56px',
                                 resize: 'vertical',
@@ -97,14 +97,14 @@ export default function TextField(props) {
         if (props.colorVariant === 'secondary')
             return {
                 className: shared.secondaryVariant,
-                color: '#0095ff'
+                color: '#ff5555'
             }
         else return {
             className: undefined,
             color: '#0095ff'
         }
 
-    }, [])
+    }, [props.colorVariant])
     return (
         <div
             style={{
@@ -126,7 +126,7 @@ export default function TextField(props) {
             >
                 {props.label}
             </div>
-            <div className={[color.className, shared.wrapper].join(' ')} disabled={props.disabled}>
+            <div className={[color.className, shared.wrapper].join(' ')} highlight={props.highlight} disabled={props.disabled}>
                 <div className={styles.focus}>
                     {getField()}
                     <Ripple opacity={.15} accentColor={color.color}/>
@@ -146,6 +146,7 @@ export default function TextField(props) {
 }
 
 TextField.propTypes = {
+    highlight: PropTypes.bool,
     width: PropTypes.string,
     placeholder: PropTypes.string,
     label: PropTypes.string,

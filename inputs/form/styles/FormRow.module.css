@@ -1,0 +1,24 @@
+
+.wrapper {
+
+    background: var(--background-1);
+    border-radius: 5px;
+    border: var(--border-0) 1px solid;
+
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 32px;
+
+    width: 100%;
+    overflow: visible;
+
+    padding: 10px;
+}
+
+.legend {
+    padding-right: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-2);
+    padding-left: 0;
+}

@@ -5,18 +5,35 @@ import styles from './styles/FloatingBox.module.css'
 export default function FloatingBox(props) {
     const ref = useRef()
     const handleMouseDown = (event) => {
-        console.log(event.target)
         if (props.open && !document.elementsFromPoint(event.clientX, event.clientY).includes(ref.current))
             props.setOpen(false)
     }
+
     useEffect(() => {
+
 
         document.addEventListener('mousedown', handleMouseDown)
         return () => {
             document.removeEventListener('mousedown', handleMouseDown)
         }
     }, [props.open])
+    useEffect(() => {
+        if(props.parentNode) {
+            const p = props.parentNode.getBoundingClientRect()
+            const b = ref.current.parentNode?.getBoundingClientRect()
+            const childOffset = b.y - p.y
 
+            if (childOffset > p.height/2) {
+                console.log('CASE 1')
+                ref.current.style.top = '0'
+                ref.current.style.transform = 'translateY(calc(-100% + 16px))'
+            } else {
+                console.log('CASE 2')
+                ref.current.style.top = 'calc(100% + 16px)'
+                ref.current.style.transform = 'translateY(-50%)'
+            }
+        }
+    }, [props.parentNode])
     return (
         <div
             style={{
@@ -33,6 +50,7 @@ export default function FloatingBox(props) {
 }
 
 FloatingBox.propTypes = {
+    parentNode: PropTypes.object,
     open: PropTypes.bool,
     setOpen: PropTypes.func,
     children: PropTypes.node,

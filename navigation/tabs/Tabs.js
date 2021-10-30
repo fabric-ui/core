@@ -30,15 +30,18 @@ export default function Tabs(props) {
                     ))}
                 </div>
             </div>
-            <div className={props.noChildHighlight ? undefined : styles.children}>
-                <Switcher openChild={open} className={props.className}>
-                    {props.buttons.map((e, i) => (
-                        <React.Fragment key={'horizontal-tabs-child-' + i}>
-                            {e.children}
-                        </React.Fragment>
-                    ))}
-                </Switcher>
-            </div>
+
+            <Switcher
+                animationType={'sideways'}
+                openChild={open}
+                className={[props.className, styles.content].join(' ')}>
+                {props.buttons.map((e, i) => (
+                    <React.Fragment key={'horizontal-tabs-child-' + i}>
+                        {e.children}
+                    </React.Fragment>
+                ))}
+            </Switcher>
+
         </div>
     )
 }

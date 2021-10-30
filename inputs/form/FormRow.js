@@ -1,20 +1,15 @@
 import PropTypes from 'prop-types'
-import styles from "./styles/Form.module.css";
+import styles from "./styles/FormRow.module.css";
 import React from "react";
 
 export default function FormRow(props) {
 
     return (
-        <fieldset
-            className={styles.wrapper}
-            style={{
-                borderTop: props.title === undefined ? 'none' : undefined,
-                paddingTop: props.title === undefined ? '0' : undefined
-            }}>
-            <legend style={{display: props.title === undefined ? 'none' : undefined}}
-                    className={styles.legend}>{props.title}</legend>
+        <div className={styles.wrapper}>
+            <h1 style={{display: props.title === undefined ? 'none' : undefined}}
+                    className={styles.legend}>{props.title}</h1>
             {props.children}
-        </fieldset>
+        </div>
     )
 }
 

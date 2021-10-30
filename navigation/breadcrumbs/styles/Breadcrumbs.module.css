@@ -6,14 +6,16 @@
     align-content: center;
     justify-content: center;
     gap: 8px;
-
+    border-radius: 5px;
     background: var(--background-1);
     width: 100%;
     padding: 8px;
+
+    overflow: hidden;
 }
 
 .crumbWrapper {
     display: flex;
     align-items: center;
-    
+
 }
