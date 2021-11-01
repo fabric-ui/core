@@ -1,6 +1,6 @@
 @import "../../../misc/theme/styles.module.css";
 
-.container {
+.wrapper {
     flex-grow: 1;
     max-height: 100%;
     width: 100%;
@@ -8,28 +8,10 @@
     overflow-x: visible;
 }
 
-.headerContainer {
-    position: sticky;
-    font-family: "Roboto";
-    top: 0;
-    z-index: 50;
-    background: var(--background-1);
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    border-bottom: var(--border-0) 1px solid;
-}
-
 .buttonContainer {
     height: 100%;
 
-    outline: none;
-    box-shadow: none;
-    background: transparent;
-    border-radius: 8px;
-    border: none;
+    border-radius: 5px;
     transition: 150ms ease-in-out;
     padding: 4px;
 
@@ -37,44 +19,35 @@
     justify-content: flex-start;
     align-items: center;
     gap: 8px;
-
-    cursor: pointer;
-    color: var(--color-1);
 }
 
 
 .header {
-    padding: 4px;
-    display: flex;
-    gap: 4px;
-    align-items: center;
+
+    box-shadow: var(--box-shadow-1) 0 0 2px 1px;
+    position: sticky;
     font-family: "Roboto";
+    top: 0;
+    z-index: 50;
+    background: var(--background-1);
+    height: 75px;
+
+    display: grid;
+    gap: 4px;
+
+    border-bottom: var(--border-0) 1px solid;
+    padding: 8px;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
 
     color: var(--color-1);
+    margin-bottom: 16px;
 }
 
-.submitContainer {
-    height: 46px;
-
-    border-radius: 5px;
-    bottom: 0;
-    border: var(--border-0) 1px solid;
-    padding: 8px;
-    z-index: 50;
-
+.headerContent {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-}
-
-
-.saveButton {
-    text-align: center;
-    width: 100%;
-}
-
-.saveButton:disabled {
-    border: var(--border-0) 1px solid;
+    gap: 8px;
 }

@@ -75,7 +75,8 @@ export default function Selector(props) {
                                     height: props.size === 'small' ? '36px' : '56px',
                                     overflow: "hidden",
                                     maxWidth: 'unset',
-                                    marginTop: 'unset'
+                                    marginTop: 'unset',
+                                    zIndex: 2
                                 }} color={props.colorVariant === 'secondary' ? 'secondary' : 'primary'}
                                 className={[styles.button, shared.labelContainer].join(' ')}
                                 onClick={() => setOpen(true)}

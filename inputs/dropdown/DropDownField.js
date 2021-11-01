@@ -7,7 +7,6 @@ import FloatingBox from "../floating_box/FloatingBox";
 import ToolTip from "../../feedback/tooltip/ToolTip";
 
 import shared from '../../misc/theme/Shared.module.css'
-import Ripple from "../../misc/ripple/Ripple";
 import Button from "../button/Button";
 import ThemeContext from "../../misc/theme/ThemeContext";
 

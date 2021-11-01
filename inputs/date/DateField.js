@@ -1,13 +1,10 @@
-import shared from '../../misc/theme/Shared.module.css'
 import PropTypes from 'prop-types'
-import React, {useEffect, useMemo, useRef, useState} from 'react'
-import LocalePT from '../shared/LocalePT'
+import React, {useMemo, useRef, useState} from 'react'
 import styles from './styles/DateField.module.css'
 import {ArrowBackIosRounded, CalendarTodayRounded} from "@material-ui/icons";
 import Dates from "./misc/Dates";
 import FloatingBox from "../floating_box/FloatingBox";
 import Button from "../button/Button";
-import Ripple from "../../misc/ripple/Ripple";
 import TextField from "../text/TextField";
 
 export default function DateField(props) {

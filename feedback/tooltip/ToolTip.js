@@ -51,7 +51,7 @@ export default function ToolTip(props) {
             switch (props.justify) {
                 case 'end': {
                     mountingPoint.current.style.left = (rect.left + rect.width + 8) + 'px'
-                    translateX = '100%'
+                    translateX = '0'
                     break
                 }
                 case 'start': {

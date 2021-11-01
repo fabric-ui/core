@@ -7,7 +7,6 @@
     height: 100%;
     position: relative;
     width: 100%;
-    border-radius: 5px 5px 0 0;
     display: flex;
     flex-flow: column;
     background-color: var(--background-1);
@@ -19,7 +18,7 @@
 
     height: fit-content;
     display: grid;
-    gap: 16px;
+    gap: 4px;
     padding: 8px 0;
     transition: 150ms linear;
 }
@@ -32,5 +31,6 @@
 }
 
 .content{
+    border-radius: 8px 8px 0 0;
     background: var(--background-base);
 }

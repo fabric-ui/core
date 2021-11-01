@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
-import React, {useMemo, useRef, useState} from "react";
+import React, {useMemo, useState} from "react";
 import styles from './styles/Vertical.module.css'
-import shared from './styles/Tabs.module.css'
 import Switcher from "../switcher/Switcher";
 import Row from "./components/Row";
 

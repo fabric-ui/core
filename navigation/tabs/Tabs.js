@@ -18,7 +18,9 @@ export default function Tabs(props) {
                     {props.buttons.map((e, i) => (
                         <React.Fragment key={i + '-button-header-tab'}>
                             <Button
-                                variant={'minimal'} highlight={open === i}
+                                variant={'minimal'}
+                                highlight={open === i}
+
                                 onClick={() => {
                                     if (e.onClick !== undefined)
                                         e.onClick()

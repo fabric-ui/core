@@ -30,6 +30,9 @@ export default function Header(props) {
                         value={e} sorts={props.sorts}
                         length={props.keys.length}
                     />
+                    <div
+                        style={{display: i === (props.keys.length - 1) && !props.hasOptions ? 'none' : undefined}}
+                        className={styles.divider}/>
                 </React.Fragment>
             ))}
             <div className={styles.cell} disabled={true}

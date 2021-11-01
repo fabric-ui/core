@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import styles from "../../styles/Details.module.css";
 import React, {useMemo} from "react";
 import AlertPT from "../../locales/LocalesPT";
-import {CloseRounded} from "@material-ui/icons";
 import Modal from "../../../../navigation/modal/Modal";
 
 export default function Details(props) {

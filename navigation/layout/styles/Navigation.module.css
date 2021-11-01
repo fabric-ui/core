@@ -34,10 +34,9 @@
     background: var(--background-1);
 
     padding: 4px;
-}
+    font-family: "Roboto";
 
-.navigationContainer > div {
-    width: 100%;
+    flex-grow: 1;
 }
 
 
@@ -48,8 +47,8 @@
     align-items: center;
     height: 100%;
     color: var(--color-2);
-    font-weight: bold;
-    font-family: "Roboto";
+    font-weight: 600;
+    font-family: "Roboto" !important;
 }
 
 .children {
@@ -57,15 +56,16 @@
     display: flex;
     max-height: 100%;
     flex-direction: column;
-    border-radius: 5px 5px 0 0;
+    border-radius: 8px 0 0 0;
 
-    border: var(--border-0) 1px solid;
     color: var(--color-2);
     background: var(--background-base);
     width: 100%;
     height: 100%;
     transition: 150ms linear;
     margin-left: auto;
+
+    overflow: hidden;
 }
 
 .children > * {
@@ -73,7 +73,7 @@
 }
 
 .wrapper {
-    display: grid;
+    display: flex;
     height: 100vh;
     overflow: hidden;
     width: 100%;
@@ -85,9 +85,11 @@
 .contentWrapper {
 
     display: flex;
+    flex-flow: column;
+
     max-width: 100%;
     overflow: hidden;
     width: 100%;
 
-    height: calc(100vh - 45px);
+    height: 100%;
 }

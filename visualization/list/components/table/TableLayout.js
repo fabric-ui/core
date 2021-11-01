@@ -4,7 +4,6 @@ import React from 'react'
 import keyTemplate from "../../templates/keyTemplate";
 import Row from "../Row";
 import Header from "../Header";
-import styles from '../../styles/List.module.css'
 
 export default function TableLayout(props) {
     const lastElementRef = useInfiniteScroll(props.setCurrentPage, props.currentPage, props.loading, props.hasMore)

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, {useEffect, useMemo, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import styles from './styles/Switcher.module.css'
 
 export default function Switcher(props) {

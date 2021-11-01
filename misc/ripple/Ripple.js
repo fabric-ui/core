@@ -1,62 +1,39 @@
 import styles from './styles/Ripple.module.css'
 import PropTypes from 'prop-types'
-import {useEffect, useRef} from "react";
+import React, {useEffect, useRef} from "react";
 
 export default function Ripple(props) {
     const ref = useRef()
-    const wrapperRef = useRef()
-    const handleMouseDown = (e) => {
-        const parent = wrapperRef.current.parentNode.getBoundingClientRect()
-        wrapperRef.current.style.width = parent.width + 'px'
-        wrapperRef.current.style.height = parent.height + 'px'
 
-        const elements = document.elementsFromPoint(e.clientX, e.clientY).filter(e => e.className === styles.wrapper)
-        if (elements.includes(wrapperRef.current) && elements.indexOf(wrapperRef.current) === 0) {
-            const rect = ref.current.parentNode.getBoundingClientRect()
+    const addRipple = (e) => {
+        const target = document.createElement('span')
+        const parent = ref.current.parentNode
+        parent.appendChild(target)
+        if (props.opacity)
+            target.style.setProperty('--opacity', props.opacity)
+        if (props.accentColor)
+            target.style.setProperty('--accent-color', props.accentColor)
+        const rect = ref.current.parentNode.getBoundingClientRect()
+        target.style.setProperty('--size', rect.width + 'px')
+        target.style.setProperty('--x', (e.clientX - rect.x) + 'px')
+        target.style.setProperty('--y', (e.clientY - rect.y) + 'px')
+        target.classList.add(styles.ripple)
 
-            ref.current?.style.setProperty('--size', rect.width + 'px')
-            ref.current?.style.setProperty('--x', (e.clientX - rect.x) + 'px')
-            ref.current?.style.setProperty('--y', (e.clientY - rect.y) + 'px')
-            ref.current.classList.add(styles.ripple)
-        }
+        target.addEventListener('animationend', () => {
+            ref.current?.parentNode.removeChild(target)
+        }, {once: true})
     }
     useEffect(() => {
-
-        document.addEventListener('mousedown', handleMouseDown)
-        if (props.opacity)
-            ref.current?.style.setProperty('--opacity', props.opacity)
-
-
+        if (!props.disabled)
+            ref.current?.parentNode.addEventListener('mousedown', addRipple)
         return () => {
-            document.removeEventListener('mousedown', handleMouseDown)
+            ref.current?.parentNode.removeEventListener('mousedown', addRipple)
         }
-    }, [])
-
-    useEffect(() => {
-        if (props.accentColor)
-            ref.current?.style.setProperty('--accent-color', props.accentColor)
-    }, [props.accentColor])
+    }, [props])
 
 
-    return (
-        <span className={styles.wrapper} ref={wrapperRef}>
-            <span
-                className={styles.content}
-                ref={ref}
-                onAnimationEnd={(e) => {
-                    if (!e.currentTarget.classList.contains(styles.exit)) {
-                        ref.current.classList.add(styles.exit)
-                        ref.current.classList.remove(styles.ripple)
-                    } else {
-                        ref.current.classList.remove(styles.exit)
-                        ref.current.classList.remove(styles.ripple)
-                    }
+    return <div ref={ref} style={{display: 'none'}}/>
 
-                }}
-            />
-       </span>
-
-    )
 }
 Ripple.propTypes = {
     disabled: PropTypes.bool,

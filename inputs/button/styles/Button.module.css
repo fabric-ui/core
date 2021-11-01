@@ -22,10 +22,11 @@
     cursor: unset;
 }
 
-.button:hover{
+.button:hover {
     --delay: 500ms;
 }
-.button::after{
+
+.button::after {
     position: absolute;
     content: '';
     width: 100%;
@@ -36,21 +37,25 @@
     opacity: 0;
     transition: 150ms linear var(--delay);
 }
-.button:disabled::after{
+
+.button:disabled::after {
     content: none;
 }
-.button:not(:active){
+
+.button:not(:active) {
     --delay: 0ms;
 }
-.button:active::after{
+
+.button:active::after {
     opacity: .15;
 }
+
 .secondaryVariant {
     --darker-color: #FF2626;
     --color: #ff5555
 }
 
-.baseHighlight::after{
+.baseHighlight::after {
     position: absolute;
     content: '';
     width: 100%;
@@ -136,41 +141,21 @@
 
 /*FILLED*/
 .filled {
+    position: relative;
     transition: 150ms ease-in;
     color: white;
+    background: var(--color) !important;
+    box-shadow: var(--box-shadow-1) 1px 1px 2px 1px;
 }
 
-.filled::before {
-    content: '';
-    z-index: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color);
-    opacity: .85;
-}
-
-.filled:hover {
-    opacity: 1;
-}
-
-.filledHighlight {
-    opacity: 1;
-    background: var(--darker-color);
-}
-
-.filled:active {
+.filled:active, .filledHighlight {
     box-shadow: none;
 }
 
-.filled:disabled::before {
-    content: none;
-}
-
 .filled:disabled {
+    border-color: transparent;
     color: var(--color-3);
+    background: transparent !important;
     box-shadow: none;
 }
 
@@ -206,17 +191,3 @@
 }
 
 /*OUTLINED*/
-
-.content {
-    color: inherit;
-    position: relative;
-    z-index: 5;
-    display: inherit;
-    justify-items: inherit;
-    justify-content: inherit;
-    align-items: inherit;
-    align-content: inherit;
-    gap: inherit;
-    width: 100%;
-    height: 100%;
-}

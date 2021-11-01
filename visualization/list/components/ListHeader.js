@@ -56,7 +56,7 @@ export default function ListHeader(props) {
                             buttons={props.keys.map(e => getField(e))}
                         />}
                     <Button
-                        style={{display: props.createOption ? undefined : 'none'}}
+                        styles={{display: props.createOption ? undefined : 'none', color: 'white'}}
                         onClick={() => props.onCreate()} variant={"filled"}
                         className={styles.button}>
                         <AddRounded/>

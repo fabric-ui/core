@@ -7,7 +7,7 @@
 
 .buttons {
     width: 100%;
-
+    padding: 4px;
     position: relative;
     height: 100%;
     display: grid;
@@ -16,11 +16,19 @@
     gap: 8px;
 }
 
+.button {
+    width: 50px;
+    height: 100%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .wrapper {
     overflow: hidden;
     /*width: 60px;*/
-    transition: 150ms linear;
+    transition: 250ms ease-in-out;
     background: var(--background-1);
     position: sticky;
     left: 0;
@@ -28,31 +36,38 @@
 
 }
 
-.buttonContainer {
-    outline: none;
-    border: none;
-    background: transparent;
+.buttonIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 
+}
+
+.buttonContainer {
     align-items: center;
 
     cursor: pointer;
-    max-width: 225px;
+    max-width: 215px;
     height: 50px;
-    width: 100%;
+    overflow: hidden;
 
-    transition: 150ms linear;
+    transition: 250ms ease-in-out;
     border-radius: 5px;
-    padding: 8px 2px;
+    padding: 8px 4px;
+
+    position: relative;
 }
 
 
 .buttonLabel {
+
     outline: none;
     background: none;
     border: none;
     padding: 0;
 
-    font-size: .75rem;
+    font-size: .7rem;
     overflow: hidden;
     color: var(--color-3);
 
@@ -60,22 +75,34 @@
     /*font-weight: 575;*/
 }
 
+.activeButton {
+    animation: slideDown 150ms linear forwards;
+
+    position: absolute;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes slideDown {
+    0% {
+        top: 0;
+        /*transform: translateY(-50%);*/
+    }
+    100% {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
 .buttonLabel:disabled {
     color: var(--color-4);
 }
 
 .overflowEllipsis {
+    max-width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-
-/*.modalContainer{*/
-/*    padding: 16px;*/
-/*    background: var(--background-1);*/
-/*    border-radius: 5px;*/
-/*    width: 25%;*/
-/*    height: 50%;*/
-/*    transform: translateY(50%);*/
-/*    margin: auto;*/
-/*}*/

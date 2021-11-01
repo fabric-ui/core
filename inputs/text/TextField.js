@@ -64,7 +64,7 @@ export default function TextField(props) {
                             className={styles.inputContainer}
                             style={{
                                 minHeight: props.size === 'small' ? '36px' : '56px',
-                                resize: 'vertical',
+                                resize: props.disabled ? 'none' : 'vertical',
                                 overflow: 'hidden',
                                 transition: 'border 150ms ease-in, background 150ms ease-in'
                             }}
@@ -126,7 +126,8 @@ export default function TextField(props) {
             >
                 {props.label}
             </div>
-            <div className={[color.className, shared.wrapper].join(' ')} highlight={props.highlight} disabled={props.disabled}>
+            <div className={[color.className, shared.wrapper].join(' ')} highlight={props.highlight}
+                 disabled={props.disabled}>
                 <div className={styles.focus}>
                     {getField()}
                     <Ripple opacity={.15} accentColor={color.color}/>

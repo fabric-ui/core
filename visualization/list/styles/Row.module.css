@@ -19,6 +19,7 @@
     color: inherit;
     display: flex;
     align-items: center;
+    align-content: center;
     height: 100%;
 }
 
@@ -34,7 +35,7 @@
 }
 
 .headerRow {
-    border: transparent 1px solid;
+    /*border: var(--border-0) 1px solid;*/
     position: sticky;
     top: 0;
     z-index: 50;
@@ -42,15 +43,15 @@
     height: 30px;
     display: flex;
     align-items: center;
+
     width: 100%;
     transition: 150ms linear;
     border-radius: 5px;
-
+    background: var(--background-1);
 }
 
 .scrolledHeader {
-    border-color: var(--border-0);
-    background: var(--background-1);
+    box-shadow: var(--box-shadow-1) 0 0 1px 1px;
 }
 
 
@@ -69,5 +70,5 @@
 .divider {
     height: 50%;
     width: 1px;
-    background: var(--border-0);
+    background: var(--border-1);
 }

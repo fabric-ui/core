@@ -12,8 +12,9 @@
     --color-2: #666666;
     --color-3: #777777;
     --color-4: #999999;
+    --color-5: white;
 
-    --box-shadow-1: #F1F1F5;
+    --box-shadow-1: #e0e0e0;
 }
 
 .dark {
@@ -32,6 +33,7 @@
     --color-2: #f0f0f0;
     --color-3: #e0e0e0;
     --color-4: #dedede;
+    --color-5: #292c2b;
 
     --box-shadow-1: #1e2121;
 }

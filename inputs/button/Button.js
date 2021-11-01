@@ -25,7 +25,7 @@ export default function Button(props) {
             case 'minimal-horizontal':
                 return {
                     normal: [styles.minimal, styles.minimalHorizontal].join(' '),
-                    highlight: [styles.outlinedHighlight, styles.baseHighlight].join(' ')
+                    highlight: [styles.minimalHighlight, styles.baseHighlight].join(' ')
                 }
             default:
                 return {
@@ -65,13 +65,12 @@ export default function Button(props) {
         >
             <Ripple
                 disabled={props.disabled}
-                opacity={props.variant === 'filled' ? 1 : undefined}
+                opacity={props.variant === 'filled' ? .8 : undefined}
                 accentColor={accentColor}
             />
-            <span className={styles.content}>
-                {props.children}
-            </span>
+            {props.children}
         </button>
+
     )
 }
 

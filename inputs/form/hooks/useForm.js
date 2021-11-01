@@ -1,9 +1,8 @@
-import React, {useEffect, useMemo, useRef} from "react";
+import React, {useMemo} from "react";
 
 export default function useForm({data, changed, dependencies}) {
-    const ref = useRef()
 
-    const disabled = useMemo(() => {
+    return useMemo(() => {
         let response = dependencies === undefined || !changed
         let i
         if (dependencies !== undefined && changed)
@@ -21,8 +20,4 @@ export default function useForm({data, changed, dependencies}) {
 
         return response
     }, [data, dependencies])
-
-    return {
-        ref, disabled
-    }
 }
