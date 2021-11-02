@@ -1,7 +1,7 @@
 @import '../../../misc/theme/styles.module.css';
 
 .modal {
-    background-color: var(--background-1);
+    background-color: var(--mfc-background-secondary);
 
     border-radius: 5px;
     position: absolute;
@@ -27,7 +27,7 @@
 .fieldRow {
 
     border-radius: 5px;
-    border: var(--border-1) 1px dashed;
+    border: var(--mfc-border-secondary) 1px dashed;
     padding: 8px;
 
     display: flex;
@@ -46,7 +46,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     font-weight: 600;
-    color: var(--color-2);
+    color: var(--mfc-color-tertiary);
     font-size: .9rem;
 
 }
@@ -59,7 +59,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-2);
+    color: var(--mfc-color-tertiary);
     cursor: pointer;
     padding: 0;
     width: 100px;
@@ -70,20 +70,20 @@
 }
 
 .visibilityButton:active {
-    background-color: var(--background-3);
+    background-color: var(--mfc-background-quaternary);
     color: #0095ff;
 }
 
 .visibilityButton:hover {
-    background-color: var(--background-2);
-    color: var(--color-1);
+    background-color: var(--mfc-background-tertiary);
+    color: var(--mfc-color-secondary);
 }
 
 
 .header {
     font-size: 1.3rem;
     font-weight: 600;
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
 
     padding-bottom: 48px;
 }

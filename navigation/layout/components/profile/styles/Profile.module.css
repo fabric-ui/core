@@ -56,8 +56,8 @@
 
     width: 250px;
 
-    background: var(--background-1);
-    box-shadow: var(--box-shadow-1) 0 2px 8px 0px;
+    background: var(--mfc-background-primary);
+    box-shadow: var(--mfc-box-shadow-primary) 0 2px 8px 0px;
 
 
     border-radius: 5px;
@@ -67,6 +67,6 @@
 .divider{
     height: 1px;
     width: 100%;
-    background: var(--border-0);
+    background: var(--mfc-border-primary);
 
 }

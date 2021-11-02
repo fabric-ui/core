@@ -11,7 +11,7 @@
     background: transparent;
 
     border-radius: 5px;
-    border: var(--border-0) 1px solid;
+    border: var(--mfc-border-primary) 1px solid;
     box-shadow: unset;
     transition: 150ms ease-in;
 
@@ -22,7 +22,7 @@
     padding: 5px;
     font-size: 1rem;
 
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
 }
 
 .inputContainer::-webkit-outer-spin-button,
@@ -37,14 +37,14 @@
 }
 
 .inputContainer:hover, .inputContainer:focus {
-    color: var(--color-0);
+    color: var(--mfc-color-primary);
     border-color: var(--accent_color);
 }
 
 .inputContainer:disabled {
-    border: var(--border-0) 1px solid;
-    /*background: var(--background-1);*/
-    color: var(--color-4);
+    border: var(--mfc-border-primary) 1px solid;
+    /*background: var(--mfc-background-secondary);*/
+    color: var(--mfc-color-quinary);
 }
 
 .mask {
@@ -54,7 +54,7 @@
     top: 50%;
     transform: translateY(-50%);
     left: 8px;
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
     font-family: "Roboto";
     font-size: .95rem;
 
@@ -65,7 +65,7 @@
 }
 
 .focus {
-    background: var(--background-1);
+    background: var(--mfc-background-primary);
     position: relative;
     overflow: hidden;
 

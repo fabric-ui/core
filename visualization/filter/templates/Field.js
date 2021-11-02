@@ -5,6 +5,7 @@ import {CheckRounded} from "@material-ui/icons";
 import useFilter from "../hooks/useFilters";
 import React from 'react'
 import keyTemplate from "../../list/templates/keyTemplate";
+import Button from "../../../inputs/button/Button";
 
 
 export default function Field(props) {
@@ -28,21 +29,31 @@ export default function Field(props) {
                     <div style={{display: 'grid', alignContent: 'space-between', gap: '32px'}}>
                         {getField()}
                         <div style={{display: 'flex', gap: '4px'}}>
-                            <button
-                                className={[styles.baseButton, styles.cancelButton].join(' ')}
+                            <Button
+                                styles={{width: '50%', padding: '4px'}}
+                                variant={'filled'} color={'secondary'}
+
                                 onClick={() => {
                                     props.handleClose()
                                     props.setSelectedField(null)
                                 }}>
                                 Cancelar
-                            </button>
-                            <button
-                                className={styles.baseButton}
+                            </Button>
+                            <Button
+                                styles={{
+                                    padding: '4px',
+                                    width: '100%',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '4px'
+                                }}
+                                variant={'filled'}
                                 disabled={!changed}
                                 onClick={() => props.applyFilter()}>
                                 <CheckRounded/>
                                 Aplicar
-                            </button>
+                            </Button>
                         </div>
                     </div>
                 )

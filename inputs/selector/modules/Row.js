@@ -13,7 +13,7 @@ export default function Row(props) {
             reference={props.reference} variant={'outlined'}
             className={styles.row}
             disabled={props.disabled}
-            styles={props.main ? {background: 'var(--background-2)'} : props.height ? {height: props.height} : undefined}
+            styles={props.main ? {background: 'var(--mfc-background-tertiary)'} : props.height ? {height: props.height} : undefined}
         >
 
             <div style={{display: props.main && !props.data ? undefined : 'none'}}>

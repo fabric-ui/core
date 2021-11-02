@@ -7,21 +7,9 @@ import HeaderCell from "./HeaderCell";
 
 export default function Header(props) {
     const ref = useRef()
-    const [scrolled, setScrolled] = useState(false)
-    const handleScroll = () => {
-        if (!scrolled && ref.current?.parentNode.scrollTop > 0)
-            setScrolled(true)
-        else if (ref.current?.parentNode.scrollTop === 0)
-            setScrolled(false)
-    }
-    useEffect(() => {
-        ref.current?.parentNode.addEventListener('scroll', handleScroll)
-        return () => {
-            ref.current?.parentNode.removeEventListener('scroll', handleScroll)
-        }
-    }, [scrolled])
+
     return (
-        <div className={[styles.headerRow, scrolled ? styles.scrolledHeader : undefined].join(' ')} ref={ref}>
+        <div className={styles.headerRow} ref={ref}>
             {props.keys.map((e, i) => (
                 <React.Fragment key={i + 'header-row-cell'}>
                     <HeaderCell
@@ -35,9 +23,11 @@ export default function Header(props) {
                         className={styles.divider}/>
                 </React.Fragment>
             ))}
-            <div className={styles.cell} disabled={true}
-                 style={{display: props.hasOptions ? 'flex' : 'none', justifyContent: 'center', width: '30px'}}>
-                <SettingsRounded style={{fontSize: '1.1rem', color: 'var(--color-4)'}}/>
+            <div
+                className={styles.cell}
+                disabled={true}
+                style={{display: props.hasOptions ? 'flex' : 'none', justifyContent: 'center', width: '30px'}}>
+                <SettingsRounded style={{fontSize: '1.1rem', color: 'var(--mfc-color-quinary)'}}/>
             </div>
         </div>
     )

@@ -7,7 +7,7 @@
     overflow-x: hidden;
     /*position: relative;*/
     display: grid;
-    gap: 4px;
+    gap: 8px;
     align-items: flex-start;
     align-content: flex-start;
 }
@@ -18,5 +18,11 @@
     overflow: visible;
 
     display: grid;
+    gap: 8px;
 
+}
+.divider {
+    height: 50%;
+    width: 1px;
+    background: var(--mfc-border-secondary);
 }

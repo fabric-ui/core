@@ -2,9 +2,9 @@
 
 .createModal {
     position: absolute;
-    background: var(--background-1);
+    background: var(--mfc-background-primary);
     border-radius: 8px;
-    border: var(--border-0) 1px solid;
+    border: var(--mfc-border-primary) 1px solid;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -15,7 +15,7 @@
 .labelContainer {
     /*animation: slideUp linear 250ms both;*/
     transition: visibility 150ms linear;
-    color: var(--color-0);
+    color: var(--mfc-color-primary);
     font-size: .9rem;
     margin-top: auto;
     overflow: hidden;
@@ -35,7 +35,7 @@
 
 
     transition: inherit;
-    background: var(--background-1);
+    background: var(--mfc-background-primary);
     width: 100%;
 
     padding: 5px;
@@ -74,8 +74,8 @@
     height: 50px;
     border-radius: 8px;
     transition: 150ms linear;
-    color: var(--color-1);
-    background: var(--background-1);
+    color: var(--mfc-color-secondary);
+    background: var(--mfc-background-primary);
     gap: 0;
     padding: 0 0 0 16px;
     border: #e0e0e0 1px solid;
@@ -89,7 +89,7 @@
 .fieldsContainer:focus, .fieldsContainer:focus-within {
     color: black;
     box-shadow: #0095ff 0px 0px 1px 1.5px;
-    background: var(--background-2);
+    background: var(--mfc-background-tertiary);
 }
 
 .searchButtonContainer {
@@ -98,7 +98,7 @@
     height: 44px;
     width: fit-content;
     border: none;
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
     border-radius: 8px;
 
     cursor: pointer;
@@ -119,11 +119,11 @@
 .selectedEntityContainer {
     width: 100%;
     border: none;
-    border-bottom: var(--border-0) 1px solid;
-    border-top: var(--border-0) 1px solid;
+    border-bottom: var(--mfc-border-primary) 1px solid;
+    border-top: var(--mfc-border-primary) 1px solid;
 
     height: 56px;
-    color: var(--color-0);
+    color: var(--mfc-color-primary);
     font-size: .9rem;
 
     display: flex;
@@ -152,7 +152,7 @@
 .divider {
     height: 30px;
     width: 1px;
-    background: var(--border-0);
+    background: var(--mfc-border-primary);
 
 }
 

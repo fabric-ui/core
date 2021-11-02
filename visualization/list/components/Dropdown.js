@@ -20,8 +20,9 @@ export default function Dropdown(props) {
         <div className={styles.wrapper}>
             <Button
                 highlight={open}
-                variant={props.variant === 'clean' ? undefined : "outlined"} onClick={() => setOpen(true)}
-                disabled={props.disabled} className={props.className}>
+                variant={props.variant} onClick={() => setOpen(true)}
+                disabled={props.disabled}
+                className={props.className}>
                 {props.label}
             </Button>
             <div style={{
@@ -30,7 +31,7 @@ export default function Dropdown(props) {
                 top: props.align === 'top' ? '0px' : undefined,
                 transform: props.align === 'top' ? 'translateY(-100%)' : undefined
             }} className={styles.buttons} ref={ref}>
-                {props.buttons.map((b, i) => (
+                {props.buttons?.map((b, i) => (
                     <React.Fragment key={'dropdown-' + i}>
 
 
@@ -54,7 +55,7 @@ export default function Dropdown(props) {
 }
 
 Dropdown.propTypes = {
-    variant: PropTypes.oneOf(['default', 'clean']),
+    variant: PropTypes.oneOf(['minimal', 'filled', 'outlined', 'minimal-horizontal']),
     className: PropTypes.string,
     onClickProps: PropTypes.any,
     label: PropTypes.any,

@@ -30,7 +30,7 @@ export default function Filter(props) {
             />
 
             {props.filters.map((e, i) => (
-                <div className={[styles.filter, styles.filterWrapper].join(' ')}>
+                <div className={styles.filter}>
                     <div className={styles.overflow} style={{fontSize: '.75rem', fontWeight: 'bold'}}>
                         {e.label}
                     </div>
@@ -53,12 +53,12 @@ export default function Filter(props) {
                         </div>
                     </ToolTip>
                     <Button
-                        color={'secondary'} styles={{padding: '0'}}
+                        color={'secondary'}
                         onClick={() => {
                             let newFilters = [...props.filters]
                             newFilters.splice(i, 1)
                             props.setFilters(newFilters)
-                        }}>
+                        }} className={styles.button}>
                         <CloseRounded style={{fontSize: '1.1rem'}}/>
                     </Button>
                 </div>

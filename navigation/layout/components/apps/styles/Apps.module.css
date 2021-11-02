@@ -4,7 +4,7 @@
     font-size: .8rem;
     font-weight: bold;
     font-family: "Roboto";
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
     max-width: 100%;
 
     overflow: hidden;
@@ -16,9 +16,9 @@
     width: calc(33.333% - 6px);
     height: 60px;
 
-    background: var(--background-1);
+    background: var(--mfc-background-primary);
     border-radius: 5px;
-    color: var(--color-2);
+    color: var(--mfc-color-tertiary);
     display: grid;
     justify-content: center;
     justify-items: center;
@@ -41,8 +41,8 @@
 
     width: 250px;
 
-    background: var(--background-1);
-    box-shadow: var(--box-shadow-1) 0px 2px 8px 0px;
+    background: var(--mfc-background-primary);
+    box-shadow: var(--mfc-box-shadow-primary) 0px 2px 8px 0px;
     padding: 8px;
 
     border-radius: 5px;

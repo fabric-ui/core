@@ -29,7 +29,7 @@
     overflow: hidden;
     /*width: 60px;*/
     transition: 250ms ease-in-out;
-    background: var(--background-1);
+    background: var(--mfc-background-primary);
     position: sticky;
     left: 0;
     height: 100%;
@@ -69,7 +69,7 @@
 
     font-size: .7rem;
     overflow: hidden;
-    color: var(--color-3);
+    color: var(--mfc-color-quaternary);
 
     font-family: "Roboto";
     /*font-weight: 575;*/
@@ -97,7 +97,7 @@
 }
 
 .buttonLabel:disabled {
-    color: var(--color-4);
+    color: var(--mfc-color-quinary);
 }
 
 .overflowEllipsis {

@@ -5,6 +5,7 @@ import styles from '../styles/Settings.module.css'
 import TextField from "../../../inputs/text/TextField";
 import {VisibilityOffRounded, VisibilityRounded} from "@material-ui/icons";
 import ToolTip from "../../../feedback/tooltip/ToolTip";
+import React from 'react'
 
 export default function Settings(props) {
     return (

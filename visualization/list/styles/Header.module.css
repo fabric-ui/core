@@ -1,6 +1,12 @@
 @import '../../../misc/theme/styles.module.css';
 
-.dropdownLabel{
+
+.wrapper {
+    background: var(--mfc-background-primary);
+    border-radius: 5px;
+}
+
+.dropdownLabel {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -9,24 +15,21 @@
     /*font-size: .9rem;*/
     font-family: "Roboto";
 }
-.header{
 
+.header {
+
+    position: relative;
 
     display: flex;
     height: fit-content;
     justify-content: space-between;
     width: 100%;
-
-
-    /*background-color: var(--background-1);*/
-    /*border: var(--border-0) 1px solid;*/
-    border-radius: 5px;
-
+    padding: 8px;
     font-family: "Roboto";
     font-size: 1.2rem;
 
     font-weight: 600;
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
 
 }
 
@@ -67,13 +70,13 @@
 }
 
 
-.fieldWrapper{
+.fieldWrapper {
     display: grid;
     gap: 16px;
 
 }
 
-.selectWrapper{
+.selectWrapper {
     display: flex;
     gap: 8px;
     font-size: .9rem;
@@ -81,12 +84,13 @@
     justify-content: flex-start;
     align-items: center;
 }
-.button{
+
+.button {
 
     height: 30px;
     padding: 4px 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--background-1);
+
 }

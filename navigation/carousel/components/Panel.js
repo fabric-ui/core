@@ -1,6 +1,6 @@
 import styles from '../styles/Panel.module.css'
 import PropTypes from "prop-types";
-
+import React from "react";
 export default function Panel(props) {
     return (
         <div className={styles.wrapper}>

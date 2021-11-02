@@ -26,12 +26,7 @@ export default function Header(props) {
                         align={'bottom'}
                         className={styles.buttonContainer}
                         disabled={!props.options}
-                        label={(
-                            <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
-                                <MoreHorizRounded/>
-                                Opções
-                            </div>
-                        )}
+                        label={<MoreVertRounded/>}
                         buttons={props.options}
                     />
 

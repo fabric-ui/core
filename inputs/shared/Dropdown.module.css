@@ -20,7 +20,7 @@
 
     box-shadow: unset;
     transition: 150ms linear;
-    background: var(--background-1);
+    background: var(--mfc-background-primary);
     width: 100%;
     outline: none;
     padding: 5px;
@@ -31,9 +31,9 @@
 }
 
 .selectContainer:disabled {
-    border-color: var(--border-0);
+    border-color: var(--mfc-border-primary);
     cursor: default;
-    color: var(--color-4);
+    color: var(--mfc-color-quinary);
 }
 
 .dropDownContainer {
@@ -41,7 +41,7 @@
 }
 
 .dropDownChoicesContainer {
-    background-color: var(--background-1);
+    background-color: var(--mfc-background-primary);
     border-radius: 5px;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
     width: 100%;
@@ -76,13 +76,13 @@
     align-items: center;
     justify-content: flex-start;
     height: 40px;
-    background: var(--background-1);
+    background: var(--mfc-background-primary);
     gap: 8px;
 }
 
 .multiSelectRowContent {
     user-select: none;
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

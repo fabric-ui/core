@@ -6,7 +6,7 @@
     position: fixed;
     height: 100vh;
     z-index: 300;
-    transition: 150ms linear;
+    transition: 200ms ease-in;
     bottom: 0;
 }
 
@@ -17,11 +17,11 @@
 }
 
 .fadeIn {
-    animation: fadeInAnim linear 150ms forwards;
+    animation: fadeInAnim ease-in 200ms forwards;
 }
 
 .fadeOutAnimation {
-    animation: fadeOut linear 150ms;
+    animation: fadeOut ease-in 200ms;
 }
 
 
@@ -44,19 +44,19 @@
 }
 
 .slideLeftEnter {
-    animation: slideLeftEnterAnim linear 150ms;
+    animation: slideLeftEnterAnim ease-in 200ms;
 }
 
 .slideLeftExit {
-    animation: slideLeftExitAnim linear 150ms;
+    animation: slideLeftExitAnim ease-in 200ms;
 }
 
 .slideRightEnter {
-    animation: slideRightEnterAnim linear 150ms;
+    animation: slideRightEnterAnim ease-in 200ms;
 }
 
 .slideRightExit {
-    animation: slideRightExitAnim linear 150ms;
+    animation: slideRightExitAnim ease-in 200ms;
 }
 
 @keyframes slideLeftEnterAnim {
@@ -97,5 +97,5 @@
     }
 }
 .background{
-    background-color: var(--background-1);
+    background-color: var(--mfc-background-primary);
 }

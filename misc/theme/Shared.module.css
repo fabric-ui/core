@@ -43,7 +43,7 @@
 .labelContainer {
     transition: visibility 150ms linear, opacity 150ms linear;
 
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
     /*font-weight: 600;*/
     font-size: .8rem;
     margin-top: auto;
@@ -59,7 +59,7 @@
 }
 
 .alertLabel {
-    color: var(--color-3);
+    color: var(--mfc-color-quaternary);
     font-family: "Roboto";
     margin-left: auto;
     font-size: .75rem;

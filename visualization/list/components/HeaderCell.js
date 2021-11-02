@@ -17,7 +17,7 @@ export default function HeaderCell(props) {
             styles={{
                 width: `${(1 / props.length) * 100}%`,
 
-                color: props.value.type === 'object' ? 'var(--color-4)' : 'inherit',
+                color: props.value.type === 'object' ? 'var(--mfc-color-quinary)' : 'inherit',
                 justifyContent: props.value.type !== 'object' ? 'space-between' : 'flex-start'
             }}
             disabled={props.value.type === 'object'}
@@ -64,7 +64,7 @@ export default function HeaderCell(props) {
                     transform: currentSort === 'desc' ? 'rotate(180deg)' : undefined,
                     fontSize: '1.1rem',
                     transition: '150ms linear',
-                    color: currentSort === undefined ? 'var(--color-4)' : 'inherit'
+                    color: currentSort === undefined ? 'var(--mfc-color-quinary)' : 'inherit'
                 }}
             />
         </Button>

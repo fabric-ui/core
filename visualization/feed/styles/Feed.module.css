@@ -7,7 +7,7 @@
 }
 .title{
     font-size: 1.2rem;
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
     font-weight: 600;
 
     display: flex;
@@ -20,5 +20,5 @@
 .titleDivider{
     height: 1px;
     width: 100%;
-    background: var(--border-1);
+    background: var(--mfc-border-secondary);
 }

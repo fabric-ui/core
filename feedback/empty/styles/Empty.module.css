@@ -11,15 +11,15 @@
     justify-content: center;
     justify-items: center;
 
-    background: var(--background-2);
-    border: var(--border-0) 1px solid;
+    background: var(--mfc-background-tertiary);
+    border: var(--mfc-border-primary) 1px solid;
     border-radius: 5px;
-    color: var(--color-4);
+    color: var(--mfc-color-quinary);
 }
 
 .label{
     font-size: .8rem;
     font-weight: bold;
-    color: var(--color-3);
+    color: var(--mfc-color-quaternary);
     text-align: center;
 }

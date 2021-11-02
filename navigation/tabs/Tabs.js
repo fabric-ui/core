@@ -11,8 +11,7 @@ export default function Tabs(props) {
         <div
             className={styles.wrapper}
             style={{background: props.noChildHighlight ? 'unset' : undefined}}>
-            <div className={styles.header}
-                 style={{background: props.noChildHighlight ? 'var(--background-1)' : undefined}}>
+            <div className={styles.header}>
                 {props.children}
                 <div className={styles.tabs}>
                     {props.buttons.map((e, i) => (
@@ -20,7 +19,6 @@ export default function Tabs(props) {
                             <Button
                                 variant={'minimal'}
                                 highlight={open === i}
-
                                 onClick={() => {
                                     if (e.onClick !== undefined)
                                         e.onClick()
@@ -36,7 +34,7 @@ export default function Tabs(props) {
             <Switcher
                 animationType={'sideways'}
                 openChild={open}
-                className={[props.className, styles.content].join(' ')}>
+                className={props.className}>
                 {props.buttons.map((e, i) => (
                     <React.Fragment key={'horizontal-tabs-child-' + i}>
                         {e.children}

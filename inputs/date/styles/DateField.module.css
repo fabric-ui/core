@@ -7,9 +7,9 @@
     gap: 10px;
     height: 56px;
     border-radius: 5px;
-    border: var(--border-0) 1px solid;
-    color: var(--color-2);
-    background: var(--background-1);
+    border: var(--mfc-border-primary) 1px solid;
+    color: var(--mfc-color-tertiary);
+    background: var(--mfc-background-primary);
     position: relative;
     overflow: hidden;
 
@@ -46,14 +46,14 @@
     border: none;
     box-shadow: unset;
 
-    background: var(--background-1);
+    background: var(--mfc-background-primary);
     font-family: "Roboto";
     height: 100%;
     width: 30px;
     outline: none;
     font-size: 1rem;
 
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
 }
 
 .inputContainer::-webkit-outer-spin-button,
@@ -75,7 +75,7 @@
     align-items: center;
     justify-content: center;
 
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
     cursor: pointer;
     transition: 150ms linear;
     border-radius: 5px;
@@ -86,12 +86,12 @@
 }
 
 .buttonContainer:hover {
-    background: var(--background-2);
-    color: var(--color-0);
+    background: var(--mfc-background-tertiary);
+    color: var(--mfc-color-primary);
 }
 
 .buttonContainer:active {
-    background: var(--background-3);
+    background: var(--mfc-background-quaternary);
     color: #0095ff;
 }
 
@@ -106,13 +106,13 @@
 .divider {
     width: 1px;
     height: 20px;
-    background: var(--border-1);
+    background: var(--mfc-border-secondary);
 }
 
 .calendar {
     width: 350px;
 
-    background: var(--background-1);
+    background: var(--mfc-background-primary);
     border-radius: 8px;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
     height: 223px;
@@ -123,7 +123,7 @@
 .monthContainer {
     position: sticky;
     top: 0;
-    background: var(--background-1);
+    background: var(--mfc-background-primary);
     z-index: 999;
     font-family: "Roboto";
     font-weight: bold;
@@ -134,7 +134,7 @@
     transition: 150ms linear;
 
     padding: 8px 4px;
-    color: var(--color-1);
+    color: var(--mfc-color-secondary);
     width: 100%;
 
     display: flex;
@@ -143,7 +143,7 @@
 }
 
 .activeContainer {
-    background: var(--background-3);
+    background: var(--mfc-background-quaternary);
     color: #0095ff;
 }
 
@@ -159,7 +159,7 @@
 .dayContainer {
     height: 35px;
     width: 35px;
-    background: var(--background-1);
+    background: var(--mfc-background-primary);
 
     display: flex;
     align-items: center;
@@ -170,7 +170,7 @@
     font-size: .85rem;
     font-weight: bold;
     font-family: "Roboto";
-    color: var(--color-2);
+    color: var(--mfc-color-tertiary);
     border-radius: 8px;
     border: transparent 2px solid;
 
@@ -184,7 +184,7 @@
 }
 
 .dayContainer:active {
-    background: var(--background-3);
+    background: var(--mfc-background-quaternary);
 
     color: #0095ff;
     border: rgba(0, 149, 255, .5) 2px solid;
@@ -196,5 +196,5 @@
     gap: 8px;
     font-size: .8rem;
     font-weight: normal;
-    color: var(--color-2);
+    color: var(--mfc-color-tertiary);
 }

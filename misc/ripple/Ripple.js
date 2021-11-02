@@ -14,7 +14,9 @@ export default function Ripple(props) {
         if (props.accentColor)
             target.style.setProperty('--accent-color', props.accentColor)
         const rect = ref.current.parentNode.getBoundingClientRect()
-        target.style.setProperty('--size', rect.width + 'px')
+
+        const bigger = rect.width > rect.height ? rect.width : rect.height
+        target.style.setProperty('--size',  bigger+ 'px')
         target.style.setProperty('--x', (e.clientX - rect.x) + 'px')
         target.style.setProperty('--y', (e.clientY - rect.y) + 'px')
         target.classList.add(styles.ripple)

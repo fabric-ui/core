@@ -7,6 +7,7 @@ import useHeader from "../hook/useHeader";
 import keyTemplate from "../templates/keyTemplate";
 import Filter from "../../filter/Filter";
 import Button from "../../../inputs/button/Button";
+import Header from "./Header";
 
 export default function ListHeader(props) {
     const {
@@ -20,33 +21,30 @@ export default function ListHeader(props) {
     } = useHeader(props.dispatch, props.actions)
 
     return (
-        <>
+        <div className={styles.wrapper}>
             <div className={styles.header} style={{marginBottom: props.filters.length === 0 ? '8px' : undefined}}>
                 {props.title}
                 <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
                     <Button
-
+                        variant={'outlined'}
                         className={styles.button}
                         onClick={() => props.cleanState()}
                     >
                         Recarregar
                         <RefreshRounded style={{fontSize: '1.3rem'}}/>
                     </Button>
-                    {props.noFilters ?
-                        null
-                        :
-                        <Button
-
-                            className={styles.button}
-                            onClick={() => props.setOpenSettings(true)}
-                        >
-                            Configurações
-                            <SettingsRounded style={{fontSize: '1.3rem'}}/>
-                        </Button>}
+                    <Button
+                        variant={'outlined'}
+                        className={styles.button}
+                        onClick={() => props.setOpenSettings(true)}
+                    >
+                        Configurações
+                        <SettingsRounded style={{fontSize: '1.3rem'}}/>
+                    </Button>
                     {props.noFilters ? null :
                         <Dropdown
                             className={styles.button}
-                            disabled={false} variant={'clean'}
+                            disabled={false} variant={'outlined'}
                             label={(
                                 <div className={styles.dropdownLabel}>
                                     Filtros
@@ -63,16 +61,25 @@ export default function ListHeader(props) {
                     </Button>
                 </div>
             </div>
-            {props.noFilters
-                ?
-                null :
-                <Filter
-                    keys={props.keys} filters={props.filters} setFilters={props.setFilters}
-                    getType={getType} open={open} setOpen={setOpen}
-                    parseDate={parseDate} selectedField={selectedField} setSelectedField={setSelectedField}
-                />
+            {props.noFilters ?
+                null
+                :
+                <div style={{padding: '8px'}}>
+                    <Filter
+                        keys={props.keys} filters={props.filters} setFilters={props.setFilters}
+                        getType={getType} open={open} setOpen={setOpen}
+                        parseDate={parseDate} selectedField={selectedField} setSelectedField={setSelectedField}
+                    />
+                </div>
             }
-        </>
+            <Header
+                keys={props.keys.filter(e => e.visible === true)}
+                sorts={props.sorts}
+                setSorts={props.setSorts}
+                hasOptions={props.hasOptions}
+            />
+        </div>
+
     )
 }
 
@@ -92,5 +99,6 @@ ListHeader.propTypes = {
     setOpenSettings: PropTypes.func,
 
     createOption: PropTypes.bool,
-    onCreate: PropTypes.func
+    onCreate: PropTypes.func,
+    hasOptions: PropTypes.bool
 }

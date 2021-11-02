@@ -3,13 +3,16 @@ import styles from './styles/List.module.css'
 import ListHeader from "./components/ListHeader";
 import React from "react";
 import Empty from "../../feedback/empty/Empty";
-import TableLayout from "./components/table/TableLayout";
 import keyTemplate from "./templates/keyTemplate";
 import useList from "./hook/useList";
 import Settings from "./components/Settings";
+import useInfiniteScroll from "../hooks/useInfiniteScroll";
+import Row from "./components/Row";
 
 export default function List(props) {
     const {maxHeight, keys, keysDispatcher, actions, setOpenSettings, openSettings, wrapperRef} = useList(props.keys)
+    const lastElementRef = useInfiniteScroll(props.hook.setCurrentPage, props.hook.currentPage, props.hook.loading, props.hook.hasMore)
+
 
     return (
         <div className={styles.container}>
@@ -21,6 +24,7 @@ export default function List(props) {
                 filters={props.hook.filters}
                 createOption={props.createOption}
                 onCreate={props.onCreate}
+                hasOptions={props.controlButtons && props.controlButtons.length > 0}
                 cleanState={props.hook.clean}
                 keys={keys} actions={actions} dispatch={keysDispatcher}
                 setOpenSettings={setOpenSettings}
@@ -34,13 +38,22 @@ export default function List(props) {
                     :
                     null
                 }
-                <TableLayout
-                    data={props.hook.data} keys={keys} controlButtons={props.controlButtons} maxHeight={maxHeight}
-                    setCurrentPage={props.hook.setCurrentPage} currentPage={props.hook.currentPage}
-                    onRowClick={props.onRowClick} hasMore={props.hook.hasMore}
-                    sorts={props.hook.sorts} onlyVisualization={props.onlyVisualization}
-                    setSorts={props.hook.setSorts} loading={props.hook.loading}
-                />
+
+                {props.hook.data.map((e, index) => (
+                    <React.Fragment key={e.id + '-list-row'}>
+
+                        <Row
+                            onClick={() => props.onRowClick(e.data)}
+                            entry={e.data}
+                            index={index}
+                            controlButtons={props.controlButtons}
+                            keys={props.keys.filter(e => e.visible === true)}
+                            reference={lastElementRef}
+                            hasOptions={props.controlButtons && props.controlButtons.length > 0}
+                        />
+
+                    </React.Fragment>
+                ))}
             </div>
         </div>
     )

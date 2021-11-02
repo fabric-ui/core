@@ -1,6 +1,6 @@
 import ACTIONS from "./dataActions";
 import {v4 as uuid4} from "uuid";
-
+import React from "react";
 export default function dataReducer(currentState, action) {
     switch (action.type) {
         case ACTIONS.EMPTY: {

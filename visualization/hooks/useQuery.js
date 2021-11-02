@@ -3,7 +3,7 @@ import ACTIONS from "./deps/dataActions";
 import dataReducer from "./deps/dataReducer";
 import PropTypes from 'prop-types'
 import axios from "axios";
-
+import React from "react";
 const init = (e) => {
     return e
 }

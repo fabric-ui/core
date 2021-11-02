@@ -11,7 +11,7 @@ export default function Row(props) {
     return (
         <div style={{width: '100%', overflow: 'hidden'}}>
             <Button
-                className={styles.button}
+                className={styles.button} variant={'minimal-horizontal'}
                 color={hidden ? 'primary' : "secondary"}
                 styles={{
                     display: props.data.label ? 'flex' : 'none',

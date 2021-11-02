@@ -29,7 +29,7 @@ export default function VerticalTabs(props) {
                 </div>
             </div>
 
-            <Switcher openChild={openTab} className={styles.content}>
+            <Switcher openChild={openTab} className={[styles.content, props.className].join(' ')}>
                 {props.classes.map((e, i) => e.buttons.map((b, bI) => (
                     <React.Fragment key={i + '-vertical-tabs-child-' + bI}>
                         {b.children}
@@ -41,6 +41,7 @@ export default function VerticalTabs(props) {
 }
 
 VerticalTabs.proptypes = {
+    className: PropTypes.string,
     classes: PropTypes.arrayOf(PropTypes.shape({
         label: PropTypes.string,
         buttons: PropTypes.arrayOf(
