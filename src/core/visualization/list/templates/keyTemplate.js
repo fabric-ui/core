@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
+
 export default PropTypes.shape({
     key: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,

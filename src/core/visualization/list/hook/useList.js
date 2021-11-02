@@ -1,5 +1,5 @@
-import {useEffect, useReducer, useRef, useState} from "react";
-import React from "react";
+import React, {useEffect, useReducer, useRef, useState} from "react";
+
 const actions = {
     UPDATE_SIZE: 0,
     UPDATE_VISIBILITY: 1,

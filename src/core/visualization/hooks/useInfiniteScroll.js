@@ -1,5 +1,5 @@
-import {useCallback, useRef} from "react";
-import React from "react";
+import React, {useCallback, useRef} from "react";
+
 export default function useInfiniteScroll(setCurrentPage, currentPage, loading, hasMore) {
     const observer = useRef()
     return useCallback(node => {

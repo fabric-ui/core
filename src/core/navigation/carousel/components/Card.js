@@ -1,7 +1,7 @@
 import styles from '../styles/Card.module.css'
 import PropTypes from "prop-types";
-import {useEffect, useRef, useState} from "react";
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
+
 export default function Card(props) {
     const ref = useRef()
     const [width, setWidth] = useState(0)

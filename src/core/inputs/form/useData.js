@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import React from "react";
+import React, {useEffect, useState} from "react";
+
 export default function useData(initialData) {
     const [changed, setChanged] = useState(false)
     const [data, setData] = useState(initialData === undefined || initialData === null ? {} : initialData)

@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import styles from './styles/Button.module.css'
-import {useMemo} from "react";
+import React, {useMemo} from "react";
 import Ripple from "../../misc/ripple/Ripple";
-import React from "react";
 
 export default function Button(props) {
     const variant = useMemo(() => {

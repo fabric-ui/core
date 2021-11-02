@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import styles from '../styles/Row.module.css'
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useRef} from 'react'
 import keyTemplate from "../templates/keyTemplate";
 import {SettingsRounded} from "@material-ui/icons";
 import HeaderCell from "./HeaderCell";

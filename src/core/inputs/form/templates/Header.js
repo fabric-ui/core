@@ -1,5 +1,5 @@
 import styles from "../styles/Form.module.css";
-import {ArrowBackRounded, MoreHorizRounded, MoreVertRounded} from "@material-ui/icons";
+import {ArrowBackRounded, MoreVertRounded} from "@material-ui/icons";
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "../../button/Button";
