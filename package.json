@@ -1,6 +1,6 @@
 {
   "name": "mfc-core",
-  "version": "0.9.5",
+  "version": "0.9.75",
   "author": "facobackup",
   "license": "MIT",
   "main": "dist/index.js",

@@ -15,7 +15,7 @@ import Requester from './core/feedback/requester/Requester'
 import TextField from './core/inputs/text/TextField'
 import ToolTip from './core/feedback/tooltip/ToolTip'
 import useQuery from './core/visualization/hooks/useQuery'
-
+import Button from './core/inputs/button/Button'
 import ThemeContext from './core/misc/theme/ThemeContext'
 import ThemeProvider from './core/misc/theme/ThemeProvider'
 
@@ -35,6 +35,6 @@ export {
   ThemeProvider,
   Requester,
   TextField,
-  ToolTip
+  ToolTip, Button
 }
 

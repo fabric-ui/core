@@ -4248,98 +4248,21 @@ Layout.propTypes = {
   loading: PropTypes.bool
 };
 
-var css_248z$2 = ".Alert-module_wrapper__1Xb80 {\n    top: unset !important;\n    bottom: 16px !important;\n    left: 50% !important;\n    transform: translate(-50%) !important;\n    /*overflow: visible !important;*/\n    /*border-radius: 8px ;*/\n}\n\n.Alert-module_alertContainer__1qzTg {\n    --background: #ff5555;\n    --color: white;\n    background: white;\n    color: #555555 !important;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    transition: visibility 150ms linear, opacity 150ms linear;\n\n    padding: 8px;\n    width: 500px;\n    height: 56px;\n\n    position: relative;\n    border-radius: 8px ;\n\n    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;\n    overflow: hidden;\n    cursor: pointer;\n}\n\n.Alert-module_alertContainer__1qzTg::before {\n    content: '';\n    z-index: 0;\n    position: absolute;\n    background: var(--background);\n    opacity: .3;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n}\n\n/*.alertContainer:hover {*/\n/*    transform: scale(1.2);*/\n/*}*/\n\n/*.alertContainer:active {*/\n/*    transform: scale(.8);*/\n/*}*/\n\n\n.Alert-module_success__WZPeM {\n\n    --background: #00F400;\n}\n\n.Alert-module_info__19jst {\n    --background: #0095ff;\n\n}\n\n.Alert-module_alert__3PpgF {\n    --background: #FFFF3E;\n\n}\n\n.Alert-module_icon__2UUDw {\n\n    color: var(--background) !important;\n}\n\n.Alert-module_button__2Xjxi {\n    padding: 4px;\n    width: 30px;\n    height: 30px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.Alert-module_content__2CXCg {\n    width: 100%;\n\n    font-size: .9rem;\n\n    position: relative;\n    z-index: 1;\n    display: flex;\n    align-items: center;\n    align-content: center;\n    height: 100%;\n    justify-items: flex-start;\n    gap: 4px;\n}";
-var styles$2 = {"wrapper":"Alert-module_wrapper__1Xb80","alertContainer":"Alert-module_alertContainer__1qzTg","success":"Alert-module_success__WZPeM","info":"Alert-module_info__19jst","alert":"Alert-module_alert__3PpgF","icon":"Alert-module_icon__2UUDw","button":"Alert-module_button__2Xjxi","content":"Alert-module_content__2CXCg"};
+var css_248z$2 = ".Loader-module_wrapper__3QI8p{\n    position: fixed;\n    z-index: 999;\n    background: white;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 5px;\n}\n\n.Loader-module_loader__8FRHL{\n    border-radius: 5px;\n    animation: Loader-module_load__3J-lX 2s infinite;\n    position: absolute;\n    background: #0095ff;\n    height: 5px;\n    width: 15vw;\n}\n\n@keyframes Loader-module_load__3J-lX {\n    0%{\n        opacity: .3;\n        transform: translateX(0);\n    }\n    50%{\n        opacity: 1;\n        transform: translateX(50vw);\n    }\n    100%{\n        opacity: .3;\n        transform: translateX(100vw);\n    }\n}";
+var styles$2 = {"wrapper":"Loader-module_wrapper__3QI8p","loader":"Loader-module_loader__8FRHL","load":"Loader-module_load__3J-lX"};
 styleInject(css_248z$2);
-
-function Alert(props) {
-  var variant = useMemo(function () {
-    switch (props.variant) {
-      case 'success':
-        return {
-          className: styles$2.success,
-          icon: /*#__PURE__*/React.createElement(CheckRounded, null)
-        };
-
-      case 'alert':
-        return {
-          className: styles$2.alert,
-          icon: /*#__PURE__*/React.createElement(WarningRounded, null)
-        };
-
-      case 'info':
-        return {
-          className: styles$2.info,
-          icon: /*#__PURE__*/React.createElement(InfoRounded, null)
-        };
-
-      default:
-        return {
-          icon: /*#__PURE__*/React.createElement(ErrorRounded, null)
-        };
-    }
-  }, [props.variant]);
-  useEffect(function () {
-    var timeout = setTimeout(function () {
-      if (!props.open) try {
-        props.handleClose();
-      } catch (e) {}
-    }, 5000);
-    return function () {
-      if (timeout) clearTimeout(timeout);
-    };
-  }, [props.open, props.delay]);
-  return /*#__PURE__*/React.createElement(Modal, {
-    open: props.open,
-    wrapperClassName: styles$2.wrapper,
-    handleClose: props.handleClose,
-    animationStyle: 'fade',
-    variant: 'fit',
-    blurIntensity: 0,
-    className: [styles$2.alertContainer, variant.className].join(' ')
-  }, /*#__PURE__*/React.createElement("div", {
-    className: styles$2.content,
-    onClick: function onClick() {
-      return props.onClick();
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: [styles$2.icon, styles$2.button].join(' ')
-  }, variant.icon), props.children), /*#__PURE__*/React.createElement(Button, {
-    color: 'secondary',
-    className: styles$2.button,
-    onClick: function onClick() {
-      return props.handleClose();
-    }
-  }, /*#__PURE__*/React.createElement(CloseRounded, {
-    style: {
-      fontSize: '1.1rem'
-    }
-  })));
-}
-Alert.propTypes = {
-  variant: PropTypes.oneOf(['success', 'alert', 'error', 'info']),
-  onClick: PropTypes.func,
-  open: PropTypes.bool.isRequired,
-  handleClose: PropTypes.func.isRequired,
-  delay: PropTypes.number.isRequired,
-  children: PropTypes.node
-};
-
-var css_248z$1 = ".Loader-module_wrapper__3QI8p{\n    position: fixed;\n    z-index: 999;\n    background: white;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 5px;\n}\n\n.Loader-module_loader__8FRHL{\n    border-radius: 5px;\n    animation: Loader-module_load__3J-lX 2s infinite;\n    position: absolute;\n    background: #0095ff;\n    height: 5px;\n    width: 15vw;\n}\n\n@keyframes Loader-module_load__3J-lX {\n    0%{\n        opacity: .3;\n        transform: translateX(0);\n    }\n    50%{\n        opacity: 1;\n        transform: translateX(50vw);\n    }\n    100%{\n        opacity: .3;\n        transform: translateX(100vw);\n    }\n}";
-var styles$1 = {"wrapper":"Loader-module_wrapper__3QI8p","loader":"Loader-module_loader__8FRHL","load":"Loader-module_load__3J-lX"};
-styleInject(css_248z$1);
 
 function Loader() {
   return /*#__PURE__*/React.createElement("div", {
-    className: styles$1.wrapper
+    className: styles$2.wrapper
   }, /*#__PURE__*/React.createElement("div", {
-    className: styles$1.loader
+    className: styles$2.loader
   }));
 }
 
-var css_248z = "@import '../../../misc/theme/styles.module.css';\n\n.Details-module_wrapper__J27HM {\n    background: var(--mfc-background-primary);\n    text-rendering: optimizeLegibility !important;\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 35%;\n    height: 100vh;\n\n    border-radius: 5px 0 0 5px;\n    padding: 16px;\n\n    overflow-y: auto;\n    overflow-x: hidden;\n    display: grid;\n    gap: 32px;\n    align-content: flex-start;\n\n    transform: translateZ(0) scale(1.0, 1.0);\n    -webkit-transform: translateZ(0) scale(1.0, 1.0);\n}\n\n.Details-module_header__1tt1f {\n    color: var(--mfc-color-secondary);\n    font-weight: 600;\n    font-size: 1.2rem;\n    font-family: \"Roboto\";\n\n    text-align: left;\n    width: 100%;\n\n    height: fit-content;\n\n\n}\n\n.Details-module_subHeader__2sD0y {\n    margin-top: 4px;\n\n    color: var(--mfc-color-quinary);\n    font-size: .8rem;\n    font-family: \"Roboto\";\n\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    overflow: hidden;\n    max-width: 75%;\n}\n\n.Details-module_body__2pm_N {\n    margin-top: 4px;\n    font-family: \"Roboto\";\n    overflow-x: auto;\n    color: var(--mfc-color-secondary);\n    font-weight: 600;\n    font-size: .8rem;\n    filter: none;\n    min-height: 50px;\n    border: var(--mfc-border-primary) 1px solid;\n    background: var(--mfc-background-tertiary);\n    padding: 4px;\n    border-radius: 5px;\n}\n\n.Details-module_footer__Pdo9j {\n    margin-top: 4px;\n    border: var(--mfc-border-primary) 1px solid;\n    color: var(--mfc-color-quinary);\n    font-weight: 600;\n    font-size: .75rem;\n    font-family: \"Roboto\";\n    padding: 8px;\n    border-radius: 5px;\n    display: grid;\n    gap: 8px;\n}\n\n\n.Details-module_copyButton__2-6G0 {\n    height: 20px;\n\n    outline: none;\n    cursor: pointer;\n    border: none;\n    background: #0095ff;\n    color: white;\n    border-radius: 5px;\n    font-family: \"Roboto\";\n    font-weight: 600;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n    transition: 150ms linear;\n\n    padding: 4px 16px;\n}\n\n.Details-module_copyButton__2-6G0:hover {\n    opacity: .9;\n}\n\n.Details-module_copyButton__2-6G0:active {\n    opacity: .6;\n}\n\n\n";
-var styles = {"wrapper":"Details-module_wrapper__J27HM","header":"Details-module_header__1tt1f","subHeader":"Details-module_subHeader__2sD0y","body":"Details-module_body__2pm_N","footer":"Details-module_footer__Pdo9j","copyButton":"Details-module_copyButton__2-6G0"};
-styleInject(css_248z);
+var css_248z$1 = "@import '../../../misc/theme/styles.module.css';\n\n.Details-module_wrapper__J27HM {\n    background: var(--mfc-background-primary);\n    text-rendering: optimizeLegibility !important;\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 35%;\n    height: 100vh;\n\n    border-radius: 5px 0 0 5px;\n    padding: 16px;\n\n    overflow-y: auto;\n    overflow-x: hidden;\n    display: grid;\n    gap: 32px;\n    align-content: flex-start;\n\n    transform: translateZ(0) scale(1.0, 1.0);\n    -webkit-transform: translateZ(0) scale(1.0, 1.0);\n}\n\n.Details-module_header__1tt1f {\n    color: var(--mfc-color-secondary);\n    font-weight: 600;\n    font-size: 1.2rem;\n    font-family: \"Roboto\";\n\n    text-align: left;\n    width: 100%;\n\n    height: fit-content;\n\n\n}\n\n.Details-module_subHeader__2sD0y {\n    margin-top: 4px;\n\n    color: var(--mfc-color-quinary);\n    font-size: .8rem;\n    font-family: \"Roboto\";\n\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    overflow: hidden;\n    max-width: 75%;\n}\n\n.Details-module_body__2pm_N {\n    margin-top: 4px;\n    font-family: \"Roboto\";\n    overflow-x: auto;\n    color: var(--mfc-color-secondary);\n    font-weight: 600;\n    font-size: .8rem;\n    filter: none;\n    min-height: 50px;\n    border: var(--mfc-border-primary) 1px solid;\n    background: var(--mfc-background-tertiary);\n    padding: 4px;\n    border-radius: 5px;\n}\n\n.Details-module_footer__Pdo9j {\n    margin-top: 4px;\n    border: var(--mfc-border-primary) 1px solid;\n    color: var(--mfc-color-quinary);\n    font-weight: 600;\n    font-size: .75rem;\n    font-family: \"Roboto\";\n    padding: 8px;\n    border-radius: 5px;\n    display: grid;\n    gap: 8px;\n}\n\n\n.Details-module_copyButton__2-6G0 {\n    height: 20px;\n\n    outline: none;\n    cursor: pointer;\n    border: none;\n    background: #0095ff;\n    color: white;\n    border-radius: 5px;\n    font-family: \"Roboto\";\n    font-weight: 600;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n    transition: 150ms linear;\n\n    padding: 4px 16px;\n}\n\n.Details-module_copyButton__2-6G0:hover {\n    opacity: .9;\n}\n\n.Details-module_copyButton__2-6G0:active {\n    opacity: .6;\n}\n\n\n";
+var styles$1 = {"wrapper":"Details-module_wrapper__J27HM","header":"Details-module_header__1tt1f","subHeader":"Details-module_subHeader__2sD0y","body":"Details-module_body__2pm_N","footer":"Details-module_footer__Pdo9j","copyButton":"Details-module_copyButton__2-6G0"};
+styleInject(css_248z$1);
 
 var AlertPT = {
   error: 'Algum erro ocorreu',
@@ -4369,13 +4292,13 @@ function Details(props) {
     handleClose: function handleClose() {
       return props.handleClose();
     },
-    className: styles.wrapper,
+    className: styles$1.wrapper,
     blurIntensity: .1,
     animationStyle: "slide-right"
   }, /*#__PURE__*/React.createElement("div", {
-    className: styles.header
+    className: styles$1.header
   }, props.data.httpStatusCode >= 300 ? lang.error : lang.success, " - ", props.data.httpStatusCode, /*#__PURE__*/React.createElement("div", {
-    className: styles.subHeader
+    className: styles$1.subHeader
   }, props.data.url)), /*#__PURE__*/React.createElement("div", {
     style: {
       width: '100%',
@@ -4389,7 +4312,7 @@ function Details(props) {
       position: 'relative'
     }
   }, lang.details, /*#__PURE__*/React.createElement("button", {
-    className: styles.copyButton,
+    className: styles$1.copyButton,
     onClick: function onClick(event) {
       navigator.clipboard.writeText(props.data.details);
       event.target.innerText = 'Copiado';
@@ -4404,7 +4327,7 @@ function Details(props) {
       }, 5000);
     }
   }, "Copiar")), /*#__PURE__*/React.createElement("pre", {
-    className: styles.body,
+    className: styles$1.body,
     style: {
       overflow: 'auto'
     }
@@ -4413,14 +4336,14 @@ function Details(props) {
       paddingBottom: '16px'
     }
   }, lang.params, /*#__PURE__*/React.createElement("div", {
-    className: styles.footer
+    className: styles$1.footer
   }, /*#__PURE__*/React.createElement("div", null, lang.method, " ", props.data.method), /*#__PURE__*/React.createElement("div", {
     style: {
       width: '100%',
       overflow: 'hidden'
     }
   }, lang.setPackage, /*#__PURE__*/React.createElement("pre", {
-    className: styles.body,
+    className: styles$1.body,
     style: {
       overflow: 'auto'
     }
@@ -4437,6 +4360,83 @@ Details.propTypes = {
     method: PropTypes.string,
     url: PropTypes.string
   })
+};
+
+var css_248z = ".Alert-module_wrapper__1Xb80 {\n    top: unset !important;\n    bottom: 16px !important;\n    left: 50% !important;\n    transform: translate(-50%) !important;\n    /*overflow: visible !important;*/\n    /*border-radius: 8px ;*/\n}\n\n.Alert-module_alertContainer__1qzTg {\n    --background: #ff5555;\n    --color: white;\n    background: white;\n    color: #555555 !important;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    transition: visibility 150ms linear, opacity 150ms linear;\n\n    padding: 8px;\n    width: 500px;\n    height: 56px;\n\n    position: relative;\n    border-radius: 8px ;\n\n    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;\n    overflow: hidden;\n    cursor: pointer;\n}\n\n.Alert-module_alertContainer__1qzTg::before {\n    content: '';\n    z-index: 0;\n    position: absolute;\n    background: var(--background);\n    opacity: .3;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n}\n\n/*.alertContainer:hover {*/\n/*    transform: scale(1.2);*/\n/*}*/\n\n/*.alertContainer:active {*/\n/*    transform: scale(.8);*/\n/*}*/\n\n\n.Alert-module_success__WZPeM {\n\n    --background: #00F400;\n}\n\n.Alert-module_info__19jst {\n    --background: #0095ff;\n\n}\n\n.Alert-module_alert__3PpgF {\n    --background: #FFFF3E;\n\n}\n\n.Alert-module_icon__2UUDw {\n\n    color: var(--background) !important;\n}\n\n.Alert-module_button__2Xjxi {\n    padding: 4px;\n    width: 30px;\n    height: 30px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.Alert-module_content__2CXCg {\n    width: 100%;\n\n    font-size: .9rem;\n\n    position: relative;\n    z-index: 1;\n    display: flex;\n    align-items: center;\n    align-content: center;\n    height: 100%;\n    justify-items: flex-start;\n    gap: 4px;\n}";
+var styles = {"wrapper":"Alert-module_wrapper__1Xb80","alertContainer":"Alert-module_alertContainer__1qzTg","success":"Alert-module_success__WZPeM","info":"Alert-module_info__19jst","alert":"Alert-module_alert__3PpgF","icon":"Alert-module_icon__2UUDw","button":"Alert-module_button__2Xjxi","content":"Alert-module_content__2CXCg"};
+styleInject(css_248z);
+
+function Alert(props) {
+  var variant = useMemo(function () {
+    switch (props.variant) {
+      case 'success':
+        return {
+          className: styles.success,
+          icon: /*#__PURE__*/React.createElement(CheckRounded, null)
+        };
+
+      case 'alert':
+        return {
+          className: styles.alert,
+          icon: /*#__PURE__*/React.createElement(WarningRounded, null)
+        };
+
+      case 'info':
+        return {
+          className: styles.info,
+          icon: /*#__PURE__*/React.createElement(InfoRounded, null)
+        };
+
+      default:
+        return {
+          icon: /*#__PURE__*/React.createElement(ErrorRounded, null)
+        };
+    }
+  }, [props.variant]);
+  useEffect(function () {
+    var timeout = setTimeout(function () {
+      if (!props.open) try {
+        props.handleClose();
+      } catch (e) {}
+    }, 5000);
+    return function () {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, [props.open, props.delay]);
+  return /*#__PURE__*/React.createElement(Modal, {
+    open: props.open,
+    wrapperClassName: styles.wrapper,
+    handleClose: props.handleClose,
+    animationStyle: 'fade',
+    variant: 'fit',
+    blurIntensity: 0,
+    className: [styles.alertContainer, variant.className].join(' ')
+  }, /*#__PURE__*/React.createElement("div", {
+    className: styles.content,
+    onClick: function onClick() {
+      return props.onClick();
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: [styles.icon, styles.button].join(' ')
+  }, variant.icon), props.children), /*#__PURE__*/React.createElement(Button, {
+    color: 'secondary',
+    className: styles.button,
+    onClick: function onClick() {
+      return props.handleClose();
+    }
+  }, /*#__PURE__*/React.createElement(CloseRounded, {
+    style: {
+      fontSize: '1.1rem'
+    }
+  })));
+}
+Alert.propTypes = {
+  variant: PropTypes.oneOf(['success', 'alert', 'error', 'info']),
+  onClick: PropTypes.func,
+  open: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  delay: PropTypes.number.isRequired,
+  children: PropTypes.node
 };
 
 function RequestAlert(props) {
@@ -4614,4 +4614,4 @@ ThemeProvider.propTypes = {
   children: PropTypes.node
 };
 
-export { DateField, DropDownField, FileField, Form, FormRow, Layout, List, Modal, MultiSelectField, Requester, Selector, Tabs, TextField, ThemeContext, ThemeProvider, ToolTip, VerticalTabs, useQuery };
+export { Button, DateField, DropDownField, FileField, Form, FormRow, Layout, List, Modal, MultiSelectField, Requester, Selector, Tabs, TextField, ThemeContext, ThemeProvider, ToolTip, VerticalTabs, useQuery };
