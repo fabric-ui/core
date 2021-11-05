@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useMemo, useContext, useCallback, useReducer } from 'react';
 import PropTypes from 'prop-types';
-import { ArrowDropDownRounded, AddRounded, CategoryRounded, LinkRounded, TextFieldsRounded, CalendarTodayRounded, ArrowBackIosRounded, CheckRounded, FolderRounded, RefreshRounded, FilterListRounded, ClearAllRounded, LaunchRounded, CloseRounded, ArrowDownwardRounded, SettingsRounded, VisibilityRounded, VisibilityOffRounded, ArrowBackRounded, MoreVertRounded, DescriptionRounded, LanguageRounded, ImageRounded, PictureAsPdfRounded, AttachFileRounded, AppsRounded, MenuOpenRounded, CheckCircleRounded, ErrorRounded, ReportProblemRounded } from '@material-ui/icons';
+import { ArrowDropDownRounded, AddRounded, CategoryRounded, LinkRounded, TextFieldsRounded, CalendarTodayRounded, ArrowBackIosRounded, CheckRounded, FolderRounded, RefreshRounded, FilterListRounded, ClearAllRounded, LaunchRounded, CloseRounded, ArrowDownwardRounded, SettingsRounded, VisibilityRounded, VisibilityOffRounded, ArrowBackRounded, DescriptionRounded, LanguageRounded, ImageRounded, PictureAsPdfRounded, AttachFileRounded, AppsRounded, MenuOpenRounded, ErrorRounded, InfoRounded, WarningRounded } from '@material-ui/icons';
 import ReactDOM from 'react-dom';
 import InputMask from 'react-input-mask';
 import { v4 } from 'uuid';
@@ -216,8 +216,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$y = "@import \"../../../misc/theme/styles.module.css\";\n\n\n.Tabs-module_wrapper__3oPSl {\n    flex-grow: 1;\n    overflow: hidden;\n    height: 100%;\n    position: relative;\n    width: 100%;\n    display: flex;\n    flex-flow: column;\n\n\n}\n\n.Tabs-module_header__8l5LJ {\n    background-color: var(--mfc-background-primary);\n    height: fit-content;\n    display: grid;\n    gap: 4px;\n\n    padding-top: 8px;\n    /*border-bottom: var(--mfc-border-primary) 1px solid;*/\n    transition: 150ms ease-in;\n}\n\n.Tabs-module_tabs__3EMRN {\n    margin: auto;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n}\n";
-var styles$w = {"wrapper":"Tabs-module_wrapper__3oPSl","header":"Tabs-module_header__8l5LJ","tabs":"Tabs-module_tabs__3EMRN"};
+var css_248z$y = "@import \"../../../misc/theme/styles.module.css\";\n\n\n.Tabs-module_wrapper__3oPSl {\n    flex-grow: 1;\n    overflow: hidden;\n    height: 100%;\n    position: relative;\n    width: 100%;\n    display: flex;\n    flex-flow: column;\n\n    background-color: var(--mfc-background-primary);\n}\n\n.Tabs-module_header__8l5LJ {\n\n    height: fit-content;\n    display: grid;\n    gap: 4px;\n\n    padding-top: 8px;\n    /*border-bottom: var(--mfc-border-primary) 1px solid;*/\n    transition: 150ms ease-in;\n}\n\n.Tabs-module_tabs__3EMRN {\n    margin: auto;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n}\n\n.Tabs-module_content__12uIs {\n    border: var(--mfc-border-primary) 1px solid;\n    background-color: var(--mfc-background-secondary);\n    border-radius:5px 5px 0 0;\n    height: 100%;\n    padding: 8px;\n}";
+var styles$w = {"wrapper":"Tabs-module_wrapper__3oPSl","header":"Tabs-module_header__8l5LJ","tabs":"Tabs-module_tabs__3EMRN","content":"Tabs-module_content__12uIs"};
 styleInject(css_248z$y);
 
 var css_248z$x = "\r\n.Switcher-module_enterA__2RSrB {\r\n    animation: Switcher-module_enter__3bQ2E 150ms ease-in-out;\r\n}\r\n\r\n.Switcher-module_exitA__2rXXT {\r\n    animation: Switcher-module_exit__1sA5x 150ms ease-in-out;\r\n}\r\n\r\n@keyframes Switcher-module_exit__1sA5x {\r\n    0% {\r\n        opacity: 1;\r\n    }\r\n    100% {\r\n        opacity: 0;\r\n    }\r\n}\r\n\r\n@keyframes Switcher-module_enter__3bQ2E {\r\n    0% {\r\n        opacity: 0;\r\n    }\r\n    100% {\r\n        opacity: 1;\r\n    }\r\n}\r\n\r\n";
@@ -411,15 +411,21 @@ function Tabs(props) {
         setOpen(i);
       }
     }, e.label));
-  }))), /*#__PURE__*/React.createElement(Switcher, {
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: styles$w.content
+  }, /*#__PURE__*/React.createElement(Switcher, {
     animationType: 'sideways',
+    className: props.className,
     openChild: open,
-    className: props.className
+    styles: {
+      background: props.noChildHighlight ? 'unset' : undefined,
+      height: '100%'
+    }
   }, props.buttons.map(function (e, i) {
     return /*#__PURE__*/React.createElement(React.Fragment, {
       key: 'horizontal-tabs-child-' + i
     }, e.children);
-  })));
+  }))));
 }
 Tabs.proptypes = {
   className: PropTypes.string,
@@ -432,7 +438,7 @@ Tabs.proptypes = {
   noChildHighlight: PropTypes.bool
 };
 
-var css_248z$u = "@import \"../../../misc/theme/styles.module.css\";\n\n.Vertical-module_content__3mXHl {\n    flex-grow: 1;\n}\n\n.Vertical-module_wrapper__3BFk5 {\n    flex-grow: 1;\n\n    overflow: hidden;\n    max-height: 100%;\n    height: 100%;\n    position: relative;\n    width: 100%;\n\n    display: flex;\n\n    padding: 8px;\n}\n\n\n.Vertical-module_header__1E32z {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n\n    flex-grow: 1;\n    width: 25%;\n    max-width: 250px;\n\n    display: grid;\n    gap: 24px;\n\n\n    transition: 150ms linear;\n    height: 100%;\n}\n\n.Vertical-module_tabs__1DGLb {\n\n    overflow: hidden;\n\n    width: 100%;\n    padding: 4px;\n}\n\n.Vertical-module_button__3sXjY {\n\n    padding: 12px 24px;\n\n    max-width: 100%;\n    width: 100%;\n\n\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n    text-rendering: optimizeLegibility;\n\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    gap: 16px;\n}\n\n.Vertical-module_color__1eEjz {\n    color: var(--mfc-color-quaternary)\n}\n\n.Vertical-module_color__1eEjz:hover, .Vertical-module_color__1eEjz:active, .Vertical-module_highlight__2lbgS {\n    color: var(--color)\n}\n\n.Vertical-module_rowLabel__F8jVb {\n    display: flex;\n    align-content: center;\n    align-items: center;\n    justify-content: space-between;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    color: var(--mfc-color-secondary);\n    font-size: .8rem;\n    padding: 4px 0 4px 16px;\n    margin-top: 8px;\n}\n\n.Vertical-module_overflow__1UgBi {\n    max-width: 100%;\n\n    text-align: left;\n\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}";
+var css_248z$u = "@import \"../../../misc/theme/styles.module.css\";\n\n.Vertical-module_content__3mXHl {\n    width: 100%;\n}\n\n.Vertical-module_wrapper__3BFk5 {\n    overflow: hidden;\n    max-height: 100%;\n    height: 100%;\n    position: relative;\n    width: 100%;\n\n    display: flex;\n\n    padding: 8px;\n}\n\n\n.Vertical-module_header__1E32z {\n    border: var(--mfc-border-primary) 1px solid;\n\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n\n    flex-grow: 1;\n    width: 25%;\n    max-width: 250px;\n\n    display: grid;\n    gap: 24px;\n\n\n    transition: 150ms linear;\n    height: 100%;\n}\n\n.Vertical-module_tabs__1DGLb {\n\n    overflow: hidden;\n\n    width: 100%;\n    padding: 4px;\n}\n\n.Vertical-module_button__3sXjY {\n\n    padding: 12px 24px;\n\n    max-width: 100%;\n    width: 100%;\n\n\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n    text-rendering: optimizeLegibility;\n\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    gap: 16px;\n}\n\n.Vertical-module_color__1eEjz {\n    color: var(--mfc-color-quaternary)\n}\n\n.Vertical-module_color__1eEjz:hover, .Vertical-module_color__1eEjz:active, .Vertical-module_highlight__2lbgS {\n    color: var(--color)\n}\n\n.Vertical-module_rowLabel__F8jVb {\n    display: flex;\n    align-content: center;\n    align-items: center;\n    justify-content: space-between;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    color: var(--mfc-color-secondary);\n    font-size: .8rem;\n    padding: 4px 0 4px 16px;\n    margin-top: 8px;\n}\n\n.Vertical-module_overflow__1UgBi {\n    max-width: 100%;\n\n    text-align: left;\n\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}";
 var styles$s = {"content":"Vertical-module_content__3mXHl","wrapper":"Vertical-module_wrapper__3BFk5","header":"Vertical-module_header__1E32z","tabs":"Vertical-module_tabs__1DGLb","button":"Vertical-module_button__3sXjY","color":"Vertical-module_color__1eEjz","highlight":"Vertical-module_highlight__2lbgS","rowLabel":"Vertical-module_rowLabel__F8jVb","overflow":"Vertical-module_overflow__1UgBi"};
 styleInject(css_248z$u);
 
@@ -470,6 +476,7 @@ function Row$2(props) {
     return /*#__PURE__*/React.createElement(React.Fragment, {
       key: props.index + '-button-header-tab-' + bI
     }, /*#__PURE__*/React.createElement(Button, {
+      variant: 'minimal-horizontal',
       className: [styles$s.button, styles$s.color, props.open.classSelected === props.index && props.open.rowSelected === bI ? styles$s.highlight : undefined].join(' '),
       styles: {
         fontWeight: 'normal',
@@ -501,6 +508,26 @@ Row$2.propTypes = {
   open: PropTypes.object
 };
 
+function useMaxHeight() {
+  var _useState = useState(),
+      _useState2 = _slicedToArray(_useState, 2),
+      maxHeight = _useState2[0],
+      setMaxHeight = _useState2[1];
+
+  var ref = useRef();
+  useEffect(function () {
+    var parent = ref.current.parentNode;
+    var doc = document.body.getBoundingClientRect();
+    var bBox = ref.current.getBoundingClientRect();
+    var parentBottom = doc.height - (parent.offsetHeight + bBox.top);
+    setMaxHeight(doc.height - bBox.top - (parentBottom > 0 ? Math.ceil(parentBottom) : 0) + 'px');
+  });
+  return {
+    ref: ref,
+    maxHeight: maxHeight
+  };
+}
+
 function VerticalTabs(props) {
   var _useState = useState({
     classSelected: 0,
@@ -517,8 +544,17 @@ function VerticalTabs(props) {
     });
     return indexClass + open.rowSelected;
   }, [open, props.classes]);
+
+  var _useMaxHeight = useMaxHeight(),
+      ref = _useMaxHeight.ref,
+      maxHeight = _useMaxHeight.maxHeight;
+
   return /*#__PURE__*/React.createElement("div", {
-    className: styles$s.wrapper
+    className: styles$s.wrapper,
+    ref: ref,
+    style: {
+      maxHeight: maxHeight
+    }
   }, /*#__PURE__*/React.createElement("div", {
     className: styles$s.header
   }, props.children, /*#__PURE__*/React.createElement("div", {
@@ -556,11 +592,11 @@ VerticalTabs.proptypes = {
   children: PropTypes.node
 };
 
-var css_248z$t = "@import '../../../misc/theme/styles.module.css';\n\n.List-module_tableWrapper__191zi {\n    max-width: 100%;\n    height: 100%;\n    overflow-y: auto;\n    overflow-x: hidden;\n    /*position: relative;*/\n    display: grid;\n    gap: 8px;\n    align-items: flex-start;\n    align-content: flex-start;\n}\n\n.List-module_container__20irL {\n    max-width: 100%;\n    padding: 32px 0;\n    overflow: visible;\n\n    display: grid;\n    gap: 8px;\n\n}\n.List-module_divider__20Bn- {\n    height: 50%;\n    width: 1px;\n    background: var(--mfc-border-secondary);\n}";
+var css_248z$t = "@import '../../../misc/theme/styles.module.css';\n\n.List-module_tableWrapper__191zi {\n    max-width: 100%;\n    height: fit-content;\n    overflow-x: hidden;\n    overflow-y: hidden;\n\n    display: grid;\n    align-content: flex-start;\n\n    gap: 4px;\n\n    padding-bottom: 64px;\n}\n\n.List-module_container__20irL {\n\n\n    display: grid;\n    gap: 8px;\n\n    height: 100%;\n    overflow-y: auto;\n    overflow-x: hidden;\n    position: relative;\n\n    align-content: flex-start;\n}\n\n.List-module_divider__20Bn- {\n    height: 50%;\n    width: 1px;\n    background: var(--mfc-border-secondary);\n}";
 var styles$r = {"tableWrapper":"List-module_tableWrapper__191zi","container":"List-module_container__20irL","divider":"List-module_divider__20Bn-"};
 styleInject(css_248z$t);
 
-var css_248z$s = "@import '../../../misc/theme/styles.module.css';\n\n\n.Header-module_wrapper__2bhrC {\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n}\n\n.Header-module_dropdownLabel__1vYFA {\n    display: flex;\n    align-items: center;\n    gap: 16px;\n    padding: 0 10px;\n\n    /*font-size: .9rem;*/\n    font-family: \"Roboto\";\n}\n\n.Header-module_header__ltUNA {\n\n    position: relative;\n\n    display: flex;\n    height: fit-content;\n    justify-content: space-between;\n    width: 100%;\n    padding: 8px;\n    font-family: \"Roboto\";\n    font-size: 1.2rem;\n\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n\n}\n\n.Header-module_filter__2RF8V {\n    user-select: none;\n    outline: none;\n    background-color: #0095ff;\n    color: white;\n    border: none;\n    padding: 4px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 4px;\n    border-radius: 5px;\n\n    height: 30px;\n    width: fit-content;\n    cursor: pointer;\n\n    transition: 150ms linear;\n}\n\n.Header-module_filter__2RF8V:hover {\n    opacity: .9;\n}\n\n.Header-module_filter__2RF8V:active {\n    opacity: .7;\n    box-shadow: none;\n}\n\n\n.Header-module_overflow__fE49E {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n\n.Header-module_fieldWrapper__1rgwM {\n    display: grid;\n    gap: 16px;\n\n}\n\n.Header-module_selectWrapper__3Nmlr {\n    display: flex;\n    gap: 8px;\n    font-size: .9rem;\n    width: 50%;\n    justify-content: flex-start;\n    align-items: center;\n}\n\n.Header-module_button__8iL-5 {\n\n    height: 30px;\n    padding: 4px 8px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n\n}";
+var css_248z$s = "@import '../../../misc/theme/styles.module.css';\n\n\n.Header-module_wrapper__2bhrC {\n\n    border: var(--mfc-border-primary) 1px solid;\n    transition: 250ms ease-in;\n    box-shadow: var(--mfc-box-shadow-primary) 0 2px 5px 1px;\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n    position: sticky;\n    top: 0;\n    z-index: 50;\n    height: fit-content;\n\n    max-width: 100%;\n    /*height: ;*/\n    overflow: visible;\n    display: grid;\n}\n\n.Header-module_dropdownLabel__1vYFA {\n    display: flex;\n    align-items: center;\n    gap: 16px;\n    padding: 0 10px;\n\n    /*font-size: .9rem;*/\n    font-family: \"Roboto\";\n}\n\n.Header-module_header__ltUNA {\n\n    position: relative;\n\n    display: flex;\n    height: fit-content;\n    justify-content: space-between;\n    width: 100%;\n    padding: 8px;\n    font-family: \"Roboto\";\n    font-size: 1.2rem;\n\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n\n}\n\n.Header-module_filter__2RF8V {\n    user-select: none;\n    outline: none;\n    background-color: #0095ff;\n    color: white;\n    border: none;\n    padding: 4px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 4px;\n    border-radius: 5px;\n\n    height: 30px;\n    width: fit-content;\n    cursor: pointer;\n\n    transition: 150ms linear;\n}\n\n.Header-module_filter__2RF8V:hover {\n    opacity: .9;\n}\n\n.Header-module_filter__2RF8V:active {\n    opacity: .7;\n    box-shadow: none;\n}\n\n\n.Header-module_overflow__fE49E {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n\n.Header-module_fieldWrapper__1rgwM {\n    display: grid;\n    gap: 16px;\n\n}\n\n.Header-module_selectWrapper__3Nmlr {\n    display: flex;\n    gap: 8px;\n    font-size: .9rem;\n    width: 50%;\n    justify-content: flex-start;\n    align-items: center;\n}\n\n.Header-module_button__8iL-5 {\n\n    height: 30px;\n    padding: 4px 8px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n\n}";
 var styles$q = {"wrapper":"Header-module_wrapper__2bhrC","dropdownLabel":"Header-module_dropdownLabel__1vYFA","header":"Header-module_header__ltUNA","filter":"Header-module_filter__2RF8V","overflow":"Header-module_overflow__fE49E","fieldWrapper":"Header-module_fieldWrapper__1rgwM","selectWrapper":"Header-module_selectWrapper__3Nmlr","button":"Header-module_button__8iL-5"};
 styleInject(css_248z$s);
 
@@ -900,8 +936,8 @@ var css_248z$p = "@import '../../../misc/theme/styles.module.css';\r\n\r\n\r\n.F
 var styles$n = {"activeFiltersContainer":"Field-module_activeFiltersContainer__1LqJs","overflow":"Field-module_overflow__3W_qu","filter":"Field-module_filter__23s4g","container":"Field-module_container__3o_Am","header":"Field-module_header__CqM1m","fields":"Field-module_fields__a8JMo","button":"Field-module_button__L_zoF"};
 styleInject(css_248z$p);
 
-var css_248z$o = "@import '../../../misc/theme/styles.module.css';\n\n.Modal-module_wrapper__peqWF {\n    overflow: hidden;\n    width: 100vw;\n    position: fixed;\n    height: 100vh;\n    z-index: 300;\n    transition: 200ms ease-in;\n    bottom: 0;\n}\n\n\n.Modal-module_modalContainer__3aKtV {\n    width: 100%;\n    height: 100%;\n}\n\n.Modal-module_fadeIn__LderD {\n    animation: Modal-module_fadeInAnim__3Gixz ease-in 200ms forwards;\n}\n\n.Modal-module_fadeOutAnimation__1nkKW {\n    animation: Modal-module_fadeOut__3gdQH ease-in 200ms;\n}\n\n\n@keyframes Modal-module_fadeOut__3gdQH {\n    from {\n        opacity: 1;\n    }\n    to {\n        opacity: 0;\n    }\n}\n\n@keyframes Modal-module_fadeInAnim__3Gixz {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n.Modal-module_slideLeftEnter__1a4nB {\n    animation: Modal-module_slideLeftEnterAnim__3Y1mE ease-in 200ms;\n}\n\n.Modal-module_slideLeftExit__3lXC7 {\n    animation: Modal-module_slideLeftExitAnim__2uGD2 ease-in 200ms;\n}\n\n.Modal-module_slideRightEnter__c2m0V {\n    animation: Modal-module_slideRightEnterAnim__zSDil ease-in 200ms;\n}\n\n.Modal-module_slideRightExit__3rrOc {\n    animation: Modal-module_slideRightExitAnim__187-I ease-in 200ms;\n}\n\n@keyframes Modal-module_slideLeftEnterAnim__3Y1mE {\n    0% {\n        transform: translateX(-100%);\n\n    }\n    100% {\n        transform: translateX(0);\n    }\n}\n\n@keyframes Modal-module_slideLeftExitAnim__2uGD2 {\n    0% {\n        transform: translateX(0);\n    }\n    100% {\n        transform: translateX(-100%);\n    }\n}\n\n@keyframes Modal-module_slideRightEnterAnim__zSDil {\n    0% {\n        transform: translateX(100%);\n\n    }\n    100% {\n        transform: translateX(0);\n    }\n}\n\n@keyframes Modal-module_slideRightExitAnim__187-I {\n    0% {\n        transform: translateX(0);\n    }\n    100% {\n        transform: translateX(100%);\n    }\n}\n.Modal-module_background__101HU{\n    background-color: var(--mfc-background-primary);\n}";
-var styles$m = {"wrapper":"Modal-module_wrapper__peqWF","modalContainer":"Modal-module_modalContainer__3aKtV","fadeIn":"Modal-module_fadeIn__LderD","fadeInAnim":"Modal-module_fadeInAnim__3Gixz","fadeOutAnimation":"Modal-module_fadeOutAnimation__1nkKW","fadeOut":"Modal-module_fadeOut__3gdQH","slideLeftEnter":"Modal-module_slideLeftEnter__1a4nB","slideLeftEnterAnim":"Modal-module_slideLeftEnterAnim__3Y1mE","slideLeftExit":"Modal-module_slideLeftExit__3lXC7","slideLeftExitAnim":"Modal-module_slideLeftExitAnim__2uGD2","slideRightEnter":"Modal-module_slideRightEnter__c2m0V","slideRightEnterAnim":"Modal-module_slideRightEnterAnim__zSDil","slideRightExit":"Modal-module_slideRightExit__3rrOc","slideRightExitAnim":"Modal-module_slideRightExitAnim__187-I","background":"Modal-module_background__101HU"};
+var css_248z$o = "@import '../../../misc/theme/styles.module.css';\n\n.Modal-module_wrapper__peqWF {\n    /*overflow: hidden;*/\n    position: fixed;\n    z-index: 300;\n    transition: opacity 150ms ease-in-out;\n    bottom: 0;\n}\n\n.Modal-module_fitContent__3p_fP {\n    height: fit-content;\n    width: fit-content;\n}\n\n.Modal-module_fitPage__CXDNO {\n    height: 100vh;\n    width: 100vw;\n}\n\n.Modal-module_modalContainer__3aKtV {\n    width: 100%;\n    height: 100%;\n}\n\n\n\n@keyframes Modal-module_fadeOutAnim__2SUYV {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}\n\n@keyframes Modal-module_fadeInAnim__3Gixz {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n\n.Modal-module_enterFade__1xlj8 {\n    animation: Modal-module_fadeInAnim__3Gixz ease-in-out 250ms forwards;\n}\n\n.Modal-module_exitFade__2gmwF {\n    animation: Modal-module_fadeOutAnim__2SUYV ease-in-out 250ms forwards;\n}\n\n\n.Modal-module_slideLeftEnter__1a4nB {\n    animation: Modal-module_slideLeftEnterAnim__3Y1mE ease-in-out 250ms;\n}\n\n.Modal-module_slideLeftExit__3lXC7 {\n    animation: Modal-module_slideLeftExitAnim__2uGD2 ease-in-out 250ms;\n}\n\n.Modal-module_slideRightEnter__c2m0V {\n    animation: Modal-module_slideRightEnterAnim__zSDil ease-in-out 250ms;\n}\n\n.Modal-module_slideRightExit__3rrOc {\n    animation: Modal-module_slideRightExitAnim__187-I ease-in-out 250ms;\n}\n\n@keyframes Modal-module_slideLeftEnterAnim__3Y1mE {\n    0% {\n        transform: translateX(-100%);\n\n    }\n    100% {\n        transform: translateX(0);\n    }\n}\n\n@keyframes Modal-module_slideLeftExitAnim__2uGD2 {\n    0% {\n        transform: translateX(0);\n    }\n    100% {\n        transform: translateX(-100%);\n    }\n}\n\n@keyframes Modal-module_slideRightEnterAnim__zSDil {\n    0% {\n        transform: translateX(100%);\n\n    }\n    100% {\n        transform: translateX(0);\n    }\n}\n\n@keyframes Modal-module_slideRightExitAnim__187-I {\n    0% {\n        transform: translateX(0);\n    }\n    100% {\n        transform: translateX(100%);\n    }\n}\n\n.Modal-module_background__101HU {\n    background-color: var(--mfc-background-primary);\n}";
+var styles$m = {"wrapper":"Modal-module_wrapper__peqWF","fitContent":"Modal-module_fitContent__3p_fP","fitPage":"Modal-module_fitPage__CXDNO","modalContainer":"Modal-module_modalContainer__3aKtV","enterFade":"Modal-module_enterFade__1xlj8","fadeInAnim":"Modal-module_fadeInAnim__3Gixz","exitFade":"Modal-module_exitFade__2gmwF","fadeOutAnim":"Modal-module_fadeOutAnim__2SUYV","slideLeftEnter":"Modal-module_slideLeftEnter__1a4nB","slideLeftEnterAnim":"Modal-module_slideLeftEnterAnim__3Y1mE","slideLeftExit":"Modal-module_slideLeftExit__3lXC7","slideLeftExitAnim":"Modal-module_slideLeftExitAnim__2uGD2","slideRightEnter":"Modal-module_slideRightEnter__c2m0V","slideRightEnterAnim":"Modal-module_slideRightEnterAnim__zSDil","slideRightExit":"Modal-module_slideRightExit__3rrOc","slideRightExitAnim":"Modal-module_slideRightExitAnim__187-I","background":"Modal-module_background__101HU"};
 styleInject(css_248z$o);
 
 var css_248z$n = ".styles-module_light__1cr8h {\r\n    --mfc-background-primary: white;\r\n    --mfc-background-secondary: #f9fafb;\r\n    --mfc-background-tertiary: #f4f5fa;\r\n    --mfc-background-quaternary: #E8F0FE;\r\n\r\n    --mfc-border-primary: #F1F1F5;\r\n    --mfc-border-secondary: #e0e0e0;\r\n\r\n    --mfc-color-primary: #333333;\r\n    --mfc-color-secondary: #555555;\r\n    --mfc-color-tertiary: #666666;\r\n    --mfc-color-quaternary: #777777;\r\n    --mfc-color-quinary: #999999;\r\n    --mfc-color-senary: white;\r\n\r\n    --mfc-box-shadow-primary: #e0e0e0;\r\n}\r\n\r\n.styles-module_dark__3eFo2 {\r\n\r\n\r\n    --mfc-background-primary: #292c2b;\r\n    --mfc-background-secondary: #1e2121;\r\n    --mfc-background-tertiary: #191C1C;\r\n    --mfc-background-quaternary: #1f2123;\r\n\r\n    --mfc-border-primary: #1e2121;\r\n    --mfc-border-secondary: #707070;\r\n\r\n    --mfc-color-primary: white;\r\n    --mfc-color-secondary: #f4f5fa;\r\n    --mfc-color-tertiary: #f0f0f0;\r\n    --mfc-color-quaternary: #e0e0e0;\r\n    --mfc-color-quinary: #dedede;\r\n    --mfc-color-senary: #292c2b;\r\n\r\n    --mfc-box-shadow-primary: #1e2121;\r\n}\r\n\r\n";
@@ -927,24 +963,19 @@ var ThemeContext = /*#__PURE__*/React.createContext({
   }
 });
 
-function Modal(props) {
-  var contentRef = useRef();
-  var element = useRef();
-  var lastOpenState = useRef(props.open);
-  var context = useContext(ThemeContext);
-
-  var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      mounted = _useState2[0],
-      setMounted = _useState2[1];
-
+function useModal(_ref) {
+  var animationStyle = _ref.animationStyle,
+      variant = _ref.variant;
+  var mountingPoint = useRef();
+  var source = useRef();
+  var target = useRef();
   var animation = useMemo(function () {
     var anim = {
-      enter: styles$m.fadeIn,
-      exit: styles$m.fadeOutAnimation
+      enter: styles$m.enterFade,
+      exit: styles$m.exitFade
     };
 
-    switch (props.animationStyle) {
+    switch (animationStyle) {
       case 'slide-left':
         {
           anim = {
@@ -965,66 +996,146 @@ function Modal(props) {
     }
 
     return anim;
-  }, [props.animationStyle]);
-  useEffect(function () {
-    if (!mounted) {
-      var newElement = document.createElement('div');
-      document.body.appendChild(newElement);
-      element.current = newElement;
-      setMounted(true);
+  }, []);
+
+  var unmountContent = function unmountContent() {
+    try {
+      ReactDOM.unmountComponentAtNode(mountingPoint.current);
+    } catch (e) {
+      console.log(e);
     }
+  };
 
+  var renderContent = function renderContent(content) {
+    ReactDOM.render(content, mountingPoint.current);
+  };
+
+  var animate = function animate(enter) {
+    var _target$current;
+
+    console.log('ANIMATING', enter ? animation.enter : animation.exit, target.current);
+    if (enter) (_target$current = target.current) === null || _target$current === void 0 ? void 0 : _target$current.classList.add(animation.enter);else {
+      var _target$current2, _target$current3;
+
+      (_target$current2 = target.current) === null || _target$current2 === void 0 ? void 0 : _target$current2.classList.remove(animation.enter);
+      (_target$current3 = target.current) === null || _target$current3 === void 0 ? void 0 : _target$current3.classList.add(animation.exit);
+    }
+  };
+
+  var mount = function mount() {
+    mountingPoint.current = document.createElement('div');
+    document.body.appendChild(mountingPoint.current);
+    mountingPoint.current.style.position = 'fixed';
+    mountingPoint.current.style.zIndex = 999;
+  };
+
+  useEffect(function () {
+    mount();
+    return function () {
+      unmountContent();
+    };
+  }, []);
+
+  var getParentPosition = function getParentPosition() {
+    var _source$current, _source$current$paren;
+
+    var bBox = (_source$current = source.current) === null || _source$current === void 0 ? void 0 : (_source$current$paren = _source$current.parentNode) === null || _source$current$paren === void 0 ? void 0 : _source$current$paren.getBoundingClientRect();
+
+    if (bBox && variant === 'fit') {
+      return {
+        top: bBox.top + bBox.height / 2 + 'px',
+        left: bBox.left + bBox.width / 2 + 'px',
+        transform: 'translate(-50%, -50%)'
+      };
+    } else return {};
+  };
+
+  return {
+    animations: animation,
+    renderContent: renderContent,
+    animate: animate,
+    unmountContent: unmountContent,
+    target: target,
+    source: source,
+    getParentPosition: getParentPosition
+  };
+}
+
+function Modal(props) {
+  var _useModal = useModal({
+    animationStyle: props.animationStyle,
+    variant: props.variant
+  }),
+      animations = _useModal.animations,
+      renderContent = _useModal.renderContent,
+      animate = _useModal.animate,
+      unmountContent = _useModal.unmountContent,
+      target = _useModal.target,
+      source = _useModal.source,
+      getParentPosition = _useModal.getParentPosition;
+
+  var context = useContext(ThemeContext);
+
+  var handleMouseDown = function handleMouseDown(event) {
+    if (!document.elementsFromPoint(event.clientX, event.clientY).includes(target.current) && alreadyRendered) animate(false);
+  };
+
+  var _useState = useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      alreadyRendered = _useState2[0],
+      setAlreadyRendered = _useState2[1];
+
+  useEffect(function () {
     if (props.open) {
-      element.current.style.position = 'fixed';
-      element.current.style.zIndex = 999;
-      var className;
-
-      if (lastOpenState.current !== props.open) {
-        element.current.style.opacity = 0;
-        element.current.classList.add(styles$m.fadeIn);
-        className = animation.enter;
-      }
-
-      ReactDOM.render( /*#__PURE__*/React.createElement("div", {
-        style: {
+      var position = getParentPosition();
+      console.log(alreadyRendered, animations.enter);
+      renderContent( /*#__PURE__*/React.createElement("div", {
+        style: _objectSpread2(_objectSpread2({}, {
           background: "rgba(0, 0, 0, ".concat(props.blurIntensity !== undefined ? props.blurIntensity : .4, ")")
-        },
-        className: [styles$m.wrapper, context.dark ? context.styles.dark : context.styles.light].join(' '),
-        onMouseDown: function onMouseDown(e) {
-          if (!document.elementsFromPoint(e.clientX, e.clientY).includes(contentRef.current) && props.open) props.handleClose();
-        }
+        }), position),
+        className: [styles$m.wrapper, props.variant === 'fit' ? styles$m.fitContent : styles$m.fitPage, props.wrapperClassName, context.dark ? context.styles.dark : context.styles.light].join(' ')
       }, /*#__PURE__*/React.createElement("div", {
-        className: [className, props.wrapperClassName, props.defaultBackground ? styles$m.background : ''].join(' '),
-        style: props.componentStyle,
-        ref: contentRef
-      }, props.children)), element.current);
-      lastOpenState.current = true;
-    } else if (contentRef.current) {
-      element.current.classList.add(styles$m.fadeOutAnimation);
-      contentRef.current.classList.add(animation.exit);
-      contentRef.current.addEventListener('animationend', function () {
-        ReactDOM.unmountComponentAtNode(element.current);
-        lastOpenState.current = false;
-        setMounted(false);
-      }, {
-        once: true
-      });
+        className: [alreadyRendered ? undefined : animations.enter, props.className].join(' '),
+        style: props.styles,
+        ref: target,
+        onAnimationEnd: function onAnimationEnd(e) {
+          if (!alreadyRendered) setAlreadyRendered(true);
+
+          if (e.target.classList.contains(animations.exit)) {
+            setAlreadyRendered(false);
+            props.handleClose();
+            unmountContent();
+          }
+        }
+      }, props.children)));
+    } else if (alreadyRendered) animate();
+  }, [props.children, props.open]);
+  useEffect(function () {
+    document.addEventListener('mousedown', handleMouseDown);
+    return function () {
+      document.removeEventListener('mousedown', handleMouseDown);
+    };
+  }, [alreadyRendered, props.open]);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: source,
+    style: {
+      display: 'none'
     }
   });
-  return null;
 }
 Modal.propTypes = {
-  animationStyle: PropTypes.oneOf(['slide-left', 'slide-right', 'fade']),
   wrapperClassName: PropTypes.string,
+  variant: PropTypes.oneOf(['fill', 'fit']),
+  animationStyle: PropTypes.oneOf(['slide-left', 'slide-right', 'fade']),
+  className: PropTypes.string,
   blurIntensity: PropTypes.number,
-  componentStyle: PropTypes.object,
+  styles: PropTypes.object,
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
-  children: PropTypes.node,
-  defaultBackground: PropTypes.bool
+  children: PropTypes.node
 };
 
-var css_248z$m = ".Input-module_fieldsContainer__EoW_4 {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    height: auto;\n    overflow-x: visible;\n}\n\n\n.Input-module_inputContainer__3Jx-t {\n    background: transparent;\n\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    box-shadow: unset;\n    transition: 150ms ease-in;\n\n    width: 100%;\n    font-family: \"Roboto\";\n\n    outline: none;\n    padding: 5px;\n    font-size: 1rem;\n\n    color: var(--mfc-color-secondary);\n}\n\n.Input-module_inputContainer__3Jx-t::-webkit-outer-spin-button,\n.Input-module_inputContainer__3Jx-t::-webkit-inner-spin-button {\n    -webkit-appearance: none;\n    margin: 0;\n}\n\n\n.Input-module_inputContainer__3Jx-t[type=number] {\n    -moz-appearance: textfield;\n}\n\n.Input-module_inputContainer__3Jx-t:hover, .Input-module_inputContainer__3Jx-t:focus {\n    color: var(--mfc-color-primary);\n    border-color: var(--accent_color);\n}\n\n.Input-module_inputContainer__3Jx-t:disabled {\n    border: var(--mfc-border-primary) 1px solid;\n    /*background: var(--mfc-background-secondary);*/\n    color: var(--mfc-color-quinary);\n}\n\n.Input-module_mask__27obY {\n    z-index: 5;\n\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    left: 8px;\n    color: var(--mfc-color-secondary);\n    font-family: \"Roboto\";\n    font-size: .95rem;\n\n    max-width: 25%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.Input-module_focus__1hNr4 {\n    background: var(--mfc-background-primary);\n    position: relative;\n    overflow: hidden;\n\n}\n\n.Input-module_focus__1hNr4::before {\n    content: '';\n\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    background:var(--accent_color);\n    opacity: 0;\n}\n\n.Input-module_focus__1hNr4:focus::before, .Input-module_focus__1hNr4:focus-within::before {\n    animation: Input-module_fadeIn__1BfZu 150ms linear forwards 500ms;\n}\n\n@keyframes Input-module_fadeIn__1BfZu {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: .15;\n    }\n}\n\n/*.textArea:hover, .textArea:focus{*/\n/*    border-color: transparent;*/\n/*}*/";
+var css_248z$m = ".Input-module_fieldsContainer__EoW_4 {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    height: auto;\n    overflow-x: visible;\n}\n\n\n.Input-module_inputContainer__3Jx-t {\n    background: transparent;\n\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    box-shadow: unset;\n    transition: 150ms ease-in;\n\n    width: 100%;\n    font-family: \"Roboto\";\n\n    outline: none;\n    padding: 5px;\n    font-size: 1rem;\n    margin: unset;\n    box-sizing: border-box;\n    color: var(--mfc-color-secondary);\n}\n\n.Input-module_inputContainer__3Jx-t::-webkit-outer-spin-button,\n.Input-module_inputContainer__3Jx-t::-webkit-inner-spin-button {\n    -webkit-appearance: none;\n    margin: 0;\n}\n\n\n.Input-module_inputContainer__3Jx-t[type=number] {\n    -moz-appearance: textfield;\n}\n\n.Input-module_inputContainer__3Jx-t:hover, .Input-module_inputContainer__3Jx-t:focus {\n    color: var(--mfc-color-primary);\n    border-color: var(--accent_color);\n}\n\n.Input-module_inputContainer__3Jx-t:disabled {\n    border: var(--mfc-border-primary) 1px solid;\n    /*background: var(--mfc-background-secondary);*/\n    color: var(--mfc-color-quinary);\n}\n\n.Input-module_mask__27obY {\n    z-index: 5;\n\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    left: 8px;\n    color: var(--mfc-color-secondary);\n    font-family: \"Roboto\";\n    font-size: .95rem;\n\n    max-width: 25%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.Input-module_focus__1hNr4 {\n    background: var(--mfc-background-primary);\n\n    display: flex;\n\n    position: relative;\n    overflow: hidden;\n    height: fit-content;\n\n}\n\n.Input-module_focus__1hNr4::before {\n    content: '';\n\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    background:var(--accent_color);\n    opacity: 0;\n}\n\n.Input-module_focus__1hNr4:focus::before, .Input-module_focus__1hNr4:focus-within::before {\n    animation: Input-module_fadeIn__1BfZu 150ms linear forwards 500ms;\n}\n\n@keyframes Input-module_fadeIn__1BfZu {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: .15;\n    }\n}\n\n/*.textArea:hover, .textArea:focus{*/\n/*    border-color: transparent;*/\n/*}*/";
 var styles$k = {"fieldsContainer":"Input-module_fieldsContainer__EoW_4","inputContainer":"Input-module_inputContainer__3Jx-t","mask":"Input-module_mask__27obY","focus":"Input-module_focus__1hNr4","fadeIn":"Input-module_fadeIn__1BfZu"};
 styleInject(css_248z$m);
 
@@ -1042,7 +1153,7 @@ function ParseCurrency(event) {
   return value;
 }
 
-var css_248z$l = "\r\n.Shared-module_wrapper__184dI {\r\n    --accent_color: #0095ff;\r\n    position: relative;\r\n    transition: 150ms linear;\r\n    height: fit-content;\r\n}\r\n\r\n.Shared-module_secondaryVariant__JSqkU {\r\n    --accent_color: #ff5555;\r\n}\r\n\r\n.Shared-module_wrapper__184dI input {\r\n    position: relative;\r\n    z-index: 1;\r\n}\r\n\r\n.Shared-module_wrapper__184dI::after {\r\n    content: '';\r\n    transition: 150ms linear;\r\n    position: absolute;\r\n\r\n    z-index: 0;\r\n\r\n    top: -1px;\r\n    left: -1px;\r\n    width: calc(100% - 2px);\r\n    height: calc(100% - 2px);\r\n\r\n    border: transparent 2px solid;\r\n    border-radius: 5px;\r\n}\r\n\r\n.Shared-module_wrapper__184dI:hover::after, .Shared-module_wrapper__184dI:focus-within::after, .Shared-module_wrapper__184dI[highlight]::after {\r\n    border-color: var(--accent_color);\r\n}\r\n\r\n.Shared-module_wrapper__184dI[disabled]::after, .Shared-module_wrapper__184dI:disabled::after {\r\n    border-color: transparent;\r\n}\r\n\r\n\r\n.Shared-module_labelContainer__3uQR- {\r\n    transition: visibility 150ms linear, opacity 150ms linear;\r\n\r\n    color: var(--mfc-color-secondary);\r\n    /*font-weight: 600;*/\r\n    font-size: .8rem;\r\n    margin-top: auto;\r\n    user-select: none;\r\n    font-family: \"Roboto\";\r\n    text-transform: capitalize;\r\n\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    max-width: 75%;\r\n    overflow: hidden;\r\n\r\n}\r\n\r\n.Shared-module_alertLabel__KuMWx {\r\n    color: var(--mfc-color-quaternary);\r\n    font-family: \"Roboto\";\r\n    margin-left: auto;\r\n    font-size: .75rem;\r\n    user-select: none;\r\n\r\n}";
+var css_248z$l = "\r\n.Shared-module_wrapper__184dI {\r\n    --accent_color: #0095ff;\r\n    position: relative;\r\n    transition: 150ms linear;\r\n    height: fit-content;\r\n    z-index: 0;\r\n}\r\n\r\n.Shared-module_secondaryVariant__JSqkU {\r\n    --accent_color: #ff5555;\r\n}\r\n\r\n.Shared-module_wrapper__184dI input {\r\n    position: relative;\r\n    z-index: 1;\r\n}\r\n\r\n.Shared-module_wrapper__184dI::after {\r\n    content: '';\r\n    transition: 150ms linear;\r\n    position: absolute;\r\n\r\n    z-index: 0;\r\n\r\n    top: -1px;\r\n    left: -1px;\r\n    width: calc(100% - 2px);\r\n    height: calc(100% - 2px);\r\n\r\n    border: transparent 2px solid;\r\n    border-radius: 5px;\r\n}\r\n\r\n.Shared-module_wrapper__184dI:hover::after, .Shared-module_wrapper__184dI:focus-within::after, .Shared-module_wrapper__184dI[highlight]::after {\r\n    border-color: var(--accent_color);\r\n}\r\n\r\n.Shared-module_wrapper__184dI[disabled]::after, .Shared-module_wrapper__184dI:disabled::after {\r\n    border-color: transparent;\r\n}\r\n\r\n\r\n.Shared-module_labelContainer__3uQR- {\r\n    transition: 200ms ease-in-out;\r\n\r\n    color: var(--mfc-color-secondary);\r\n    /*font-weight: 600;*/\r\n    font-size: .8rem;\r\n    margin-top: auto;\r\n    user-select: none;\r\n    font-family: \"Roboto\";\r\n    text-transform: capitalize;\r\n\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    max-width: 75%;\r\n    overflow: hidden;\r\n\r\n}\r\n\r\n.Shared-module_alertLabel__KuMWx {\r\n    color: var(--mfc-color-quaternary);\r\n    font-family: \"Roboto\";\r\n    margin-left: auto;\r\n    font-size: .75rem;\r\n    user-select: none;\r\n\r\n}";
 var shared$1 = {"wrapper":"Shared-module_wrapper__184dI","secondaryVariant":"Shared-module_secondaryVariant__JSqkU","labelContainer":"Shared-module_labelContainer__3uQR-","alertLabel":"Shared-module_alertLabel__KuMWx"};
 styleInject(css_248z$l);
 
@@ -1099,14 +1210,7 @@ function TextField(props) {
   var getField = function getField() {
     switch (true) {
       case props.variant === 'area':
-        return /*#__PURE__*/React.createElement("div", {
-          style: {
-            position: 'relative',
-            width: 'calc(100% - 1px)',
-            overflow: 'hidden',
-            zIndex: 5
-          }
-        }, /*#__PURE__*/React.createElement("textarea", {
+        return /*#__PURE__*/React.createElement("textarea", {
           disabled: props.disabled,
           placeholder: props.placeholder,
           value: props.value ? props.value : '',
@@ -1115,11 +1219,13 @@ function TextField(props) {
             minHeight: props.size === 'small' ? '36px' : '56px',
             resize: props.disabled ? 'none' : 'vertical',
             overflow: 'hidden',
-            transition: 'border 150ms ease-in, background 150ms ease-in'
+            transition: 'border 150ms ease-in, background 150ms ease-in',
+            position: 'relative',
+            zIndex: 5
           },
           onChange: props.handleChange,
           maxLength: props.maxLength
-        }));
+        });
 
       case !props.mask && props.variant !== 'area':
         return content(props.value ? props.value : '');
@@ -1148,7 +1254,11 @@ function TextField(props) {
       color: '#0095ff'
     };
   }, [props.colorVariant]);
+  var valid = useMemo(function () {
+    return props.value && props.value.toString().length > 0;
+  }, [props.value]);
   return /*#__PURE__*/React.createElement("div", {
+    "data-valid": valid,
     style: {
       width: props.width,
       height: 'fit-content',
@@ -1160,9 +1270,8 @@ function TextField(props) {
   }, /*#__PURE__*/React.createElement("div", {
     className: shared$1.labelContainer,
     style: {
-      visibility: props.value !== undefined && props.value !== null && props.value.length > 0 || props.type === 'time' || props.type === 'number' ? 'visible' : 'hidden',
-      opacity: props.value !== undefined && props.value !== null && props.value.length > 0 || props.type === 'time' || props.type === 'number' ? '1' : '0',
-      transition: 'visibility 0.2s ease,opacity 0.2s ease'
+      visibility: valid ? 'visible' : 'hidden',
+      opacity: valid ? '1' : '0'
     }
   }, props.label), /*#__PURE__*/React.createElement("div", {
     className: [color.className, shared$1.wrapper].join(' '),
@@ -1172,11 +1281,12 @@ function TextField(props) {
     className: styles$k.focus
   }, getField(), /*#__PURE__*/React.createElement(Ripple, {
     opacity: .15,
-    accentColor: color.color
+    accentColor: color.color,
+    disabled: props.disabled
   }))), /*#__PURE__*/React.createElement("div", {
     className: shared$1.alertLabel,
     style: {
-      color: props.value === null || !props.value || props.value.length === 0 ? '#ff5555' : undefined,
+      color: !valid ? '#ff5555' : undefined,
       visibility: props.required ? 'visible' : 'hidden',
       display: props.noMargin && !props.required ? 'none' : undefined
     }
@@ -1188,7 +1298,7 @@ TextField.propTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   required: PropTypes.bool,
   mask: PropTypes.string,
   maxLength: PropTypes.number,
@@ -1245,7 +1355,7 @@ var Dates = [{
   days: 31
 }];
 
-var css_248z$j = "@import \"../../../misc/theme/styles.module.css\";\n\n.FloatingBox-module_selectBox__3cX-u {\n    transition: 150ms ease-in-out;\n    position: absolute;\n    transform: translateY(50%);\n    top: calc(100% - 16px);\n    left: 0;\n    z-index: 999;\n\n\n}";
+var css_248z$j = "@import \"../../../misc/theme/styles.module.css\";\n\n.FloatingBox-module_selectBox__3cX-u {\n    transition: 150ms ease-in-out;\n    position: absolute;\n    /*transform: translateY(-50%);*/\n    top: calc(100% - 16px);\n    left: 0;\n    z-index: 999;\n\n\n}";
 var styles$i = {"selectBox":"FloatingBox-module_selectBox__3cX-u"};
 styleInject(css_248z$j);
 
@@ -1271,13 +1381,11 @@ function FloatingBox(props) {
       var childOffset = b.y - p.y;
 
       if (childOffset > p.height / 2) {
-        console.log('CASE 1');
         ref.current.style.top = '0';
         ref.current.style.transform = 'translateY(calc(-100% + 16px))';
       } else {
-        console.log('CASE 2');
-        ref.current.style.top = 'calc(100% + 16px)';
-        ref.current.style.transform = 'translateY(-50%)';
+        ref.current.style.top = 'calc(100% - 16px)';
+        ref.current.style.transform = 'none';
       }
     }
   }, [props.parentNode]);
@@ -1493,7 +1601,7 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool
 };
 
-var css_248z$h = "@import \"../../../misc/theme/styles.module.css\";\n\n.Selector-module_createModal__zGsa_ {\n    position: absolute;\n    background: var(--mfc-background-primary);\n    border-radius: 8px;\n    border: var(--mfc-border-primary) 1px solid;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 50vw;\n    max-height: 75vh;\n}\n\n.Selector-module_labelContainer__zPMB5 {\n    /*animation: slideUp linear 250ms both;*/\n    transition: visibility 150ms linear;\n    color: var(--mfc-color-primary);\n    font-size: .9rem;\n    margin-top: auto;\n    overflow: hidden;\n\n    text-transform: capitalize;\n\n}\n\n\n.Selector-module_button__2l_e_ {\n    user-select: none;\n    position: relative;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n\n\n    transition: inherit;\n    background: var(--mfc-background-primary);\n    width: 100%;\n\n    padding: 5px;\n\n    max-width: 100%;\n    overflow: hidden;\n}\n\n.Selector-module_alertLabel__2-P3S {\n    margin-left: auto;\n    font-weight: 550;\n    font-size: .8rem;\n}\n\n\n.Selector-module_inputContainer__1xcoQ {\n\n    border: none;\n    box-shadow: unset;\n\n    background: transparent;\n    width: 100%;\n    font-family: 'Roboto' !important;\n    height: 44px;\n\n    outline: none;\n    padding: 5px 12px;\n    font-size: 1rem;\n\n}\n\n.Selector-module_fieldsContainer__37Ep6 {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    height: 50px;\n    border-radius: 8px;\n    transition: 150ms linear;\n    color: var(--mfc-color-secondary);\n    background: var(--mfc-background-primary);\n    gap: 0;\n    padding: 0 0 0 16px;\n    border: #e0e0e0 1px solid;\n    margin-bottom: 32px;\n}\n\n.Selector-module_fieldsContainer__37Ep6:hover {\n    box-shadow: #0095ff 0px 0px 1px 1.5px;\n}\n\n.Selector-module_fieldsContainer__37Ep6:focus, .Selector-module_fieldsContainer__37Ep6:focus-within {\n    color: black;\n    box-shadow: #0095ff 0px 0px 1px 1.5px;\n    background: var(--mfc-background-tertiary);\n}\n\n.Selector-module_searchButtonContainer__3Jw7g {\n    padding: 0;\n    outline: 0;\n    height: 44px;\n    width: fit-content;\n    border: none;\n    color: var(--mfc-color-secondary);\n    border-radius: 8px;\n\n    cursor: pointer;\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n\n    background: transparent;\n    transition: 150ms linear;\n}\n\n.Selector-module_searchButtonContainer__3Jw7g:hover {\n    color: #0095ff;\n}\n\n.Selector-module_selectedEntityContainer__3Vnam {\n    width: 100%;\n    border: none;\n    border-bottom: var(--mfc-border-primary) 1px solid;\n    border-top: var(--mfc-border-primary) 1px solid;\n\n    height: 56px;\n    color: var(--mfc-color-primary);\n    font-size: .9rem;\n\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    padding: 8px;\n}\n\n.Selector-module_removeButton__1TFvA {\n\n    width: 28px;\n    height: 28px;\n    border-radius: 32px;\n\n    outline: none;\n    cursor: pointer;\n    border: none;\n    background: transparent;\n    color: #ff5555;\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.Selector-module_divider__2Ossq {\n    height: 30px;\n    width: 1px;\n    background: var(--mfc-border-primary);\n\n}\n\n.Selector-module_overflow__3TwOW {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    max-width: 90%;\n}\n\n\n@keyframes Selector-module_enter__2WjLM {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n@keyframes Selector-module_exit__2Dzcn {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}";
+var css_248z$h = "@import \"../../../misc/theme/styles.module.css\";\n\n.Selector-module_createModal__zGsa_ {\n    position: absolute;\n    background: var(--mfc-background-primary);\n    border-radius: 8px;\n    border: var(--mfc-border-primary) 1px solid;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 50vw;\n    max-height: 75vh;\n}\n\n.Selector-module_labelContainer__zPMB5 {\n    /*animation: slideUp linear 250ms both;*/\n    transition: visibility 150ms linear;\n    color: var(--mfc-color-primary);\n    font-size: .9rem;\n    margin-top: auto;\n    overflow: hidden;\n\n    text-transform: capitalize;\n\n}\n\n\n.Selector-module_button__2l_e_ {\n    user-select: none;\n    position: relative;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n\n\n    transition: inherit;\n    background: var(--mfc-background-primary);\n    width: 100%;\n\n    padding: 5px;\n\n    max-width: 100%;\n    overflow: hidden;\n}\n\n.Selector-module_button__2l_e_:hover {\n    border-color: var(--accent-color);\n}\n\n.Selector-module_button__2l_e_:disabled {\n    border-color: var(--mfc-border-primary);\n}\n\n.Selector-module_alertLabel__2-P3S {\n    margin-left: auto;\n    font-weight: 550;\n    font-size: .8rem;\n}\n\n\n.Selector-module_inputContainer__1xcoQ {\n\n    border: none;\n    box-shadow: unset;\n\n    background: transparent;\n    width: 100%;\n    font-family: 'Roboto' !important;\n    height: 44px;\n\n    outline: none;\n    padding: 5px 12px;\n    font-size: 1rem;\n\n}\n\n.Selector-module_fieldsContainer__37Ep6 {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    height: 50px;\n    border-radius: 8px;\n    transition: 150ms linear;\n    color: var(--mfc-color-secondary);\n    background: var(--mfc-background-primary);\n    gap: 0;\n    padding: 0 0 0 16px;\n    border: #e0e0e0 1px solid;\n    margin-bottom: 32px;\n}\n\n.Selector-module_fieldsContainer__37Ep6:hover {\n    box-shadow: #0095ff 0px 0px 1px 1.5px;\n}\n\n.Selector-module_fieldsContainer__37Ep6:focus, .Selector-module_fieldsContainer__37Ep6:focus-within {\n    color: black;\n    box-shadow: #0095ff 0px 0px 1px 1.5px;\n    background: var(--mfc-background-tertiary);\n}\n\n.Selector-module_searchButtonContainer__3Jw7g {\n    padding: 0;\n    outline: 0;\n    height: 44px;\n    width: fit-content;\n    border: none;\n    color: var(--mfc-color-secondary);\n    border-radius: 8px;\n\n    cursor: pointer;\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n\n    background: transparent;\n    transition: 150ms linear;\n}\n\n.Selector-module_searchButtonContainer__3Jw7g:hover {\n    color: #0095ff;\n}\n\n.Selector-module_selectedEntityContainer__3Vnam {\n    width: 100%;\n    border: none;\n    border-bottom: var(--mfc-border-primary) 1px solid;\n    border-top: var(--mfc-border-primary) 1px solid;\n\n    height: 56px;\n    color: var(--mfc-color-primary);\n    font-size: .9rem;\n\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    padding: 8px;\n}\n\n.Selector-module_removeButton__1TFvA {\n\n    width: 28px;\n    height: 28px;\n    border-radius: 32px;\n\n    outline: none;\n    cursor: pointer;\n    border: none;\n    background: transparent;\n    color: #ff5555;\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.Selector-module_divider__2Ossq {\n    height: 30px;\n    width: 1px;\n    background: var(--mfc-border-primary);\n\n}\n\n.Selector-module_overflow__3TwOW {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    max-width: 90%;\n}\n\n\n@keyframes Selector-module_enter__2WjLM {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n@keyframes Selector-module_exit__2Dzcn {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}";
 var styles$g = {"createModal":"Selector-module_createModal__zGsa_","labelContainer":"Selector-module_labelContainer__zPMB5","button":"Selector-module_button__2l_e_","alertLabel":"Selector-module_alertLabel__2-P3S","inputContainer":"Selector-module_inputContainer__1xcoQ","fieldsContainer":"Selector-module_fieldsContainer__37Ep6","searchButtonContainer":"Selector-module_searchButtonContainer__3Jw7g","selectedEntityContainer":"Selector-module_selectedEntityContainer__3Vnam","removeButton":"Selector-module_removeButton__1TFvA","divider":"Selector-module_divider__2Ossq","overflow":"Selector-module_overflow__3TwOW","enter":"Selector-module_enter__2WjLM","exit":"Selector-module_exit__2Dzcn"};
 styleInject(css_248z$h);
 
@@ -1504,13 +1612,13 @@ var SelectorsPT = {
   selected: 'Selecionado'
 };
 
-var css_248z$g = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.SelectorModal-module_wrapper__39kRR {\r\n    height: 100%;\r\n    width: clamp(250px, 25%, 500px);\r\n    background: var(--mfc-background-primary);\r\n    margin-left: auto;\r\n    border-radius: 8px 0 0 8px;\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 2px 1px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 16px;\r\n    padding: 12px;\r\n}\r\n\r\n.SelectorModal-module_header__ckwRV {\r\n    font-family: \"Roboto\";\r\n\r\n    display: flex;\r\n    height: fit-content;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    width: 100%;\r\n    font-size: 1.2rem;\r\n    border-radius: 5px;\r\n    font-weight: bold;\r\n    color: var(--mfc-color-primary);\r\n}\r\n\r\n.SelectorModal-module_row__28prZ {\r\n    overflow: hidden;\r\n    outline: none;\r\n\r\n    width: 100%;\r\n    max-width: 100%;\r\n\r\n    padding: 4px;\r\n    height: 50px;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.SelectorModal-module_overflowEllipsis__2C1KC {\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    text-align: left;\r\n}\r\n\r\n.SelectorModal-module_rowColumn__2wgID {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    justify-items: center;\r\n\r\n    gap: 4px;\r\n}\r\n\r\n.SelectorModal-module_columnLabel__3EXCz {\r\n    font-size: .75rem;\r\n    color: var(--mfc-color-quaternary);\r\n}\r\n\r\n.SelectorModal-module_rows__dqCYe {\r\n    position: relative;\r\n    display: grid;\r\n    align-content: flex-start;\r\n    gap: 8px;\r\n    overflow-y: auto;\r\n    height: 100%;\r\n    /*padding-top: 16px;*/\r\n    /*display: flex;*/\r\n    /*flex-direction: column;*/\r\n    width: 100%;\r\n    /*gap: 4px;*/\r\n}\r\n\r\n.SelectorModal-module_hoveredRow__2kDC6 {\r\n    background: var(--mfc-background-quaternary);\r\n    border-color: #0095ff;\r\n    border-style: solid;\r\n}\r\n\r\n\r\n\r\n.SelectorModal-module_emptyRow__9HWYo {\r\n    color: var(--mfc-color-quinary);\r\n}\r\n\r\n.SelectorModal-module_divider__1O8uU {\r\n    height: 1px;\r\n    width: 100%;\r\n    background: var(--mfc-border-secondary);\r\n}\r\n\r\n.SelectorModal-module_headerButton__1tHp5 {\r\n    height: 30px;\r\n    padding: 4px 8px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    background: var(--mfc-background-primary);\r\n}\r\n\r\n\r\n.SelectorModal-module_headerButtons__1TWSf {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n}\r\n\r\n.SelectorModal-module_mainRow__1PE1p{\r\n    background: var(--mfc-background-tertiary);\r\n}";
+var css_248z$g = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.SelectorModal-module_wrapper__39kRR {\r\n    height: 100%;\r\n    width: clamp(250px, 25%, 500px);\r\n    background: var(--mfc-background-primary);\r\n    margin-left: auto;\r\n    border-radius: 8px 0 0 8px;\r\n    box-shadow: var(--mfc-box-shadow-primary) -1px 0 3px 1px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 16px;\r\n    padding: 12px;\r\n}\r\n\r\n.SelectorModal-module_header__ckwRV {\r\n    font-family: \"Roboto\";\r\n\r\n    display: flex;\r\n    height: fit-content;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    width: 100%;\r\n    font-size: 1.2rem;\r\n    border-radius: 5px;\r\n    font-weight: bold;\r\n    color: var(--mfc-color-primary);\r\n}\r\n\r\n.SelectorModal-module_row__28prZ {\r\n    overflow: hidden;\r\n    outline: none;\r\n\r\n    width: 100%;\r\n    max-width: 100%;\r\n\r\n    padding: 4px;\r\n    height: 50px;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.SelectorModal-module_overflowEllipsis__2C1KC {\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    text-align: left;\r\n}\r\n\r\n.SelectorModal-module_rowColumn__2wgID {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    justify-items: center;\r\n\r\n    gap: 4px;\r\n}\r\n\r\n.SelectorModal-module_columnLabel__3EXCz {\r\n    font-size: .75rem;\r\n    color: var(--mfc-color-quaternary);\r\n}\r\n\r\n.SelectorModal-module_rows__dqCYe {\r\n    position: relative;\r\n    display: grid;\r\n    align-content: flex-start;\r\n    gap: 8px;\r\n    overflow-y: auto;\r\n    height: 100%;\r\n    /*padding-top: 16px;*/\r\n    /*display: flex;*/\r\n    /*flex-direction: column;*/\r\n    width: 100%;\r\n    /*gap: 4px;*/\r\n}\r\n\r\n.SelectorModal-module_hoveredRow__2kDC6 {\r\n    background: var(--mfc-background-quaternary);\r\n    border-color: #0095ff;\r\n    border-style: solid;\r\n}\r\n\r\n\r\n\r\n.SelectorModal-module_emptyRow__9HWYo {\r\n    color: var(--mfc-color-quinary);\r\n}\r\n\r\n.SelectorModal-module_divider__1O8uU {\r\n    height: 1px;\r\n    width: 100%;\r\n    background: var(--mfc-border-secondary);\r\n}\r\n\r\n.SelectorModal-module_headerButton__1tHp5 {\r\n    height: 30px;\r\n    padding: 4px 8px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    background: var(--mfc-background-primary);\r\n}\r\n\r\n\r\n.SelectorModal-module_headerButtons__1TWSf {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n}\r\n\r\n.SelectorModal-module_mainRow__1PE1p{\r\n    background: var(--mfc-background-tertiary);\r\n}";
 var styles$f = {"wrapper":"SelectorModal-module_wrapper__39kRR","header":"SelectorModal-module_header__ckwRV","row":"SelectorModal-module_row__28prZ","overflowEllipsis":"SelectorModal-module_overflowEllipsis__2C1KC","rowColumn":"SelectorModal-module_rowColumn__2wgID","columnLabel":"SelectorModal-module_columnLabel__3EXCz","rows":"SelectorModal-module_rows__dqCYe","hoveredRow":"SelectorModal-module_hoveredRow__2kDC6","emptyRow":"SelectorModal-module_emptyRow__9HWYo","divider":"SelectorModal-module_divider__1O8uU","headerButton":"SelectorModal-module_headerButton__1tHp5","headerButtons":"SelectorModal-module_headerButtons__1TWSf","mainRow":"SelectorModal-module_mainRow__1PE1p"};
 styleInject(css_248z$g);
 
 function useField(field, entity) {
   return useMemo(function () {
-    if (entity && entity[field.key] !== undefined && entity[field.key] !== null) switch (field.type) {
+    if (entity && entity[field.key] !== undefined && entity[field.key] !== null && (field.type === 'object' && entity[field.key][field.subfieldKey] || field.type !== 'object')) switch (field.type) {
       case 'string':
         return (field.maskStart ? field.maskStart : '') + entity[field.key] + (field.maskEnd ? field.maskEnd : '');
 
@@ -1566,14 +1674,17 @@ function Row$1(props) {
       return props.onClick();
     },
     reference: props.reference,
+    highlight: props.highlight,
     variant: 'outlined',
     className: styles$f.row,
     disabled: props.disabled,
     styles: props.main ? {
       background: 'var(--mfc-background-tertiary)'
-    } : props.height ? {
-      height: props.height
-    } : undefined
+    } : {
+      height: props.height,
+      position: 'relative',
+      zIndex: 5
+    }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: props.main && !props.data ? undefined : 'none'
@@ -1671,6 +1782,9 @@ function SelectorModal(props) {
       setSelectedField = _useHeader.setSelectedField,
       getField = _useHeader.getField;
 
+  useEffect(function () {
+    if (props.open) props.hook.clean();
+  }, [props.open]);
   return /*#__PURE__*/React.createElement(Modal, {
     open: props.open,
     handleClose: function handleClose() {
@@ -1678,7 +1792,7 @@ function SelectorModal(props) {
     },
     animationStyle: 'slide-right',
     blurIntensity: 0,
-    wrapperClassName: styles$f.wrapper
+    className: styles$f.wrapper
   }, /*#__PURE__*/React.createElement("div", {
     className: styles$f.header
   }, props.title), /*#__PURE__*/React.createElement("div", {
@@ -1693,8 +1807,8 @@ function SelectorModal(props) {
     onClick: function onClick() {
       return props.onCreate();
     },
-    style: {
-      display: props.createOption ? undefined : 'none'
+    styles: {
+      display: props.createOption === true ? undefined : 'none'
     },
     className: styles$f.headerButton
   }, /*#__PURE__*/React.createElement(AddRounded, null), /*#__PURE__*/React.createElement(ToolTip, {
@@ -1840,9 +1954,11 @@ function Selector(props) {
     highlight: open
   }, props.value !== null && props.value !== undefined ? /*#__PURE__*/React.createElement(Row$1, {
     onClick: function onClick() {
-      return setOpen(true);
+      setOpen(true);
     },
+    disabled: props.disabled,
     data: props.value,
+    highlight: open,
     keys: props.keys,
     height: props.size === 'small' ? '36px' : '56px'
   }) : /*#__PURE__*/React.createElement(Button, {
@@ -1854,12 +1970,12 @@ function Selector(props) {
       overflow: "hidden",
       maxWidth: 'unset',
       marginTop: 'unset',
-      zIndex: 2
+      zIndex: 5
     },
     color: props.colorVariant === 'secondary' ? 'secondary' : 'primary',
     className: [styles$g.button, shared$1.labelContainer].join(' '),
     onClick: function onClick() {
-      return setOpen(true);
+      setOpen(true);
     }
   }, props.placeholder, /*#__PURE__*/React.createElement(LaunchRounded, {
     style: {
@@ -1878,7 +1994,7 @@ function Selector(props) {
     },
     animationStyle: 'fade',
     blurIntensity: .1,
-    wrapperClassName: styles$g.createModal
+    className: styles$g.createModal
   }, typeof props.children === 'function' ? props.children(function () {
     setOpenCreate(false);
     props.hook.clean();
@@ -1980,9 +2096,8 @@ function useQuery(props) {
       hasMore = _useState10[0],
       setHasMore = _useState10[1];
 
-  var fetchParams = function fetchParams() {
+  var fetchParams = useCallback(function () {
     var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
-    console.log(page);
     var pack = {
       page: page !== undefined ? page : currentPage,
       quantity: props.fetchSize,
@@ -2000,14 +2115,12 @@ function useQuery(props) {
       url: props.url,
       params: pack
     };
-  };
-
-  var fetchData = function fetchData() {
+  }, [filters, sorts, props]);
+  var fetchData = useCallback(function () {
     var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
     setLoading(true);
     var params = fetchParams(page);
     axios(params).then(function (res) {
-      console.log(params.params, res.data, page);
       dispatchData({
         type: ACTIONS.PUSH,
         payload: res.data
@@ -2017,8 +2130,7 @@ function useQuery(props) {
     })["catch"](function () {
       return null;
     });
-  };
-
+  }, [props, loading, hasMore, data]);
   useEffect(function () {
     if (currentPage > 0) fetchData(currentPage);
   }, [currentPage]);
@@ -2259,7 +2371,7 @@ function Field(props) {
     },
     blurIntensity: .1,
     animationStyle: 'fade',
-    wrapperClassName: styles$n.container
+    className: styles$n.container
   }, props.selectedField !== null && props.selectedField !== undefined ? /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
@@ -2394,7 +2506,7 @@ Filter.propTypes = {
   setSelectedField: PropTypes.func
 };
 
-var css_248z$e = ".Row-module_row__2HKgP {\r\n    display: flex;\r\n    align-items: center;\r\n    height: 60px;\r\n    width: 100%;\r\n    padding: 0;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px 0 0 5px;\r\n\r\n}\r\n\r\n\r\n.Row-module_cell__1glv0 {\r\n    background: var(--mfc-background-primary);\r\n    padding: 0 8px;\r\n    color: inherit;\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n    height: 100%;\r\n}\r\n\r\n\r\n.Row-module_overflow__3ktb- {\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n.Row-module_headerRow__zvgwa {\r\n    /*border: var(--mfc-border-primary) 1px solid;*/\r\n    position: sticky;\r\n    top: 0;\r\n    z-index: 50;\r\n\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    transition: 150ms linear;\r\n\r\n}\r\n\r\n.Row-module_scrolledHeader__2XQ70 {\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 1px 1px;\r\n}\r\n\r\n\r\n.Row-module_mainButton__26HDy {\r\n    border-left: var(--mfc-border-primary) 1px solid;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 0 5px 5px 0;\r\n    padding: 4px;\r\n    width: 30px;\r\n    height: 60px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.Row-module_divider__2xBdi {\r\n    height: 50%;\r\n    width: 1px;\r\n    background: var(--mfc-border-secondary);\r\n}";
+var css_248z$e = ".Row-module_row__2HKgP {\r\n    display: flex;\r\n    align-items: center;\r\n    height: 60px;\r\n    width: 100%;\r\n    padding: 0;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px 0 0 5px;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n}\r\n\r\n\r\n.Row-module_cell__1glv0 {\r\n    background: var(--mfc-background-primary);\r\n    padding: 0 8px;\r\n    color: inherit;\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n    height: 100%;\r\n}\r\n\r\n\r\n.Row-module_overflow__3ktb- {\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n.Row-module_headerRow__zvgwa {\r\n    /*border: var(--mfc-border-primary) 1px solid;*/\r\n    position: sticky;\r\n    top: 0;\r\n    z-index: 50;\r\n\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    transition: 150ms linear;\r\n\r\n}\r\n\r\n.Row-module_scrolledHeader__2XQ70 {\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 1px 1px;\r\n}\r\n\r\n\r\n.Row-module_mainButton__26HDy {\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    border-left: none;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 0 5px 5px 0;\r\n    padding: 4px;\r\n    width: 30px;\r\n    height: 60px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.Row-module_divider__2xBdi {\r\n    height: 50%;\r\n    width: 1px;\r\n    background: var(--mfc-border-secondary);\r\n}";
 var styles$d = {"row":"Row-module_row__2HKgP","cell":"Row-module_cell__1glv0","overflow":"Row-module_overflow__3ktb-","headerRow":"Row-module_headerRow__zvgwa","scrolledHeader":"Row-module_scrolledHeader__2XQ70","mainButton":"Row-module_mainButton__26HDy","divider":"Row-module_divider__2xBdi"};
 styleInject(css_248z$e);
 
@@ -2410,7 +2522,7 @@ function HeaderCell(props) {
     className: styles$d.cell,
     variant: 'minimal-horizontal',
     styles: {
-      width: "".concat(1 / props.length * 100, "%"),
+      width: "calc(".concat(1 / props.length * 100, "% + ").concat(props.additionalWidth, ")"),
       color: props.value.type === 'object' ? 'var(--mfc-color-quinary)' : 'inherit',
       justifyContent: props.value.type !== 'object' ? 'space-between' : 'flex-start'
     },
@@ -2460,7 +2572,7 @@ function HeaderCell(props) {
           }
       }
     },
-    ref: ref
+    reference: ref
   }, /*#__PURE__*/React.createElement(LinkRounded, {
     style: {
       display: props.value.type !== 'object' ? 'none' : undefined,
@@ -2483,6 +2595,7 @@ function HeaderCell(props) {
 HeaderCell.propTypes = {
   hasOptions: PropTypes.bool,
   length: PropTypes.number,
+  additionalWidth: PropTypes.string,
   value: keyTemplate,
   sorts: PropTypes.array,
   setSorts: PropTypes.func
@@ -2499,6 +2612,7 @@ function Header$1(props) {
     }, /*#__PURE__*/React.createElement(HeaderCell, {
       hasOptions: props.hasOptions,
       setSorts: props.setSorts,
+      additionalWidth: e.additionalWidth ? e.additionalWidth : '0px',
       value: e,
       sorts: props.sorts,
       length: props.keys.length
@@ -2541,11 +2655,14 @@ function ListHeader(props) {
       getField = _useHeader.getField;
 
   return /*#__PURE__*/React.createElement("div", {
-    className: styles$q.wrapper
+    className: styles$q.wrapper,
+    style: {
+      boxShadow: props.scrolled ? undefined : 'none'
+    }
   }, /*#__PURE__*/React.createElement("div", {
     className: styles$q.header,
     style: {
-      marginBottom: props.filters.length === 0 ? '8px' : undefined
+      marginBottom: props.hook.filters.length === 0 ? '8px' : undefined
     }
   }, props.title, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2557,7 +2674,7 @@ function ListHeader(props) {
     variant: 'outlined',
     className: styles$q.button,
     onClick: function onClick() {
-      return props.cleanState();
+      return props.hook.clean();
     }
   }, "Recarregar", /*#__PURE__*/React.createElement(RefreshRounded, {
     style: {
@@ -2603,8 +2720,8 @@ function ListHeader(props) {
     }
   }, /*#__PURE__*/React.createElement(Filter, {
     keys: props.keys,
-    filters: props.filters,
-    setFilters: props.setFilters,
+    filters: props.hook.filters,
+    setFilters: props.hook.setFilters,
     getType: getType,
     open: open,
     setOpen: setOpen,
@@ -2615,20 +2732,18 @@ function ListHeader(props) {
     keys: props.keys.filter(function (e) {
       return e.visible === true;
     }),
-    sorts: props.sorts,
-    setSorts: props.setSorts,
+    sorts: props.hook.sorts,
+    setSorts: props.hook.setSorts,
     hasOptions: props.hasOptions
   }));
 }
 ListHeader.propTypes = {
+  scrolled: PropTypes.bool,
   hook: PropTypes.object,
   noFilters: PropTypes.bool,
   dispatch: PropTypes.func,
   actions: PropTypes.object,
   title: PropTypes.any,
-  setFilters: PropTypes.func,
-  filters: PropTypes.array,
-  cleanState: PropTypes.func,
   keys: PropTypes.arrayOf(keyTemplate).isRequired,
   setOpenSettings: PropTypes.func,
   createOption: PropTypes.bool,
@@ -2654,7 +2769,7 @@ var reducer = function reducer(state, action) {
         var newValue = _toConsumableArray(state);
 
         var i = newValue.findIndex(function (e) {
-          return e.key === action.payload.key;
+          return e.key === action.payload.key && e.subfieldKey === action.payload.subfieldKey;
         });
         newValue[i].additionalWidth = action.payload.size;
         return newValue;
@@ -2665,7 +2780,7 @@ var reducer = function reducer(state, action) {
         var _newValue = _toConsumableArray(state);
 
         var _i = _newValue.findIndex(function (e) {
-          return e.key === action.payload.key;
+          return e.key === action.payload.key && e.subfieldKey === action.payload.subfieldKey;
         });
 
         _newValue[_i].visible = !_newValue[_i].visible;
@@ -2678,14 +2793,6 @@ var reducer = function reducer(state, action) {
 };
 
 function useList(initialKeys) {
-  var noAutoHeight = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-  var wrapperRef = useRef();
-
-  var _useState = useState(),
-      _useState2 = _slicedToArray(_useState, 2),
-      maxHeight = _useState2[0],
-      setMaxHeight = _useState2[1];
-
   var _useReducer = useReducer(reducer, initialKeys, function (val) {
     return val;
   }),
@@ -2693,77 +2800,117 @@ function useList(initialKeys) {
       keys = _useReducer2[0],
       keysDispatcher = _useReducer2[1];
 
-  var _useState3 = useState(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      openSettings = _useState4[0],
-      setOpenSettings = _useState4[1];
+  var _useState = useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      openSettings = _useState2[0],
+      setOpenSettings = _useState2[1];
 
-  useEffect(function () {
-    if (!noAutoHeight) setMaxHeight(document.documentElement.offsetHeight - wrapperRef.current.getBoundingClientRect().top - 16 + 'px');
-  }, []);
   return {
-    maxHeight: maxHeight,
     keys: keys,
     keysDispatcher: keysDispatcher,
     actions: actions,
     openSettings: openSettings,
-    setOpenSettings: setOpenSettings,
-    wrapperRef: wrapperRef
+    setOpenSettings: setOpenSettings
   };
 }
 
-var css_248z$d = "@import '../../../misc/theme/styles.module.css';\n\n.Settings-module_modal__37ZQb {\n    background-color: var(--mfc-background-secondary);\n\n    border-radius: 5px;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n\n\n    width: 25%;\n    height: 75%;\n\n    overflow-y: auto;\n\n    padding: 16px;\n\n    display: grid;\n    gap: 8px;\n\n    align-items: flex-start;\n    align-content: flex-start;\n}\n\n.Settings-module_fieldRow__35E7r {\n\n    border-radius: 5px;\n    border: var(--mfc-border-secondary) 1px dashed;\n    padding: 8px;\n\n    display: flex;\n    gap: 16px;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    height: auto;\n\n    user-select: none;\n}\n\n.Settings-module_fieldLabel__VuNf- {\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    font-weight: 600;\n    color: var(--mfc-color-tertiary);\n    font-size: .9rem;\n\n}\n\n.Settings-module_visibilityButton__2k5Pv {\n    outline: none;\n    border: none;\n    background-color: transparent;\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: var(--mfc-color-tertiary);\n    cursor: pointer;\n    padding: 0;\n    width: 100px;\n    border-radius: 5px;\n    height: 40px;\n\n    transition: 150ms linear;\n}\n\n.Settings-module_visibilityButton__2k5Pv:active {\n    background-color: var(--mfc-background-quaternary);\n    color: #0095ff;\n}\n\n.Settings-module_visibilityButton__2k5Pv:hover {\n    background-color: var(--mfc-background-tertiary);\n    color: var(--mfc-color-secondary);\n}\n\n\n.Settings-module_header__ToHmR {\n    font-size: 1.3rem;\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n\n    padding-bottom: 48px;\n}";
-var styles$c = {"modal":"Settings-module_modal__37ZQb","fieldRow":"Settings-module_fieldRow__35E7r","fieldLabel":"Settings-module_fieldLabel__VuNf-","visibilityButton":"Settings-module_visibilityButton__2k5Pv","header":"Settings-module_header__ToHmR"};
+var css_248z$d = "@import '../../../misc/theme/styles.module.css';\n\n.Settings-module_modal__37ZQb {\n    overflow: hidden;\n    background-color: var(--mfc-background-primary);\n\n    border-radius: 5px 0 5px 0;\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 25%;\n    height: 100%;\n    padding: 16px;\n    box-shadow: var(--mfc-box-shadow-primary) -1px 0 3px 1px;\n}\n\n.Settings-module_content__2xUqh {\n    display: grid;\n    gap: 8px;\n\n    align-items: flex-start;\n    align-content: flex-start;\n    overflow-y: auto;\n    overflow-x: hidden;\n    padding: 2px;\n    width: 100%;\n    border-radius: 8px;\n}\n\n.Settings-module_fieldRow__35E7r {\n\n    height: 60px;\n    position: relative;\n    z-index: 999;\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    padding: 8px;\n\n    display: flex;\n    gap: 16px;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    /*height: auto;*/\n\n    user-select: none;\n}\n.Settings-module_fieldRow__35E7r:hover{\n    border-color: #0095ff;\n}\n\n.Settings-module_fieldLabel__VuNf- {\n\n\n    text-transform: capitalize;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    font-weight: 600;\n    color: var(--mfc-color-tertiary);\n    font-size: .9rem;\n\n}\n\n.Settings-module_visibilityButton__2k5Pv {\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n}\n\n\n.Settings-module_header__ToHmR {\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n}";
+var styles$c = {"modal":"Settings-module_modal__37ZQb","content":"Settings-module_content__2xUqh","fieldRow":"Settings-module_fieldRow__35E7r","fieldLabel":"Settings-module_fieldLabel__VuNf-","visibilityButton":"Settings-module_visibilityButton__2k5Pv","header":"Settings-module_header__ToHmR"};
 styleInject(css_248z$d);
 
 function Settings(props) {
+  var getField = function getField(field, index) {
+    return /*#__PURE__*/React.createElement("div", {
+      className: shared$1.wrapper
+    }, /*#__PURE__*/React.createElement("div", {
+      className: styles$c.fieldRow
+    }, /*#__PURE__*/React.createElement("div", {
+      className: styles$c.fieldLabel
+    }, field.label), /*#__PURE__*/React.createElement(TextField, {
+      width: '100%',
+      size: 'small',
+      value: field.additionalWidth ? parseInt(field.additionalWidth.replace('%', '')) : '',
+      maskEnd: '%',
+      label: 'Largura adicional',
+      placeholder: 'Largura adicional',
+      type: "number",
+      disabled: !field.visible,
+      handleChange: function handleChange(event) {
+        props.dispatchKeys({
+          type: props.actions.UPDATE_SIZE,
+          payload: {
+            key: field.key,
+            size: event.target.value + '%'
+          }
+        });
+      }
+    }), /*#__PURE__*/React.createElement(Button, {
+      className: styles$c.visibilityButton,
+      color: field.visible ? 'secondary' : undefined,
+      onClick: function onClick() {
+        console.log({
+          type: props.actions.UPDATE_VISIBILITY,
+          payload: {
+            key: field.key
+          }
+        });
+        props.dispatchKeys({
+          type: props.actions.UPDATE_VISIBILITY,
+          payload: field
+        });
+      }
+    }, field.visible ? /*#__PURE__*/React.createElement(VisibilityRounded, null) : /*#__PURE__*/React.createElement(VisibilityOffRounded, null), /*#__PURE__*/React.createElement(ToolTip, null, field.visible ? 'Esconder' : 'Mostrar'))));
+  };
+
+  var fields = useMemo(function () {
+    return {
+      hidden: props.keys.filter(function (f) {
+        return !f.visible;
+      }),
+      visible: props.keys.filter(function (f) {
+        return f.visible;
+      })
+    };
+  }, [props.keys]);
   return /*#__PURE__*/React.createElement(Modal, {
     open: props.open,
     handleClose: function handleClose() {
       return props.setOpen(false);
     },
-    animationStyle: "fade",
-    blurIntensity: .1,
-    wrapperClassName: styles$c.modal
+    animationStyle: "slide-right",
+    blurIntensity: 0,
+    className: styles$c.modal
+  }, /*#__PURE__*/React.createElement(Tabs, {
+    className: styles$c.content,
+    buttons: [{
+      label: 'Todos',
+      children: props.keys.map(function (e, i) {
+        return /*#__PURE__*/React.createElement(React.Fragment, {
+          key: i + '-row-' + JSON.stringify(e.label)
+        }, getField(e));
+      })
+    }, {
+      label: 'Visíveis',
+      children: fields.visible.length > 0 ? fields.visible.map(function (e, i) {
+        return /*#__PURE__*/React.createElement(React.Fragment, {
+          key: i + '-row-' + JSON.stringify(e.label)
+        }, getField(e));
+      }) : /*#__PURE__*/React.createElement(Empty, {
+        customLabel: 'Todos os campos estão escondidos'
+      })
+    }, {
+      label: 'Escondidos',
+      children: fields.hidden.length > 0 ? fields.hidden.map(function (e, i) {
+        return /*#__PURE__*/React.createElement(React.Fragment, {
+          key: i + '-row-' + JSON.stringify(e.label)
+        }, getField(e));
+      }) : /*#__PURE__*/React.createElement(Empty, {
+        customLabel: 'Todos os campos estão visíveis'
+      })
+    }]
   }, /*#__PURE__*/React.createElement("div", {
     className: styles$c.header
-  }, "Configura\xE7\xF5es"), props.keys.map(function (e, i) {
-    return /*#__PURE__*/React.createElement("div", {
-      className: styles$c.fieldRow,
-      key: i + '-row-' + JSON.stringify(e.label)
-    }, /*#__PURE__*/React.createElement("div", {
-      className: styles$c.fieldLabel
-    }, e.label), /*#__PURE__*/React.createElement(TextField, {
-      width: '100%',
-      size: 'small',
-      noMargin: true,
-      value: e.additionalWidth ? parseInt(e.additionalWidth.replace('%', '')) : '',
-      maskEnd: '%',
-      label: 'Largura adicional',
-      placeholder: 'Largura adicional',
-      type: "number",
-      handleChange: function handleChange(event) {
-        console.log(event);
-        props.dispatchKeys({
-          type: props.actions.UPDATE_SIZE,
-          payload: {
-            key: e.key,
-            size: event.target.value + '%'
-          }
-        });
-      }
-    }), /*#__PURE__*/React.createElement("button", {
-      className: styles$c.visibilityButton,
-      onClick: function onClick() {
-        return props.dispatchKeys({
-          type: props.actions.UPDATE_VISIBILITY,
-          payload: {
-            key: e.key
-          }
-        });
-      }
-    }, e.visible ? /*#__PURE__*/React.createElement(VisibilityRounded, null) : /*#__PURE__*/React.createElement(VisibilityOffRounded, null), /*#__PURE__*/React.createElement(ToolTip, null, e.visible ? 'Esconder' : 'Mostrar')));
-  }));
+  }, "Configura\xE7\xF5es")));
 }
 Settings.propTypes = {
   open: PropTypes.bool,
@@ -2776,7 +2923,9 @@ Settings.propTypes = {
 function Row(props) {
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      display: 'flex'
+      display: 'flex',
+      maxWidth: '100%',
+      overflow: 'hidden'
     },
     ref: props.reference
   }, /*#__PURE__*/React.createElement(Button, {
@@ -2797,8 +2946,9 @@ function Row(props) {
     }), /*#__PURE__*/React.createElement("div", {
       className: styles$d.cell,
       style: {
-        width: "".concat(1 / props.keys.length * 100, "%") // color: 'var(--mfc-color-tertiary)'
-
+        maxWidth: "calc(".concat(1 / props.keys.length * 100, "% + ").concat(e.additionalWidth ? e.additionalWidth : '0px', ")"),
+        width: "calc(".concat(1 / props.keys.length * 100, "% + ").concat(e.additionalWidth ? e.additionalWidth : '0px', ")"),
+        overflow: 'hidden'
       }
     }, /*#__PURE__*/React.createElement("div", {
       className: styles$d.overflow
@@ -2834,17 +2984,33 @@ Row.propTypes = {
 
 function List(props) {
   var _useList = useList(props.keys),
-      maxHeight = _useList.maxHeight,
       keys = _useList.keys,
       keysDispatcher = _useList.keysDispatcher,
       actions = _useList.actions,
       setOpenSettings = _useList.setOpenSettings,
-      openSettings = _useList.openSettings,
-      wrapperRef = _useList.wrapperRef;
+      openSettings = _useList.openSettings;
 
   var lastElementRef = useInfiniteScroll(props.hook.setCurrentPage, props.hook.currentPage, props.hook.loading, props.hook.hasMore);
+
+  var _useMaxHeight = useMaxHeight(),
+      ref = _useMaxHeight.ref,
+      maxHeight = _useMaxHeight.maxHeight;
+
+  var _useState = useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      scrolled = _useState2[0],
+      setScrolled = _useState2[1];
+
   return /*#__PURE__*/React.createElement("div", {
-    className: styles$r.container
+    onScroll: function onScroll(event) {
+      if (event.target.scrollTop > 0) setScrolled(true);else setScrolled(false);
+    },
+    className: styles$r.container,
+    style: {
+      height: '100%',
+      maxHeight: maxHeight
+    },
+    ref: ref
   }, /*#__PURE__*/React.createElement(Settings, {
     open: openSettings,
     keys: keys,
@@ -2852,24 +3018,19 @@ function List(props) {
     setOpen: setOpenSettings,
     dispatchKeys: keysDispatcher
   }), /*#__PURE__*/React.createElement(ListHeader, {
+    scrolled: scrolled,
     title: props.title,
     noFilters: props.noFilters,
-    setFilters: props.hook.setFilters,
-    filters: props.hook.filters,
     createOption: props.createOption,
     onCreate: props.onCreate,
+    hook: props.hook,
     hasOptions: props.controlButtons && props.controlButtons.length > 0,
-    cleanState: props.hook.clean,
     keys: keys,
     actions: actions,
     dispatch: keysDispatcher,
     setOpenSettings: setOpenSettings
   }), /*#__PURE__*/React.createElement("div", {
-    className: styles$r.tableWrapper,
-    style: {
-      height: maxHeight
-    },
-    ref: wrapperRef
+    className: styles$r.tableWrapper
   }, props.hook.data.length === 0 ? /*#__PURE__*/React.createElement(Empty, null) : null, props.hook.data.map(function (e, index) {
     return /*#__PURE__*/React.createElement(React.Fragment, {
       key: e.id + '-list-row'
@@ -2905,23 +3066,9 @@ List.propTypes = {
   onlyVisualization: PropTypes.bool
 };
 
-var css_248z$c = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.Form-module_wrapper__153NP {\r\n    flex-grow: 1;\r\n    max-height: 100%;\r\n    width: 100%;\r\n    overflow-y: auto;\r\n    overflow-x: visible;\r\n}\r\n\r\n.Form-module_buttonContainer__1aUGJ {\r\n    height: 100%;\r\n\r\n    border-radius: 5px;\r\n    transition: 150ms ease-in-out;\r\n    padding: 4px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    gap: 8px;\r\n}\r\n\r\n\r\n.Form-module_header__2ybTo {\r\n\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 2px 1px;\r\n    position: sticky;\r\n    font-family: \"Roboto\";\r\n    top: 0;\r\n    z-index: 50;\r\n    background: var(--mfc-background-primary);\r\n    height: 75px;\r\n\r\n    display: grid;\r\n    gap: 4px;\r\n\r\n    border-bottom: var(--mfc-border-primary) 1px solid;\r\n    padding: 8px;\r\n    border-radius: 8px;\r\n    font-size: 1rem;\r\n    font-weight: 600;\r\n\r\n    color: var(--mfc-color-secondary);\r\n    margin-bottom: 16px;\r\n}\r\n\r\n.Form-module_headerContent__3Z2U_ {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    gap: 8px;\r\n}\r\n";
-var shared = {"wrapper":"Form-module_wrapper__153NP","buttonContainer":"Form-module_buttonContainer__1aUGJ","header":"Form-module_header__2ybTo","headerContent":"Form-module_headerContent__3Z2U_"};
+var css_248z$c = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.Form-module_wrapper__153NP {\r\n\r\n    width: 100%;\r\n    overflow-y: auto;\r\n    overflow-x: visible;\r\n    position: relative;\r\n}\r\n\r\n.Form-module_buttonContainer__1aUGJ {\r\n    color: var(--mfc-color-tertiary);\r\n    height: 100%;\r\n\r\n    border-radius: 5px;\r\n    transition: 150ms ease-in-out;\r\n    padding: 4px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    gap: 8px;\r\n}\r\n\r\n.Form-module_divider__3Byas{\r\n    width: 1px;\r\n    height: 75%;\r\n    background: var(--mfc-border-primary);\r\n}\r\n\r\n\r\n.Form-module_header__2ybTo {\r\n    transition: 250ms ease-in;\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 2px 5px 1px;\r\n\r\n\r\n    position: sticky;\r\n    font-family: \"Roboto\";\r\n    top: 0;\r\n    z-index: 50;\r\n    background: var(--mfc-background-primary);\r\n    height: fit-content;\r\n\r\n    display: grid;\r\n    gap: 4px;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    padding: 8px;\r\n    border-radius: 5px;\r\n    font-size: 1.05rem;\r\n    font-weight: 600;\r\n\r\n    color: var(--mfc-color-secondary);\r\n    margin-bottom: 16px;\r\n}\r\n\r\n.Form-module_headerContent__3Z2U_ {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    gap: 8px;\r\n}\r\n\r\n.Form-module_content__2bq-t {\r\n    padding-bottom: 100px;\r\n    display: grid;\r\n    gap: 8px;\r\n}\r\n\r\n.Form-module_buttons__IkVi0 {\r\n    padding: 8px 0 0 0;\r\n    border-top: var(--mfc-border-primary) 1px solid;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 8px;\r\n    align-items: center\r\n}";
+var shared = {"wrapper":"Form-module_wrapper__153NP","buttonContainer":"Form-module_buttonContainer__1aUGJ","divider":"Form-module_divider__3Byas","header":"Form-module_header__2ybTo","headerContent":"Form-module_headerContent__3Z2U_","content":"Form-module_content__2bq-t","buttons":"Form-module_buttons__IkVi0"};
 styleInject(css_248z$c);
-
-function useForm(_ref) {
-  var data = _ref.data,
-      changed = _ref.changed,
-      dependencies = _ref.dependencies;
-  return useMemo(function () {
-    var response = dependencies === undefined || !changed;
-    var i;
-    if (dependencies !== undefined && changed) for (i = 0; i < dependencies.length; i++) {
-      if (dependencies[i] !== undefined && dependencies[i] !== null) response = response || data[dependencies[i].key] === null || data[dependencies[i].key] === undefined || (dependencies[i].type === 'string' || dependencies[i].type === 'array' ? data[dependencies[i].key].length === 0 : false);
-    }
-    return response;
-  }, [data, dependencies]);
-}
 
 var EntityLayoutPT = {
   history: 'Histórico de mudanças',
@@ -2933,9 +3080,14 @@ var EntityLayoutPT = {
 };
 
 function Header(props) {
+  var _props$options;
+
   var lang = EntityLayoutPT;
   return /*#__PURE__*/React.createElement("div", {
-    className: shared.header
+    className: shared.header,
+    style: {
+      boxShadow: props.scrolled ? undefined : 'none'
+    }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -2955,24 +3107,38 @@ function Header(props) {
     }
   }, /*#__PURE__*/React.createElement(ArrowBackRounded, null)), props.title), /*#__PURE__*/React.createElement("div", {
     className: shared.headerContent
-  }, /*#__PURE__*/React.createElement(Dropdown, {
-    align: 'bottom',
+  }, /*#__PURE__*/React.createElement(Button, {
     className: shared.buttonContainer,
-    disabled: !props.options,
-    label: /*#__PURE__*/React.createElement(MoreVertRounded, null),
-    buttons: props.options
-  }), /*#__PURE__*/React.createElement(Button, {
-    className: shared.buttonContainer,
+    disabled: props.disabled,
     variant: 'filled',
     styles: {
       padding: '8px 16px'
     },
     onClick: function onClick() {
-      return props.handleSubmit(props.data, props.hook.clearState);
+      return props.handleSubmit(props.hook.data, props.hook.clearState);
     }
-  }, props.submitLabel ? props.submitLabel : props.create ? lang.create : lang.save))));
+  }, props.submitLabel ? props.submitLabel : props.create ? lang.create : lang.save))), /*#__PURE__*/React.createElement("div", {
+    className: shared.buttons
+  }, (_props$options = props.options) === null || _props$options === void 0 ? void 0 : _props$options.map(function (b, index) {
+    return /*#__PURE__*/React.createElement(React.Fragment, {
+      key: index + '-option-button'
+    }, /*#__PURE__*/React.createElement("div", {
+      className: shared.divider,
+      style: {
+        display: index === 0 ? 'none' : undefined
+      }
+    }), /*#__PURE__*/React.createElement(Button, {
+      align: 'bottom',
+      variant: 'minimal',
+      className: shared.buttonContainer,
+      disabled: b.disabled,
+      onClick: b.onClick
+    }, b.icon, b.label));
+  })));
 }
 Header.propTypes = {
+  scrolled: PropTypes.bool,
+  disabled: PropTypes.bool,
   returnButton: PropTypes.bool,
   title: PropTypes.string,
   hook: PropTypes.object.isRequired,
@@ -2997,21 +3163,45 @@ Header.propTypes = {
 };
 
 function Form(props) {
-  var disabled = useForm({
-    dependencies: props.dependencies,
-    data: props.hook.data,
-    changed: props.hook.changed
+  var _useState = useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      disabled = _useState2[0],
+      setDisabled = _useState2[1];
+
+  var contentRef = useRef();
+  useEffect(function () {
+    var childNodes = contentRef.current.childNodes;
+    var completed = true;
+    childNodes.forEach(function (e) {
+      completed = completed && JSON.parse(e.getAttribute('data-completed'));
+    });
+    setDisabled(!completed || !props.hook.changed);
   });
+
+  var _useMaxHeight = useMaxHeight(),
+      ref = _useMaxHeight.ref,
+      maxHeight = _useMaxHeight.maxHeight;
+
+  var _useState3 = useState(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      scrolled = _useState4[0],
+      setScrolled = _useState4[1];
+
   return /*#__PURE__*/React.createElement("div", {
-    className: shared.wrapper
-  }, /*#__PURE__*/React.createElement(Header, _extends({}, props, {
-    disabled: disabled
-  })), /*#__PURE__*/React.createElement("div", {
+    onScroll: function onScroll(event) {
+      if (event.target.scrollTop > 0) setScrolled(true);else setScrolled(false);
+    },
+    className: shared.wrapper,
     style: {
-      paddingBottom: '100px',
-      display: 'grid',
-      gap: '8px'
-    }
+      maxHeight: maxHeight
+    },
+    ref: ref
+  }, /*#__PURE__*/React.createElement(Header, _extends({}, props, {
+    disabled: disabled,
+    scrolled: scrolled
+  })), /*#__PURE__*/React.createElement("div", {
+    className: shared.content,
+    ref: contentRef
   }, props.children(props.hook.data, props.hook.handleChange)));
 }
 Form.propTypes = {
@@ -3039,7 +3229,7 @@ Form.propTypes = {
   }))
 };
 
-var css_248z$b = "\r\n.FormRow-module_wrapper__e-3ms {\r\n\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px;\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    column-gap: 32px;\r\n    row-gap: 8px;\r\n    width: 100%;\r\n    overflow: visible;\r\n\r\n    padding: 10px;\r\n}\r\n\r\n.FormRow-module_legendContent__31Jgu {\r\n    user-select: none;\r\n    width: 100%;\r\n    height: 35px;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 4px;\r\n}\r\n\r\n.FormRow-module_legend__2iAih {\r\n\r\n    padding-right: 16px;\r\n    font-size: 1rem;\r\n    font-weight: 600;\r\n    color: var(--mfc-color-tertiary);\r\n    padding-left: 0;\r\n}\r\n\r\n\r\n.FormRow-module_indicator__7yoUZ {\r\n    --color: #0095ff;\r\n    width: 2px;\r\n    height: 100%;\r\n    border-radius: 10px;\r\n\r\n    background: var(--color);\r\n}\r\n\r\n.FormRow-module_notCompleted__1Wtn8 {\r\n    --color: #ff5555;\r\n}";
+var css_248z$b = "\r\n.FormRow-module_wrapper__e-3ms {\r\n\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px;\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    column-gap: 32px;\r\n    row-gap: 8px;\r\n    width: 100%;\r\n    overflow: visible;\r\n\r\n    padding: 10px;\r\n}\r\n\r\n.FormRow-module_legendContent__31Jgu {\r\n    user-select: none;\r\n    width: 100%;\r\n    height: 35px;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 4px;\r\n}\r\n\r\n.FormRow-module_legend__2iAih {\r\n\r\n    padding-right: 16px;\r\n    font-size: .9rem;\r\n    font-weight: 600;\r\n    color: var(--mfc-color-tertiary);\r\n    padding-left: 0;\r\n}\r\n\r\n\r\n.FormRow-module_indicator__7yoUZ {\r\n    --color: #0095ff;\r\n    width: 2px;\r\n    height: 100%;\r\n    border-radius: 10px;\r\n\r\n    background: var(--color);\r\n}\r\n\r\n.FormRow-module_notCompleted__1Wtn8 {\r\n    --color: #ff5555;\r\n}";
 var styles$b = {"wrapper":"FormRow-module_wrapper__e-3ms","legendContent":"FormRow-module_legendContent__31Jgu","legend":"FormRow-module_legend__2iAih","indicator":"FormRow-module_indicator__7yoUZ","notCompleted":"FormRow-module_notCompleted__1Wtn8"};
 styleInject(css_248z$b);
 
@@ -3052,7 +3242,7 @@ function FormRow(props) {
     var res = true;
     children.forEach(function (e) {
       var isText = typeof e.props.value === 'string' ? e.props.value.length > 0 : true;
-      res = res && e.props.value !== undefined && e.props.value !== null && isText && e.props.required;
+      res = res && (!e.props.required || e.props.value !== undefined && e.props.value !== null && isText && e.props.required);
     });
     return res;
   }, [props.children]);
@@ -3070,7 +3260,8 @@ function FormRow(props) {
   var ref = useRef();
   return /*#__PURE__*/React.createElement("div", {
     className: styles$b.wrapper,
-    ref: ref
+    ref: ref,
+    "data-completed": completed
   }, /*#__PURE__*/React.createElement("div", {
     className: styles$b.legendContent
   }, /*#__PURE__*/React.createElement(ToolTip, {
@@ -3100,7 +3291,7 @@ FormRow.propTypes = {
   title: PropTypes.string
 };
 
-var css_248z$a = "@import \"../../misc/theme/styles.module.css\";\n\n.Dropdown-module_wrapper__1Blgv {\n    display: grid;\n    gap: 4px;\n    position: relative;\n    overflow: visible;\n}\n\n\n.Dropdown-module_selectContainer__3u-GM {\n    position: relative;\n    z-index: 5;\n\n    display: flex;\n    justify-content: flex-start;\n    gap: 4px;\n    align-items: center;\n\n\n    box-shadow: unset;\n    transition: 150ms linear;\n    background: var(--mfc-background-primary);\n    width: 100%;\n    outline: none;\n    padding: 5px;\n\n    cursor: pointer;\n\n    border-radius: 5px;\n}\n\n.Dropdown-module_selectContainer__3u-GM:disabled {\n    border-color: var(--mfc-border-primary);\n    cursor: default;\n    color: var(--mfc-color-quinary);\n}\n\n.Dropdown-module_dropDownContainer__3KRpm {\n    display: grid;\n}\n\n.Dropdown-module_dropDownChoicesContainer__1PZFY {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);\n    width: 100%;\n    max-height: 200px;\n    height: fit-content;\n    overflow: auto;\n\n}\n\n.Dropdown-module_dropDownButton__hsTSD {\n    height: 35px;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n}\n\n.Dropdown-module_overflow__2BgnM {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    max-width: 100%;\n}\n\n.Dropdown-module_multiSelectRow__2Zipw {\n    display: flex;\n    user-select: none;\n    overflow: hidden;\n    align-items: center;\n    justify-content: flex-start;\n    height: 40px;\n    background: var(--mfc-background-primary);\n    gap: 8px;\n}\n\n.Dropdown-module_multiSelectRowContent__1ArWF {\n    user-select: none;\n    color: var(--mfc-color-secondary);\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .8rem;\n}\n\n.Dropdown-module_multiSelectRowCheckbox__Qu8ga {\n    cursor: pointer;\n}\n";
+var css_248z$a = "@import \"../../misc/theme/styles.module.css\";\n\n.Dropdown-module_wrapper__1Blgv {\n    display: grid;\n    gap: 4px;\n    position: relative;\n    overflow: visible;\n}\n\n\n.Dropdown-module_selectContainer__3u-GM {\n    position: relative;\n    z-index: 5;\n    display: flex;\n    justify-content: flex-start;\n    gap: 4px;\n    align-items: center;\n    transition: 150ms linear;\n    background: var(--mfc-background-primary);\n    width: 100%;\n    padding: 5px;\n    border-radius: 5px;\n}\n.Dropdown-module_selectContainer__3u-GM:hover{\n    border-color: var(--accent-color);\n}\n.Dropdown-module_selectContainer__3u-GM:disabled {\n    border-color: var(--mfc-border-primary);\n    cursor: default;\n    color: var(--mfc-color-quinary);\n}\n\n.Dropdown-module_dropDownContainer__3KRpm {\n    display: grid;\n}\n\n.Dropdown-module_dropDownChoicesContainer__1PZFY {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);\n    width: 100%;\n    max-height: 200px;\n    height: fit-content;\n    overflow: auto;\n\n}\n\n.Dropdown-module_dropDownButton__hsTSD {\n    height: 35px;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n}\n\n.Dropdown-module_overflow__2BgnM {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    max-width: 100%;\n}\n\n.Dropdown-module_multiSelectRow__2Zipw {\n    display: flex;\n    user-select: none;\n    overflow: hidden;\n    align-items: center;\n    justify-content: flex-start;\n    height: 40px;\n    background: var(--mfc-background-primary);\n    gap: 8px;\n}\n\n.Dropdown-module_multiSelectRowContent__1ArWF {\n    user-select: none;\n    color: var(--mfc-color-secondary);\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .8rem;\n}\n\n.Dropdown-module_multiSelectRowCheckbox__Qu8ga {\n    cursor: pointer;\n}\n";
 var styles$a = {"wrapper":"Dropdown-module_wrapper__1Blgv","selectContainer":"Dropdown-module_selectContainer__3u-GM","dropDownContainer":"Dropdown-module_dropDownContainer__3KRpm","dropDownChoicesContainer":"Dropdown-module_dropDownChoicesContainer__1PZFY","dropDownButton":"Dropdown-module_dropDownButton__hsTSD","overflow":"Dropdown-module_overflow__2BgnM","multiSelectRow":"Dropdown-module_multiSelectRow__2Zipw","multiSelectRowContent":"Dropdown-module_multiSelectRowContent__1ArWF","multiSelectRowCheckbox":"Dropdown-module_multiSelectRowCheckbox__Qu8ga"};
 styleInject(css_248z$a);
 
@@ -3343,7 +3534,7 @@ function FileModal(props) {
     },
     animationStyle: 'slide-right',
     blurIntensity: 0,
-    wrapperClassName: styles$8.modalContent
+    className: styles$8.modalContent
   }, /*#__PURE__*/React.createElement("div", {
     className: styles$8.header
   }, /*#__PURE__*/React.createElement("div", {
@@ -3437,8 +3628,8 @@ function FileField(props) {
     };
   }, []);
   var files = useMemo(function () {
-    if (props.files && Array.isArray(props.files)) return props.files;else return [];
-  }, [props.files]);
+    if (props.value && Array.isArray(props.value)) return props.value;else return [];
+  }, [props.value]);
   var themes = useContext(ThemeContext);
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3505,7 +3696,7 @@ function FileField(props) {
 }
 FileField.propTypes = {
   handleFileRemoval: PropTypes.func,
-  files: PropTypes.array,
+  value: PropTypes.array,
   multiple: PropTypes.bool,
   acceptTypes: PropTypes.array,
   handleChange: PropTypes.func,
@@ -3546,8 +3737,7 @@ function MultiSelectField(props) {
   return /*#__PURE__*/React.createElement("div", {
     style: {
       width: props.width,
-      alignItems: props.value ? 'unset' : 'flex-start',
-      position: 'relative'
+      alignItems: props.value ? 'unset' : 'flex-start'
     },
     ref: ref,
     className: styles$a.wrapper
@@ -3558,23 +3748,22 @@ function MultiSelectField(props) {
       opacity: props.value !== undefined && props.value !== null ? '1' : '0'
     }
   }, props.label), /*#__PURE__*/React.createElement("div", {
-    className: shared$1.wrapper
-  }, /*#__PURE__*/React.createElement("button", {
+    className: shared$1.wrapper,
+    highlight: open
+  }, /*#__PURE__*/React.createElement(Button, {
     disabled: props.disabled,
-    style: {
+    variant: "outlined",
+    highlight: open,
+    styles: {
       height: props.size === 'small' ? '36px' : '56px',
       overflow: "hidden",
       maxWidth: 'unset'
     },
     className: [color.className, styles$a.selectContainer, shared$1.labelContainer].join(' '),
     onClick: function onClick() {
-      setOpen(!open);
+      return setOpen(!open);
     }
-  }, /*#__PURE__*/React.createElement(Ripple, {
-    opacity: .15,
-    disabled: props.disabled,
-    accentColor: color.color
-  }), /*#__PURE__*/React.createElement(ArrowDropDownRounded, {
+  }, /*#__PURE__*/React.createElement(ArrowDropDownRounded, {
     style: {
       transform: !open ? 'unset' : 'rotate(180deg)',
       transition: '150ms linear'
@@ -3659,51 +3848,13 @@ MultiSelectField.propTypes = {
   colorVariant: PropTypes.oneOf(['default', 'secondary'])
 };
 
-var css_248z$7 = "@import '../../../misc/theme/styles.module.css';\n\n.Navigation-module_button__18QIy {\n    width: 50px;\n    height: 100%;\n    padding: 8px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.Navigation-module_overflowEllipsis__1chHT {\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    overflow: hidden;\n\n}\n\n\n.Navigation-module_header__1CMBT {\n    position: sticky;\n    top: 0;\n    z-index: 75;\n    overflow: visible;\n    height: 45px;\n    width: 100%;\n    justify-items: center;\n\n    transition: 150ms linear;\n    box-sizing: border-box;\n\n    display: flex;\n    justify-content: space-between;\n    background: var(--mfc-background-primary);\n\n    padding: 4px;\n    font-family: \"Roboto\";\n\n    flex-grow: 1;\n}\n\n\n.Navigation-module_content__WWuYu {\n    display: flex;\n    font-size: .9rem;\n    gap: 16px;\n    align-items: center;\n    height: 100%;\n    color: var(--mfc-color-tertiary);\n    font-weight: 600;\n    font-family: \"Roboto\" !important;\n}\n\n.Navigation-module_children__uzAyf {\n\n    display: flex;\n    max-height: 100%;\n    flex-direction: column;\n    border-radius: 8px 0 0 0;\n\n    color: var(--mfc-color-tertiary);\n    background: var(--mfc-background-secondary);\n    width: 100%;\n    height: 100%;\n    transition: 150ms linear;\n    margin-left: auto;\n\n    overflow: hidden;\n}\n\n.Navigation-module_children__uzAyf > * {\n    flex-grow: 1;\n}\n\n.Navigation-module_wrapper__wzxdZ {\n    display: flex;\n    height: 100vh;\n    overflow: hidden;\n    width: 100%;\n    background: var(--mfc-background-primary);\n\n\n}\n\n.Navigation-module_contentWrapper__2xpt6 {\n\n    display: flex;\n    flex-flow: column;\n\n    max-width: 100%;\n    overflow: hidden;\n    width: 100%;\n\n    height: 100%;\n}\n";
+var css_248z$7 = "@import '../../../misc/theme/styles.module.css';\n\n.Navigation-module_button__18QIy {\n    width: 50px;\n    height: 100%;\n    padding: 8px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.Navigation-module_overflowEllipsis__1chHT {\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    overflow: hidden;\n\n}\n\n\n.Navigation-module_header__1CMBT {\n    position: sticky;\n    top: 0;\n    z-index: 75;\n    /*overflow: visible;*/\n    height: 45px;\n    max-height: 45px;\n    overflow: hidden;\n    width: 100%;\n    justify-items: center;\n\n    transition: 150ms linear;\n    box-sizing: border-box;\n\n    display: flex;\n    justify-content: space-between;\n    background: var(--mfc-background-primary);\n\n    padding: 4px;\n    font-family: \"Roboto\";\n\n    flex-grow: 1;\n}\n\n\n.Navigation-module_content__WWuYu {\n    display: flex;\n    font-size: .9rem;\n    gap: 16px;\n    align-items: center;\n    height: 100%;\n    color: var(--mfc-color-tertiary);\n    font-weight: 600;\n    font-family: \"Roboto\" !important;\n}\n\n.Navigation-module_children__uzAyf {\n\n\n    border-radius: 8px 0 0 0;\n\n    color: var(--mfc-color-tertiary);\n    background: var(--mfc-background-secondary);\n    width: 100%;\n    height: 100%;\n    transition: 150ms linear;\n    margin-left: auto;\n\n    overflow: hidden;\n}\n\n.Navigation-module_wrapper__wzxdZ {\n    display: flex;\n    height: 100vh;\n    overflow: hidden;\n    width: 100%;\n    background: var(--mfc-background-primary);\n\n\n}\n\n.Navigation-module_contentWrapper__2xpt6 {\n\n    display: flex;\n    flex-flow: column;\n\n    max-width: 100%;\n    overflow: hidden;\n    width: 100%;\n\n    height: 100%;\n}\n";
 var styles$7 = {"button":"Navigation-module_button__18QIy","overflowEllipsis":"Navigation-module_overflowEllipsis__1chHT","header":"Navigation-module_header__1CMBT","content":"Navigation-module_content__WWuYu","children":"Navigation-module_children__uzAyf","wrapper":"Navigation-module_wrapper__wzxdZ","contentWrapper":"Navigation-module_contentWrapper__2xpt6"};
 styleInject(css_248z$7);
 
-var css_248z$6 = "@import '../../../../../misc/theme/styles.module.css';\r\n\r\n\r\n.Profile-module_profileButton__MbaE6 {\r\n    display: grid;\r\n    justify-content: center;\r\n    justify-items: center;\r\n    align-items: center;\r\n    gap: 8px;\r\n    height: auto;\r\n    padding: 8px;\r\n\r\n    width: 100%;\r\n    font-size: .75rem;\r\n    font-weight: 600;\r\n}\r\n\r\n.Profile-module_buttonLabel__dLnv1 {\r\n    margin-left: 8px;\r\n    overflow: hidden;\r\n}\r\n\r\n.Profile-module_buttonContainer__o4vzY {\r\n    min-width: 150px;\r\n    max-width: 250px;\r\n\r\n    width: auto;\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n\r\n    gap: 8px;\r\n    height: 100%;\r\n    padding: 8px;\r\n\r\n}\r\n\r\n.Profile-module_appsContainer__4I-Dm {\r\n    position: relative;\r\n    height: 100%;\r\n}\r\n\r\n.Profile-module_overflowEllipsis__F7aeD {\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n}\r\n\r\n.Profile-module_floatingBox__14Qjh {\r\n\r\n\r\n    position: absolute;\r\n    transform: translateY(16px);\r\n    right: 0;\r\n    height: auto;\r\n\r\n    width: 250px;\r\n\r\n    background: var(--mfc-background-primary);\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 2px 8px 0px;\r\n\r\n\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.Profile-module_divider__4NhUy{\r\n    height: 1px;\r\n    width: 100%;\r\n    background: var(--mfc-border-primary);\r\n\r\n}";
+var css_248z$6 = "@import '../../../../../misc/theme/styles.module.css';\r\n\r\n\r\n.Profile-module_profileButton__MbaE6 {\r\n    display: grid;\r\n    justify-content: center;\r\n    justify-items: center;\r\n    align-items: center;\r\n    gap: 8px;\r\n    height: auto;\r\n    padding: 8px;\r\n\r\n    width: 100%;\r\n    font-size: .75rem;\r\n    font-weight: 600;\r\n}\r\n\r\n.Profile-module_buttonLabel__dLnv1 {\r\n    margin-left: 8px;\r\n    overflow: hidden;\r\n}\r\n\r\n.Profile-module_buttonContainer__o4vzY {\r\n    min-width: 150px;\r\n    max-width: 250px;\r\n\r\n    width: auto;\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n\r\n    gap: 8px;\r\n    height: 100%;\r\n    padding: 8px;\r\n\r\n}\r\n\r\n.Profile-module_appsContainer__4I-Dm {\r\n    position: relative;\r\n    height: 100%;\r\n}\r\n\r\n.Profile-module_overflowEllipsis__F7aeD {\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n}\r\n\r\n.Profile-module_floatingBox__14Qjh {\r\n\r\n\r\n    position: absolute;\r\n    right: 0;\r\n    transform: translate(50%, 24px);\r\n    height: auto;\r\n\r\n    width: 250px;\r\n\r\n    background: var(--mfc-background-primary);\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 2px 8px 0px;\r\n\r\n\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.Profile-module_divider__4NhUy {\r\n    height: 1px;\r\n    width: 100%;\r\n    background: var(--mfc-border-primary);\r\n\r\n}";
 var styles$6 = {"profileButton":"Profile-module_profileButton__MbaE6","buttonLabel":"Profile-module_buttonLabel__dLnv1","buttonContainer":"Profile-module_buttonContainer__o4vzY","appsContainer":"Profile-module_appsContainer__4I-Dm","overflowEllipsis":"Profile-module_overflowEllipsis__F7aeD","floatingBox":"Profile-module_floatingBox__14Qjh","divider":"Profile-module_divider__4NhUy"};
 styleInject(css_248z$6);
-
-var css_248z$5 = "\n.Animations-module_fadeIn__2DAjl {\n    position: relative;\n    animation: Animations-module_fadeIn__2DAjl linear 150ms forwards;\n\n}\n\n.Animations-module_fadeOutAnimation__2wHNN {\n    position: relative;\n    animation: Animations-module_fadeOut__inmZ4 linear 150ms forwards;\n\n}\n\n\n@keyframes Animations-module_fadeOut__inmZ4 {\n\n    0% {\n        opacity: 1;\n        height: inherit;\n    }\n    50% {\n        opacity: .5;\n        height: inherit;\n    }\n    90% {\n        opacity: .1;\n        height: inherit;\n    }\n    100% {\n        opacity: 0;\n        display: none;\n        height: 0;\n        z-index: -1;\n    }\n}\n@keyframes Animations-module_fadeIn__2DAjl {\n    from {\n        opacity: 0;\n    }\n    to {\n        opacity: 1;\n    }\n\n}\n\n.Animations-module_slideRight__1ojD0{\n    animation: Animations-module_slideRight__1ojD0 ease-in-out 250ms forwards;\n}\n.Animations-module_slideLeft__rirKa{\n    animation: Animations-module_slideLeft__rirKa ease-in-out 250ms forwards;\n}\n@keyframes Animations-module_slideRight__1ojD0{\n    from {\n        transform: translateX(-15.5vw);\n    }\n    to {\n        transform: translateX(0);\n    }\n\n}\n\n@keyframes Animations-module_slideLeft__rirKa {\n    from {\n        transform: translateX(0);\n    }\n    to {\n        transform: translateX(-15.5vw);\n    }\n\n}\n\n\n.Animations-module_loading__m1cIx {\n    height: 100vh;\n    width: 100vw;\n    position: fixed;\n    z-index: 999;\n    background-color: rgba(0, 0, 0, .4);\n    backdrop-filter: blur(1px);\n    top: 0;\n    left: 0;\n    animation: Animations-module_loadingAnimation__3IJVd 2s ease-in-out infinite, Animations-module_fadeIn__2DAjl 250ms ease-in-out forwards;\n}\n@keyframes Animations-module_fadeIn__2DAjl {\n    from{\n        opacity: 0;\n    }\n    to{\n        opacity: 1;\n    }\n}\n@keyframes Animations-module_loadingAnimation__3IJVd {\n    0% {\n        border-top: rgba(0, 149, 255, 1) 5px solid;\n    }\n    50% {\n        border-top: rgba(0, 149, 255, .5) 5px solid;\n    }\n    100% {\n        border-top: rgba(0, 149, 255, 1) 5px solid;\n    }\n}";
-var styles$5 = {"fadeIn":"Animations-module_fadeIn__2DAjl","fadeOutAnimation":"Animations-module_fadeOutAnimation__2wHNN","fadeOut":"Animations-module_fadeOut__inmZ4","slideRight":"Animations-module_slideRight__1ojD0","slideLeft":"Animations-module_slideLeft__rirKa","loading":"Animations-module_loading__m1cIx","loadingAnimation":"Animations-module_loadingAnimation__3IJVd"};
-styleInject(css_248z$5);
-
-function AnimationFrame(props) {
-  var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      isInRender = _useState2[0],
-      setIsInRender = _useState2[1];
-
-  var ref = useRef();
-  useEffect(function () {
-    if (isInRender && !props.render) {
-      ref.current.classList.remove(styles$5.fadeIn);
-      ref.current.classList.add(styles$5.fadeOutAnimation);
-      ref.current.addEventListener('animationend', function () {
-        setIsInRender(false);
-      }, {
-        once: true
-      });
-    } else if (!isInRender && props.render) {
-      setIsInRender(true);
-      ref.current.classList.remove(styles$5.fadeOutAnimation);
-      ref.current.classList.add(styles$5.fadeIn);
-    }
-  }, [props.render]);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    style: {
-      display: isInRender ? undefined : 'none'
-    }
-  }, props.children);
-}
-AnimationFrame.propTypes = {
-  render: PropTypes.bool,
-  children: PropTypes.node
-};
 
 var profileTemplate = {
   name: PropTypes.string,
@@ -3722,10 +3873,7 @@ function Profile(props) {
     if (!props.profile || Object.keys(props.profile).length === 0) setOpen(false);
   }, [props.profile]);
   return /*#__PURE__*/React.createElement("div", {
-    className: styles$6.appsContainer,
-    onBlur: function onBlur(event) {
-      if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
-    }
+    className: styles$6.appsContainer
   }, props.profile && Object.keys(props.profile).length > 0 ? /*#__PURE__*/React.createElement(Button, {
     className: styles$6.buttonContainer,
     onClick: function onClick() {
@@ -3764,10 +3912,15 @@ function Profile(props) {
       minWidth: '100px',
       gap: '8px'
     }
-  }, /*#__PURE__*/React.createElement("div", null, props.fallbackProfileButton.label), props.fallbackProfileButton.icon), /*#__PURE__*/React.createElement(AnimationFrame, {
-    render: open
-  }, /*#__PURE__*/React.createElement("div", {
-    className: styles$6.floatingBox
+  }, /*#__PURE__*/React.createElement("div", null, props.fallbackProfileButton.label), props.fallbackProfileButton.icon), /*#__PURE__*/React.createElement(Modal, {
+    variant: 'fit',
+    open: open,
+    handleClose: function handleClose() {
+      return setOpen(false);
+    },
+    blurIntensity: 0,
+    className: styles$6.floatingBox,
+    animationStyle: 'fade'
   }, /*#__PURE__*/React.createElement(Button, {
     className: styles$6.profileButton,
     disabled: props.disabledProfile,
@@ -3836,7 +3989,7 @@ function Profile(props) {
     }, button.icon, /*#__PURE__*/React.createElement("div", {
       className: styles$6.buttonLabel
     }, " ", button.label)));
-  }))));
+  })));
 }
 Profile.propTypes = {
   onProfileClick: PropTypes.func,
@@ -3860,29 +4013,20 @@ Profile.propTypes = {
   }))
 };
 
-var css_248z$4 = "@import '../../../../../misc/theme/styles.module.css';\r\n\r\n.Apps-module_appLabel__2U3_o{\r\n    font-size: .8rem;\r\n    font-weight: bold;\r\n    font-family: \"Roboto\";\r\n    color: var(--mfc-color-secondary);\r\n    max-width: 100%;\r\n\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n.Apps-module_appButton__2WknA{\r\n    outline: none;\r\n    width: calc(33.333% - 6px);\r\n    height: 60px;\r\n\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px;\r\n    color: var(--mfc-color-tertiary);\r\n    display: grid;\r\n    justify-content: center;\r\n    justify-items: center;\r\n    gap: 4px;\r\n    padding: 8px;\r\n\r\n    transition: 150ms linear;\r\n\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n\r\n.Apps-module_appsWrapper__3PG8Q{\r\n    transform: translate(50%, 16px);\r\n    right: 50%;\r\n    position: absolute;\r\n    z-index: 999;\r\n    height: auto;\r\n\r\n    width: 250px;\r\n\r\n    background: var(--mfc-background-primary);\r\n    box-shadow: var(--mfc-box-shadow-primary) 0px 2px 8px 0px;\r\n    padding: 8px;\r\n\r\n    border-radius: 5px;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    align-items: flex-start;\r\n    gap: 8px;\r\n}\r\n.Apps-module_overflowEllipsis__3OibW {\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n}\r\n\r\n.Apps-module_appsContainer__1J-Oz {\r\n    position: relative;\r\n    height: 100%;\r\n\r\n}\r\n.Apps-module_buttonContainer__Q4sEZ {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    max-width: 225px;\r\n    height: 100%;\r\n\r\n    padding: 8px;\r\n}\r\n";
-var styles$4 = {"appLabel":"Apps-module_appLabel__2U3_o","appButton":"Apps-module_appButton__2WknA","appsWrapper":"Apps-module_appsWrapper__3PG8Q","overflowEllipsis":"Apps-module_overflowEllipsis__3OibW","appsContainer":"Apps-module_appsContainer__1J-Oz","buttonContainer":"Apps-module_buttonContainer__Q4sEZ"};
-styleInject(css_248z$4);
-
-function AppsWrapper(props) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: styles$4.appsWrapper
-  }, props.children);
-}
-AppsWrapper.propTypes = {
-  children: PropTypes.node
-};
+var css_248z$5 = "@import '../../../../../misc/theme/styles.module.css';\r\n\r\n.Apps-module_appLabel__2U3_o {\r\n    font-size: .8rem;\r\n    font-weight: bold;\r\n    font-family: \"Roboto\";\r\n    color: var(--mfc-color-secondary);\r\n    max-width: 100%;\r\n\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n.Apps-module_appButton__2WknA {\r\n    outline: none;\r\n    width: calc(33.333% - 6px);\r\n    height: 60px;\r\n\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px;\r\n    color: var(--mfc-color-tertiary);\r\n    display: grid;\r\n    justify-content: center;\r\n    justify-items: center;\r\n    gap: 4px;\r\n    padding: 8px;\r\n\r\n    transition: 150ms linear;\r\n\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n\r\n.Apps-module_appsWrapper__3PG8Q {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translate(-50%, calc(50% - 8px));\r\n    /*left: 0;*/\r\n    height: auto;\r\n    width: 250px;\r\n\r\n    background: var(--mfc-background-primary);\r\n    box-shadow: var(--mfc-box-shadow-primary) 0px 2px 8px 0px;\r\n    padding: 8px;\r\n\r\n    border-radius: 5px;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    align-items: flex-start;\r\n    gap: 8px;\r\n}\r\n\r\n.Apps-module_overflowEllipsis__3OibW {\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n}\r\n\r\n\r\n.Apps-module_buttonContainer__Q4sEZ {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    max-width: 225px;\r\n    height: 100%;\r\n\r\n    padding: 8px;\r\n}\r\n";
+var styles$5 = {"appLabel":"Apps-module_appLabel__2U3_o","appButton":"Apps-module_appButton__2WknA","appsWrapper":"Apps-module_appsWrapper__3PG8Q","overflowEllipsis":"Apps-module_overflowEllipsis__3OibW","buttonContainer":"Apps-module_buttonContainer__Q4sEZ"};
+styleInject(css_248z$5);
 
 function App(props) {
   return /*#__PURE__*/React.createElement(Button, {
     variant: "outlined",
     disabled: props.disabled,
-    className: styles$4.appButton,
+    className: styles$5.appButton,
     onClick: function onClick() {
       return props.onClick();
     }
   }, props.icon, /*#__PURE__*/React.createElement("div", {
-    className: [styles$4.appLabel, styles$4.overflowEllipsis].join(' ')
+    className: [styles$5.appLabel, styles$5.overflowEllipsis].join(' ')
   }, props.label), /*#__PURE__*/React.createElement(ToolTip, {
     content: props.label
   }));
@@ -3901,23 +4045,30 @@ function Apps(props) {
       setOpen = _useState2[1];
 
   return /*#__PURE__*/React.createElement("div", {
-    className: styles$4.appsContainer,
-    onBlur: function onBlur(event) {
-      if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+    className: styles$5.appsContainer,
+    onBlur: function onBlur(event) {// if (!event.currentTarget.contains(event.relatedTarget))
+      // setOpen(false)
     }
   }, /*#__PURE__*/React.createElement(Button, {
     onClick: function onClick() {
-      return setOpen(!open);
+      setOpen(!open);
     },
     highlight: open,
-    className: styles$4.buttonContainer
-  }, /*#__PURE__*/React.createElement(AppsRounded, null)), /*#__PURE__*/React.createElement(AnimationFrame, {
-    render: open
-  }, /*#__PURE__*/React.createElement(AppsWrapper, null, props.buttons.map(function (button, index) {
+    className: styles$5.buttonContainer
+  }, /*#__PURE__*/React.createElement(AppsRounded, null)), /*#__PURE__*/React.createElement(Modal, {
+    variant: 'fit',
+    open: open,
+    handleClose: function handleClose() {
+      return setOpen(false);
+    },
+    blurIntensity: 0,
+    className: styles$5.appsWrapper,
+    animationStyle: 'fade'
+  }, props.buttons.map(function (button, index) {
     return /*#__PURE__*/React.createElement(React.Fragment, {
       key: 'app-button-' + index
     }, /*#__PURE__*/React.createElement(App, button));
-  }))));
+  })));
 }
 Apps.propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.shape({
@@ -3928,9 +4079,9 @@ Apps.propTypes = {
   }))
 };
 
-var css_248z$3 = ".SideBar-module_bottomOptions__3VHos {\r\n    position: absolute;\r\n    bottom: 4px;\r\n    width: calc(100% - 8px);\r\n    transform: translateX(4px);\r\n}\r\n\r\n.SideBar-module_buttons__3v4gp {\r\n    width: 100%;\r\n    padding: 4px;\r\n    position: relative;\r\n    height: 100%;\r\n    display: grid;\r\n    align-content: flex-start;\r\n\r\n    gap: 8px;\r\n}\r\n\r\n.SideBar-module_button__1P977 {\r\n    width: 50px;\r\n    height: 100%;\r\n    padding: 8px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.SideBar-module_wrapper__MZN72 {\r\n    overflow: hidden;\r\n    /*width: 60px;*/\r\n    transition: 250ms ease-in-out;\r\n    background: var(--mfc-background-primary);\r\n    position: sticky;\r\n    left: 0;\r\n    height: 100%;\r\n\r\n}\r\n\r\n.SideBar-module_buttonIcon__2KLii {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    overflow: hidden;\r\n\r\n}\r\n\r\n.SideBar-module_buttonContainer__2SSTV {\r\n    align-items: center;\r\n\r\n    cursor: pointer;\r\n    max-width: 215px;\r\n    height: 50px;\r\n    overflow: hidden;\r\n\r\n    transition: 250ms ease-in-out;\r\n    border-radius: 5px;\r\n    padding: 8px 4px;\r\n\r\n    position: relative;\r\n}\r\n\r\n\r\n.SideBar-module_buttonLabel__1t-yW {\r\n\r\n    outline: none;\r\n    background: none;\r\n    border: none;\r\n    padding: 0;\r\n\r\n    font-size: .7rem;\r\n    overflow: hidden;\r\n    color: var(--mfc-color-quaternary);\r\n\r\n    font-family: \"Roboto\";\r\n    /*font-weight: 575;*/\r\n}\r\n\r\n.SideBar-module_activeButton__3h9o4 {\r\n    animation: SideBar-module_slideDown__7__H4 150ms linear forwards;\r\n\r\n    position: absolute;\r\n    height: 42px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n@keyframes SideBar-module_slideDown__7__H4 {\r\n    0% {\r\n        top: 0;\r\n        /*transform: translateY(-50%);*/\r\n    }\r\n    100% {\r\n        top: 50%;\r\n        transform: translateY(-50%);\r\n    }\r\n}\r\n\r\n.SideBar-module_buttonLabel__1t-yW:disabled {\r\n    color: var(--mfc-color-quinary);\r\n}\r\n\r\n.SideBar-module_overflowEllipsis__Oz5_b {\r\n    max-width: 100%;\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n}\r\n";
-var styles$3 = {"bottomOptions":"SideBar-module_bottomOptions__3VHos","buttons":"SideBar-module_buttons__3v4gp","button":"SideBar-module_button__1P977","wrapper":"SideBar-module_wrapper__MZN72","buttonIcon":"SideBar-module_buttonIcon__2KLii","buttonContainer":"SideBar-module_buttonContainer__2SSTV","buttonLabel":"SideBar-module_buttonLabel__1t-yW","activeButton":"SideBar-module_activeButton__3h9o4","slideDown":"SideBar-module_slideDown__7__H4","overflowEllipsis":"SideBar-module_overflowEllipsis__Oz5_b"};
-styleInject(css_248z$3);
+var css_248z$4 = ".SideBar-module_bottomOptions__3VHos {\r\n    position: absolute;\r\n    bottom: 4px;\r\n    width: calc(100% - 8px);\r\n    transform: translateX(4px);\r\n\r\n    display: grid;\r\n    align-content: flex-start;\r\n    gap: 8px;\r\n}\r\n\r\n.SideBar-module_buttons__3v4gp {\r\n    width: 100%;\r\n    padding: 4px;\r\n    position: relative;\r\n    height: 100%;\r\n    display: grid;\r\n    align-content: flex-start;\r\n\r\n    gap: 8px;\r\n}\r\n\r\n.SideBar-module_button__1P977 {\r\n    width: 50px;\r\n    height: 100%;\r\n    padding: 8px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.SideBar-module_wrapper__MZN72 {\r\n    overflow: hidden;\r\n    /*width: 60px;*/\r\n    transition: 250ms ease-in-out;\r\n    background: var(--mfc-background-primary);\r\n    position: sticky;\r\n    left: 0;\r\n    height: 100%;\r\n\r\n}\r\n\r\n.SideBar-module_buttonIcon__2KLii {\r\n    transition: 250ms ease-in-out;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    overflow: hidden;\r\n    width: 42px;\r\n\r\n}\r\n\r\n.SideBar-module_buttonContainer__2SSTV {\r\n    align-items: center;\r\n\r\n    cursor: pointer;\r\n    max-width: 215px;\r\n    height: 50px;\r\n    overflow: hidden;\r\n\r\n    transition: 250ms ease-in-out;\r\n    border-radius: 5px;\r\n    padding: 8px 4px;\r\n\r\n    position: relative;\r\n}\r\n\r\n\r\n.SideBar-module_buttonLabel__1t-yW {\r\n\r\n    outline: none;\r\n    background: none;\r\n    border: none;\r\n    padding: 0;\r\n\r\n    font-size: .7rem;\r\n    overflow: hidden;\r\n    color: var(--mfc-color-quaternary);\r\n\r\n    font-family: \"Roboto\";\r\n    /*font-weight: 575;*/\r\n}\r\n\r\n.SideBar-module_activeButton__3h9o4 {\r\n    animation: SideBar-module_slideDown__7__H4 150ms linear forwards;\r\n\r\n    position: absolute;\r\n    left: 4px;\r\n    height: 42px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n@keyframes SideBar-module_slideDown__7__H4 {\r\n    0% {\r\n        top: 0;\r\n        /*transform: translateY(-50%);*/\r\n    }\r\n    100% {\r\n        top: 50%;\r\n        transform: translateY(-50%);\r\n    }\r\n}\r\n\r\n.SideBar-module_buttonLabel__1t-yW:disabled {\r\n    color: var(--mfc-color-quinary);\r\n}\r\n\r\n.SideBar-module_overflowEllipsis__Oz5_b {\r\n    max-width: 100%;\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n}\r\n";
+var styles$4 = {"bottomOptions":"SideBar-module_bottomOptions__3VHos","buttons":"SideBar-module_buttons__3v4gp","button":"SideBar-module_button__1P977","wrapper":"SideBar-module_wrapper__MZN72","buttonIcon":"SideBar-module_buttonIcon__2KLii","buttonContainer":"SideBar-module_buttonContainer__2SSTV","buttonLabel":"SideBar-module_buttonLabel__1t-yW","activeButton":"SideBar-module_activeButton__3h9o4","slideDown":"SideBar-module_slideDown__7__H4","overflowEllipsis":"SideBar-module_overflowEllipsis__Oz5_b"};
+styleInject(css_248z$4);
 
 function SideBar(props) {
   var _props$buttons, _props$buttons2;
@@ -3939,11 +4090,6 @@ function SideBar(props) {
       _useState2 = _slicedToArray(_useState, 2),
       open = _useState2[0],
       setOpen = _useState2[1];
-
-  var _useState3 = useState(false),
-      _useState4 = _slicedToArray(_useState3, 2);
-      _useState4[0];
-      _useState4[1];
 
   var buttonStyle = useMemo(function () {
     return {
@@ -3956,20 +4102,17 @@ function SideBar(props) {
     return /*#__PURE__*/React.createElement(Button, {
       variant: 'minimal-horizontal',
       highlight: button.highlight,
-      className: styles$3.buttonContainer,
+      className: styles$4.buttonContainer,
       disabled: button.disabled,
       onClick: function onClick() {
         return button.onClick();
       },
       styles: buttonStyle
     }, /*#__PURE__*/React.createElement("div", {
-      className: [styles$3.buttonIcon, !button.highlight || open ? undefined : styles$3.activeButton].join(' '),
-      style: {
-        transition: '250ms ease-in-out',
-        width: '42px'
-      }
+      className: [styles$4.buttonIcon, !button.highlight || open ? undefined : styles$4.activeButton].join(' '),
+      style: {}
     }, button.icon), /*#__PURE__*/React.createElement("div", {
-      className: [styles$3.buttonLabel, styles$3.overflowEllipsis].join(' '),
+      className: [styles$4.buttonLabel, styles$4.overflowEllipsis].join(' '),
       style: {
         textAlign: open ? undefined : 'center',
         opacity: !button.highlight || open ? 1 : 0
@@ -3978,15 +4121,15 @@ function SideBar(props) {
   };
 
   return /*#__PURE__*/React.createElement("div", {
-    className: styles$3.wrapper,
+    className: styles$4.wrapper,
     style: {
       width: !open ? '60px' : '225px'
     }
   }, /*#__PURE__*/React.createElement("div", {
-    className: styles$3.buttons
+    className: styles$4.buttons
   }, /*#__PURE__*/React.createElement(Button, {
     highlight: open,
-    className: styles$3.button,
+    className: styles$4.button,
     onClick: function onClick() {
       return setOpen(!open);
     }
@@ -4006,7 +4149,7 @@ function SideBar(props) {
       content: button.label
     }));
   }), /*#__PURE__*/React.createElement("div", {
-    className: styles$3.bottomOptions
+    className: styles$4.bottomOptions
   }, (_props$buttons2 = props.buttons) === null || _props$buttons2 === void 0 ? void 0 : _props$buttons2.filter(function (e) {
     return e && e.position === 'bottom';
   }).map(function (button, index) {
@@ -4029,9 +4172,13 @@ SideBar.propTypes = {
   }))
 };
 
+var css_248z$3 = "\n.Animations-module_fadeIn__2DAjl {\n    position: relative;\n    animation: Animations-module_fadeIn__2DAjl linear 150ms forwards;\n\n}\n\n.Animations-module_fadeOutAnimation__2wHNN {\n    position: relative;\n    animation: Animations-module_fadeOut__inmZ4 linear 150ms forwards;\n\n}\n\n\n@keyframes Animations-module_fadeOut__inmZ4 {\n\n    0% {\n        opacity: 1;\n        height: inherit;\n    }\n    50% {\n        opacity: .5;\n        height: inherit;\n    }\n    90% {\n        opacity: .1;\n        height: inherit;\n    }\n    100% {\n        opacity: 0;\n        display: none;\n        height: 0;\n        z-index: -1;\n    }\n}\n@keyframes Animations-module_fadeIn__2DAjl {\n    from {\n        opacity: 0;\n    }\n    to {\n        opacity: 1;\n    }\n\n}\n\n.Animations-module_slideRight__1ojD0{\n    animation: Animations-module_slideRight__1ojD0 ease-in-out 250ms forwards;\n}\n.Animations-module_slideLeft__rirKa{\n    animation: Animations-module_slideLeft__rirKa ease-in-out 250ms forwards;\n}\n@keyframes Animations-module_slideRight__1ojD0{\n    from {\n        transform: translateX(-15.5vw);\n    }\n    to {\n        transform: translateX(0);\n    }\n\n}\n\n@keyframes Animations-module_slideLeft__rirKa {\n    from {\n        transform: translateX(0);\n    }\n    to {\n        transform: translateX(-15.5vw);\n    }\n\n}\n\n\n.Animations-module_loading__m1cIx {\n    height: 100vh;\n    width: 100vw;\n    position: fixed;\n    z-index: 999;\n    background-color: rgba(0, 0, 0, .4);\n    backdrop-filter: blur(1px);\n    top: 0;\n    left: 0;\n    animation: Animations-module_loadingAnimation__3IJVd 2s ease-in-out infinite, Animations-module_fadeIn__2DAjl 250ms ease-in-out forwards;\n}\n@keyframes Animations-module_fadeIn__2DAjl {\n    from{\n        opacity: 0;\n    }\n    to{\n        opacity: 1;\n    }\n}\n@keyframes Animations-module_loadingAnimation__3IJVd {\n    0% {\n        border-top: rgba(0, 149, 255, 1) 5px solid;\n    }\n    50% {\n        border-top: rgba(0, 149, 255, .5) 5px solid;\n    }\n    100% {\n        border-top: rgba(0, 149, 255, 1) 5px solid;\n    }\n}";
+var styles$3 = {"fadeIn":"Animations-module_fadeIn__2DAjl","fadeOutAnimation":"Animations-module_fadeOutAnimation__2wHNN","fadeOut":"Animations-module_fadeOut__inmZ4","slideRight":"Animations-module_slideRight__1ojD0","slideLeft":"Animations-module_slideLeft__rirKa","loading":"Animations-module_loading__m1cIx","loadingAnimation":"Animations-module_loadingAnimation__3IJVd"};
+styleInject(css_248z$3);
+
 function Loading(props) {
   return /*#__PURE__*/React.createElement("div", {
-    className: styles$5.loading,
+    className: styles$3.loading,
     style: {
       display: props.loading ? undefined : 'none'
     }
@@ -4044,7 +4191,6 @@ Loading.propTypes = {
 function Layout(props) {
   var components = useMemo(function () {
     var nodes = React.Children.toArray(props.children);
-    console.log();
     return {
       profile: nodes.find(function (e) {
         return e.type === Profile;
@@ -4060,6 +4206,11 @@ function Layout(props) {
       })
     };
   }, [props]);
+
+  var _useMaxHeight = useMaxHeight(),
+      ref = _useMaxHeight.ref,
+      maxHeight = _useMaxHeight.maxHeight;
+
   return /*#__PURE__*/React.createElement("div", {
     className: styles$7.wrapper
   }, components.sideBar, /*#__PURE__*/React.createElement("div", {
@@ -4083,7 +4234,11 @@ function Layout(props) {
       gap: '8px'
     }
   }, components.apps, components.profile)), /*#__PURE__*/React.createElement("div", {
-    className: styles$7.children
+    className: styles$7.children,
+    ref: ref,
+    style: {
+      maxHeight: maxHeight
+    }
   }, components.child)));
 }
 Layout.propTypes = {
@@ -4093,9 +4248,98 @@ Layout.propTypes = {
   loading: PropTypes.bool
 };
 
-var css_248z$2 = ".Alert-module_alertContainer__3wt44 {\n    outline: none;\n    border: none;\n    background: transparent;\n    animation: Alert-module_slideUp__22Fy2 ease-in-out 150ms forwards;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    transition: visibility 150ms linear, opacity 150ms linear;\n\n    padding: 8px;\n    width: 500px;\n    height: 56px;\n\n    position: fixed;\n    bottom: 16px;\n    left: 50%;\n\n    z-index: 999;\n\n    border-radius: 8px;\n\n    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;\n\n    cursor: pointer;\n}\n\n.Alert-module_alertContainer__3wt44:hover {\n    transform: scale(1.2);\n}\n\n.Alert-module_alertContainer__3wt44:active {\n    transform: scale(.8);\n}\n\n@keyframes Alert-module_slideUp__22Fy2 {\n    from {\n        transform: translate(-50%, 100%);\n    }\n    to {\n        transform: translate(-50%, 0);\n    }\n\n}\n\n\n.Alert-module_buttonContainer__2yL5M {\n    width: 40px;\n    height: 40px;\n\n    border-radius: 8px;\n    box-shadow: none;\n\n    font-family: 'Roboto' !important;\n    outline: none;\n    border: none;\n    transition: 200ms ease-in-out;\n    cursor: pointer;\n\n    color: #555555;\n    background: transparent;\n\n    display: flex;\n    justify-content: center;\n    justify-items: center;\n    align-items: center;\n\n\n}\n\n\n.Alert-module_alertContentContainer__2JMrA {\n    display: flex;\n    gap: 10px;\n    justify-items: flex-start;\n    align-items: center;\n\n\n}";
-var styles$2 = {"alertContainer":"Alert-module_alertContainer__3wt44","slideUp":"Alert-module_slideUp__22Fy2","buttonContainer":"Alert-module_buttonContainer__2yL5M","alertContentContainer":"Alert-module_alertContentContainer__2JMrA"};
+var css_248z$2 = ".Alert-module_wrapper__1Xb80 {\n    top: unset !important;\n    bottom: 16px !important;\n    left: 50% !important;\n    transform: translate(-50%) !important;\n    /*overflow: visible !important;*/\n    /*border-radius: 8px ;*/\n}\n\n.Alert-module_alertContainer__1qzTg {\n    --background: #ff5555;\n    --color: white;\n    background: white;\n    color: #555555 !important;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    transition: visibility 150ms linear, opacity 150ms linear;\n\n    padding: 8px;\n    width: 500px;\n    height: 56px;\n\n    position: relative;\n    border-radius: 8px ;\n\n    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;\n    overflow: hidden;\n    cursor: pointer;\n}\n\n.Alert-module_alertContainer__1qzTg::before {\n    content: '';\n    z-index: 0;\n    position: absolute;\n    background: var(--background);\n    opacity: .3;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n}\n\n/*.alertContainer:hover {*/\n/*    transform: scale(1.2);*/\n/*}*/\n\n/*.alertContainer:active {*/\n/*    transform: scale(.8);*/\n/*}*/\n\n\n.Alert-module_success__WZPeM {\n\n    --background: #00F400;\n}\n\n.Alert-module_info__19jst {\n    --background: #0095ff;\n\n}\n\n.Alert-module_alert__3PpgF {\n    --background: #FFFF3E;\n\n}\n\n.Alert-module_icon__2UUDw {\n\n    color: var(--background) !important;\n}\n\n.Alert-module_button__2Xjxi {\n    padding: 4px;\n    width: 30px;\n    height: 30px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.Alert-module_content__2CXCg {\n    width: 100%;\n\n    font-size: .9rem;\n\n    position: relative;\n    z-index: 1;\n    display: flex;\n    align-items: center;\n    align-content: center;\n    height: 100%;\n    justify-items: flex-start;\n    gap: 4px;\n}";
+var styles$2 = {"wrapper":"Alert-module_wrapper__1Xb80","alertContainer":"Alert-module_alertContainer__1qzTg","success":"Alert-module_success__WZPeM","info":"Alert-module_info__19jst","alert":"Alert-module_alert__3PpgF","icon":"Alert-module_icon__2UUDw","button":"Alert-module_button__2Xjxi","content":"Alert-module_content__2CXCg"};
 styleInject(css_248z$2);
+
+function Alert(props) {
+  var variant = useMemo(function () {
+    switch (props.variant) {
+      case 'success':
+        return {
+          className: styles$2.success,
+          icon: /*#__PURE__*/React.createElement(CheckRounded, null)
+        };
+
+      case 'alert':
+        return {
+          className: styles$2.alert,
+          icon: /*#__PURE__*/React.createElement(WarningRounded, null)
+        };
+
+      case 'info':
+        return {
+          className: styles$2.info,
+          icon: /*#__PURE__*/React.createElement(InfoRounded, null)
+        };
+
+      default:
+        return {
+          icon: /*#__PURE__*/React.createElement(ErrorRounded, null)
+        };
+    }
+  }, [props.variant]);
+  useEffect(function () {
+    var timeout = setTimeout(function () {
+      if (!props.open) try {
+        props.handleClose();
+      } catch (e) {}
+    }, 5000);
+    return function () {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, [props.open, props.delay]);
+  return /*#__PURE__*/React.createElement(Modal, {
+    open: props.open,
+    wrapperClassName: styles$2.wrapper,
+    handleClose: props.handleClose,
+    animationStyle: 'fade',
+    variant: 'fit',
+    blurIntensity: 0,
+    className: [styles$2.alertContainer, variant.className].join(' ')
+  }, /*#__PURE__*/React.createElement("div", {
+    className: styles$2.content,
+    onClick: function onClick() {
+      return props.onClick();
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: [styles$2.icon, styles$2.button].join(' ')
+  }, variant.icon), props.children), /*#__PURE__*/React.createElement(Button, {
+    color: 'secondary',
+    className: styles$2.button,
+    onClick: function onClick() {
+      return props.handleClose();
+    }
+  }, /*#__PURE__*/React.createElement(CloseRounded, {
+    style: {
+      fontSize: '1.1rem'
+    }
+  })));
+}
+Alert.propTypes = {
+  variant: PropTypes.oneOf(['success', 'alert', 'error', 'info']),
+  onClick: PropTypes.func,
+  open: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  delay: PropTypes.number.isRequired,
+  children: PropTypes.node
+};
+
+var css_248z$1 = ".Loader-module_wrapper__3QI8p{\n    position: fixed;\n    z-index: 999;\n    background: white;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 5px;\n}\n\n.Loader-module_loader__8FRHL{\n    border-radius: 5px;\n    animation: Loader-module_load__3J-lX 2s infinite;\n    position: absolute;\n    background: #0095ff;\n    height: 5px;\n    width: 15vw;\n}\n\n@keyframes Loader-module_load__3J-lX {\n    0%{\n        opacity: .3;\n        transform: translateX(0);\n    }\n    50%{\n        opacity: 1;\n        transform: translateX(50vw);\n    }\n    100%{\n        opacity: .3;\n        transform: translateX(100vw);\n    }\n}";
+var styles$1 = {"wrapper":"Loader-module_wrapper__3QI8p","loader":"Loader-module_loader__8FRHL","load":"Loader-module_load__3J-lX"};
+styleInject(css_248z$1);
+
+function Loader() {
+  return /*#__PURE__*/React.createElement("div", {
+    className: styles$1.wrapper
+  }, /*#__PURE__*/React.createElement("div", {
+    className: styles$1.loader
+  }));
+}
+
+var css_248z = "@import '../../../misc/theme/styles.module.css';\n\n.Details-module_wrapper__J27HM {\n    background: var(--mfc-background-primary);\n    text-rendering: optimizeLegibility !important;\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 35%;\n    height: 100vh;\n\n    border-radius: 5px 0 0 5px;\n    padding: 16px;\n\n    overflow-y: auto;\n    overflow-x: hidden;\n    display: grid;\n    gap: 32px;\n    align-content: flex-start;\n\n    transform: translateZ(0) scale(1.0, 1.0);\n    -webkit-transform: translateZ(0) scale(1.0, 1.0);\n}\n\n.Details-module_header__1tt1f {\n    color: var(--mfc-color-secondary);\n    font-weight: 600;\n    font-size: 1.2rem;\n    font-family: \"Roboto\";\n\n    text-align: left;\n    width: 100%;\n\n    height: fit-content;\n\n\n}\n\n.Details-module_subHeader__2sD0y {\n    margin-top: 4px;\n\n    color: var(--mfc-color-quinary);\n    font-size: .8rem;\n    font-family: \"Roboto\";\n\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    overflow: hidden;\n    max-width: 75%;\n}\n\n.Details-module_body__2pm_N {\n    margin-top: 4px;\n    font-family: \"Roboto\";\n    overflow-x: auto;\n    color: var(--mfc-color-secondary);\n    font-weight: 600;\n    font-size: .8rem;\n    filter: none;\n    min-height: 50px;\n    border: var(--mfc-border-primary) 1px solid;\n    background: var(--mfc-background-tertiary);\n    padding: 4px;\n    border-radius: 5px;\n}\n\n.Details-module_footer__Pdo9j {\n    margin-top: 4px;\n    border: var(--mfc-border-primary) 1px solid;\n    color: var(--mfc-color-quinary);\n    font-weight: 600;\n    font-size: .75rem;\n    font-family: \"Roboto\";\n    padding: 8px;\n    border-radius: 5px;\n    display: grid;\n    gap: 8px;\n}\n\n\n.Details-module_copyButton__2-6G0 {\n    height: 20px;\n\n    outline: none;\n    cursor: pointer;\n    border: none;\n    background: #0095ff;\n    color: white;\n    border-radius: 5px;\n    font-family: \"Roboto\";\n    font-weight: 600;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n    transition: 150ms linear;\n\n    padding: 4px 16px;\n}\n\n.Details-module_copyButton__2-6G0:hover {\n    opacity: .9;\n}\n\n.Details-module_copyButton__2-6G0:active {\n    opacity: .6;\n}\n\n\n";
+var styles = {"wrapper":"Details-module_wrapper__J27HM","header":"Details-module_header__1tt1f","subHeader":"Details-module_subHeader__2sD0y","body":"Details-module_body__2pm_N","footer":"Details-module_footer__Pdo9j","copyButton":"Details-module_copyButton__2-6G0"};
+styleInject(css_248z);
 
 var AlertPT = {
   error: 'Algum erro ocorreu',
@@ -4108,10 +4352,6 @@ var AlertPT = {
   url: 'URL enviado:'
 };
 
-var css_248z$1 = "@import '../../../misc/theme/styles.module.css';\n\n.Details-module_wrapper__J27HM {\n    text-rendering: optimizeLegibility !important;\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 35%;\n    height: 100vh;\n\n    border-radius: 5px 0 0 5px;\n    padding: 16px;\n\n    overflow-y: auto;\n    overflow-x: hidden;\n    display: grid;\n    gap: 32px;\n    align-content: flex-start;\n\n    transform: translateZ(0) scale(1.0, 1.0) ;\n    -webkit-transform: translateZ(0) scale(1.0, 1.0);\n}\n\n.Details-module_header__1tt1f {\n    color: var(--mfc-color-secondary);\n    font-weight: 600;\n    font-size: 1.2rem;\n    font-family: \"Roboto\";\n\n    text-align: left;\n    width: 100%;\n\n    height: fit-content;\n\n\n}\n\n.Details-module_subHeader__2sD0y {\n    margin-top: 4px;\n\n    color: var(--mfc-color-quinary);\n    font-size: .8rem;\n    font-family: \"Roboto\";\n\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    overflow: hidden;\n    max-width: 75%;\n}\n\n.Details-module_body__2pm_N {\n    margin-top: 4px;\n    font-family: \"Roboto\";\n    overflow-x: auto;\n    color: var(--mfc-color-secondary);\n    font-weight: 600;\n    font-size: .8rem;\n    filter: none;\n    min-height: 50px;\n    border: var(--mfc-border-primary) 1px solid;\n    background: var(--mfc-background-tertiary);\n    padding: 4px;\n    border-radius: 5px;\n}\n\n.Details-module_footer__Pdo9j {\n    margin-top: 4px;\n    border: var(--mfc-border-primary) 1px solid;\n    color: var(--mfc-color-quinary);\n    font-weight: 600;\n    font-size: .75rem;\n    font-family: \"Roboto\";\n    padding: 8px;\n    border-radius: 5px;\n    display: grid;\n    gap: 8px;\n}\n\n\n\n.Details-module_copyButton__2-6G0 {\n    height: 20px;\n\n    outline: none;\n    cursor: pointer;\n    border: none;\n    background: #0095ff;\n    color: white;\n    border-radius: 5px;\n    font-family: \"Roboto\";\n    font-weight: 600;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n    transition: 150ms linear;\n\n    padding: 4px 16px;\n}\n\n.Details-module_copyButton__2-6G0:hover{\n    opacity: .9;\n}\n.Details-module_copyButton__2-6G0:active{\n    opacity: .6;\n}\n\n\n";
-var styles$1 = {"wrapper":"Details-module_wrapper__J27HM","header":"Details-module_header__1tt1f","subHeader":"Details-module_subHeader__2sD0y","body":"Details-module_body__2pm_N","footer":"Details-module_footer__Pdo9j","copyButton":"Details-module_copyButton__2-6G0"};
-styleInject(css_248z$1);
-
 function Details(props) {
   var lang = AlertPT;
   var data = useMemo(function () {
@@ -4120,9 +4360,7 @@ function Details(props) {
     try {
       var jsonData = props.data.details && typeof props.data.details === 'string' ? JSON.parse(props.data.details) : null;
       res = JSON.stringify(jsonData, null, 4);
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
 
     return res;
   }, [props]);
@@ -4131,14 +4369,13 @@ function Details(props) {
     handleClose: function handleClose() {
       return props.handleClose();
     },
-    defaultBackground: true,
-    wrapperClassName: styles$1.wrapper,
+    className: styles.wrapper,
     blurIntensity: .1,
     animationStyle: "slide-right"
   }, /*#__PURE__*/React.createElement("div", {
-    className: styles$1.header
+    className: styles.header
   }, props.data.httpStatusCode >= 300 ? lang.error : lang.success, " - ", props.data.httpStatusCode, /*#__PURE__*/React.createElement("div", {
-    className: styles$1.subHeader
+    className: styles.subHeader
   }, props.data.url)), /*#__PURE__*/React.createElement("div", {
     style: {
       width: '100%',
@@ -4152,7 +4389,7 @@ function Details(props) {
       position: 'relative'
     }
   }, lang.details, /*#__PURE__*/React.createElement("button", {
-    className: styles$1.copyButton,
+    className: styles.copyButton,
     onClick: function onClick(event) {
       navigator.clipboard.writeText(props.data.details);
       event.target.innerText = 'Copiado';
@@ -4167,7 +4404,7 @@ function Details(props) {
       }, 5000);
     }
   }, "Copiar")), /*#__PURE__*/React.createElement("pre", {
-    className: styles$1.body,
+    className: styles.body,
     style: {
       overflow: 'auto'
     }
@@ -4176,14 +4413,14 @@ function Details(props) {
       paddingBottom: '16px'
     }
   }, lang.params, /*#__PURE__*/React.createElement("div", {
-    className: styles$1.footer
+    className: styles.footer
   }, /*#__PURE__*/React.createElement("div", null, lang.method, " ", props.data.method), /*#__PURE__*/React.createElement("div", {
     style: {
       width: '100%',
       overflow: 'hidden'
     }
   }, lang.setPackage, /*#__PURE__*/React.createElement("pre", {
-    className: styles$1.body,
+    className: styles.body,
     style: {
       overflow: 'auto'
     }
@@ -4202,148 +4439,45 @@ Details.propTypes = {
   })
 };
 
-function Alert(props) {
-  var lang = AlertPT;
-
+function RequestAlert(props) {
   var _useState = useState(false),
       _useState2 = _slicedToArray(_useState, 2),
       open = _useState2[0],
       setOpen = _useState2[1];
 
   var ref = useRef();
+  var message = useMemo(function (type) {
+    switch (true) {
+      case props.data.httpStatusCode >= 300:
+        return "Algum erro ocorreu (".concat(props.data.httpStatusCode, ")");
 
-  var getColor = function getColor(type) {
-    var response = {
-      style: {},
-      icon: undefined,
-      message: undefined,
-      messageCode: undefined
-    };
+      case props.data.httpStatusCode < 300:
+        return "Sucesso (".concat(props.data.httpStatusCode, ")");
 
-    switch (type) {
-      case 'error':
-        response = {
-          style: {
-            background: '#ff5555',
-            color: 'white'
-          },
-          icon: /*#__PURE__*/React.createElement("div", {
-            style: {
-              color: 'white',
-              background: '#FF2626',
-              width: '40px',
-              height: '40px',
-              padding: '8px',
-              borderRadius: '8px'
-            },
-            className: styles$2.alertContentContainer
-          }, /*#__PURE__*/React.createElement(ReportProblemRounded, null)),
-          message: lang.error,
-          messageCode: props.data.httpStatusCode
-        };
-        break;
-
-      case 'alert':
-        response = {
-          style: {
-            background: '#FFFF3E',
-            color: '#555555'
-          },
-          icon: /*#__PURE__*/React.createElement("div", {
-            style: {
-              color: 'white',
-              background: '#F4F400',
-              width: '40px',
-              height: '40px',
-              padding: '8px',
-              borderRadius: '8px'
-            },
-            className: styles$2.alertContentContainer
-          }, /*#__PURE__*/React.createElement(ErrorRounded, null)),
-          message: props.data.message,
-          messageCode: props.data.httpStatusCode
-        };
-        break;
-
-      case 'success':
-        response = {
-          style: {
-            background: '#00F400',
-            color: '#555555'
-          },
-          icon: /*#__PURE__*/React.createElement("div", {
-            style: {
-              color: 'white',
-              background: '#00C300',
-              width: '40px',
-              height: '40px',
-              padding: '8px',
-              borderRadius: '8px'
-            },
-            className: styles$2.alertContentContainer
-          }, /*#__PURE__*/React.createElement(CheckCircleRounded, null)),
-          message: props.data.httpStatusCode === 201 ? lang.created : lang.success,
-          messageCode: props.data.httpStatusCode
-        };
-        break;
+      default:
+        return "Algum erro ocorreu (".concat(props.data.httpStatusCode, ")");
     }
-
-    return response;
-  };
-
-  var visuals = useMemo(function () {
-    return getColor(props.type);
-  }, []);
-  useEffect(function () {
-    console.log('SETTING TIMEOUT');
-    var timeout = setTimeout(function () {
-      if (!open) try {
-        var _ref$current;
-
-        ReactDOM.unmountComponentAtNode((_ref$current = ref.current) === null || _ref$current === void 0 ? void 0 : _ref$current.parentNode);
-      } catch (e) {
-        console.log(e);
-      }
-    }, 5000);
-    return function () {
-      console.log('RESETTING TIMEOUT');
-      if (timeout) clearTimeout(timeout);
-    };
-  }, [open]);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Details, {
+  }, [props]);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref
+  }, /*#__PURE__*/React.createElement(Details, {
     open: open,
     handleClose: function handleClose() {
       setOpen(false);
-      console.log('CLOSING');
     },
     data: props.data
-  }), /*#__PURE__*/React.createElement("button", {
-    ref: ref,
-    className: styles$2.alertContainer,
+  }), /*#__PURE__*/React.createElement(Alert, {
     onClick: function onClick() {
       return setOpen(true);
     },
-    style: _objectSpread2(_objectSpread2({}, visuals.style), {
-      opacity: open ? 0 : 1,
-      visibility: open ? 'hidden' : 'visible'
-    })
-  }, /*#__PURE__*/React.createElement("div", {
-    className: styles$2.alertContentContainer
-  }, visuals.icon, /*#__PURE__*/React.createElement("div", null, visuals.message), visuals.messageCode !== undefined ? /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: '.8rem'
-    }
-  }, "(", visuals.messageCode, ")") : null), /*#__PURE__*/React.createElement("button", {
-    className: styles$2.buttonContainer,
-    onClick: function onClick() {
-      return ReactDOM.unmountComponentAtNode(ref.current.parentNode);
-    }
-  }, /*#__PURE__*/React.createElement(CloseRounded, {
-    style: {
-      fontSize: '1.15rem',
-      color: visuals.style.color
-    }
-  }))));
+    open: !open,
+    handleClose: function handleClose() {
+      var _ref$current;
+
+      ReactDOM.unmountComponentAtNode((_ref$current = ref.current) === null || _ref$current === void 0 ? void 0 : _ref$current.parentNode);
+    },
+    delay: 5000
+  }, message));
 }
 Alert.propTypes = {
   data: PropTypes.shape({
@@ -4356,18 +4490,6 @@ Alert.propTypes = {
   }),
   type: PropTypes.oneOf(['error', 'alert', 'success'])
 };
-
-var css_248z = ".Loader-module_wrapper__3QI8p{\n    position: fixed;\n    z-index: 999;\n    background: white;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 5px;\n}\n\n.Loader-module_loader__8FRHL{\n    border-radius: 5px;\n    animation: Loader-module_load__3J-lX 2s infinite;\n    position: absolute;\n    background: #0095ff;\n    height: 5px;\n    width: 15vw;\n}\n\n@keyframes Loader-module_load__3J-lX {\n    0%{\n        opacity: .3;\n        transform: translateX(0);\n    }\n    50%{\n        opacity: 1;\n        transform: translateX(50vw);\n    }\n    100%{\n        opacity: .3;\n        transform: translateX(100vw);\n    }\n}";
-var styles = {"wrapper":"Loader-module_wrapper__3QI8p","loader":"Loader-module_loader__8FRHL","load":"Loader-module_load__3J-lX"};
-styleInject(css_248z);
-
-function Loader() {
-  return /*#__PURE__*/React.createElement("div", {
-    className: styles.wrapper
-  }, /*#__PURE__*/React.createElement("div", {
-    className: styles.loader
-  }));
-}
 
 function Requester(_x) {
   return _Requester.apply(this, arguments);
@@ -4401,7 +4523,7 @@ function _Requester() {
               if (props.showSuccessAlert) {
                 var newElement = document.createElement('div');
                 document.body.appendChild(newElement);
-                ReactDOM.render( /*#__PURE__*/React.createElement(Alert, {
+                ReactDOM.render( /*#__PURE__*/React.createElement(RequestAlert, {
                   data: {
                     message: response.statusText,
                     details: JSON.stringify(response.request),
@@ -4421,7 +4543,7 @@ function _Requester() {
                 error: true,
                 data: error
               };
-              ReactDOM.render( /*#__PURE__*/React.createElement(Alert, {
+              ReactDOM.render( /*#__PURE__*/React.createElement(RequestAlert, {
                 data: {
                   message: error.statusText,
                   details: error.response !== undefined ? error.request.responseText : 'server error',
