@@ -1,6 +1,6 @@
 {
   "name": "mfc-core",
-  "version": "0.9.75",
+  "version": "0.9.76",
   "author": "facobackup",
   "license": "MIT",
   "main": "dist/index.js",
@@ -54,7 +54,7 @@
     "url": "git+https://github.com/FacoBackup/mfc-core.git"
   },
   "keywords": [
-    "React"
+    "react", "react-component", "material", "clean design", "flat design"
   ],
   "bugs": {
     "url": "https://github.com/FacoBackup/mfc-core/issues"
