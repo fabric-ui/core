@@ -1,7 +1,5 @@
 ## Installation
 
-MFC is available as an [npm package](https://www.npmjs.com/package/@mui/material).
-
 ```sh
 // with npm
 npm i mfc-core
@@ -11,8 +9,6 @@ yarn add mfc-core
 ```
 
 ## Usage
-
-Here is a quick example to get you started, **it's all you need**:
 
 ```jsx
 import React from 'react';
@@ -51,5 +47,4 @@ Coming soon.
 Coming soon.
 ## License
 
-This project is licensed under the terms of the
-[MIT license](/LICENSE).
+This project is licensed under the terms of the MIT licence.
