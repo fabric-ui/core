@@ -26,7 +26,17 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-[comment]: <> ([![Edit Button]&#40;https://codesandbox.io/static/img/play-codesandbox.svg&#41;]&#40;&#41;)
+
+## Additional Dependencies
+
+| Package            | Version | NPM                      | Github                                         |
+|--------------------|---------|--------------------------|------------------------------------------------|
+| @material-ui/core  | ^4.12.3 | npm i @material-ui/core  | https://github.com/mui-org/material-ui         |
+| @material-ui/icons | ^4.11.2 | npm i @material-ui/icons | https://github.com/mui-org/material-ui         |
+| axios              | ^0.24.0 | npm i axios              | https://github.com/axios/axios                 |
+| react-input-mask   | ^2.0.4  | npm i react-input-mask   | https://github.com/sanniassin/react-input-mask |
+
+Thanks to all those awesome people that worked on these packages.
 
 ## Examples
 
@@ -36,9 +46,6 @@ Coming soon.
 
 Coming soon.
 
-## Contributing
-
-Coming soon.
 ## Changelog
 
 Coming soon.
