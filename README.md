@@ -36,7 +36,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | axios              | ^0.24.0 | npm i axios              | https://github.com/axios/axios                 |
 | react-input-mask   | ^2.0.4  | npm i react-input-mask   | https://github.com/sanniassin/react-input-mask |
 
-Thanks to all those awesome people that worked on these packages.
+Thanks to all those awesome people that worked on these packages, you're all breathtaking.
 
 ## Examples
 
