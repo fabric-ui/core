@@ -1,7 +1,6 @@
 import React$1, { useRef, useMemo, useEffect, useContext, useState, useCallback, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import { ErrorRounded, InfoRounded, WarningRounded, CheckRounded, CloseRounded, FolderRounded, AddRounded, CategoryRounded, LinkRounded, TextFieldsRounded, CalendarTodayRounded, ArrowBackIosRounded, RefreshRounded, FilterListRounded, ClearAllRounded, LaunchRounded, ArrowBackRounded, ArrowDropDownRounded, DescriptionRounded, LanguageRounded, ImageRounded, PictureAsPdfRounded, AttachFileRounded, PersonRounded, AppsRounded, MenuOpenRounded, ArrowForwardIosRounded, ArrowDownwardRounded, SettingsRounded, VisibilityRounded, VisibilityOffRounded } from '@material-ui/icons';
 import axios from 'axios';
 import InputMask from 'react-input-mask';
 
@@ -41,6 +40,22 @@ function _objectSpread2(target) {
   }
 
   return target;
+}
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
 }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
@@ -263,8 +278,8 @@ var AlertPT = {
   url: 'URL enviado:'
 };
 
-var css_248z$E = "@import '../../../misc/theme/styles.module.css';\n\n.Modal-module_wrapper__peqWF {\n    /*overflow: hidden;*/\n    position: fixed;\n    z-index: 300;\n    transition: opacity 150ms ease-in-out;\n    bottom: 0;\n}\n\n.Modal-module_fitContent__3p_fP {\n    height: fit-content;\n    width: fit-content;\n}\n\n.Modal-module_fitPage__CXDNO {\n    height: 100vh;\n    width: 100vw;\n}\n\n.Modal-module_modalContainer__3aKtV {\n    width: 100%;\n    height: 100%;\n}\n\n\n\n@keyframes Modal-module_fadeOutAnim__2SUYV {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}\n\n@keyframes Modal-module_fadeInAnim__3Gixz {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n\n.Modal-module_enterFade__1xlj8 {\n    animation: Modal-module_fadeInAnim__3Gixz ease-in-out 250ms forwards;\n}\n\n.Modal-module_exitFade__2gmwF {\n    animation: Modal-module_fadeOutAnim__2SUYV ease-in-out 250ms forwards;\n}\n\n\n.Modal-module_slideLeftEnter__1a4nB {\n    animation: Modal-module_slideLeftEnterAnim__3Y1mE ease-in-out 250ms;\n}\n\n.Modal-module_slideLeftExit__3lXC7 {\n    animation: Modal-module_slideLeftExitAnim__2uGD2 ease-in-out 250ms;\n}\n\n.Modal-module_slideRightEnter__c2m0V {\n    animation: Modal-module_slideRightEnterAnim__zSDil ease-in-out 250ms;\n}\n\n.Modal-module_slideRightExit__3rrOc {\n    animation: Modal-module_slideRightExitAnim__187-I ease-in-out 250ms;\n}\n\n@keyframes Modal-module_slideLeftEnterAnim__3Y1mE {\n    0% {\n        transform: translateX(-100%);\n\n    }\n    100% {\n        transform: translateX(0);\n    }\n}\n\n@keyframes Modal-module_slideLeftExitAnim__2uGD2 {\n    0% {\n        transform: translateX(0);\n    }\n    100% {\n        transform: translateX(-100%);\n    }\n}\n\n@keyframes Modal-module_slideRightEnterAnim__zSDil {\n    0% {\n        transform: translateX(100%);\n\n    }\n    100% {\n        transform: translateX(0);\n    }\n}\n\n@keyframes Modal-module_slideRightExitAnim__187-I {\n    0% {\n        transform: translateX(0);\n    }\n    100% {\n        transform: translateX(100%);\n    }\n}\n\n.Modal-module_background__101HU {\n    background-color: var(--mfc-background-primary);\n}";
-var styles$B = {"wrapper":"Modal-module_wrapper__peqWF","fitContent":"Modal-module_fitContent__3p_fP","fitPage":"Modal-module_fitPage__CXDNO","modalContainer":"Modal-module_modalContainer__3aKtV","enterFade":"Modal-module_enterFade__1xlj8","fadeInAnim":"Modal-module_fadeInAnim__3Gixz","exitFade":"Modal-module_exitFade__2gmwF","fadeOutAnim":"Modal-module_fadeOutAnim__2SUYV","slideLeftEnter":"Modal-module_slideLeftEnter__1a4nB","slideLeftEnterAnim":"Modal-module_slideLeftEnterAnim__3Y1mE","slideLeftExit":"Modal-module_slideLeftExit__3lXC7","slideLeftExitAnim":"Modal-module_slideLeftExitAnim__2uGD2","slideRightEnter":"Modal-module_slideRightEnter__c2m0V","slideRightEnterAnim":"Modal-module_slideRightEnterAnim__zSDil","slideRightExit":"Modal-module_slideRightExit__3rrOc","slideRightExitAnim":"Modal-module_slideRightExitAnim__187-I","background":"Modal-module_background__101HU"};
+var css_248z$E = "@import '../../../misc/theme/styles.module.css';\n\n.Modal-module_wrapper__peqWF {\n    /*overflow: hidden;*/\n    position: fixed;\n    z-index: 300;\n    transition: opacity 150ms ease-in-out;\n    bottom: 0;\n}\n\n.Modal-module_fitContent__3p_fP {\n    height: fit-content;\n    width: fit-content;\n}\n\n.Modal-module_fitPage__CXDNO {\n    height: 100vh;\n    width: 100vw;\n}\n\n.Modal-module_modalContainer__3aKtV {\n    width: 100%;\n    height: 100%;\n}\n\n\n\n@keyframes Modal-module_fadeOutAnim__2SUYV {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}\n\n@keyframes Modal-module_fadeInAnim__3Gixz {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n\n.Modal-module_enterFade__1xlj8 {\n    animation: Modal-module_fadeInAnim__3Gixz ease-in-out 250ms forwards;\n}\n\n.Modal-module_exitFade__2gmwF {\n    animation: Modal-module_fadeOutAnim__2SUYV ease-in-out 250ms forwards;\n}\n\n\n.Modal-module_slideLeftEnter__1a4nB {\n    animation: Modal-module_slideLeftEnterAnim__3Y1mE ease-in-out 250ms;\n}\n\n.Modal-module_slideLeftExit__3lXC7 {\n    animation: Modal-module_slideLeftExitAnim__2uGD2 ease-in-out 250ms;\n}\n\n.Modal-module_slideRightEnter__c2m0V {\n    animation: Modal-module_slideRightEnterAnim__zSDil ease-in-out 250ms;\n}\n\n.Modal-module_slideRightExit__3rrOc {\n    animation: Modal-module_slideRightExitAnim__187-I ease-in-out 250ms;\n}\n\n@keyframes Modal-module_slideLeftEnterAnim__3Y1mE {\n    0% {\n        transform: translateX(-100%);\n\n    }\n    100% {\n        transform: translateX(0);\n    }\n}\n\n@keyframes Modal-module_slideLeftExitAnim__2uGD2 {\n    0% {\n        transform: translateX(0);\n    }\n    100% {\n        transform: translateX(-100%);\n    }\n}\n\n@keyframes Modal-module_slideRightEnterAnim__zSDil {\n    0% {\n        transform: translateX(100%);\n\n    }\n    100% {\n        transform: translateX(0);\n    }\n}\n\n@keyframes Modal-module_slideRightExitAnim__187-I {\n    0% {\n        transform: translateX(0);\n    }\n    100% {\n        transform: translateX(100%);\n    }\n}\n\n.Modal-module_background__101HU {\n    background-color: var(--mfc-background-primary);\n}\n\n.Modal-module_slideBottomEnter__39VPK{\n    animation: Modal-module_slideBottomEnterAnim__PXHAQ ease-in-out 250ms;\n}\n.Modal-module_slideBottomExit__3uVE9{\n    animation: Modal-module_slideBottomExitAnim__15zxc ease-in-out 250ms;\n}\n\n@keyframes Modal-module_slideBottomEnterAnim__PXHAQ {\n    0% {\n        transform: translateY(100%);\n\n    }\n    100% {\n        transform: translateY(0);\n    }\n}\n\n@keyframes Modal-module_slideBottomExitAnim__15zxc {\n    0% {\n        transform: translateY(0);\n    }\n    100% {\n        transform: translateY(100%);\n    }\n}\n";
+var styles$B = {"wrapper":"Modal-module_wrapper__peqWF","fitContent":"Modal-module_fitContent__3p_fP","fitPage":"Modal-module_fitPage__CXDNO","modalContainer":"Modal-module_modalContainer__3aKtV","enterFade":"Modal-module_enterFade__1xlj8","fadeInAnim":"Modal-module_fadeInAnim__3Gixz","exitFade":"Modal-module_exitFade__2gmwF","fadeOutAnim":"Modal-module_fadeOutAnim__2SUYV","slideLeftEnter":"Modal-module_slideLeftEnter__1a4nB","slideLeftEnterAnim":"Modal-module_slideLeftEnterAnim__3Y1mE","slideLeftExit":"Modal-module_slideLeftExit__3lXC7","slideLeftExitAnim":"Modal-module_slideLeftExitAnim__2uGD2","slideRightEnter":"Modal-module_slideRightEnter__c2m0V","slideRightEnterAnim":"Modal-module_slideRightEnterAnim__zSDil","slideRightExit":"Modal-module_slideRightExit__3rrOc","slideRightExitAnim":"Modal-module_slideRightExitAnim__187-I","background":"Modal-module_background__101HU","slideBottomEnter":"Modal-module_slideBottomEnter__39VPK","slideBottomEnterAnim":"Modal-module_slideBottomEnterAnim__PXHAQ","slideBottomExit":"Modal-module_slideBottomExit__3uVE9","slideBottomExitAnim":"Modal-module_slideBottomExitAnim__15zxc"};
 styleInject(css_248z$E);
 
 var css_248z$D = ".styles-module_light__1cr8h {\r\n    --mfc-background-primary: white;\r\n    --mfc-background-secondary: #f3f6f9;\r\n    --mfc-background-tertiary: #f4f5fa;\r\n    --mfc-background-quaternary: #E8F0FE;\r\n\r\n    --mfc-border-primary: #F1F1F5;\r\n    --mfc-border-secondary: #e0e0e0;\r\n\r\n    --mfc-color-primary: #333333;\r\n    --mfc-color-secondary: #555555;\r\n    --mfc-color-tertiary: #666666;\r\n    --mfc-color-quaternary: #777777;\r\n    --mfc-color-quinary: #999999;\r\n    --mfc-color-senary: white;\r\n\r\n    --mfc-box-shadow-primary: #e0e0e0;\r\n}\r\n\r\n.styles-module_dark__3eFo2 {\r\n\r\n\r\n    --mfc-background-primary: #292c2b;\r\n    --mfc-background-secondary: #1e2121;\r\n    --mfc-background-tertiary: #191C1C;\r\n    --mfc-background-quaternary: #1f2123;\r\n\r\n    --mfc-border-primary: #1e2121;\r\n    --mfc-border-secondary: #707070;\r\n\r\n    --mfc-color-primary: white;\r\n    --mfc-color-secondary: #f4f5fa;\r\n    --mfc-color-tertiary: #f0f0f0;\r\n    --mfc-color-quaternary: #e0e0e0;\r\n    --mfc-color-quinary: #dedede;\r\n    --mfc-color-senary: #292c2b;\r\n\r\n    --mfc-box-shadow-primary: #1e2121;\r\n}\r\n\r\n";
@@ -318,6 +333,15 @@ function useModal(_ref) {
           anim = {
             enter: styles$B.slideRightEnter,
             exit: styles$B.slideRightExit
+          };
+          break;
+        }
+
+      case 'slide-bottom':
+        {
+          anim = {
+            enter: styles$B.slideBottomEnter,
+            exit: styles$B.slideBottomExit
           };
           break;
         }
@@ -405,7 +429,7 @@ function Modal(props) {
   var context = useContext(ThemeContext);
 
   var handleMouseDown = function handleMouseDown(event) {
-    if (!document.elementsFromPoint(event.clientX, event.clientY).includes(target.current) && alreadyRendered) animate(false);
+    if (!document.elementsFromPoint(event.clientX, event.clientY).includes(target.current) && alreadyRendered) props.handleClose();
   };
 
   var _useState = useState(false),
@@ -416,7 +440,6 @@ function Modal(props) {
   useEffect(function () {
     if (props.open) {
       var position = getParentPosition();
-      console.log(alreadyRendered, animations.enter);
       renderContent( /*#__PURE__*/React$1.createElement("div", {
         style: _objectSpread2(_objectSpread2({}, {
           background: "rgba(0, 0, 0, ".concat(props.blurIntensity !== undefined ? props.blurIntensity : .4, ")")
@@ -443,7 +466,7 @@ function Modal(props) {
     return function () {
       document.removeEventListener('mousedown', handleMouseDown);
     };
-  }, [alreadyRendered, props.open]);
+  }, [alreadyRendered, props.open, props.children]);
   return /*#__PURE__*/React$1.createElement("div", {
     ref: source,
     style: {
@@ -454,7 +477,7 @@ function Modal(props) {
 Modal.propTypes = {
   wrapperClassName: PropTypes.string,
   variant: PropTypes.oneOf(['fill', 'fit']),
-  animationStyle: PropTypes.oneOf(['slide-left', 'slide-right', 'fade']),
+  animationStyle: PropTypes.oneOf(['slide-left', 'slide-right', 'fade', 'slide-bottom']),
   className: PropTypes.string,
   blurIntensity: PropTypes.number,
   styles: PropTypes.object,
@@ -554,7 +577,7 @@ var css_248z$C = ".Alert-module_wrapper__1Xb80 {\n    top: unset !important;\n  
 var styles$z = {"wrapper":"Alert-module_wrapper__1Xb80","alertContainer":"Alert-module_alertContainer__1qzTg","success":"Alert-module_success__WZPeM","info":"Alert-module_info__19jst","alert":"Alert-module_alert__3PpgF","icon":"Alert-module_icon__2UUDw","button":"Alert-module_button__2Xjxi","content":"Alert-module_content__2CXCg"};
 styleInject(css_248z$C);
 
-var css_248z$B = "@import url('http://fonts.cdnfonts.com/css/roboto');\r\n\r\n.Button-module_button__jUyhs {\r\n    border-radius: 5px;\r\n    outline: none;\r\n    background: unset;\r\n    border: none;\r\n    font-size: .8rem;\r\n    font-family: \"Roboto\", \"Helvetica\", \"Arial\", sans-serif;\r\n    cursor: pointer;\r\n    --color: #0095ff;\r\n    --darker-color: #0080DB;\r\n    padding: 8px 16px;\r\n    text-align: center;\r\n    color: var(--mfc-color-secondary);\r\n\r\n    overflow: hidden;\r\n    position: relative;\r\n\r\n    --delay: 0ms;\r\n}\r\n\r\n.Button-module_button__jUyhs:disabled {\r\n    cursor: unset;\r\n}\r\n\r\n.Button-module_button__jUyhs:hover {\r\n    --delay: 500ms;\r\n}\r\n\r\n.Button-module_button__jUyhs::after {\r\n    position: absolute;\r\n    content: '';\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    left: 0;\r\n    background: var(--color);\r\n    opacity: 0;\r\n    transition: 150ms linear var(--delay);\r\n}\r\n\r\n.Button-module_button__jUyhs:disabled::after {\r\n    content: none;\r\n}\r\n\r\n.Button-module_button__jUyhs:not(:active) {\r\n    --delay: 0ms;\r\n}\r\n\r\n.Button-module_button__jUyhs:active::after {\r\n    opacity: .15;\r\n}\r\n\r\n.Button-module_secondaryVariant__2dbm4 {\r\n    --darker-color: #FF2626;\r\n    --color: #ff5555\r\n}\r\n\r\n.Button-module_baseHighlight__13Ysj::after {\r\n    position: absolute;\r\n    content: '';\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    left: 0;\r\n    background: var(--color);\r\n    opacity: 0;\r\n    animation: Button-module_fadeIn__1a9AP 150ms linear forwards 400ms;\r\n}\r\n\r\n@keyframes Button-module_fadeIn__1a9AP {\r\n    0% {\r\n        opacity: 0;\r\n    }\r\n    100% {\r\n        opacity: .15;\r\n    }\r\n}\r\n\r\n/*MINIMAL*/\r\n.Button-module_minimal__3PuwP {\r\n\r\n    position: relative;\r\n    background: transparent;\r\n\r\n    transition: 150ms ease-in;\r\n}\r\n\r\n.Button-module_minimal__3PuwP::before {\r\n    content: '';\r\n    position: absolute;\r\n\r\n    transition: 150ms ease-in;\r\n    bottom: 0;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n\r\n    border-radius: 16px;\r\n    background: var(--color);\r\n    height: 3px;\r\n    width: 50%;\r\n    opacity: 0;\r\n}\r\n\r\n.Button-module_minimalHorizontal__3HrVf::before {\r\n    content: '';\r\n    position: absolute;\r\n\r\n    transition: 150ms ease-in;\r\n    bottom: 0;\r\n    border-radius: 16px;\r\n    background: var(--color);\r\n\r\n    opacity: 0;\r\n\r\n    height: 50%;\r\n    width: 3px;\r\n    left: 0;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n}\r\n\r\n.Button-module_minimal__3PuwP:hover::before, .Button-module_minimalHighlight__NJAuj.Button-module_minimal__3PuwP::before, .Button-module_minimalHorizontal__3HrVf:hover::before {\r\n    opacity: 1;\r\n}\r\n\r\n\r\n.Button-module_minimal__3PuwP:hover, .Button-module_minimalHighlight__NJAuj {\r\n    color: var(--color);\r\n}\r\n\r\n.Button-module_minimal__3PuwP:disabled::before, .Button-module_minimalHorizontal__3HrVf:disabled::before {\r\n    content: none;\r\n}\r\n\r\n.Button-module_minimal__3PuwP:disabled {\r\n    color: var(--mfc-color-quaternary);\r\n}\r\n\r\n/*MINIMAL*/\r\n\r\n\r\n/*FILLED*/\r\n.Button-module_filled__2btgq {\r\n    position: relative;\r\n    transition: 150ms ease-in;\r\n    color: white;\r\n    background: var(--color) !important;\r\n    box-shadow: var(--mfc-box-shadow-primary) 1px 1px 2px 1px;\r\n}\r\n\r\n.Button-module_filled__2btgq:active, .Button-module_filledHighlight__2zrbL {\r\n    box-shadow: none;\r\n}\r\n\r\n.Button-module_filled__2btgq:disabled {\r\n    border-color: transparent;\r\n    color: var(--mfc-color-quaternary);\r\n    background: transparent !important;\r\n    box-shadow: none;\r\n}\r\n\r\n/*FILLED*/\r\n\r\n\r\n/*OUTLINED*/\r\n.Button-module_outlined__2WAcZ {\r\n\r\n    position: relative;\r\n    background: transparent;\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    transition: 150ms ease-in;\r\n}\r\n\r\n.Button-module_default__1h4uk {\r\n    border: none;\r\n}\r\n\r\n.Button-module_outlined__2WAcZ:hover {\r\n    color: var(--color);\r\n}\r\n\r\n.Button-module_outlined__2WAcZ:active, .Button-module_outlinedHighlight__2bIRC {\r\n    color: var(--color);\r\n    border-color: var(--color);\r\n}\r\n\r\n.Button-module_outlined__2WAcZ:disabled {\r\n    border-color: transparent;\r\n    color: var(--mfc-color-quaternary);\r\n    background: transparent;\r\n}\r\n\r\n/*OUTLINED*/\r\n";
+var css_248z$B = "@import url('http://fonts.cdnfonts.com/css/roboto');\r\n\r\n.Button-module_button__jUyhs {\r\n    border-radius: 5px;\r\n    outline: none;\r\n    background: unset;\r\n    border: none;\r\n    font-size: .8rem;\r\n    font-family: \"Roboto\", \"Helvetica\", \"Arial\", sans-serif;\r\n    cursor: pointer;\r\n    --color: #0095ff;\r\n    --darker-color: #0080DB;\r\n    padding: 8px 16px;\r\n    text-align: center;\r\n    color: var(--mfc-color-secondary);\r\n\r\n    overflow: hidden;\r\n    position: relative;\r\n\r\n    --delay: 0ms;\r\n}\r\n\r\n.Button-module_button__jUyhs:disabled {\r\n    cursor: unset;\r\n}\r\n\r\n.Button-module_button__jUyhs:hover {\r\n    --delay: 500ms;\r\n}\r\n\r\n.Button-module_button__jUyhs::after {\r\n    position: absolute;\r\n    content: '';\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    left: 0;\r\n    background: var(--color);\r\n    opacity: 0;\r\n    transition: 150ms linear var(--delay);\r\n}\r\n\r\n.Button-module_button__jUyhs:disabled::after {\r\n    content: none;\r\n}\r\n\r\n.Button-module_button__jUyhs:not(:active) {\r\n    --delay: 0ms;\r\n}\r\n\r\n.Button-module_button__jUyhs:active::after {\r\n    opacity: .15;\r\n}\r\n\r\n.Button-module_secondaryVariant__2dbm4 {\r\n    --darker-color: #FF2626;\r\n    --color: #ff5555\r\n}\r\n\r\n.Button-module_baseHighlight__13Ysj::after {\r\n    position: absolute;\r\n    content: '';\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    left: 0;\r\n    background: var(--color);\r\n    opacity: 0;\r\n    animation: Button-module_fadeIn__1a9AP 150ms linear forwards 400ms;\r\n}\r\n\r\n@keyframes Button-module_fadeIn__1a9AP {\r\n    0% {\r\n        opacity: 0;\r\n    }\r\n    100% {\r\n        opacity: .15;\r\n    }\r\n}\r\n\r\n/*MINIMAL*/\r\n.Button-module_minimal__3PuwP {\r\n\r\n    position: relative;\r\n    background: transparent;\r\n\r\n    transition: 150ms ease-in;\r\n}\r\n\r\n.Button-module_minimal__3PuwP::before {\r\n    content: '';\r\n    position: absolute;\r\n\r\n    transition: 150ms ease-in;\r\n    bottom: 0;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n\r\n    border-radius: 16px;\r\n    background: var(--color);\r\n    height: 3px;\r\n    width: 50%;\r\n    opacity: 0;\r\n}\r\n\r\n.Button-module_minimalHorizontal__3HrVf::before {\r\n    content: '';\r\n    position: absolute;\r\n\r\n    transition: 150ms ease-in;\r\n    bottom: 0;\r\n    border-radius: 16px;\r\n    background: var(--color);\r\n\r\n    opacity: 0;\r\n\r\n    height: 50%;\r\n    width: 3px;\r\n    left: 0;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n}\r\n\r\n.Button-module_minimal__3PuwP:hover::before, .Button-module_minimalHighlight__NJAuj.Button-module_minimal__3PuwP::before, .Button-module_minimalHorizontal__3HrVf:hover::before {\r\n    opacity: 1;\r\n}\r\n\r\n\r\n.Button-module_minimal__3PuwP:hover, .Button-module_minimalHighlight__NJAuj {\r\n    color: var(--color);\r\n}\r\n\r\n.Button-module_minimal__3PuwP:disabled::before, .Button-module_minimalHorizontal__3HrVf:disabled::before {\r\n    content: none;\r\n}\r\n\r\n.Button-module_minimal__3PuwP:disabled {\r\n    color: var(--mfc-color-quaternary);\r\n}\r\n\r\n/*MINIMAL*/\r\n\r\n\r\n/*FILLED*/\r\n.Button-module_filled__2btgq {\r\n    position: relative;\r\n    transition: 150ms ease-in;\r\n    color: white;\r\n    background: var(--color) !important;\r\n    box-shadow: var(--mfc-box-shadow-primary) 1px 1px 2px 1px;\r\n}\r\n\r\n.Button-module_filled__2btgq:active, .Button-module_filledHighlight__2zrbL {\r\n    box-shadow: none;\r\n}\r\n\r\n.Button-module_filled__2btgq:disabled {\r\n    border-color: transparent;\r\n    color: var(--mfc-color-quaternary);\r\n    background: transparent !important;\r\n    box-shadow: none;\r\n}\r\n\r\n/*FILLED*/\r\n\r\n\r\n/*OUTLINED*/\r\n.Button-module_outlined__2WAcZ {\r\n\r\n    position: relative;\r\n    background: transparent;\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    transition: 150ms ease-in;\r\n}\r\n\r\n.Button-module_default__1h4uk {\r\n    border: none;\r\n}\r\n\r\n.Button-module_outlined__2WAcZ:hover {\r\n    color: var(--color);\r\n}\r\n\r\n.Button-module_outlined__2WAcZ:active, .Button-module_outlinedHighlight__2bIRC {\r\n    color: var(--color);\r\n    border-color: var(--color);\r\n}\r\n\r\n.Button-module_outlined__2WAcZ:disabled {\r\n    border-color: var(--mfc-border-primary);\r\n    color: var(--mfc-color-quaternary);\r\n    background: transparent;\r\n}\r\n\r\n/*OUTLINED*/\r\n";
 var styles$y = {"button":"Button-module_button__jUyhs","secondaryVariant":"Button-module_secondaryVariant__2dbm4","baseHighlight":"Button-module_baseHighlight__13Ysj","fadeIn":"Button-module_fadeIn__1a9AP","minimal":"Button-module_minimal__3PuwP","minimalHorizontal":"Button-module_minimalHorizontal__3HrVf","minimalHighlight":"Button-module_minimalHighlight__NJAuj","filled":"Button-module_filled__2btgq","filledHighlight":"Button-module_filledHighlight__2zrbL","outlined":"Button-module_outlined__2WAcZ","default":"Button-module_default__1h4uk","outlinedHighlight":"Button-module_outlinedHighlight__2bIRC"};
 styleInject(css_248z$B);
 
@@ -682,24 +705,32 @@ function Alert(props) {
       case 'success':
         return {
           className: styles$z.success,
-          icon: /*#__PURE__*/React$1.createElement(CheckRounded, null)
+          icon: /*#__PURE__*/React$1.createElement("span", {
+            className: "material-icons-round"
+          }, "done")
         };
 
       case 'alert':
         return {
           className: styles$z.alert,
-          icon: /*#__PURE__*/React$1.createElement(WarningRounded, null)
+          icon: /*#__PURE__*/React$1.createElement("span", {
+            className: "material-icons-round"
+          }, "warning")
         };
 
       case 'info':
         return {
           className: styles$z.info,
-          icon: /*#__PURE__*/React$1.createElement(InfoRounded, null)
+          icon: /*#__PURE__*/React$1.createElement("span", {
+            className: "material-icons-round"
+          }, "info")
         };
 
       default:
         return {
-          icon: /*#__PURE__*/React$1.createElement(ErrorRounded, null)
+          icon: /*#__PURE__*/React$1.createElement("span", {
+            className: "material-icons-round"
+          }, "error")
         };
     }
   }, [props.variant]);
@@ -737,11 +768,12 @@ function Alert(props) {
     onClick: function onClick() {
       return props.handleClose(true);
     }
-  }, /*#__PURE__*/React$1.createElement(CloseRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
     style: {
       fontSize: '1.1rem'
-    }
-  })));
+    },
+    className: "material-icons-round"
+  }, "close")));
 }
 Alert.propTypes = {
   variant: PropTypes.oneOf(['success', 'alert', 'error', 'info']),
@@ -838,15 +870,16 @@ function _Request() {
               url: props.url
             };
             return _context.abrupt("return", axios(params).then(function (r) {
+              console.log(r);
               ReactDOM.unmountComponentAtNode(loader);
 
               if (props.showSuccessAlert) {
                 var newElement = document.createElement('div');
                 document.body.appendChild(newElement);
                 ReactDOM.render( /*#__PURE__*/React$1.createElement(RequestAlert, {
-                  message: r.response.statusText,
+                  message: r.statusText,
                   details: r.data,
-                  httpStatusCode: r.response.status,
+                  httpStatusCode: r.status,
                   "package": packageSent,
                   method: method,
                   url: props.url
@@ -855,19 +888,20 @@ function _Request() {
 
               return {
                 data: r.data,
-                text: r.text,
                 status: r === null || r === void 0 ? void 0 : r.status,
                 message: r === null || r === void 0 ? void 0 : r.statusText,
                 ok: true
               };
             })["catch"](function (r) {
+              var _r$response;
+
               ReactDOM.unmountComponentAtNode(loader);
               var newElement = document.createElement('div');
               document.body.appendChild(newElement);
               ReactDOM.render( /*#__PURE__*/React$1.createElement(RequestAlert, {
-                message: r.response.statusText,
+                message: r.message,
                 details: r.data,
-                httpStatusCode: r.response.status,
+                httpStatusCode: (_r$response = r.response) === null || _r$response === void 0 ? void 0 : _r$response.status,
                 "package": packageSent,
                 method: method,
                 url: props.url
@@ -1017,8 +1051,8 @@ ToolTip.propTypes = {
   align: PropTypes.oneOf(['end', 'middle', 'start'])
 };
 
-var css_248z$y = "@import \"../../../misc/theme/styles.module.css\";\n\n.Selector-module_createModal__zGsa_ {\n    position: absolute;\n    background: var(--mfc-background-primary);\n    border-radius: 8px;\n    border: var(--mfc-border-primary) 1px solid;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 50vw;\n    max-height: 75vh;\n}\n\n.Selector-module_labelContainer__zPMB5 {\n    /*animation: slideUp linear 250ms both;*/\n    transition: visibility 150ms linear;\n    color: var(--mfc-color-primary);\n    font-size: .9rem;\n    margin-top: auto;\n    overflow: hidden;\n\n    text-transform: capitalize;\n\n}\n\n\n.Selector-module_button__2l_e_ {\n    user-select: none;\n    position: relative;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n\n\n    transition: inherit;\n    background: var(--mfc-background-primary);\n    width: 100%;\n\n    padding: 5px;\n\n    max-width: 100%;\n    overflow: hidden;\n}\n\n.Selector-module_button__2l_e_:hover {\n    border-color: var(--accent-color);\n}\n\n.Selector-module_button__2l_e_:disabled {\n    border-color: var(--mfc-border-primary);\n}\n\n.Selector-module_alertLabel__2-P3S {\n    margin-left: auto;\n    font-weight: 550;\n    font-size: .8rem;\n}\n\n\n.Selector-module_inputContainer__1xcoQ {\n\n    border: none;\n    box-shadow: unset;\n\n    background: transparent;\n    width: 100%;\n    font-family: 'Roboto' !important;\n    height: 44px;\n\n    outline: none;\n    padding: 5px 12px;\n    font-size: 1rem;\n\n}\n\n.Selector-module_fieldsContainer__37Ep6 {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    height: 50px;\n    border-radius: 8px;\n    transition: 150ms linear;\n    color: var(--mfc-color-secondary);\n    background: var(--mfc-background-primary);\n    gap: 0;\n    padding: 0 0 0 16px;\n    border: #e0e0e0 1px solid;\n    margin-bottom: 32px;\n}\n\n.Selector-module_fieldsContainer__37Ep6:hover {\n    box-shadow: #0095ff 0px 0px 1px 1.5px;\n}\n\n.Selector-module_fieldsContainer__37Ep6:focus, .Selector-module_fieldsContainer__37Ep6:focus-within {\n    color: black;\n    box-shadow: #0095ff 0px 0px 1px 1.5px;\n    background: var(--mfc-background-tertiary);\n}\n\n.Selector-module_searchButtonContainer__3Jw7g {\n    padding: 0;\n    outline: 0;\n    height: 44px;\n    width: fit-content;\n    border: none;\n    color: var(--mfc-color-secondary);\n    border-radius: 8px;\n\n    cursor: pointer;\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n\n    background: transparent;\n    transition: 150ms linear;\n}\n\n.Selector-module_searchButtonContainer__3Jw7g:hover {\n    color: #0095ff;\n}\n\n.Selector-module_selectedEntityContainer__3Vnam {\n    width: 100%;\n    border: none;\n    border-bottom: var(--mfc-border-primary) 1px solid;\n    border-top: var(--mfc-border-primary) 1px solid;\n\n    height: 56px;\n    color: var(--mfc-color-primary);\n    font-size: .9rem;\n\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    padding: 8px;\n}\n\n.Selector-module_removeButton__1TFvA {\n\n    width: 28px;\n    height: 28px;\n    border-radius: 32px;\n\n    outline: none;\n    cursor: pointer;\n    border: none;\n    background: transparent;\n    color: #ff5555;\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.Selector-module_divider__2Ossq {\n    height: 30px;\n    width: 1px;\n    background: var(--mfc-border-primary);\n\n}\n\n.Selector-module_overflow__3TwOW {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    max-width: 90%;\n}\n\n\n@keyframes Selector-module_enter__2WjLM {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n@keyframes Selector-module_exit__2Dzcn {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}";
-var styles$v = {"createModal":"Selector-module_createModal__zGsa_","labelContainer":"Selector-module_labelContainer__zPMB5","button":"Selector-module_button__2l_e_","alertLabel":"Selector-module_alertLabel__2-P3S","inputContainer":"Selector-module_inputContainer__1xcoQ","fieldsContainer":"Selector-module_fieldsContainer__37Ep6","searchButtonContainer":"Selector-module_searchButtonContainer__3Jw7g","selectedEntityContainer":"Selector-module_selectedEntityContainer__3Vnam","removeButton":"Selector-module_removeButton__1TFvA","divider":"Selector-module_divider__2Ossq","overflow":"Selector-module_overflow__3TwOW","enter":"Selector-module_enter__2WjLM","exit":"Selector-module_exit__2Dzcn"};
+var css_248z$y = "@import \"../../../misc/theme/styles.module.css\";\n\n.Selector-module_createModal__zGsa_ {\n    position: absolute;\n    background: var(--mfc-background-primary);\n    border-radius: 8px;\n    border: var(--mfc-border-primary) 1px solid;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 50vw;\n    max-height: 75vh;\n}\n\n.Selector-module_labelContainer__zPMB5 {\n    /*animation: slideUp linear 250ms both;*/\n    transition: visibility 150ms linear;\n    color: var(--mfc-color-primary);\n    font-size: .9rem;\n    margin-top: auto;\n    overflow: hidden;\n\n    text-transform: capitalize;\n\n}\n\n\n.Selector-module_button__2l_e_ {\n    user-select: none;\n    position: relative;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n\n\n    transition: inherit;\n    background: var(--mfc-background-primary);\n    width: 100%;\n\n    padding: 5px;\n\n    max-width: 100%;\n    overflow: hidden;\n}\n\n.Selector-module_button__2l_e_:hover {\n    border-color: var(--accent-color);\n}\n\n.Selector-module_button__2l_e_:disabled {\n    border-color: var(--mfc-border-primary);\n}\n\n.Selector-module_alertLabel__2-P3S {\n    margin-left: auto;\n    font-weight: 550;\n    font-size: .8rem;\n}\n\n\n.Selector-module_inputContainer__1xcoQ {\n\n    border: none;\n    box-shadow: unset;\n\n    background: transparent;\n    width: 100%;\n    font-family: 'Roboto' !important;\n    height: 44px;\n\n    outline: none;\n    padding: 5px 12px;\n    font-size: 1rem;\n\n}\n\n.Selector-module_fieldsContainer__37Ep6 {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    height: 50px;\n    border-radius: 8px;\n    transition: 150ms linear;\n    color: var(--mfc-color-secondary);\n    background: var(--mfc-background-primary);\n    gap: 0;\n    padding: 0 0 0 16px;\n    border: #e0e0e0 1px solid;\n    margin-bottom: 32px;\n}\n\n.Selector-module_fieldsContainer__37Ep6:hover {\n    box-shadow: #0095ff 0px 0px 1px 1.5px;\n}\n\n.Selector-module_fieldsContainer__37Ep6:focus, .Selector-module_fieldsContainer__37Ep6:focus-within {\n    color: black;\n    box-shadow: #0095ff 0px 0px 1px 1.5px;\n    background: var(--mfc-background-tertiary);\n}\n\n.Selector-module_searchButtonContainer__3Jw7g {\n    padding: 0;\n    outline: 0;\n    height: 44px;\n    width: fit-content;\n    border: none;\n    color: var(--mfc-color-secondary);\n    border-radius: 8px;\n\n    cursor: pointer;\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n\n    background: transparent;\n    transition: 150ms linear;\n}\n\n.Selector-module_searchButtonContainer__3Jw7g:hover {\n    color: #0095ff;\n}\n\n.Selector-module_selectedEntityContainer__3Vnam {\n    width: 100%;\n    border: none;\n    border-bottom: var(--mfc-border-primary) 1px solid;\n    border-top: var(--mfc-border-primary) 1px solid;\n\n    height: 56px;\n    color: var(--mfc-color-primary);\n    font-size: .9rem;\n\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    padding: 8px;\n}\n\n.Selector-module_removeButton__1TFvA {\n\n    width: 28px;\n    height: 28px;\n    border-radius: 32px;\n\n    outline: none;\n    cursor: pointer;\n    border: none;\n    background: transparent;\n    color: #ff5555;\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.Selector-module_divider__2Ossq {\n    height: 30px;\n    width: 1px;\n    background: var(--mfc-border-primary);\n\n}\n\n.Selector-module_overflow__3TwOW {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    max-width: 90%;\n}\n\n\n@keyframes Selector-module_enter__2WjLM {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n@keyframes Selector-module_exit__2Dzcn {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}\n\n.Selector-module_buttonWrapper__LLyJf{\n    max-width: 100%;\n    overflow: hidden;\n\n}";
+var styles$v = {"createModal":"Selector-module_createModal__zGsa_","labelContainer":"Selector-module_labelContainer__zPMB5","button":"Selector-module_button__2l_e_","alertLabel":"Selector-module_alertLabel__2-P3S","inputContainer":"Selector-module_inputContainer__1xcoQ","fieldsContainer":"Selector-module_fieldsContainer__37Ep6","searchButtonContainer":"Selector-module_searchButtonContainer__3Jw7g","selectedEntityContainer":"Selector-module_selectedEntityContainer__3Vnam","removeButton":"Selector-module_removeButton__1TFvA","divider":"Selector-module_divider__2Ossq","overflow":"Selector-module_overflow__3TwOW","buttonWrapper":"Selector-module_buttonWrapper__LLyJf","enter":"Selector-module_enter__2WjLM","exit":"Selector-module_exit__2Dzcn"};
 styleInject(css_248z$y);
 
 var SelectorsPT = {
@@ -1188,80 +1222,17 @@ styleInject(css_248z$w);
 function Empty(props) {
   return /*#__PURE__*/React$1.createElement("div", {
     className: styles$t.content
-  }, /*#__PURE__*/React$1.createElement(FolderRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
     style: {
       fontSize: '130px'
-    }
-  }), /*#__PURE__*/React$1.createElement("h5", {
+    },
+    className: "material-icons-round"
+  }, "folder"), /*#__PURE__*/React$1.createElement("h5", {
     className: styles$t.label
   }, props.customLabel ? props.customLabel : "Lista vazia, nada encontrado."));
 }
 Empty.propTypes = {
   customLabel: PropTypes.string
-};
-
-var css_248z$v = "@import '../../../misc/theme/styles.module.css';\n\n.Dropdown-module_wrapper__3QXzm {\n    position: relative;\n\n}\n\n.Dropdown-module_buttons__2J8JD {\n    width: 200px;\n    border-radius: 5px;\n    background: var(--mfc-background-primary);\n    height: auto;\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 2px 1px;\n\n    overflow-y: auto;\n    max-height: clamp(250px, 10vh, 300px);\n\n    display: grid;\n    transition: 150ms ease;\n}\n\n\n.Dropdown-module_button__3lkck {\n\n\n    overflow: hidden;\n    outline: none;\n    border: none;\n    padding: 12px 0 12px 8px;\n    text-align: left;\n    background: transparent;\n\n    transition: 150ms linear;\n    cursor: pointer;\n\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.Dropdown-module_buttonLabel__2HvoU {\n    display: flex;\n    padding: 0 10px;\n    justify-content: flex-end;\n    width: 100%;\n}\n";
-var styles$s = {"wrapper":"Dropdown-module_wrapper__3QXzm","buttons":"Dropdown-module_buttons__2J8JD","button":"Dropdown-module_button__3lkck","buttonLabel":"Dropdown-module_buttonLabel__2HvoU"};
-styleInject(css_248z$v);
-
-function Dropdown(props) {
-  var _props$buttons;
-
-  var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      open = _useState2[0],
-      setOpen = _useState2[1];
-
-  return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$s.wrapper
-  }, /*#__PURE__*/React$1.createElement(Button, {
-    highlight: open,
-    variant: props.variant,
-    onClick: function onClick() {
-      return setOpen(true);
-    },
-    disabled: props.disabled,
-    className: props.className
-  }, props.label), /*#__PURE__*/React$1.createElement(Modal, {
-    variant: "fit",
-    styles: {
-      transform: props.align === 'top' ? 'translateY(-100%)' : 'translateY(100%)'
-    },
-    blurIntensity: 0,
-    className: styles$s.buttons,
-    animationStyle: 'fade',
-    open: open,
-    handleClose: function handleClose() {
-      return setOpen(false);
-    }
-  }, (_props$buttons = props.buttons) === null || _props$buttons === void 0 ? void 0 : _props$buttons.map(function (b, i) {
-    return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
-      key: 'dropdown-' + i
-    }, /*#__PURE__*/React$1.createElement(Button, {
-      disabled: b.disabled,
-      onClick: function onClick() {
-        b.onClick(props.onClickProps);
-        setOpen(false);
-      },
-      className: styles$s.button
-    }, b.icon, /*#__PURE__*/React$1.createElement("div", {
-      className: styles$s.buttonLabel
-    }, b.label)));
-  })));
-}
-Dropdown.propTypes = {
-  variant: PropTypes.oneOf(['minimal', 'filled', 'outlined', 'minimal-horizontal']),
-  className: PropTypes.string,
-  onClickProps: PropTypes.any,
-  label: PropTypes.any,
-  disabled: PropTypes.bool,
-  buttons: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.any,
-    icon: PropTypes.object,
-    onClick: PropTypes.func,
-    disabled: PropTypes.bool
-  })),
-  align: PropTypes.oneOf(['top', 'bottom'])
 };
 
 function useHeader(dispatch, actions) {
@@ -1270,110 +1241,14 @@ function useHeader(dispatch, actions) {
       open = _useState2[0],
       setOpen = _useState2[1];
 
-  var _useState3 = useState(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      selectedField = _useState4[0],
-      setSelectedField = _useState4[1];
-
-  var getHiddenField = function getHiddenField(e) {
-    return {
-      icon: /*#__PURE__*/React$1.createElement(AddRounded, null),
-      label: e.label,
-      onClick: function onClick() {
-        dispatch({
-          type: actions.UPDATE_VISIBILITY,
-          payload: {
-            key: e.key
-          }
-        });
-      }
-    };
-  };
-
-  var getField = function getField(e) {
-    return {
-      icon: getIcon(e.type),
-      label: /*#__PURE__*/React$1.createElement("div", {
-        style: {
-          textOverflow: 'ellipsis',
-          overflow: 'hidden',
-          whiteSpace: 'nowrap',
-          maxWidth: '100%'
-        }
-      }, e.label, /*#__PURE__*/React$1.createElement(ToolTip, {
-        content: e.label
-      })),
-      onClick: function onClick() {
-        setSelectedField(_objectSpread2(_objectSpread2({}, {
-          key: e.key,
-          value: undefined,
-          type: e.type,
-          label: e.label
-        }), e.type === 'string' ? {
-          contains: true
-        } : {
-          greater_than: true
-        }));
-        setOpen(true);
-      }
-    };
-  };
-
-  var getIcon = function getIcon(type) {
-    var icon;
-
-    switch (type) {
-      case 'date':
-        {
-          icon = /*#__PURE__*/React$1.createElement(CalendarTodayRounded, {
-            style: {
-              fontSize: '1.2rem'
-            }
-          });
-          break;
-        }
-
-      case 'string':
-        {
-          icon = /*#__PURE__*/React$1.createElement(TextFieldsRounded, {
-            style: {
-              fontSize: '1.2rem'
-            }
-          });
-          break;
-        }
-
-      case 'object':
-        {
-          icon = /*#__PURE__*/React$1.createElement(LinkRounded, {
-            style: {
-              fontSize: '1.2rem'
-            }
-          });
-          break;
-        }
-
-      default:
-        {
-          icon = /*#__PURE__*/React$1.createElement(CategoryRounded, {
-            style: {
-              fontSize: '1.2rem'
-            }
-          });
-          break;
-        }
-    }
-
-    return icon;
-  };
-
   var getType = function getType(object) {
-    var label;
-    if (object.greater_than) label = 'maior que';
-    if (object.less_than) label = 'menor que';
-    if (object.equal_to) label = 'igual a';
-    if (object.contains) label = 'contém';
-    if (object.different_from) label = 'diferente de';
+    var label = 'é';
+    console.log(object);
+    if (object.greater_than === true) label = 'maior que';
+    if (object.less_than === true) label = 'menor que';
+    if (object.equal_to === true) label = 'igual a';
+    if (object.contains === true) label = 'contém';
+    if (object.different_from === true) label = 'diferente de';
     return label;
   };
 
@@ -1386,21 +1261,17 @@ function useHeader(dispatch, actions) {
     getType: getType,
     parseDate: parseDate,
     open: open,
-    setOpen: setOpen,
-    selectedField: selectedField,
-    setSelectedField: setSelectedField,
-    getField: getField,
-    getHiddenField: getHiddenField
+    setOpen: setOpen
   };
 }
 
-var css_248z$u = "@import '../../../misc/theme/styles.module.css';\r\n\r\n\r\n.Field-module_activeFiltersContainer__1LqJs {\r\n    height: auto;\r\n    max-height: 100px;\r\n    display: flex;\r\n    align-items: flex-start;\r\n    gap: 8px;\r\n    overflow-x: auto;\r\n    overflow-y: hidden;\r\n    max-width: 100%;\r\n    padding: 8px 0;\r\n    width: 100%;\r\n\r\n}\r\n\r\n.Field-module_overflow__3W_qu {\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n\r\n.Field-module_filter__23s4g {\r\n    background-color: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    color: var(--mfc-color-secondary);\r\n    font-size: .85rem;\r\n\r\n    user-select: none;\r\n\r\n    padding: 4px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    gap: 4px;\r\n    border-radius: 5px;\r\n\r\n    height: 30px;\r\n    width: fit-content;\r\n    cursor: pointer;\r\n\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Field-module_container__3o_Am {\r\n\r\n    position: absolute;\r\n    /*height: clamp(200px, 50%, 1000px);*/\r\n    width: clamp(200px, 25%, 750px);\r\n    left: 50%;\r\n    top: 50%;\r\n    transform: translate(-50%, -50%);\r\n\r\n    background: var(--mfc-background-primary);\r\n    padding: 16px;\r\n    border-radius: 8px;\r\n    border: var(--mfc-border-secondary) 1px solid;\r\n    color: var(--mfc-color-tertiary);\r\n}\r\n\r\n.Field-module_header__CqM1m {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    font-size: 1.2rem;\r\n    color: var(--mfc-color-secondary);\r\n    height: 32px;\r\n    font-weight: bold;\r\n    font-family: \"Roboto\";\r\n}\r\n\r\n.Field-module_fields__a8JMo {\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    gap: 4px;\r\n}\r\n\r\n\r\n.Field-module_button__L_zoF{\r\n    padding: 0;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}";
-var styles$r = {"activeFiltersContainer":"Field-module_activeFiltersContainer__1LqJs","overflow":"Field-module_overflow__3W_qu","filter":"Field-module_filter__23s4g","container":"Field-module_container__3o_Am","header":"Field-module_header__CqM1m","fields":"Field-module_fields__a8JMo","button":"Field-module_button__L_zoF"};
-styleInject(css_248z$u);
+var css_248z$v = "@import '../../../misc/theme/styles.module.css';\r\n\r\n\r\n.Field-module_activeFiltersContainer__1LqJs{\r\n    height: auto;\r\n    max-height: 100px;\r\n    display: flex;\r\n    align-items: flex-start;\r\n    gap: 8px;\r\n    overflow-x: auto;\r\n    overflow-y: hidden;\r\n    max-width: 100%;\r\n    padding: 8px 0;\r\n    width: 100%;\r\n}\r\n\r\n.Field-module_modalWrapper__3alrc {\r\n    height: 50vh;\r\n    position: absolute;\r\n    bottom: 0;\r\n    left: 0;\r\n\r\n    padding: 16px;\r\n    width: 100%;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 8px 8px 0 0;\r\n\r\n    display: flex;\r\n    gap: 16px;\r\n\r\n}\r\n\r\n.Field-module_overflow__3W_qu {\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n\r\n.Field-module_filter__23s4g {\r\n\r\n\r\n    background-color: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    color: var(--mfc-color-secondary);\r\n    font-size: .85rem;\r\n\r\n    user-select: none;\r\n    padding: 4px;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    gap: 4px;\r\n    border-radius: 5px;\r\n\r\n    height: 30px;\r\n    width: fit-content;\r\n    cursor: pointer;\r\n\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Field-module_container__3o_Am {\r\n    position: relative;\r\n    width: 40%;\r\n    border-radius: 5px;\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    padding: 8px;\r\n    display: grid;\r\n\r\n    align-content: space-between;\r\n}\r\n\r\n.Field-module_header__CqM1m {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    font-size: 1.2rem;\r\n    color: var(--mfc-color-secondary);\r\n    height: 32px;\r\n    font-weight: bold;\r\n    font-family: \"Roboto\";\r\n}\r\n\r\n.Field-module_fields__a8JMo {\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    gap: 4px;\r\n}\r\n\r\n\r\n.Field-module_button__L_zoF {\r\n    padding: 0;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.Field-module_filters__2yN-6 {\r\n\r\n\r\n    width: 100%;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    background: var(--mfc-background-secondary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    padding: 8px;\r\n\r\n    overflow-y: auto;\r\n    align-items: flex-start;\r\n    align-content: flex-start;\r\n    gap: 8px;\r\n    border-radius: 5px;\r\n}\r\n\r\n.Field-module_filterButton__sFD04 {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n    padding: 24px 16px;\r\n    gap: 16px;\r\n    background: var(--mfc-background-primary);\r\n    width: calc(33.333% - 6px);\r\n}\r\n/*.filterButton[data-highlight]:active {*/\r\n/*    opacity: .7;*/\r\n/*}*/";
+var styles$s = {"activeFiltersContainer":"Field-module_activeFiltersContainer__1LqJs","modalWrapper":"Field-module_modalWrapper__3alrc","overflow":"Field-module_overflow__3W_qu","filter":"Field-module_filter__23s4g","container":"Field-module_container__3o_Am","header":"Field-module_header__CqM1m","fields":"Field-module_fields__a8JMo","button":"Field-module_button__L_zoF","filters":"Field-module_filters__2yN-6","filterButton":"Field-module_filterButton__sFD04"};
+styleInject(css_248z$v);
 
-var css_248z$t = ".Input-module_fieldsContainer__EoW_4 {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    height: auto;\n    overflow-x: visible;\n}\n\n\n.Input-module_inputContainer__3Jx-t {\n    background: transparent;\n\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    box-shadow: unset;\n    transition: 150ms ease-in;\n\n    width: 100%;\n    font-family: \"Roboto\";\n\n    outline: none;\n    padding: 5px;\n    font-size: 1rem;\n    margin: unset;\n    box-sizing: border-box;\n    color: var(--mfc-color-secondary);\n}\n\n.Input-module_inputContainer__3Jx-t::-webkit-outer-spin-button,\n.Input-module_inputContainer__3Jx-t::-webkit-inner-spin-button {\n    -webkit-appearance: none;\n    margin: 0;\n}\n\n\n.Input-module_inputContainer__3Jx-t[type=number] {\n    -moz-appearance: textfield;\n}\n\n.Input-module_inputContainer__3Jx-t:hover, .Input-module_inputContainer__3Jx-t:focus {\n    color: var(--mfc-color-primary);\n    border-color: var(--accent_color);\n}\n\n.Input-module_inputContainer__3Jx-t:disabled {\n    border: var(--mfc-border-primary) 1px solid;\n    /*background: var(--mfc-background-secondary);*/\n    color: var(--mfc-color-quinary);\n}\n\n.Input-module_mask__27obY {\n    z-index: 5;\n\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    left: 8px;\n    color: var(--mfc-color-secondary);\n    font-family: \"Roboto\";\n    font-size: .95rem;\n\n    max-width: 25%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.Input-module_focus__1hNr4 {\n    background: var(--mfc-background-primary);\n\n    display: flex;\n\n    position: relative;\n    overflow: hidden;\n    height: fit-content;\n\n}\n\n.Input-module_focus__1hNr4::before {\n    content: '';\n\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    background:var(--accent_color);\n    opacity: 0;\n}\n\n.Input-module_focus__1hNr4:focus::before, .Input-module_focus__1hNr4:focus-within::before {\n    animation: Input-module_fadeIn__1BfZu 150ms linear forwards 500ms;\n}\n\n@keyframes Input-module_fadeIn__1BfZu {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: .15;\n    }\n}\n\n/*.textArea:hover, .textArea:focus{*/\n/*    border-color: transparent;*/\n/*}*/";
-var styles$q = {"fieldsContainer":"Input-module_fieldsContainer__EoW_4","inputContainer":"Input-module_inputContainer__3Jx-t","mask":"Input-module_mask__27obY","focus":"Input-module_focus__1hNr4","fadeIn":"Input-module_fadeIn__1BfZu"};
-styleInject(css_248z$t);
+var css_248z$u = ".Input-module_fieldsContainer__EoW_4 {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    height: auto;\n    overflow-x: visible;\n}\n\n\n.Input-module_inputContainer__3Jx-t {\n    background: transparent;\n\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    box-shadow: unset;\n    transition: 150ms ease-in;\n\n    width: 100%;\n    font-family: \"Roboto\";\n\n    outline: none;\n    padding: 5px;\n    font-size: 1rem;\n    margin: unset;\n    box-sizing: border-box;\n    color: var(--mfc-color-secondary);\n}\n\n.Input-module_inputContainer__3Jx-t::-webkit-outer-spin-button,\n.Input-module_inputContainer__3Jx-t::-webkit-inner-spin-button {\n    -webkit-appearance: none;\n    margin: 0;\n}\n\n\n.Input-module_inputContainer__3Jx-t[type=number] {\n    -moz-appearance: textfield;\n}\n\n.Input-module_inputContainer__3Jx-t:hover, .Input-module_inputContainer__3Jx-t:focus {\n    color: var(--mfc-color-primary);\n    border-color: var(--accent_color);\n}\n\n.Input-module_inputContainer__3Jx-t:disabled {\n    border: var(--mfc-border-primary) 1px solid;\n    /*background: var(--mfc-background-secondary);*/\n    color: var(--mfc-color-quinary);\n}\n\n.Input-module_mask__27obY {\n    z-index: 5;\n\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    left: 8px;\n    color: var(--mfc-color-secondary);\n    font-family: \"Roboto\";\n    font-size: .95rem;\n\n    max-width: 25%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.Input-module_focus__1hNr4 {\n    background: var(--mfc-background-primary);\n\n    display: flex;\n\n    position: relative;\n    overflow: hidden;\n    height: fit-content;\n\n}\n\n.Input-module_focus__1hNr4::before {\n    content: '';\n\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    background:var(--accent_color);\n    opacity: 0;\n}\n\n.Input-module_focus__1hNr4:focus::before, .Input-module_focus__1hNr4:focus-within::before {\n    animation: Input-module_fadeIn__1BfZu 150ms linear forwards 500ms;\n}\n\n@keyframes Input-module_fadeIn__1BfZu {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: .15;\n    }\n}\n\n/*.textArea:hover, .textArea:focus{*/\n/*    border-color: transparent;*/\n/*}*/";
+var styles$r = {"fieldsContainer":"Input-module_fieldsContainer__EoW_4","inputContainer":"Input-module_inputContainer__3Jx-t","mask":"Input-module_mask__27obY","focus":"Input-module_focus__1hNr4","fadeIn":"Input-module_fadeIn__1BfZu"};
+styleInject(css_248z$u);
 
 var LocalePT = {
   required: 'Este campo é obrigatório.',
@@ -1416,9 +1287,9 @@ function ParseCurrency(event) {
   return value;
 }
 
-var css_248z$s = "\r\n.Shared-module_wrapper__184dI {\r\n    --accent_color: #0095ff;\r\n\r\n    transition: 150ms linear;\r\n    height: fit-content;\r\n\r\n    outline: transparent 1px solid;\r\n    border-radius: 5px;\r\n}\r\n\r\n.Shared-module_secondaryVariant__JSqkU {\r\n    --accent_color: #ff5555;\r\n}\r\n\r\n\r\n.Shared-module_wrapper__184dI:hover, .Shared-module_wrapper__184dI:focus-within, .Shared-module_wrapper__184dI[data-highlight], .Shared-module_wrapper__184dI:active {\r\n    outline: var(--accent_color) 1px solid;\r\n}\r\n\r\n.Shared-module_wrapper__184dI[data-disabled], .Shared-module_wrapper__184dI:disabled {\r\n    outline: transparent 1px solid;\r\n}\r\n\r\n\r\n.Shared-module_labelContainer__3uQR- {\r\n    transition: 200ms ease-in-out;\r\n\r\n    color: var(--mfc-color-secondary);\r\n    /*font-weight: 600;*/\r\n    font-size: .8rem;\r\n    margin-top: auto;\r\n    user-select: none;\r\n    font-family: \"Roboto\";\r\n    text-transform: capitalize;\r\n\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    max-width: 75%;\r\n    overflow: hidden;\r\n\r\n}\r\n\r\n.Shared-module_alertLabel__KuMWx {\r\n    color: var(--mfc-color-quaternary);\r\n    font-family: \"Roboto\";\r\n    margin-left: auto;\r\n    font-size: .75rem;\r\n    user-select: none;\r\n\r\n}";
-var shared$2 = {"wrapper":"Shared-module_wrapper__184dI","secondaryVariant":"Shared-module_secondaryVariant__JSqkU","labelContainer":"Shared-module_labelContainer__3uQR-","alertLabel":"Shared-module_alertLabel__KuMWx"};
-styleInject(css_248z$s);
+var css_248z$t = "\r\n.Shared-module_wrapper__184dI {\r\n    --accent_color: #0095ff;\r\n\r\n    transition: 150ms linear;\r\n    height: fit-content;\r\n\r\n    outline: transparent 1px solid;\r\n    border-radius: 5px;\r\n}\r\n\r\n.Shared-module_secondaryVariant__JSqkU {\r\n    --accent_color: #ff5555;\r\n}\r\n\r\n\r\n.Shared-module_wrapper__184dI:hover, .Shared-module_wrapper__184dI:focus-within, .Shared-module_wrapper__184dI[data-highlight], .Shared-module_wrapper__184dI:active {\r\n    outline: var(--accent_color) 1px solid;\r\n}\r\n\r\n.Shared-module_wrapper__184dI[data-disabled], .Shared-module_wrapper__184dI:disabled {\r\n    outline: transparent 1px solid;\r\n}\r\n\r\n\r\n.Shared-module_labelContainer__3uQR- {\r\n    transition: 200ms ease-in-out;\r\n\r\n    color: var(--mfc-color-secondary);\r\n    /*font-weight: 600;*/\r\n    font-size: .8rem;\r\n    margin-top: auto;\r\n    user-select: none;\r\n    font-family: \"Roboto\";\r\n    text-transform: capitalize;\r\n\r\n    display: flex;\r\n    width: 100%;\r\n    align-items: center;\r\n\r\n    gap: 6px;\r\n}\r\n\r\n.Shared-module_overflow__2coWY{\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    max-width: 75%;\r\n    overflow: hidden;\r\n}\r\n.Shared-module_alertLabel__KuMWx {\r\n    color: var(--mfc-color-quaternary);\r\n    font-family: \"Roboto\";\r\n    margin-left: auto;\r\n    font-size: .75rem;\r\n    user-select: none;\r\n\r\n}\r\n.Shared-module_helperText__2Ugyl{\r\n    transition: 150ms linear;\r\n    color: #FFAC3E;\r\n    cursor: help;\r\n}\r\n.Shared-module_helperText__2Ugyl:hover{\r\n    color: #0095ff;\r\n}";
+var shared$2 = {"wrapper":"Shared-module_wrapper__184dI","secondaryVariant":"Shared-module_secondaryVariant__JSqkU","labelContainer":"Shared-module_labelContainer__3uQR-","overflow":"Shared-module_overflow__2coWY","alertLabel":"Shared-module_alertLabel__KuMWx","helperText":"Shared-module_helperText__2Ugyl"};
+styleInject(css_248z$t);
 
 function TextField(props) {
   var lang = LocalePT;
@@ -1437,7 +1308,7 @@ function TextField(props) {
         width: '100%'
       }
     }, /*#__PURE__*/React$1.createElement("div", {
-      className: styles$q.mask,
+      className: styles$r.mask,
       ref: maskStartRef
     }, props.maskStart), /*#__PURE__*/React$1.createElement("input", {
       disabled: props.disabled,
@@ -1446,7 +1317,7 @@ function TextField(props) {
       type: props.type !== 'password' ? props.type : !props.visible ? 'password' : 'text',
       value: value,
       ref: ref,
-      className: styles$q.inputContainer,
+      className: styles$r.inputContainer,
       style: {
         height: props.size === 'small' ? '36px' : '56px',
         position: 'relative',
@@ -1454,7 +1325,11 @@ function TextField(props) {
       },
       onChange: function onChange(e) {
         var data = e.target.value;
-        if (props.type === 'number' && props.floatFilter) data = ParseCurrency(e.target.value);
+
+        if (props.type === 'number' && props.floatFilter) {
+          data = ParseCurrency(e.target.value);
+        }
+
         props.handleChange({
           target: {
             value: data
@@ -1463,7 +1338,7 @@ function TextField(props) {
       },
       maxLength: props.maxLength
     }), /*#__PURE__*/React$1.createElement("div", {
-      className: styles$q.mask,
+      className: styles$r.mask,
       style: {
         right: '8px',
         left: 'unset'
@@ -1479,7 +1354,7 @@ function TextField(props) {
           disabled: props.disabled,
           placeholder: props.placeholder,
           value: props.value ? props.value : '',
-          className: styles$q.inputContainer,
+          className: styles$r.inputContainer,
           style: {
             minHeight: props.size === 'small' ? '36px' : '56px',
             resize: props.disabled ? 'none' : 'vertical',
@@ -1538,8 +1413,20 @@ function TextField(props) {
       visibility: valid ? 'visible' : 'hidden',
       opacity: valid ? '1' : '0'
     }
-  }, props.label), /*#__PURE__*/React$1.createElement("div", {
-    className: [color.className, shared$2.wrapper, styles$q.focus].join(' '),
+  }, /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.overflow
+  }, props.label), props.helperText ? /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.helperText
+  }, /*#__PURE__*/React$1.createElement("span", {
+    style: {
+      fontSize: '1rem'
+    },
+    className: "material-icons-round"
+  }, "info"), /*#__PURE__*/React$1.createElement(ToolTip, {
+    content: props.helperText,
+    align: 'start'
+  })) : null), /*#__PURE__*/React$1.createElement("div", {
+    className: [color.className, shared$2.wrapper, styles$r.focus].join(' '),
     "data-disabled": props.disabled ? props.disabled : undefined
   }, getField(), /*#__PURE__*/React$1.createElement(Ripple, {
     opacity: .15,
@@ -1555,6 +1442,7 @@ function TextField(props) {
   }, lang.required));
 }
 TextField.propTypes = {
+  helperText: PropTypes.string,
   width: PropTypes.string,
   placeholder: PropTypes.string,
   label: PropTypes.string,
@@ -1574,51 +1462,13 @@ TextField.propTypes = {
   colorVariant: PropTypes.oneOf(['default', 'secondary', 'primary'])
 };
 
-var css_248z$r = "@import \"../../../misc/theme/styles.module.css\";\n\n.DateField-module_fieldsContainer__18OUu {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 10px;\n    height: 56px;\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    color: var(--mfc-color-tertiary);\n    background: var(--mfc-background-primary);\n    position: relative;\n    overflow: hidden;\n\n    --delay: 0;\n}\n\n.DateField-module_fieldsContainer__18OUu:hover {\n    --delay: 500ms;\n}\n\n.DateField-module_fieldsContainer__18OUu::after {\n    position: absolute;\n    content: '';\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    background: var(--color);\n    opacity: 0;\n    transition: 150ms linear var(--delay);\n}\n\n.DateField-module_fieldsContainer__18OUu:disabled::after {\n    content: none;\n}\n\n.DateField-module_fieldsContainer__18OUu:focus-within::after, .DateField-module_fieldsContainer__18OUu:focus-within::after {\n    opacity: .15;\n}\n\n\n.DateField-module_inputContainer__3Jx_6 {\n    text-align: center;\n    border: none;\n    box-shadow: unset;\n\n    background: var(--mfc-background-primary);\n    font-family: \"Roboto\";\n    height: 100%;\n    width: 30px;\n    outline: none;\n    font-size: 1rem;\n\n    color: var(--mfc-color-secondary);\n}\n\n.DateField-module_inputContainer__3Jx_6::-webkit-outer-spin-button,\n.DateField-module_inputContainer__3Jx_6::-webkit-inner-spin-button {\n    -webkit-appearance: none;\n    margin: 0;\n}\n\n/* Firefox */\n.DateField-module_inputContainer__3Jx_6[type=number] {\n    -moz-appearance: textfield;\n}\n\n.DateField-module_buttonContainer__37d09 {\n    outline: none;\n    background: transparent;\n    border: none;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n    color: var(--mfc-color-secondary);\n    cursor: pointer;\n    transition: 150ms linear;\n    border-radius: 5px;\n\n    height: 35px;\n    width: 35px;\n    margin-right: 8px;\n}\n\n.DateField-module_buttonContainer__37d09:hover {\n    background: var(--mfc-background-tertiary);\n    color: var(--mfc-color-primary);\n}\n\n.DateField-module_buttonContainer__37d09:active {\n    background: var(--mfc-background-quaternary);\n    color: #0095ff;\n}\n\n\n.DateField-module_container__11emn {\n    height: 100px;\n    display: grid;\n    gap: 4px;\n\n}\n\n.DateField-module_divider__18rCE {\n    width: 1px;\n    height: 20px;\n    background: var(--mfc-border-secondary);\n}\n\n.DateField-module_calendar__2GTEw {\n    width: 350px;\n\n    background: var(--mfc-background-primary);\n    border-radius: 8px;\n    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);\n    height: 223px;\n    overflow-y: auto;\n\n}\n\n.DateField-module_monthContainer__3K4Sw {\n    position: sticky;\n    top: 0;\n    background: var(--mfc-background-primary);\n    z-index: 999;\n    font-family: \"Roboto\";\n    font-weight: bold;\n    font-size: .9rem;\n    height: 45px;\n    user-select: none;\n\n    transition: 150ms linear;\n\n    padding: 8px 4px;\n    color: var(--mfc-color-secondary);\n    width: 100%;\n\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.DateField-module_activeContainer__2lxhB {\n    background: var(--mfc-background-quaternary);\n    color: #0095ff;\n}\n\n.DateField-module_daysContainer__2DuT9 {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 7.45px;\n    width: 100%;\n    padding: 8px;\n    overflow: auto;\n}\n\n.DateField-module_dayContainer__2D1tX {\n    height: 35px;\n    width: 35px;\n    background: var(--mfc-background-primary);\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n    text-align: center;\n\n    font-size: .85rem;\n    font-weight: bold;\n    font-family: \"Roboto\";\n    color: var(--mfc-color-tertiary);\n    border-radius: 8px;\n    border: transparent 2px solid;\n\n    cursor: pointer;\n    transition: 150ms linear;\n}\n\n.DateField-module_dayContainer__2D1tX:hover {\n    color: #0095ff;\n    border: rgba(0, 149, 255, .5) 2px solid;\n}\n\n.DateField-module_dayContainer__2D1tX:active {\n    background: var(--mfc-background-quaternary);\n\n    color: #0095ff;\n    border: rgba(0, 149, 255, .5) 2px solid;\n}\n\n.DateField-module_currentDate__JD8r5 {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    font-size: .8rem;\n    font-weight: normal;\n    color: var(--mfc-color-tertiary);\n}";
-var styles$p = {"fieldsContainer":"DateField-module_fieldsContainer__18OUu","inputContainer":"DateField-module_inputContainer__3Jx_6","buttonContainer":"DateField-module_buttonContainer__37d09","container":"DateField-module_container__11emn","divider":"DateField-module_divider__18rCE","calendar":"DateField-module_calendar__2GTEw","monthContainer":"DateField-module_monthContainer__3K4Sw","activeContainer":"DateField-module_activeContainer__2lxhB","daysContainer":"DateField-module_daysContainer__2DuT9","dayContainer":"DateField-module_dayContainer__2D1tX","currentDate":"DateField-module_currentDate__JD8r5"};
+var css_248z$s = "@import \"../../../misc/theme/styles.module.css\";\n\n.DateField-module_fieldsContainer__18OUu {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 10px;\n    height: 56px;\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    color: var(--mfc-color-tertiary);\n    background: var(--mfc-background-primary);\n    position: relative;\n    overflow: hidden;\n\n    --delay: 0;\n}\n\n.DateField-module_fieldsContainer__18OUu:hover {\n    --delay: 500ms;\n}\n\n.DateField-module_fieldsContainer__18OUu::after {\n    position: absolute;\n    content: '';\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    background: var(--color);\n    opacity: 0;\n    transition: 150ms linear var(--delay);\n}\n\n.DateField-module_fieldsContainer__18OUu:disabled::after {\n    content: none;\n}\n\n.DateField-module_fieldsContainer__18OUu:focus-within::after, .DateField-module_fieldsContainer__18OUu:focus-within::after {\n    opacity: .15;\n}\n\n\n.DateField-module_inputContainer__3Jx_6 {\n    text-align: center;\n    border: none;\n    box-shadow: unset;\n\n    background: var(--mfc-background-primary);\n    font-family: \"Roboto\";\n    height: 100%;\n    width: 30px;\n    outline: none;\n    font-size: 1rem;\n\n    color: var(--mfc-color-secondary);\n}\n\n.DateField-module_inputContainer__3Jx_6::-webkit-outer-spin-button,\n.DateField-module_inputContainer__3Jx_6::-webkit-inner-spin-button {\n    -webkit-appearance: none;\n    margin: 0;\n}\n\n/* Firefox */\n.DateField-module_inputContainer__3Jx_6[type=number] {\n    -moz-appearance: textfield;\n}\n\n.DateField-module_buttonContainer__37d09 {\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n    height: 35px;\n    width: 35px;\n    margin-right: 8px;\n}\n\n\n\n.DateField-module_container__11emn {\n    height: 100px;\n    display: grid;\n    gap: 4px;\n\n}\n\n.DateField-module_divider__18rCE {\n    width: 1px;\n    height: 20px;\n    background: var(--mfc-border-secondary);\n}\n\n.DateField-module_calendar__2GTEw {\n    width: 350px;\n\n    background: var(--mfc-background-primary);\n    border-radius: 8px;\n    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);\n    height: 223px;\n    overflow-y: auto;\n\n}\n\n.DateField-module_monthContainer__3K4Sw {\n    position: sticky;\n    top: 0;\n    background: var(--mfc-background-primary);\n    z-index: 999;\n    font-family: \"Roboto\";\n    font-weight: bold;\n    font-size: .9rem;\n    height: 45px;\n    user-select: none;\n\n    transition: 150ms linear;\n\n    padding: 8px 4px;\n    color: var(--mfc-color-secondary);\n    width: 100%;\n\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.DateField-module_activeContainer__2lxhB {\n    background: var(--mfc-background-quaternary);\n    color: #0095ff;\n}\n\n.DateField-module_daysContainer__2DuT9 {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 7.45px;\n    width: 100%;\n    padding: 8px;\n    overflow: auto;\n}\n\n.DateField-module_dayContainer__2D1tX {\n    height: 35px;\n    width: 35px;\n    background: var(--mfc-background-primary);\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n    text-align: center;\n\n    font-size: .85rem;\n    font-weight: bold;\n    font-family: \"Roboto\";\n    color: var(--mfc-color-tertiary);\n    border-radius: 8px;\n    border: transparent 2px solid;\n\n    cursor: pointer;\n    transition: 150ms linear;\n}\n\n.DateField-module_dayContainer__2D1tX:hover {\n    color: #0095ff;\n    border: rgba(0, 149, 255, .5) 2px solid;\n}\n\n.DateField-module_dayContainer__2D1tX:active {\n    background: var(--mfc-background-quaternary);\n\n    color: #0095ff;\n    border: rgba(0, 149, 255, .5) 2px solid;\n}\n\n.DateField-module_currentDate__JD8r5 {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    font-size: .8rem;\n    font-weight: normal;\n    color: var(--mfc-color-tertiary);\n}";
+var styles$q = {"fieldsContainer":"DateField-module_fieldsContainer__18OUu","inputContainer":"DateField-module_inputContainer__3Jx_6","buttonContainer":"DateField-module_buttonContainer__37d09","container":"DateField-module_container__11emn","divider":"DateField-module_divider__18rCE","calendar":"DateField-module_calendar__2GTEw","monthContainer":"DateField-module_monthContainer__3K4Sw","activeContainer":"DateField-module_activeContainer__2lxhB","daysContainer":"DateField-module_daysContainer__2DuT9","dayContainer":"DateField-module_dayContainer__2D1tX","currentDate":"DateField-module_currentDate__JD8r5"};
+styleInject(css_248z$s);
+
+var css_248z$r = "@import \"../../../misc/theme/styles.module.css\";\n\n.FloatingBox-module_selectBox__3cX-u {\n    transition: 150ms ease-in-out;\n    position: absolute;\n    /*transform: translateY(-50%);*/\n    top: calc(100% - 16px);\n    left: 0;\n    z-index: 999;\n\n\n}";
+var styles$p = {"selectBox":"FloatingBox-module_selectBox__3cX-u"};
 styleInject(css_248z$r);
-
-var Dates = [{
-  month: 'Janeiro',
-  days: 31
-}, {
-  month: 'Fevereiro',
-  days: 28
-}, {
-  month: 'Março',
-  days: 31
-}, {
-  month: 'Abril',
-  days: 30
-}, {
-  month: 'Maio',
-  days: 31
-}, {
-  month: 'Junho',
-  days: 30
-}, {
-  month: 'Julho',
-  days: 31
-}, {
-  month: 'Agosto',
-  days: 31
-}, {
-  month: 'Setembro',
-  days: 30
-}, {
-  month: 'Outubro',
-  days: 31
-}, {
-  month: 'Novembro',
-  days: 30
-}, {
-  month: 'Dezembro',
-  days: 31
-}];
-
-var css_248z$q = "@import \"../../../misc/theme/styles.module.css\";\n\n.FloatingBox-module_selectBox__3cX-u {\n    transition: 150ms ease-in-out;\n    position: absolute;\n    /*transform: translateY(-50%);*/\n    top: calc(100% - 16px);\n    left: 0;\n    z-index: 999;\n\n\n}";
-var styles$o = {"selectBox":"FloatingBox-module_selectBox__3cX-u"};
-styleInject(css_248z$q);
 
 function FloatingBox(props) {
   var ref = useRef();
@@ -1656,7 +1506,7 @@ function FloatingBox(props) {
       opacity: !props.open ? '0' : '1',
       width: props.width
     },
-    className: styles$o.selectBox,
+    className: styles$p.selectBox,
     ref: ref
   }, props.children);
 }
@@ -1668,6 +1518,94 @@ FloatingBox.propTypes = {
   width: PropTypes.string
 };
 
+var NAMES = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+function useDate(value, pattern, handleChange) {
+  var _useState = useState({
+    year: new Date().getFullYear()
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      parsedDate = _useState2[0],
+      setDate = _useState2[1];
+
+  var calendar = useMemo(function () {
+    var months = [];
+    NAMES.forEach(function (data, i) {
+      var date = new Date(parsedDate.year, i + 1, 0).getDate();
+      months.push({
+        month: data,
+        days: date
+      });
+    });
+    return months;
+  }, [parsedDate.year]);
+
+  var splitDate = function splitDate(date) {
+    var day, month, year;
+    var response;
+
+    try {
+      if (date && typeof date === 'string') {
+        var d = date.split(pattern.search('/') > -1 ? '/' : '-');
+        var indexes = [pattern.indexOf('dd'), pattern.indexOf('mm'), pattern.indexOf('yyyy')];
+        indexes.sort(function (a, b) {
+          return a - b;
+        });
+        day = d.length >= 1 ? parseInt(d[indexes.indexOf(pattern.indexOf('dd'))]) : undefined;
+        month = d.length >= 2 ? parseInt(d[indexes.indexOf(pattern.indexOf('mm'))]) : undefined;
+        year = d.length === 3 ? parseInt(d[indexes.indexOf(pattern.indexOf('yyyy'))]) : new Date().getFullYear();
+      }
+    } finally {
+      response = {
+        day: day,
+        month: month,
+        year: year,
+        valid: (day === undefined || day > 0 && day <= 31) && (month === undefined || month > 0 && month <= 12)
+      };
+    }
+
+    return response;
+  };
+
+  useEffect(function () {
+    if (value) setDate(splitDate(value));
+  }, [value]);
+
+  var _useState3 = useState(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      initialized = _useState4[0],
+      setInitialized = _useState4[1];
+
+  var _useState5 = useState(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      changed = _useState6[0],
+      setChanged = _useState6[1];
+
+  var parseDate = function parseDate(day, month, year) {
+    return pattern.replace('dd', day < 10 ? '0' + day : day).replace('mm', month < 10 ? '0' + month : month).replace('yyyy', year);
+  };
+
+  useEffect(function () {
+    var timestamp = Date.parse(value);
+    var parsed = new Date(value);
+    parsed = !isNaN(timestamp) ? "".concat(parsed.getFullYear(), "/").concat(parsed.getMonth() + 1, "/").concat(parsed.getDate()) : parsed.toLocaleDateString();
+    var date = "".concat(parsedDate.year, "/").concat(parsedDate.month, "/").concat(parsedDate.day);
+
+    if (!isNaN(timestamp) && parsed !== date && !initialized) {
+      setInitialized(true);
+      var d = new Date(value);
+      setDate(splitDate(parseDate(d.getDate() + 1, d.getMonth() + 1, d.getFullYear())));
+    }
+  }, [value]);
+  return {
+    calendar: calendar,
+    date: parsedDate,
+    initialized: initialized,
+    setChanged: setChanged,
+    changed: changed,
+    parseDate: parseDate
+  };
+}
+
 function DateField(props) {
   var _ref$current;
 
@@ -1676,30 +1614,25 @@ function DateField(props) {
       open = _useState2[0],
       setOpen = _useState2[1];
 
-  var date = useMemo(function () {
-    var day, month, year;
+  var pattern = useMemo(function () {
+    if (props.pattern) return props.pattern;else return 'dd/mm/yyyy';
+  }, [props.pattern]);
 
-    if (props.value) {
-      var d = props.value.split('/');
-      day = d.length >= 1 ? parseInt(d[0]) : undefined;
-      month = d.length >= 2 ? parseInt(d[1]) : undefined;
-      year = d.length === 3 ? parseInt(d[2]) : undefined;
-    }
+  var _useDate = useDate(props.value, pattern),
+      date = _useDate.date,
+      calendar = _useDate.calendar,
+      initialized = _useDate.initialized,
+      setChanged = _useDate.setChanged,
+      changed = _useDate.changed,
+      parseDate = _useDate.parseDate;
 
-    return {
-      day: day,
-      month: month,
-      year: year,
-      valid: (!day || day > 0 && day <= 31) && (!month || month > 0 && month <= 12)
-    };
-  }, [props.value]);
   var ref = useRef();
 
   var getDays = function getDays(month) {
     var res = [];
 
-    if (month - 1 < Dates.length) {
-      var days = Dates[month - 1].days;
+    if (month - 1 < calendar.length) {
+      var days = calendar[month - 1].days;
 
       var _loop = function _loop(i) {
         res.push( /*#__PURE__*/React$1.createElement(React$1.Fragment, {
@@ -1716,7 +1649,8 @@ function DateField(props) {
             var currentDate = new Date();
             var newDay = i + 1;
             setOpen(false);
-            props.handleChange("".concat(newDay < 10 ? '0' + newDay : newDay, "/").concat(month < 10 ? '0' + month : month, "/").concat(!date.year ? currentDate.getFullYear() : date.year));
+            props.handleChange(parseDate(newDay, month, !date.year ? currentDate.getFullYear() : date.year));
+            setChanged(true);
           }
         }, i + 1)));
       };
@@ -1738,26 +1672,30 @@ function DateField(props) {
     }
   }, /*#__PURE__*/React$1.createElement(TextField, {
     handleChange: function handleChange(e) {
-      return props.handleChange(e.target.value);
+      setChanged(true);
+      props.handleChange(e.target.value);
     },
     disabled: props.disabled,
+    helperText: props.helperText,
     width: '100%',
     highlight: open,
-    value: props.value,
+    value: initialized && !changed ? parseDate(date.day, date.month, date.year) : props.value,
     size: props.size,
     colorVariant: date.valid ? 'primary' : 'secondary',
     placeholder: props.label,
     label: props.label,
-    mask: '99/99/9999',
+    mask: pattern.replaceAll('y', '9').replaceAll('d', '9').replaceAll('m', '9'),
     maskEnd: /*#__PURE__*/React$1.createElement(Button, {
       onClick: function onClick() {
         return setOpen(true);
-      }
-    }, /*#__PURE__*/React$1.createElement(CalendarTodayRounded, {
+      },
+      disabled: props.disabled
+    }, /*#__PURE__*/React$1.createElement("span", {
       style: {
         fontSize: '1.2rem'
-      }
-    })),
+      },
+      className: "material-icons-round"
+    }, "calendar_today")),
     noMargin: true,
     required: props.required
   }), /*#__PURE__*/React$1.createElement(FloatingBox, {
@@ -1766,12 +1704,12 @@ function DateField(props) {
     setOpen: setOpen,
     reference: ref.current
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$p.calendar
+    className: styles$q.calendar
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$p.monthContainer
-  }, /*#__PURE__*/React$1.createElement("button", {
-    className: styles$p.buttonContainer,
-    style: {
+    className: styles$q.monthContainer
+  }, /*#__PURE__*/React$1.createElement(Button, {
+    className: styles$q.buttonContainer,
+    styles: {
       width: 'fit-content',
       margin: 'unset'
     },
@@ -1780,17 +1718,18 @@ function DateField(props) {
       var newDay = date.day ? date.day : d.getDate();
       var newMonth = date.month && date.month === 1 || !date.month && d.getMonth() === 1 ? 12 : (date.month ? date.month : d.getMonth()) - 1;
       var newYear = newMonth === 12 ? date.year ? date.year - 1 : d.getFullYear() - 1 : date.year ? date.year : d.getFullYear();
-      props.handleChange("".concat(newDay < 10 ? '0' + newDay : newDay, "/").concat(newMonth < 10 ? '0' + newMonth : newMonth, "/").concat(newYear));
+      props.handleChange(parseDate(newDay, newMonth, newYear));
     }
-  }, /*#__PURE__*/React$1.createElement(ArrowBackIosRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
     style: {
       fontSize: '1.2rem'
-    }
-  })), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$p.currentDate
-  }, /*#__PURE__*/React$1.createElement("div", null, !date.month || date.month > 12 || date.month < 1 ? Dates[new Date().getMonth()].month : Dates[date.month - 1].month), "-", /*#__PURE__*/React$1.createElement("div", null, !date.year ? new Date().getFullYear() : date.year)), /*#__PURE__*/React$1.createElement("button", {
-    className: styles$p.buttonContainer,
-    style: {
+    },
+    className: "material-icons-round"
+  }, "arrow_back_ios")), /*#__PURE__*/React$1.createElement("div", {
+    className: styles$q.currentDate
+  }, /*#__PURE__*/React$1.createElement("div", null, !date.month || date.month > 12 || date.month < 1 ? calendar[new Date().getMonth()].month : calendar[date.month - 1].month), "-", /*#__PURE__*/React$1.createElement("div", null, !date.year ? new Date().getFullYear() : date.year)), /*#__PURE__*/React$1.createElement(Button, {
+    className: styles$q.buttonContainer,
+    styles: {
       width: 'fit-content',
       margin: 'unset'
     },
@@ -1799,36 +1738,39 @@ function DateField(props) {
       var newDay = date.day ? date.day : d.getDate();
       var newMonth = date.month && date.month === 12 || !date.month && d.getMonth() === 12 ? 1 : (date.month ? date.month : d.getMonth()) + 1;
       var newYear = newMonth === 1 ? date.year ? date.year + 1 : d.getFullYear() + 1 : date.year ? date.year : d.getFullYear();
-      props.handleChange("".concat(newDay < 10 ? '0' + newDay : newDay, "/").concat(newMonth < 10 ? '0' + newMonth : newMonth, "/").concat(newYear));
+      props.handleChange(parseDate(newDay, newMonth, newYear));
     }
-  }, /*#__PURE__*/React$1.createElement(ArrowBackIosRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
     style: {
       fontSize: '1.2rem',
       transform: 'rotate(180deg'
-    }
-  }))), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$p.daysContainer
+    },
+    className: "material-icons-round"
+  }, "arrow_back_ios"))), /*#__PURE__*/React$1.createElement("div", {
+    className: styles$q.daysContainer
   }, getDays(!date.month || date.month > 12 || date.month < 1 ? new Date().getMonth() : date.month).map(function (e) {
     return e;
   })))));
 }
 DateField.propTypes = {
+  helperText: PropTypes.string,
   width: PropTypes.string,
   label: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   value: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'default'])
+  size: PropTypes.oneOf(['small', 'default']),
+  pattern: PropTypes.oneOf(['yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy-dd-mm', 'yyyy/dd/mm', 'mm/dd/yyyy', 'mm-dd-yyyy', 'dd/mm/yyyy', 'dd-mm-yyyy'])
 };
 
-var css_248z$p = "@import '../../../misc/theme/styles.module.css';\n\n\n.Header-module_wrapper__2bhrC {\n\n    border: var(--mfc-border-primary) 1px solid;\n    transition: 250ms ease-in;\n    box-shadow: var(--mfc-box-shadow-primary) 0 2px 5px 1px;\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n    position: sticky;\n    top: 0;\n    z-index: 50;\n    height: fit-content;\n\n    max-width: 100%;\n    /*height: ;*/\n    overflow: visible;\n    display: grid;\n}\n\n.Header-module_dropdownLabel__1vYFA {\n    display: flex;\n    align-items: center;\n    gap: 16px;\n    padding: 0 10px;\n\n    /*font-size: .9rem;*/\n    font-family: \"Roboto\";\n}\n\n.Header-module_header__ltUNA {\n\n    position: relative;\n\n    display: flex;\n    height: fit-content;\n    justify-content: space-between;\n    width: 100%;\n    padding: 8px;\n    font-family: \"Roboto\";\n    font-size: 1.2rem;\n\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n\n}\n\n.Header-module_filter__2RF8V {\n    user-select: none;\n    outline: none;\n    background-color: #0095ff;\n    color: white;\n    border: none;\n    padding: 4px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 4px;\n    border-radius: 5px;\n\n    height: 30px;\n    width: fit-content;\n    cursor: pointer;\n\n    transition: 150ms linear;\n}\n\n.Header-module_filter__2RF8V:hover {\n    opacity: .9;\n}\n\n.Header-module_filter__2RF8V:active {\n    opacity: .7;\n    box-shadow: none;\n}\n\n\n.Header-module_overflow__fE49E {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n\n.Header-module_fieldWrapper__1rgwM {\n    display: grid;\n    gap: 16px;\n\n}\n\n.Header-module_selectWrapper__3Nmlr {\n    display: flex;\n    gap: 8px;\n    font-size: .9rem;\n    width: 50%;\n    justify-content: flex-start;\n    align-items: center;\n}\n\n.Header-module_button__8iL-5 {\n\n    height: 30px;\n    padding: 4px 8px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n\n}";
-var styles$n = {"wrapper":"Header-module_wrapper__2bhrC","dropdownLabel":"Header-module_dropdownLabel__1vYFA","header":"Header-module_header__ltUNA","filter":"Header-module_filter__2RF8V","overflow":"Header-module_overflow__fE49E","fieldWrapper":"Header-module_fieldWrapper__1rgwM","selectWrapper":"Header-module_selectWrapper__3Nmlr","button":"Header-module_button__8iL-5"};
-styleInject(css_248z$p);
+var css_248z$q = "@import '../../../misc/theme/styles.module.css';\n\n\n.Header-module_wrapper__2bhrC {\n\n    border: var(--mfc-border-primary) 1px solid;\n    transition: 250ms ease-in;\n    box-shadow: var(--mfc-box-shadow-primary) 0 2px 5px 1px;\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n    position: sticky;\n    top: 0;\n    z-index: 50;\n    height: fit-content;\n\n    max-width: 100%;\n    /*height: ;*/\n    overflow: visible;\n    display: grid;\n}\n\n.Header-module_dropdownLabel__1vYFA {\n    display: flex;\n    align-items: center;\n    gap: 16px;\n    padding: 0 10px;\n\n    /*font-size: .9rem;*/\n    font-family: \"Roboto\";\n}\n\n.Header-module_header__ltUNA {\n\n    position: relative;\n\n    display: flex;\n    height: fit-content;\n    justify-content: space-between;\n    width: 100%;\n    padding: 8px;\n    font-family: \"Roboto\";\n    font-size: 1.2rem;\n\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n\n}\n\n.Header-module_filter__2RF8V {\n    user-select: none;\n    outline: none;\n    background-color: #0095ff;\n    color: white;\n    border: none;\n    padding: 4px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 4px;\n    border-radius: 5px;\n\n    height: 30px;\n    width: fit-content;\n    cursor: pointer;\n\n    transition: 150ms linear;\n}\n\n.Header-module_filter__2RF8V:hover {\n    opacity: .9;\n}\n\n.Header-module_filter__2RF8V:active {\n    opacity: .7;\n    box-shadow: none;\n}\n\n\n.Header-module_overflow__fE49E {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n\n.Header-module_fieldWrapper__1rgwM {\n    display: grid;\n    gap: 16px;\n    height: fit-content;\n\n}\n\n.Header-module_selectWrapper__3Nmlr {\n    display: flex;\n    gap: 8px;\n    font-size: .9rem;\n    width: 50%;\n    justify-content: flex-start;\n    align-items: center;\n}\n\n.Header-module_button__8iL-5 {\n\n    height: 30px;\n    padding: 4px 8px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n\n}";
+var styles$o = {"wrapper":"Header-module_wrapper__2bhrC","dropdownLabel":"Header-module_dropdownLabel__1vYFA","header":"Header-module_header__ltUNA","filter":"Header-module_filter__2RF8V","overflow":"Header-module_overflow__fE49E","fieldWrapper":"Header-module_fieldWrapper__1rgwM","selectWrapper":"Header-module_selectWrapper__3Nmlr","button":"Header-module_button__8iL-5"};
+styleInject(css_248z$q);
 
-var css_248z$o = "@import \"../../../misc/theme/styles.module.css\";\n\n\n.Checkbox-module_container__1Zcqj{\n    outline: none;\n\n    border: var(--mfc-color-tertiary) 1px solid;\n    width: 17px;\n    height: 17px;\n\n    border-radius: 50%;\n    background: transparent;\n    transition: 150ms linear;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    overflow: hidden;\n}\n\n.Checkbox-module_container__1Zcqj:hover{\n    border: #0095ff 1px solid;\n}\n.Checkbox-module_container__1Zcqj:active{\n    background: var(--mfc-background-quaternary);\n    border: #0095ff 1px solid;\n}\n.Checkbox-module_container__1Zcqj:disabled{\n    background: transparent;\n    border-color: var(--mfc-color-quinary);\n    cursor: unset;\n}\n\n.Checkbox-module_wrapper__1BTRc{\n\n\n\n    border: var(--mfc-border-primary) 1px solid;\n    border-radius: 5px;\n    padding: 8px;\n    width: fit-content;\n}\n.Checkbox-module_wrapperChildren__32wIY{\n    display: grid;\n    gap: 8px;\n}";
-var styles$m = {"container":"Checkbox-module_container__1Zcqj","wrapper":"Checkbox-module_wrapper__1BTRc","wrapperChildren":"Checkbox-module_wrapperChildren__32wIY"};
-styleInject(css_248z$o);
+var css_248z$p = "@import \"../../../misc/theme/styles.module.css\";\n\n\n.Checkbox-module_container__1Zcqj{\n    outline: none;\n\n    border: var(--mfc-color-tertiary) 1px solid;\n    width: 17px;\n    height: 17px;\n\n    border-radius: 50%;\n    background: transparent;\n    transition: 150ms linear;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    overflow: hidden;\n}\n\n.Checkbox-module_container__1Zcqj:hover{\n    border: #0095ff 1px solid;\n}\n.Checkbox-module_container__1Zcqj:active{\n    background: var(--mfc-background-quaternary);\n    border: #0095ff 1px solid;\n}\n.Checkbox-module_container__1Zcqj:disabled{\n    background: transparent;\n    border-color: var(--mfc-color-quinary);\n    cursor: unset;\n}\n\n.Checkbox-module_wrapper__1BTRc{\n\n\n\n    border: var(--mfc-border-primary) 1px solid;\n    border-radius: 5px;\n    padding: 8px;\n    width: fit-content;\n}\n.Checkbox-module_wrapperChildren__32wIY{\n    display: grid;\n    gap: 8px;\n}";
+var styles$n = {"container":"Checkbox-module_container__1Zcqj","wrapper":"Checkbox-module_wrapper__1BTRc","wrapperChildren":"Checkbox-module_wrapperChildren__32wIY"};
+styleInject(css_248z$p);
 
 function Checkbox(props) {
   return /*#__PURE__*/React$1.createElement("div", {
@@ -1839,7 +1781,7 @@ function Checkbox(props) {
       opacity: props.disabled ? '.8' : 1
     }
   }, /*#__PURE__*/React$1.createElement("button", {
-    className: styles$m.container,
+    className: styles$n.container,
     disabled: props.disabled,
     style: {
       background: props.checked ? '#0095ff' : undefined,
@@ -1848,14 +1790,15 @@ function Checkbox(props) {
     onClick: function onClick() {
       return props.handleCheck(props.checked);
     }
-  }, /*#__PURE__*/React$1.createElement(CheckRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
     style: {
       color: 'white',
       visibility: props.checked ? 'visible' : 'hidden',
       fontSize: '15px',
       fontWeight: "bold"
-    }
-  })), props.label ? /*#__PURE__*/React$1.createElement("div", {
+    },
+    className: "material-icons-round"
+  }, "done")), props.label ? /*#__PURE__*/React$1.createElement("div", {
     style: {
       fontSize: '.9rem'
     }
@@ -2022,7 +1965,7 @@ useQuery.propTypes = {
   fetchSize: PropTypes.number
 };
 
-function useFilter(filter, setFilter) {
+function useFilter(filter, setFilter, setSelectorOpen, selectorOpen) {
   var _useState = useState(undefined),
       _useState2 = _slicedToArray(_useState, 2),
       onInput = _useState2[0],
@@ -2033,11 +1976,20 @@ function useFilter(filter, setFilter) {
       changed = _useState4[0],
       setChanged = _useState4[1];
 
-  var hook = useQuery(filter !== null && filter !== void 0 && filter.query ? filter.query : {});
+  var query = useMemo(function () {
+    console.log(filter, 'here on memo');
+    return filter !== null && filter !== void 0 && filter.query ? filter.query : {};
+  }, [filter]);
+  var hook = useQuery(query);
 
   var _handleChange = function handleChange(value) {
     setFilter(function (prevState) {
-      return _objectSpread2(_objectSpread2({}, prevState), {}, {
+      var _query$keys$;
+
+      if (filter.type === 'object') return _objectSpread2(_objectSpread2({}, prevState), {}, {
+        value: value,
+        objectLabel: value[query === null || query === void 0 ? void 0 : (_query$keys$ = query.keys[0]) === null || _query$keys$ === void 0 ? void 0 : _query$keys$.key]
+      });else return _objectSpread2(_objectSpread2({}, prevState), {}, {
         value: value
       });
     });
@@ -2054,9 +2006,9 @@ function useFilter(filter, setFilter) {
 
     var dateNumber = function dateNumber(val) {
       return /*#__PURE__*/React$1.createElement("div", {
-        className: styles$n.fieldWrapper
+        className: styles$o.fieldWrapper
       }, val, /*#__PURE__*/React$1.createElement("div", {
-        className: styles$n.selectWrapper
+        className: styles$o.selectWrapper
       }, /*#__PURE__*/React$1.createElement(Checkbox, {
         checked: filter.greater_than,
         handleCheck: function handleCheck() {
@@ -2068,7 +2020,7 @@ function useFilter(filter, setFilter) {
           });
         }
       }), "Maior que."), /*#__PURE__*/React$1.createElement("div", {
-        className: styles$n.selectWrapper
+        className: styles$o.selectWrapper
       }, /*#__PURE__*/React$1.createElement(Checkbox, {
         checked: filter.less_than,
         handleCheck: function handleCheck() {
@@ -2080,7 +2032,7 @@ function useFilter(filter, setFilter) {
           });
         }
       }), "Menor que."), /*#__PURE__*/React$1.createElement("div", {
-        className: styles$n.selectWrapper
+        className: styles$o.selectWrapper
       }, /*#__PURE__*/React$1.createElement(Checkbox, {
         checked: filter.equal_to,
         handleCheck: function handleCheck() {
@@ -2098,7 +2050,7 @@ function useFilter(filter, setFilter) {
       case 'string':
         {
           field = /*#__PURE__*/React$1.createElement("div", {
-            className: styles$n.fieldWrapper
+            className: styles$o.fieldWrapper
           }, /*#__PURE__*/React$1.createElement(TextField, {
             label: filter.label,
             width: '100%',
@@ -2109,7 +2061,7 @@ function useFilter(filter, setFilter) {
             value: filter.value,
             placeholder: filter.label
           }), /*#__PURE__*/React$1.createElement("div", {
-            className: styles$n.selectWrapper
+            className: styles$o.selectWrapper
           }, /*#__PURE__*/React$1.createElement(Checkbox, {
             checked: filter.equal_to,
             handleCheck: function handleCheck() {
@@ -2121,7 +2073,7 @@ function useFilter(filter, setFilter) {
               });
             }
           }), "\xC9 igual a."), /*#__PURE__*/React$1.createElement("div", {
-            className: styles$n.selectWrapper
+            className: styles$o.selectWrapper
           }, /*#__PURE__*/React$1.createElement(Checkbox, {
             checked: filter.different_from,
             handleCheck: function handleCheck() {
@@ -2132,8 +2084,8 @@ function useFilter(filter, setFilter) {
                 });
               });
             }
-          }), "N\xE3o \xE9."), /*#__PURE__*/React$1.createElement("div", {
-            className: styles$n.selectWrapper
+          }), "N\xE3o \xE9 (case sensitive)."), /*#__PURE__*/React$1.createElement("div", {
+            className: styles$o.selectWrapper
           }, /*#__PURE__*/React$1.createElement(Checkbox, {
             checked: filter.contains,
             handleCheck: function handleCheck() {
@@ -2168,12 +2120,15 @@ function useFilter(filter, setFilter) {
       case 'object':
         {
           field = /*#__PURE__*/React$1.createElement(Selector, {
-            keys: [{
-              key: filter.key,
-              label: filter.label,
-              type: filter.subType
-            }],
+            keys: query && query.keys ? query.keys : [],
             hook: hook,
+            open: selectorOpen,
+            onClick: function onClick() {
+              return setSelectorOpen(true);
+            },
+            handleClose: function handleClose() {
+              return setSelectorOpen(false);
+            },
             handleChange: function handleChange(entity) {
               return _handleChange(entity);
             },
@@ -2214,29 +2169,18 @@ function useFilter(filter, setFilter) {
 }
 
 function Field(props) {
-  var _useFilter = useFilter(props.selectedField, props.setSelectedField),
+  var _useFilter = useFilter(props.selectedField, props.setSelectedField, props.setSelectorOpen, props.selectorOpen),
       getField = _useFilter.getField,
       changed = _useFilter.changed;
 
-  return /*#__PURE__*/React$1.createElement(Modal, {
-    open: props.open,
-    handleClose: function handleClose() {
-      props.handleClose();
-      props.setSelectedField(null);
-    },
-    blurIntensity: .1,
-    animationStyle: 'fade',
-    className: styles$r.container
-  }, props.selectedField !== null && props.selectedField !== undefined ? /*#__PURE__*/React$1.createElement("div", {
-    style: {
-      display: 'grid',
-      alignContent: 'space-between',
-      gap: '32px'
-    }
-  }, getField(), /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React$1.createElement("div", {
+    className: styles$s.container
+  }, props.selectedField !== null && props.selectedField !== undefined ? /*#__PURE__*/React$1.createElement(React$1.Fragment, null, getField(), /*#__PURE__*/React$1.createElement("div", {
     style: {
       display: 'flex',
-      gap: '4px'
+      gap: '4px',
+      width: '100%',
+      height: '35px'
     }
   }, /*#__PURE__*/React$1.createElement(Button, {
     styles: {
@@ -2246,7 +2190,6 @@ function Field(props) {
     variant: 'filled',
     color: 'secondary',
     onClick: function onClick() {
-      props.handleClose();
       props.setSelectedField(null);
     }
   }, "Cancelar"), /*#__PURE__*/React$1.createElement(Button, {
@@ -2263,77 +2206,186 @@ function Field(props) {
     onClick: function onClick() {
       return props.applyFilter();
     }
-  }, /*#__PURE__*/React$1.createElement(CheckRounded, null), "Aplicar"))) : null);
+  }, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-round"
+  }, "done"), "Aplicar"))) : /*#__PURE__*/React$1.createElement(Empty, {
+    customLabel: 'Nada selecionado'
+  }));
 }
 Field.propTypes = {
   applyFilter: PropTypes.func,
   keys: PropTypes.arrayOf(keyTemplate).isRequired,
+  selectorOpen: PropTypes.bool,
+  setSelectorOpen: PropTypes.func,
   selectedField: PropTypes.object,
-  setSelectedField: PropTypes.func,
-  open: PropTypes.bool,
-  handleClose: PropTypes.func
+  setSelectedField: PropTypes.func
 };
 
 function Filter(props) {
-  return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$r.activeFiltersContainer,
-    style: {
-      display: props.filters.length === 0 ? 'none' : undefined
+  var _useState = useState(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      selectedFilter = _useState2[0],
+      setSelectedFilter = _useState2[1];
+
+  var _useState3 = useState(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      selectorOpen = _useState4[0],
+      setSelectorOpen = _useState4[1];
+
+  var getField = function getField(e) {
+    return {
+      icon: getIcon(e.type),
+      label: /*#__PURE__*/React$1.createElement("div", {
+        style: {
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          maxWidth: '100%'
+        }
+      }, e.label, /*#__PURE__*/React$1.createElement(ToolTip, {
+        content: e.label
+      })),
+      onClick: function onClick() {
+        var op = e.type !== 'object' ? e.type === 'string' ? {
+          contains: true
+        } : {
+          greater_than: true
+        } : {};
+        setSelectedFilter(_objectSpread2(_objectSpread2({}, e), op));
+      }
+    };
+  };
+
+  var getIcon = function getIcon(type) {
+    var icon;
+
+    switch (type) {
+      case 'date':
+        {
+          icon = /*#__PURE__*/React$1.createElement("span", {
+            className: "material-icons-round",
+            style: {
+              fontSize: '1.2rem'
+            }
+          }, "calendar_today");
+          break;
+        }
+
+      case 'string':
+        {
+          icon = /*#__PURE__*/React$1.createElement("span", {
+            className: "material-icons-round",
+            style: {
+              fontSize: '1.2rem'
+            }
+          }, "text_fields");
+          break;
+        }
+
+      case 'object':
+        {
+          icon = /*#__PURE__*/React$1.createElement("span", {
+            className: "material-icons-round",
+            style: {
+              fontSize: '1.2rem'
+            }
+          }, "link");
+          break;
+        }
+
+      default:
+        {
+          icon = /*#__PURE__*/React$1.createElement("span", {
+            className: "material-icons-round",
+            style: {
+              fontSize: '1.2rem'
+            }
+          }, "category");
+          break;
+        }
     }
-  }, /*#__PURE__*/React$1.createElement(Field, {
+
+    return icon;
+  };
+
+  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement(Modal, {
+    variant: 'fill',
+    blurIntensity: .05,
     open: props.open,
-    handleClose: function handleClose() {
-      return props.setOpen(false);
+    className: styles$s.modalWrapper,
+    handleClose: function handleClose(event) {
+      if (!selectedFilter || !selectorOpen) {
+        props.setOpen(false);
+        setSelectedFilter(null);
+      }
     },
+    animationStyle: 'slide-bottom'
+  }, /*#__PURE__*/React$1.createElement("div", {
+    className: styles$s.filters
+  }, props.keys.map(function (k, i) {
+    var button = getField(k);
+    return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
+      key: i + '-filter'
+    }, /*#__PURE__*/React$1.createElement(Button, {
+      highlight: (selectedFilter === null || selectedFilter === void 0 ? void 0 : selectedFilter.key) === k.key,
+      onClick: button.onClick,
+      className: styles$s.filterButton,
+      variant: "minimal-horizontal"
+    }, button.icon, button.label));
+  })), /*#__PURE__*/React$1.createElement(Field, {
     setFilters: props.setFilters,
     filters: props.filters,
-    selectedField: props.selectedField,
-    setSelectedField: props.setSelectedField,
+    selectedField: selectedFilter,
+    setSelectedField: setSelectedFilter,
+    selectorOpen: selectorOpen,
     keys: props.keys,
+    setSelectorOpen: setSelectorOpen,
     applyFilter: function applyFilter() {
       props.setOpen(false);
       props.setFilters(function (prevState) {
-        return [].concat(_toConsumableArray(prevState), [props.selectedField]);
+        return [].concat(_toConsumableArray(prevState), [selectedFilter]);
       });
-      props.setSelectedField(null);
+      setSelectedFilter(null);
     }
-  }), props.filters.map(function (e, i) {
+  })), /*#__PURE__*/React$1.createElement("div", {
+    className: styles$s.activeFiltersContainer
+  }, props.filters.map(function (e, i) {
     return /*#__PURE__*/React$1.createElement("div", {
-      className: styles$r.filter
+      className: styles$s.filter
     }, /*#__PURE__*/React$1.createElement("div", {
-      className: styles$r.overflow,
+      className: styles$s.overflow,
       style: {
         fontSize: '.75rem',
         fontWeight: 'bold'
       }
     }, e.label), /*#__PURE__*/React$1.createElement("div", {
-      className: styles$r.overflow,
+      className: styles$s.overflow,
       style: {
         fontSize: '.7rem'
       }
     }, props.getType(e)), /*#__PURE__*/React$1.createElement("div", {
-      className: styles$r.overflow,
+      className: styles$s.overflow,
       style: {
         fontSize: '.75rem',
         fontWeight: 'bold'
       }
-    }, e.type === 'date' ? props.parseDate(e.value) : e.value), /*#__PURE__*/React$1.createElement(ToolTip, null, /*#__PURE__*/React$1.createElement("div", {
-      className: styles$r.overflow,
+    }, e.type === 'date' ? props.parseDate(e.value) : e.type === 'object' ? e.objectLabel : e.value), /*#__PURE__*/React$1.createElement(ToolTip, null, /*#__PURE__*/React$1.createElement("div", {
+      className: styles$s.overflow,
       style: {
         fontSize: '.75rem'
       }
     }, e.label, ":"), /*#__PURE__*/React$1.createElement("div", {
-      className: styles$r.overflow,
+      className: styles$s.overflow,
       style: {
         fontWeight: 'normal',
         fontSize: '.7rem'
       }
     }, props.getType(e)), /*#__PURE__*/React$1.createElement("div", {
-      className: styles$r.overflow,
+      className: styles$s.overflow,
       style: {
         fontSize: '.75rem'
       }
-    }, e.type === 'date' ? props.parseDate(e.value) : e.value)), /*#__PURE__*/React$1.createElement(Button, {
+    }, e.type === 'date' ? props.parseDate(e.value) : e.type === 'object' ? e.objectLabel : e.value)), /*#__PURE__*/React$1.createElement(Button, {
       color: 'secondary',
       onClick: function onClick() {
         var newFilters = _toConsumableArray(props.filters);
@@ -2341,13 +2393,14 @@ function Filter(props) {
         newFilters.splice(i, 1);
         props.setFilters(newFilters);
       },
-      className: styles$r.button
-    }, /*#__PURE__*/React$1.createElement(CloseRounded, {
+      className: styles$s.button
+    }, /*#__PURE__*/React$1.createElement("span", {
+      className: "material-icons-round",
       style: {
         fontSize: '1.1rem'
       }
-    })));
-  }));
+    }, "close")));
+  })));
 }
 Filter.propTypes = {
   keys: PropTypes.arrayOf(keyTemplate).isRequired,
@@ -2356,9 +2409,7 @@ Filter.propTypes = {
   filters: PropTypes.array,
   setFilters: PropTypes.func,
   getType: PropTypes.func,
-  parseDate: PropTypes.func,
-  selectedField: PropTypes.object,
-  setSelectedField: PropTypes.func
+  parseDate: PropTypes.func
 };
 
 function SelectorModal(props) {
@@ -2368,10 +2419,7 @@ function SelectorModal(props) {
       getType = _useHeader.getType,
       parseDate = _useHeader.parseDate,
       open = _useHeader.open,
-      setOpen = _useHeader.setOpen,
-      selectedField = _useHeader.selectedField,
-      setSelectedField = _useHeader.setSelectedField,
-      getField = _useHeader.getField;
+      setOpen = _useHeader.setOpen;
 
   useEffect(function () {
     if (props.open) props.hook.clean();
@@ -2379,14 +2427,15 @@ function SelectorModal(props) {
   return /*#__PURE__*/React$1.createElement(Modal, {
     open: props.open,
     handleClose: function handleClose() {
-      return props.setOpen(false);
+      console.log(open);
+      if (!open) props.setOpen(false);
     },
     animationStyle: 'slide-right',
     blurIntensity: 0,
     className: styles$u.wrapper
   }, /*#__PURE__*/React$1.createElement("div", {
     className: styles$u.header
-  }, props.title), /*#__PURE__*/React$1.createElement("div", {
+  }, props.label), /*#__PURE__*/React$1.createElement("div", {
     className: styles$u.headerButtons
   }, /*#__PURE__*/React$1.createElement("div", {
     style: {
@@ -2402,7 +2451,9 @@ function SelectorModal(props) {
       display: props.createOption === true ? undefined : 'none'
     },
     className: styles$u.headerButton
-  }, /*#__PURE__*/React$1.createElement(AddRounded, null), /*#__PURE__*/React$1.createElement(ToolTip, {
+  }, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-outlined"
+  }, "add"), /*#__PURE__*/React$1.createElement(ToolTip, {
     content: 'Criar novo'
   })), /*#__PURE__*/React$1.createElement(Button, {
     variant: 'outlined',
@@ -2410,18 +2461,21 @@ function SelectorModal(props) {
       return props.hook.clean();
     },
     className: styles$u.headerButton
-  }, /*#__PURE__*/React$1.createElement(RefreshRounded, null), /*#__PURE__*/React$1.createElement(ToolTip, {
+  }, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-outlined"
+  }, "refresh"), /*#__PURE__*/React$1.createElement(ToolTip, {
     content: 'Recarregar dados'
-  })), /*#__PURE__*/React$1.createElement(Dropdown, {
-    align: 'bottom',
-    className: styles$u.headerButton,
-    label: /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement(FilterListRounded, null), "Filtros", /*#__PURE__*/React$1.createElement(ToolTip, {
-      content: 'Filtros'
-    })),
-    buttons: props.keys.map(function (e) {
-      return getField(e);
-    })
   })), /*#__PURE__*/React$1.createElement(Button, {
+    variant: 'outlined',
+    onClick: function onClick() {
+      return setOpen(true);
+    },
+    className: styles$u.headerButton
+  }, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-outlined"
+  }, "filter_list"), /*#__PURE__*/React$1.createElement(ToolTip, {
+    content: 'Filtros'
+  }))), /*#__PURE__*/React$1.createElement(Button, {
     variant: 'outlined',
     onClick: function onClick() {
       props.handleChange(null);
@@ -2430,7 +2484,9 @@ function SelectorModal(props) {
     color: "secondary",
     className: styles$u.headerButton,
     disabled: !props.value
-  }, /*#__PURE__*/React$1.createElement(ClearAllRounded, null), "Limpar selecionado", /*#__PURE__*/React$1.createElement(ToolTip, {
+  }, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-outlined"
+  }, "clear_all"), "Limpar selecionado", /*#__PURE__*/React$1.createElement(ToolTip, {
     content: 'Limpar'
   }))), /*#__PURE__*/React$1.createElement(Filter, {
     keys: props.keys,
@@ -2440,9 +2496,7 @@ function SelectorModal(props) {
     getType: getType,
     open: open,
     setOpen: setOpen,
-    parseDate: parseDate,
-    selectedField: selectedField,
-    setSelectedField: setSelectedField
+    parseDate: parseDate
   }), /*#__PURE__*/React$1.createElement(Row$2, {
     main: true,
     disabled: true,
@@ -2485,7 +2539,7 @@ SelectorModal.propTypes = {
   cleanState: PropTypes.func,
   value: PropTypes.object,
   handleChange: PropTypes.func,
-  title: PropTypes.string,
+  label: PropTypes.string,
   hook: PropTypes.object,
   identificationKey: PropTypes.string,
   onCreate: PropTypes.func
@@ -2533,13 +2587,25 @@ function Selector(props) {
       transition: 'visibility 0.2s ease,opacity 0.2s ease',
       textTransform: 'capitalize'
     }
-  }, props.title), /*#__PURE__*/React$1.createElement("div", {
-    className: [shared$2.wrapper, color.className].join(' '),
+  }, /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.overflow
+  }, props.label), props.helperText ? /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.helperText
+  }, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-outlined",
+    style: {
+      fontSize: '1rem'
+    }
+  }, "info"), /*#__PURE__*/React$1.createElement(ToolTip, {
+    content: props.helperText,
+    align: 'start'
+  })) : null), /*#__PURE__*/React$1.createElement("div", {
+    className: [shared$2.wrapper, color.className, styles$v.buttonWrapper].join(' '),
     "data-highlight": open ? open : undefined,
     "data-disabled": props.disabled ? props.disabled : undefined
   }, props.value !== null && props.value !== undefined ? /*#__PURE__*/React$1.createElement(Row$2, {
     onClick: function onClick() {
-      setOpen(true);
+      if (props.onClick) props.onClick();else setOpen(true);
     },
     disabled: props.disabled,
     data: props.value,
@@ -2560,13 +2626,14 @@ function Selector(props) {
     color: props.colorVariant === 'secondary' ? 'secondary' : 'primary',
     className: [styles$v.button, shared$2.labelContainer].join(' '),
     onClick: function onClick() {
-      setOpen(true);
+      if (props.onClick) props.onClick();else setOpen(true);
     }
-  }, props.placeholder, /*#__PURE__*/React$1.createElement(LaunchRounded, {
+  }, props.placeholder, /*#__PURE__*/React$1.createElement("span", {
     style: {
       fontSize: '1.2rem'
-    }
-  }))), /*#__PURE__*/React$1.createElement("div", {
+    },
+    className: "material-icons-round"
+  }, "launch"))), /*#__PURE__*/React$1.createElement("div", {
     className: shared$2.alertLabel,
     style: {
       color: props.value === null || props.value === undefined ? '#ff5555' : undefined,
@@ -2586,10 +2653,12 @@ function Selector(props) {
   }) : undefined));
 }
 Selector.propTypes = {
+  helperText: PropTypes.string,
   children: PropTypes.func,
+  onClick: PropTypes.func,
   hook: PropTypes.object.isRequired,
-  title: PropTypes.string,
-  placeholder: PropTypes.string,
+  label: PropTypes.any,
+  placeholder: PropTypes.any,
   required: PropTypes.bool,
   value: PropTypes.object,
   handleChange: PropTypes.func,
@@ -2610,9 +2679,9 @@ Selector.propTypes = {
   colorVariant: PropTypes.oneOf(['default', 'secondary', 'primary'])
 };
 
-var css_248z$n = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.Form-module_wrapper__153NP {\r\n\r\n    width: 100%;\r\n    max-height: 100%;\r\n\r\n    overflow-y: auto;\r\n    overflow-x: visible;\r\n    position: relative;\r\n}\r\n\r\n.Form-module_buttonContainer__1aUGJ {\r\n    color: var(--mfc-color-tertiary);\r\n    height: 100%;\r\n\r\n    border-radius: 5px;\r\n    transition: 150ms ease-in-out;\r\n    padding: 4px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    gap: 8px;\r\n}\r\n.Form-module_submitButton__3Y6mQ{\r\n    height: 100%;\r\n    border-radius: 5px;\r\n    transition: 150ms ease-in-out;\r\n    padding: 8px 24px;\r\n    font-weight: bold;\r\n    text-transform: uppercase;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    gap: 8px;\r\n}\r\n\r\n.Form-module_divider__3Byas{\r\n    width: 1px;\r\n    height: 75%;\r\n    background: var(--mfc-border-primary);\r\n}\r\n\r\n\r\n.Form-module_header__2ybTo {\r\n    transition: 250ms ease-in;\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 2px 5px 1px;\r\n\r\n\r\n    position: sticky;\r\n    font-family: \"Roboto\";\r\n    top: 0;\r\n    z-index: 50;\r\n    background: var(--mfc-background-primary);\r\n    height: fit-content;\r\n\r\n    display: grid;\r\n    gap: 4px;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    padding: 8px;\r\n    border-radius: 5px;\r\n    font-size: 1.05rem;\r\n    font-weight: 600;\r\n\r\n    color: var(--mfc-color-secondary);\r\n    margin-bottom: 16px;\r\n}\r\n\r\n.Form-module_headerContent__3Z2U_ {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    gap: 8px;\r\n}\r\n\r\n.Form-module_content__2bq-t {\r\n    padding-bottom: 100px;\r\n    display: grid;\r\n    gap: 8px;\r\n}\r\n\r\n.Form-module_buttons__IkVi0 {\r\n    padding: 8px 0 0 0;\r\n    border-top: var(--mfc-border-primary) 1px solid;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 8px;\r\n    align-items: center\r\n}";
+var css_248z$o = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.Form-module_wrapper__153NP {\r\n\r\n    width: 100%;\r\n    max-height: 100%;\r\n\r\n    overflow-y: auto;\r\n    overflow-x: visible;\r\n    position: relative;\r\n}\r\n\r\n.Form-module_buttonContainer__1aUGJ {\r\n    color: var(--mfc-color-tertiary);\r\n    height: 100%;\r\n\r\n    border-radius: 5px;\r\n    transition: 150ms ease-in-out;\r\n    padding: 4px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    gap: 8px;\r\n}\r\n.Form-module_submitButton__3Y6mQ{\r\n    height: 100%;\r\n    border-radius: 5px;\r\n    transition: 150ms ease-in-out;\r\n    padding: 8px 24px;\r\n    font-weight: bold;\r\n    text-transform: uppercase;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    gap: 8px;\r\n}\r\n\r\n.Form-module_divider__3Byas{\r\n    width: 1px;\r\n    height: 75%;\r\n    background: var(--mfc-border-primary);\r\n}\r\n\r\n\r\n.Form-module_header__2ybTo {\r\n    transition: 250ms ease-in;\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 2px 5px 1px;\r\n\r\n\r\n    position: sticky;\r\n    font-family: \"Roboto\";\r\n    top: 0;\r\n    z-index: 50;\r\n    background: var(--mfc-background-primary);\r\n    height: fit-content;\r\n\r\n    display: grid;\r\n    gap: 4px;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    padding: 8px;\r\n    border-radius: 5px;\r\n    font-size: 1.05rem;\r\n    font-weight: 600;\r\n\r\n    color: var(--mfc-color-secondary);\r\n    margin-bottom: 16px;\r\n}\r\n\r\n.Form-module_headerContent__3Z2U_ {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    gap: 8px;\r\n}\r\n\r\n.Form-module_content__2bq-t {\r\n    padding-bottom: 100px;\r\n    display: grid;\r\n    gap: 8px;\r\n}\r\n\r\n.Form-module_buttons__IkVi0 {\r\n    padding: 8px 0 0 0;\r\n    border-top: var(--mfc-border-primary) 1px solid;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 8px;\r\n    align-items: center\r\n}";
 var shared$1 = {"wrapper":"Form-module_wrapper__153NP","buttonContainer":"Form-module_buttonContainer__1aUGJ","submitButton":"Form-module_submitButton__3Y6mQ","divider":"Form-module_divider__3Byas","header":"Form-module_header__2ybTo","headerContent":"Form-module_headerContent__3Z2U_","content":"Form-module_content__2bq-t","buttons":"Form-module_buttons__IkVi0"};
-styleInject(css_248z$n);
+styleInject(css_248z$o);
 
 var EntityLayoutPT = {
   history: 'Histórico de mudanças',
@@ -2649,17 +2718,23 @@ function Header$1(props) {
     onClick: function onClick() {
       return props.handleClose();
     }
-  }, /*#__PURE__*/React$1.createElement(ArrowBackRounded, null)), props.title), /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-round"
+  }, "arrow_back")), props.title), /*#__PURE__*/React$1.createElement("div", {
     className: shared$1.headerContent
   }, /*#__PURE__*/React$1.createElement(Button, {
     className: shared$1.submitButton,
     disabled: props.disabled,
     variant: 'filled',
     onClick: function onClick() {
-      return props.handleSubmit(props.hook.data, props.hook.clearState);
+      props.hook.setChanged(false);
+      props.handleSubmit(props.hook.data, props.hook.clearState);
     }
   }, props.submitLabel ? props.submitLabel : props.create ? lang.create : lang.save))), /*#__PURE__*/React$1.createElement("div", {
-    className: shared$1.buttons
+    className: shared$1.buttons,
+    style: {
+      display: !props.options || props.options.length === 0 ? 'none' : undefined
+    }
   }, (_props$options = props.options) === null || _props$options === void 0 ? void 0 : _props$options.map(function (b, index) {
     return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
       key: index + '-option-button'
@@ -2764,9 +2839,9 @@ Form.propTypes = {
   }))
 };
 
-var css_248z$m = "\r\n.FormRow-module_wrapper__e-3ms {\r\n\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px;\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    column-gap: 32px;\r\n    row-gap: 8px;\r\n    width: 100%;\r\n    overflow: visible;\r\n\r\n    padding: 10px;\r\n}\r\n\r\n.FormRow-module_legendContent__31Jgu {\r\n    user-select: none;\r\n    width: 100%;\r\n    height: 35px;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 4px;\r\n}\r\n\r\n.FormRow-module_legend__2iAih {\r\n\r\n    padding-right: 16px;\r\n    font-size: .9rem;\r\n    font-weight: 600;\r\n    color: var(--mfc-color-tertiary);\r\n    padding-left: 0;\r\n}\r\n\r\n\r\n.FormRow-module_indicator__7yoUZ {\r\n    --color: #0095ff;\r\n    width: 2px;\r\n    height: 100%;\r\n    border-radius: 10px;\r\n\r\n    background: var(--color);\r\n}\r\n\r\n.FormRow-module_notCompleted__1Wtn8 {\r\n    --color: #ff5555;\r\n}";
-var styles$l = {"wrapper":"FormRow-module_wrapper__e-3ms","legendContent":"FormRow-module_legendContent__31Jgu","legend":"FormRow-module_legend__2iAih","indicator":"FormRow-module_indicator__7yoUZ","notCompleted":"FormRow-module_notCompleted__1Wtn8"};
-styleInject(css_248z$m);
+var css_248z$n = "\r\n.FormRow-module_wrapper__e-3ms {\r\n\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px;\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    column-gap: 32px;\r\n    row-gap: 8px;\r\n    width: 100%;\r\n    overflow: visible;\r\n\r\n    padding: 10px;\r\n}\r\n\r\n.FormRow-module_legendContent__31Jgu {\r\n    user-select: none;\r\n    width: 100%;\r\n    height: 35px;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 4px;\r\n}\r\n\r\n.FormRow-module_legend__2iAih {\r\n\r\n    padding-right: 16px;\r\n    font-size: .9rem;\r\n    font-weight: 600;\r\n    color: var(--mfc-color-tertiary);\r\n    padding-left: 0;\r\n}\r\n\r\n\r\n.FormRow-module_indicator__7yoUZ {\r\n    --color: #0095ff;\r\n    width: 2px;\r\n    height: 100%;\r\n    border-radius: 10px;\r\n\r\n    background: var(--color);\r\n}\r\n\r\n.FormRow-module_notCompleted__1Wtn8 {\r\n    --color: #ff5555;\r\n}";
+var styles$m = {"wrapper":"FormRow-module_wrapper__e-3ms","legendContent":"FormRow-module_legendContent__31Jgu","legend":"FormRow-module_legend__2iAih","indicator":"FormRow-module_indicator__7yoUZ","notCompleted":"FormRow-module_notCompleted__1Wtn8"};
+styleInject(css_248z$n);
 
 function FormRow(props) {
   useEffect(function () {
@@ -2794,17 +2869,17 @@ function FormRow(props) {
 
   var ref = useRef();
   return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$l.wrapper,
+    className: styles$m.wrapper,
     ref: ref,
     "data-completed": completed
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$l.legendContent
+    className: styles$m.legendContent
   }, /*#__PURE__*/React$1.createElement(ToolTip, {
     content: !completed ? 'Não completo' : 'Completo',
     justify: "start",
     align: 'middle'
   }), /*#__PURE__*/React$1.createElement("div", {
-    className: [styles$l.indicator, !completed ? styles$l.notCompleted : undefined].join(' ')
+    className: [styles$m.indicator, !completed ? styles$m.notCompleted : undefined].join(' ')
   }), /*#__PURE__*/React$1.createElement(Button, {
     onClick: function onClick() {
       return setOpen(!open);
@@ -2812,13 +2887,14 @@ function FormRow(props) {
     highlight: !open,
     color: 'secondary',
     className: shared$1.buttonContainer
-  }, /*#__PURE__*/React$1.createElement(ArrowDropDownRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
     style: {
       transform: open ? undefined : 'rotate(180deg)',
       transition: 'inherit'
-    }
-  })), /*#__PURE__*/React$1.createElement("h1", {
-    className: styles$l.legend
+    },
+    className: "material-icons-round"
+  }, "arrow_drop_down")), /*#__PURE__*/React$1.createElement("h1", {
+    className: styles$m.legend
   }, props.title ? props.title : 'Procedimento ' + index)), open ? props.children : null);
 }
 FormRow.propTypes = {
@@ -2826,9 +2902,9 @@ FormRow.propTypes = {
   title: PropTypes.string
 };
 
-var css_248z$l = "@import \"../../misc/theme/styles.module.css\";\n\n.Dropdown-module_wrapper__1Blgv {\n    display: grid;\n    gap: 4px;\n    position: relative;\n    overflow: visible;\n}\n\n\n.Dropdown-module_selectContainer__3u-GM {\n    position: relative;\n    z-index: 5;\n    display: flex;\n    justify-content: flex-start;\n    gap: 4px;\n    align-items: center;\n    transition: 150ms linear;\n    background: var(--mfc-background-primary);\n    width: 100%;\n    padding: 5px;\n    border-radius: 5px;\n}\n.Dropdown-module_selectContainer__3u-GM:hover{\n    border-color: var(--accent-color);\n}\n.Dropdown-module_selectContainer__3u-GM:disabled {\n    border-color: var(--mfc-border-primary);\n    cursor: default;\n    color: var(--mfc-color-quinary);\n}\n\n.Dropdown-module_dropDownContainer__3KRpm {\n    display: grid;\n}\n\n.Dropdown-module_dropDownChoicesContainer__1PZFY {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);\n    width: 100%;\n    max-height: 200px;\n    height: fit-content;\n    overflow: auto;\n\n}\n\n.Dropdown-module_dropDownButton__hsTSD {\n    height: 35px;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n}\n\n.Dropdown-module_overflow__2BgnM {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    max-width: 100%;\n}\n\n.Dropdown-module_multiSelectRow__2Zipw {\n    display: flex;\n    user-select: none;\n    overflow: hidden;\n    align-items: center;\n    justify-content: flex-start;\n    height: 40px;\n    background: var(--mfc-background-primary);\n    gap: 8px;\n}\n\n.Dropdown-module_multiSelectRowContent__1ArWF {\n    user-select: none;\n    color: var(--mfc-color-secondary);\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .8rem;\n}\n\n.Dropdown-module_multiSelectRowCheckbox__Qu8ga {\n    cursor: pointer;\n}\n";
-var styles$k = {"wrapper":"Dropdown-module_wrapper__1Blgv","selectContainer":"Dropdown-module_selectContainer__3u-GM","dropDownContainer":"Dropdown-module_dropDownContainer__3KRpm","dropDownChoicesContainer":"Dropdown-module_dropDownChoicesContainer__1PZFY","dropDownButton":"Dropdown-module_dropDownButton__hsTSD","overflow":"Dropdown-module_overflow__2BgnM","multiSelectRow":"Dropdown-module_multiSelectRow__2Zipw","multiSelectRowContent":"Dropdown-module_multiSelectRowContent__1ArWF","multiSelectRowCheckbox":"Dropdown-module_multiSelectRowCheckbox__Qu8ga"};
-styleInject(css_248z$l);
+var css_248z$m = "@import \"../../misc/theme/styles.module.css\";\n\n.Dropdown-module_wrapper__1Blgv {\n    display: grid;\n    gap: 4px;\n    position: relative;\n    overflow: visible;\n}\n\n\n.Dropdown-module_selectContainer__3u-GM {\n    position: relative;\n    z-index: 5;\n    display: flex;\n    justify-content: flex-start;\n    gap: 4px;\n    align-items: center;\n    transition: 150ms linear;\n    background: var(--mfc-background-primary);\n    width: 100%;\n    padding: 5px;\n    border-radius: 5px;\n}\n.Dropdown-module_selectContainer__3u-GM:hover{\n    border-color: var(--accent-color);\n}\n.Dropdown-module_selectContainer__3u-GM:disabled {\n    border-color: var(--mfc-border-primary);\n    cursor: default;\n    color: var(--mfc-color-quinary);\n}\n\n.Dropdown-module_dropDownContainer__3KRpm {\n    display: grid;\n}\n\n.Dropdown-module_dropDownChoicesContainer__1PZFY {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);\n    width: 100%;\n    max-height: 200px;\n    height: fit-content;\n    overflow: auto;\n\n}\n\n.Dropdown-module_dropDownButton__hsTSD {\n    height: 35px;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n}\n\n.Dropdown-module_overflow__2BgnM {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    max-width: 100%;\n}\n\n.Dropdown-module_multiSelectRow__2Zipw {\n    display: flex;\n    user-select: none;\n    overflow: hidden;\n    align-items: center;\n    justify-content: flex-start;\n    height: 40px;\n    background: var(--mfc-background-primary);\n    gap: 8px;\n}\n\n.Dropdown-module_multiSelectRowContent__1ArWF {\n    user-select: none;\n    color: var(--mfc-color-secondary);\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .8rem;\n}\n\n.Dropdown-module_multiSelectRowCheckbox__Qu8ga {\n    cursor: pointer;\n}\n";
+var styles$l = {"wrapper":"Dropdown-module_wrapper__1Blgv","selectContainer":"Dropdown-module_selectContainer__3u-GM","dropDownContainer":"Dropdown-module_dropDownContainer__3KRpm","dropDownChoicesContainer":"Dropdown-module_dropDownChoicesContainer__1PZFY","dropDownButton":"Dropdown-module_dropDownButton__hsTSD","overflow":"Dropdown-module_overflow__2BgnM","multiSelectRow":"Dropdown-module_multiSelectRow__2Zipw","multiSelectRowContent":"Dropdown-module_multiSelectRowContent__1ArWF","multiSelectRowCheckbox":"Dropdown-module_multiSelectRowCheckbox__Qu8ga"};
+styleInject(css_248z$m);
 
 function DropDownField(props) {
   var _ref$current;
@@ -2861,14 +2937,26 @@ function DropDownField(props) {
       alignItems: props.value ? 'unset' : 'flex-start'
     },
     ref: ref,
-    className: styles$k.wrapper
+    className: styles$l.wrapper
   }, /*#__PURE__*/React$1.createElement("div", {
     className: shared$2.labelContainer,
     style: {
       visibility: props.value !== undefined && props.value !== null ? 'visible' : 'hidden',
       opacity: props.value !== undefined && props.value !== null ? '1' : '0'
     }
-  }, props.label), /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.overflow
+  }, props.label), props.helperText ? /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.helperText
+  }, /*#__PURE__*/React$1.createElement("span", {
+    style: {
+      fontSize: '1rem'
+    },
+    className: "material-icons-round"
+  }, "info"), /*#__PURE__*/React$1.createElement(ToolTip, {
+    content: props.helperText,
+    align: 'start'
+  })) : null), /*#__PURE__*/React$1.createElement("div", {
     className: [shared$2.wrapper, color.className].join(' '),
     "data-highlight": open ? open : undefined,
     "data-disabled": props.disabled ? props.disabled : undefined
@@ -2881,17 +2969,18 @@ function DropDownField(props) {
       overflow: "hidden",
       maxWidth: 'unset'
     },
-    className: [color.className, styles$k.selectContainer, shared$2.labelContainer].join(' '),
+    className: [color.className, styles$l.selectContainer, shared$2.labelContainer].join(' '),
     onClick: function onClick() {
       return setOpen(!open);
     }
-  }, /*#__PURE__*/React$1.createElement(ArrowDropDownRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
     style: {
       transform: !open ? 'unset' : 'rotate(180deg)',
       transition: '150ms linear'
-    }
-  }), selected ? /*#__PURE__*/React$1.createElement("div", {
-    className: styles$k.overflow,
+    },
+    className: "material-icons-round"
+  }, "arrow_drop_down"), selected ? /*#__PURE__*/React$1.createElement("div", {
+    className: styles$l.overflow,
     style: {
       color: selected.color
     }
@@ -2902,7 +2991,7 @@ function DropDownField(props) {
     reference: ref.current,
     width: '100%'
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$k.dropDownChoicesContainer
+    className: styles$l.dropDownChoicesContainer
   }, props.choices.map(function (choice, index) {
     var _themes$theme;
 
@@ -2918,9 +3007,9 @@ function DropDownField(props) {
         props.handleChange(choice.key);
         setOpen(false);
       },
-      className: styles$k.dropDownButton
+      className: styles$l.dropDownButton
     }, /*#__PURE__*/React$1.createElement("div", {
-      className: styles$k.overflow
+      className: styles$l.overflow
     }, choice.value), /*#__PURE__*/React$1.createElement(ToolTip, {
       content: choice.value
     })));
@@ -2933,6 +3022,7 @@ function DropDownField(props) {
   }, lang.required));
 }
 DropDownField.propTypes = {
+  helperText: PropTypes.string,
   width: PropTypes.string,
   label: PropTypes.string,
   choices: PropTypes.arrayOf(PropTypes.shape({
@@ -2980,14 +3070,26 @@ function MultiSelectField(props) {
       alignItems: props.value ? 'unset' : 'flex-start'
     },
     ref: ref,
-    className: styles$k.wrapper
+    className: styles$l.wrapper
   }, /*#__PURE__*/React$1.createElement("div", {
     className: shared$2.labelContainer,
     style: {
       visibility: props.value !== undefined && props.value !== null ? 'visible' : 'hidden',
       opacity: props.value !== undefined && props.value !== null ? '1' : '0'
     }
-  }, props.label), /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.overflow
+  }, props.label), props.helperText ? /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.helperText
+  }, /*#__PURE__*/React$1.createElement("span", {
+    style: {
+      fontSize: '1rem'
+    },
+    className: "material-icons-round"
+  }, "info"), /*#__PURE__*/React$1.createElement(ToolTip, {
+    content: props.helperText,
+    align: 'start'
+  })) : null), /*#__PURE__*/React$1.createElement("div", {
     className: [shared$2.wrapper, color.className].join(' '),
     "data-highlight": open ? open : undefined,
     "data-disabled": props.disabled ? props.disabled : undefined
@@ -3000,24 +3102,25 @@ function MultiSelectField(props) {
       overflow: "hidden",
       maxWidth: 'unset'
     },
-    className: [color.className, styles$k.selectContainer, shared$2.labelContainer].join(' '),
+    className: [color.className, styles$l.selectContainer, shared$2.labelContainer].join(' '),
     onClick: function onClick() {
       return setOpen(!open);
     }
-  }, /*#__PURE__*/React$1.createElement(ArrowDropDownRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
     style: {
       transform: !open ? 'unset' : 'rotate(180deg)',
       transition: '150ms linear'
-    }
-  }), props.value ? /*#__PURE__*/React$1.createElement("div", {
-    className: styles$k.valueContainer
+    },
+    className: "material-icons-round"
+  }, "arrow_drop_down"), props.value ? /*#__PURE__*/React$1.createElement("div", {
+    className: styles$l.valueContainer
   }, props.asArray ? props.value.length : props.value.split('-*/').length - 1, " - ", lang.values) : props.label)), /*#__PURE__*/React$1.createElement(FloatingBox, {
     open: open,
     setOpen: setOpen,
     reference: ref.current,
     width: '100%'
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$k.dropDownChoicesContainer,
+    className: styles$l.dropDownChoicesContainer,
     style: {
       padding: '0 8px'
     }
@@ -3026,7 +3129,7 @@ function MultiSelectField(props) {
       style: {
         overflow: "hidden"
       },
-      className: styles$k.multiSelectRow,
+      className: styles$l.multiSelectRow,
       key: 'multi-choice-' + index
     }, /*#__PURE__*/React$1.createElement(Checkbox, {
       type: 'checkbox',
@@ -3051,13 +3154,13 @@ function MultiSelectField(props) {
 
         setOpen(false);
       },
-      className: styles$k.multiSelectRowCheckbox,
+      className: styles$l.multiSelectRowCheckbox,
       checked: selected.includes(choice.key),
       label: /*#__PURE__*/React$1.createElement("div", {
         style: {
           color: choice.color ? choice.color : undefined
         },
-        className: styles$k.multiSelectRowContent
+        className: styles$l.multiSelectRowContent
       }, choice.value)
     }), /*#__PURE__*/React$1.createElement(ToolTip, {
       content: choice.value,
@@ -3073,6 +3176,7 @@ function MultiSelectField(props) {
   }, lang.required));
 }
 MultiSelectField.propTypes = {
+  helperText: PropTypes.string,
   width: PropTypes.string,
   label: PropTypes.string,
   choices: PropTypes.arrayOf(PropTypes.shape({
@@ -3089,6 +3193,40 @@ MultiSelectField.propTypes = {
   colorVariant: PropTypes.oneOf(['default', 'secondary', 'primary'])
 };
 
+var css_248z$l = "\r\n.Action-module_buttonWrapper__3MOeL {\r\n    width: 100%;\r\n    max-width: 100%;\r\n    height: 55px;\r\n    overflow: hidden;\r\n\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    gap: 6px;\r\n\r\n\r\n    padding: 0;\r\n    background: transparent;\r\n    outline: none;\r\n    border: none;\r\n\r\n    color: var(--mfc-color-secondary);\r\n\r\n    cursor: pointer;\r\n}\r\n.Action-module_buttonWrapper__3MOeL[data-highlight = 'true']{\r\n    color: #0095ff !important;\r\n}\r\n.Action-module_buttonWrapper__3MOeL[data-highlight = 'true'] .Action-module_iconWrapper__irMuB::after{\r\n    opacity: .15;\r\n}\r\n/*.buttonWrapper[data-highlight = 'true'] .icon > * {*/\r\n/*    font-size: 1.3rem !important;*/\r\n/*}*/\r\n/*.buttonWrapper[data-highlight = 'false'] .icon > * {*/\r\n/*    font-size: 1.5rem !important;*/\r\n/*}*/\r\n\r\n.Action-module_buttonWrapper__3MOeL:active .Action-module_icon__3E4df {\r\n    color: #0095ff;\r\n}\r\n\r\n.Action-module_iconWrapper__irMuB {\r\n    overflow: hidden;\r\n\r\n    width: 100%;\r\n    height: 50%;\r\n    border-radius: 25%/50%;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n\r\n    padding: 8px 16px;\r\n\r\n    position: relative;\r\n}\r\n\r\n\r\n.Action-module_icon__3E4df {\r\n    transition: 150ms linear !important;\r\n\r\n\r\n    position: relative;\r\n    z-index: 2;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: fit-content;\r\n    height: 100%;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n\r\n\r\n}\r\n.Action-module_icon__3E4df > * {\r\n\r\n    font-size: 1.3rem !important;\r\n}\r\n\r\n\r\n\r\n.Action-module_iconWrapper__irMuB::after {\r\n    content: '';\r\n\r\n    z-index: 0;\r\n\r\n    position: absolute;\r\n\r\n    background: #0095ff;\r\n    opacity: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n\r\n.Action-module_label__2NqHm {\r\n    padding: 0 1px;\r\n    max-width: 100%;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    font-weight: 600;\r\n    font-family: 'Roboto';\r\n    text-align: center;\r\n    font-size: .7rem;\r\n}";
+var styles$k = {"buttonWrapper":"Action-module_buttonWrapper__3MOeL","iconWrapper":"Action-module_iconWrapper__irMuB","icon":"Action-module_icon__3E4df","label":"Action-module_label__2NqHm"};
+styleInject(css_248z$l);
+
+function ActionButton(props) {
+  return /*#__PURE__*/React.createElement("button", {
+    onClick: props.onClick,
+    disabled: props.disabled,
+    className: styles$k.buttonWrapper,
+    "data-highlight": JSON.stringify(props.highlight)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: styles$k.iconWrapper
+  }, /*#__PURE__*/React.createElement("span", {
+    className: styles$k.icon
+  }, props.icon), /*#__PURE__*/React.createElement(Ripple, {
+    disabled: props.disabled,
+    opacity: .3
+  })), /*#__PURE__*/React.createElement("div", {
+    className: styles$k.label
+  }, props.label), /*#__PURE__*/React.createElement(ToolTip, {
+    content: props.label,
+    align: 'middle',
+    justify: "end"
+  }));
+}
+ActionButton.propTypes = {
+  width: PropTypes.oneOf(['fit', 'stretch']),
+  highlight: PropTypes.bool,
+  disabled: PropTypes.bool,
+  label: PropTypes.any,
+  icon: PropTypes.any,
+  onClick: PropTypes.func
+};
+
 function CheckboxGroup(props) {
   var lang = LocalePT;
   return /*#__PURE__*/React$1.createElement("div", {
@@ -3098,7 +3236,7 @@ function CheckboxGroup(props) {
       gap: '4px'
     }
   }, /*#__PURE__*/React$1.createElement("fieldset", {
-    className: styles$m.wrapper,
+    className: styles$n.wrapper,
     style: {
       width: '100%'
     }
@@ -3107,8 +3245,20 @@ function CheckboxGroup(props) {
     style: {
       padding: '0 8px'
     }
-  }, props.label), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$m.wrapperChildren
+  }, /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.overflow
+  }, props.label), props.helperText ? /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.helperText
+  }, /*#__PURE__*/React$1.createElement("span", {
+    style: {
+      fontSize: '1rem'
+    },
+    className: "material-icons-round"
+  }, "info"), /*#__PURE__*/React$1.createElement(ToolTip, {
+    content: props.helperText,
+    align: 'start'
+  })) : null), /*#__PURE__*/React$1.createElement("div", {
+    className: styles$n.wrapperChildren
   }, props.children)), /*#__PURE__*/React$1.createElement("div", {
     className: shared$2.alertLabel,
     style: {
@@ -3118,6 +3268,7 @@ function CheckboxGroup(props) {
   }, lang.required));
 }
 CheckboxGroup.propTypes = {
+  helperText: PropTypes.string,
   value: PropTypes.any,
   children: PropTypes.node,
   label: PropTypes.string,
@@ -3141,61 +3292,67 @@ function File(props) {
     switch (props.type) {
       case 'pdf':
         {
-          icon = /*#__PURE__*/React$1.createElement(PictureAsPdfRounded, {
+          icon = /*#__PURE__*/React$1.createElement("span", {
             style: {
               fontSize: '65px'
-            }
-          });
+            },
+            className: "material-icons-round"
+          }, "picture_as_pdf");
           break;
         }
 
       case 'png':
         {
-          icon = /*#__PURE__*/React$1.createElement(ImageRounded, {
+          icon = /*#__PURE__*/React$1.createElement("span", {
             style: {
               fontSize: '65px'
-            }
-          });
+            },
+            className: "material-icons-round"
+          }, "image");
           break;
         }
 
       case 'jpeg':
         {
-          icon = /*#__PURE__*/React$1.createElement(ImageRounded, {
+          icon = /*#__PURE__*/React$1.createElement("span", {
             style: {
               fontSize: '65px'
-            }
-          });
+            },
+            className: "material-icons-round"
+          }, "image");
           break;
         }
 
       case 'jpg':
         {
-          icon = /*#__PURE__*/React$1.createElement(ImageRounded, {
+          icon = /*#__PURE__*/React$1.createElement("span", {
             style: {
               fontSize: '65px'
-            }
-          });
+            },
+            className: "material-icons-round"
+          }, "image");
           break;
         }
 
       case 'html':
         {
-          icon = /*#__PURE__*/React$1.createElement(LanguageRounded, {
+          icon = /*#__PURE__*/React$1.createElement("span", {
             style: {
               fontSize: '65px'
-            }
-          });
+            },
+            className: "material-icons-round"
+          }, "web");
           break;
         }
 
       default:
         {
-          icon = /*#__PURE__*/React$1.createElement(DescriptionRounded, {
+          icon = /*#__PURE__*/React$1.createElement("span", {
             style: {
               fontSize: '65px'
-            }
-          });
+            },
+            className: "material-icons-round"
+          }, "description");
           break;
         }
     }
@@ -3204,16 +3361,19 @@ function File(props) {
   }, [props.type]);
   return /*#__PURE__*/React$1.createElement("div", {
     className: styles$i.fileContainer
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React$1.createElement(Button, {
     onClick: function onClick() {
       return props.handleDelete(props.index);
     },
-    className: styles$i.removeButton
-  }, /*#__PURE__*/React$1.createElement(CloseRounded, {
+    styles: {
+      padding: '4px'
+    }
+  }, /*#__PURE__*/React$1.createElement("span", {
     style: {
       fontSize: '1rem'
-    }
-  })), icon, /*#__PURE__*/React$1.createElement("div", {
+    },
+    className: "material-icons-round"
+  }, "close")), icon, /*#__PURE__*/React$1.createElement("div", {
     className: styles$i.fileLabel
   }, props.name.split('.')[0]));
 }
@@ -3357,7 +3517,19 @@ function FileField(props) {
       opacity: files.length > 0 ? 1 : 0,
       transition: 'visibility 0.2s ease,opacity 0.2s ease'
     }
-  }, props.label), /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.overflow
+  }, props.label), props.helperText ? /*#__PURE__*/React$1.createElement("div", {
+    className: shared$2.helperText
+  }, /*#__PURE__*/React$1.createElement("span", {
+    style: {
+      fontSize: '1rem'
+    },
+    className: "material-icons-round"
+  }, "info"), /*#__PURE__*/React$1.createElement(ToolTip, {
+    content: props.helperText,
+    align: 'start'
+  })) : null), /*#__PURE__*/React$1.createElement("div", {
     className: [shared$2.wrapper, color.className].join(' '),
     "data-highlight": openModal ? openModal : undefined,
     "data-disabled": props.disabled ? props.disabled : undefined
@@ -3390,11 +3562,12 @@ function FileField(props) {
       fontSize: '.7rem',
       color: themes ? themes.themes.color2 : '#777777'
     }
-  }, "(", files.length, " Anexados)") : null), /*#__PURE__*/React$1.createElement(AttachFileRounded, {
+  }, "(", files.length, " Anexados)") : null), /*#__PURE__*/React$1.createElement("span", {
     style: {
       fontSize: '1.2rem'
-    }
-  }))), /*#__PURE__*/React$1.createElement("div", {
+    },
+    className: "material-icons-round"
+  }, "attach_file"))), /*#__PURE__*/React$1.createElement("div", {
     className: shared$2.alertLabel,
     style: {
       color: files.length === 0 ? '#ff5555' : undefined,
@@ -3411,6 +3584,7 @@ function FileField(props) {
   }));
 }
 FileField.propTypes = {
+  helperText: PropTypes.string,
   handleFileRemoval: PropTypes.func,
   value: PropTypes.array,
   multiple: PropTypes.bool,
@@ -3445,16 +3619,22 @@ function ThemeProvider(props) {
         mfc_box_shadow_primary: !props.onDark ? '#e0e0e0' : '#1e2121'
       }
     }
-  }, /*#__PURE__*/React$1.createElement("div", {
-    className: props.onDark ? styles$A.dark : styles$A.light
+  }, /*#__PURE__*/React$1.createElement("link", {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+  }), /*#__PURE__*/React$1.createElement("div", {
+    className: [props.onDark ? styles$A.dark : styles$A.light, props.className].join(' '),
+    style: props.styles
   }, props.children));
 }
 ThemeProvider.propTypes = {
+  className: PropTypes.string,
+  styles: PropTypes.object,
   onDark: PropTypes.bool,
   children: PropTypes.node
 };
 
-var css_248z$i = "@import \"../../../misc/theme/styles.module.css\";\n@import url('http://fonts.cdnfonts.com/css/roboto');\n\n.Tabs-module_header__8l5LJ {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n    margin: auto;\n    border: var(--mfc-border-primary) 1px solid;\n\n    height: fit-content;\n    width: fit-content;\n\n    display: grid;\n    /*border-bottom: var(--mfc-border-primary) 1px solid;*/\n    transition: 150ms ease-in;\n}\n\n.Tabs-module_tabs__3EMRN {\n    max-width: 100%;\n    width: 100%;\n\n    overflow: hidden;\n    margin: auto;\n    display: flex;\n    align-items: center;\n}\n\n\n.Tabs-module_button__1f53r {\n    text-transform: uppercase;\n    /*font-family: \"Roboto\" !important;*/\n    text-rendering: optimizeLegibility;\n    color: var(--mfc-color-tertiary);\n    font-weight: bold;\n    font-size: .73rem;\n    padding: 8px 24px;\n    height: 35px;\n    transition: 150ms ease;\n\n    text-overflow: ellipsis;\n    overflow: hidden;\n    max-width: 100%;\n    white-space: nowrap;\n}\n\n.Tabs-module_button__1f53r:hover, .Tabs-module_button__1f53r:active, .Tabs-module_button__1f53r[data-highlight=\"true\"] {\n    color: var(--color) !important;\n}\n\n\n.Tabs-module_enterA__2UsDT {\n    animation: Tabs-module_enter__10Gu2 150ms ease-in-out;\n}\n\n.Tabs-module_exitA__3_0uq {\n    animation: Tabs-module_exit__2fucC 150ms ease-in-out;\n}\n\n@keyframes Tabs-module_exit__2fucC {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}\n\n@keyframes Tabs-module_enter__10Gu2 {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n";
+var css_248z$i = "@import \"../../../misc/theme/styles.module.css\";\n@import url('http://fonts.cdnfonts.com/css/roboto');\n\n.Tabs-module_header__8l5LJ {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n    justify-content: center;\n    border: var(--mfc-border-primary) 1px solid;\n\n    height: fit-content;\n    width: 100%;\n\n    display: grid;\n    /*border-bottom: var(--mfc-border-primary) 1px solid;*/\n    transition: 150ms ease-in;\n}\n\n.Tabs-module_tabs__3EMRN {\n    max-width: 100%;\n    width: 100%;\n\n    overflow: hidden;\n    margin: auto;\n    display: flex;\n    align-items: center;\n}\n\n\n.Tabs-module_button__1f53r {\n    text-transform: uppercase;\n    /*font-family: \"Roboto\" !important;*/\n    text-rendering: optimizeLegibility;\n    color: var(--mfc-color-tertiary);\n    font-weight: bold;\n    font-size: .73rem;\n    padding: 8px 24px;\n    height: 35px;\n    transition: 150ms ease;\n\n    text-overflow: ellipsis;\n    overflow: hidden;\n    max-width: 100%;\n    white-space: nowrap;\n}\n\n.Tabs-module_button__1f53r:hover, .Tabs-module_button__1f53r:active, .Tabs-module_button__1f53r[data-highlight=\"true\"] {\n    color: var(--color) !important;\n}\n\n\n.Tabs-module_enterA__2UsDT {\n    animation: Tabs-module_enter__10Gu2 150ms ease-in-out;\n}\n\n.Tabs-module_exitA__3_0uq {\n    animation: Tabs-module_exit__2fucC 150ms ease-in-out;\n}\n\n@keyframes Tabs-module_exit__2fucC {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}\n\n@keyframes Tabs-module_enter__10Gu2 {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n";
 var styles$h = {"header":"Tabs-module_header__8l5LJ","tabs":"Tabs-module_tabs__3EMRN","button":"Tabs-module_button__1f53r","enterA":"Tabs-module_enterA__2UsDT","enter":"Tabs-module_enter__10Gu2","exitA":"Tabs-module_exitA__3_0uq","exit":"Tabs-module_exit__2fucC"};
 styleInject(css_248z$i);
 
@@ -3514,6 +3694,8 @@ Tab.propTypes = {
 };
 
 function Tabs(props) {
+  var _children$open, _children$open2;
+
   var _useState = useState(0),
       _useState2 = _slicedToArray(_useState, 2),
       open = _useState2[0],
@@ -3527,7 +3709,12 @@ function Tabs(props) {
     style: props.styles,
     "data-open-tab": open
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$h.header
+    className: styles$h.header,
+    style: {
+      justifyContent: props.align === 'end' ? 'flex-end' : props.align === 'start' ? 'flex-start' : undefined,
+      width: props.indicator === 'fit' ? 'fit-content' : undefined,
+      margin: props.indicator === 'fit' ? 'auto' : undefined
+    }
   }, /*#__PURE__*/React$1.createElement("div", {
     className: styles$h.tabs
   }, children.map(function (e, i) {
@@ -3544,8 +3731,8 @@ function Tabs(props) {
       content: e.props.label
     })));
   }))), /*#__PURE__*/React$1.createElement(Switcher, {
-    className: children[open].props.className,
-    styles: children[open].styles,
+    className: (_children$open = children[open]) === null || _children$open === void 0 ? void 0 : _children$open.props.className,
+    styles: (_children$open2 = children[open]) === null || _children$open2 === void 0 ? void 0 : _children$open2.props.styles,
     openChild: open
   }, children.map(function (el, index) {
     return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
@@ -3554,12 +3741,14 @@ function Tabs(props) {
   })));
 }
 Tabs.proptypes = {
+  align: PropTypes.oneOf(['start', 'end', 'center']),
   className: PropTypes.string,
   styles: PropTypes.object,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  indicator: PropTypes.oneOf(['stretch', 'fit'])
 };
 
-var css_248z$g = "@import \"../../../misc/theme/styles.module.css\";\n\n.Vertical-module_content__3mXHl {\n    width: 100%;\n}\n\n.Vertical-module_wrapper__3BFk5 {\n    overflow: hidden;\n    max-height: 100%;\n    height: 100%;\n    position: relative;\n    width: 100%;\n\n    display: flex;\n\n    padding: 8px;\n}\n\n\n.Vertical-module_header__1E32z {\n    border: var(--mfc-border-primary) 1px solid;\n\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n\n    flex-grow: 1;\n    width: 25%;\n    max-width: 250px;\n\n    display: grid;\n    gap: 24px;\n\n\n    transition: 150ms linear;\n    height: 100%;\n}\n\n.Vertical-module_tabs__1DGLb {\n\n    overflow: hidden;\n\n    width: 100%;\n    padding: 4px;\n}\n\n.Vertical-module_button__3sXjY {\n\n    padding: 12px 24px;\n\n    max-width: 100%;\n    width: 100%;\n\n\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n    text-rendering: optimizeLegibility;\n\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    gap: 16px;\n}\n\n.Vertical-module_color__1eEjz {\n    color: var(--mfc-color-quaternary)\n}\n\n.Vertical-module_color__1eEjz:hover, .Vertical-module_color__1eEjz:active, .Vertical-module_highlight__2lbgS {\n    color: var(--color)\n}\n\n.Vertical-module_rowLabel__F8jVb {\n    display: flex;\n    align-content: center;\n    align-items: center;\n    justify-content: space-between;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    color: var(--mfc-color-secondary);\n    font-size: .8rem;\n    padding: 4px 0 4px 16px;\n    margin-top: 8px;\n}\n\n.Vertical-module_overflow__1UgBi {\n    max-width: 100%;\n\n    text-align: left;\n\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}";
+var css_248z$g = "@import \"../../../misc/theme/styles.module.css\";\n\n.Vertical-module_content__3mXHl {\n    width: 100%;\n}\n\n.Vertical-module_wrapper__3BFk5 {\n    overflow: hidden;\n    max-height: 100%;\n    height: 100%;\n    position: relative;\n    width: 100%;\n\n    display: flex;\n\n    padding: 8px;\n}\n\n\n.Vertical-module_header__1E32z {\n    position: sticky;\n    top: 0;\n\n    border: var(--mfc-border-primary) 1px solid;\n\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n\n    flex-grow: 1;\n    width: 25%;\n    max-width: 250px;\n\n    display: grid;\n    gap: 24px;\n\n\n    transition: 150ms linear;\n    height: 100%;\n}\n\n.Vertical-module_tabs__1DGLb {\n\n    overflow: hidden;\n\n    width: 100%;\n    padding: 4px;\n}\n\n.Vertical-module_button__3sXjY {\n\n    padding: 12px 24px;\n\n    max-width: 100%;\n    width: 100%;\n\n\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n    text-rendering: optimizeLegibility;\n\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    gap: 16px;\n}\n\n.Vertical-module_color__1eEjz {\n    color: var(--mfc-color-quaternary)\n}\n\n.Vertical-module_color__1eEjz:hover, .Vertical-module_color__1eEjz:active, .Vertical-module_highlight__2lbgS {\n    color: var(--color)\n}\n\n.Vertical-module_rowLabel__F8jVb {\n    display: flex;\n    align-content: center;\n    align-items: center;\n    justify-content: space-between;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    color: var(--mfc-color-secondary);\n    font-size: .8rem;\n    padding: 4px 0 4px 16px;\n    margin-top: 8px;\n}\n\n.Vertical-module_overflow__1UgBi {\n    max-width: 100%;\n\n    text-align: left;\n\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}";
 var styles$f = {"content":"Vertical-module_content__3mXHl","wrapper":"Vertical-module_wrapper__3BFk5","header":"Vertical-module_header__1E32z","tabs":"Vertical-module_tabs__1DGLb","button":"Vertical-module_button__3sXjY","color":"Vertical-module_color__1eEjz","highlight":"Vertical-module_highlight__2lbgS","rowLabel":"Vertical-module_rowLabel__F8jVb","overflow":"Vertical-module_overflow__1UgBi"};
 styleInject(css_248z$g);
 
@@ -3586,12 +3775,13 @@ function Row$1(props) {
     onClick: function onClick() {
       return setHidden(!hidden);
     }
-  }, props.groupName, /*#__PURE__*/React$1.createElement(ArrowDropDownRounded, {
+  }, props.groupName, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-round",
     style: {
       transform: hidden ? 'rotate(180deg)' : "unset",
       transition: '150ms linear'
     }
-  })), /*#__PURE__*/React$1.createElement(Switcher, {
+  }, "arrow_drop_down")), /*#__PURE__*/React$1.createElement(Switcher, {
     openChild: hidden ? 0 : 1
   }, /*#__PURE__*/React$1.createElement("div", null), /*#__PURE__*/React$1.createElement("div", null, props.buttons.map(function (b, bI) {
     return b.group === props.groupName ? /*#__PURE__*/React$1.createElement(React$1.Fragment, {
@@ -3634,7 +3824,9 @@ function VerticalTabs(props) {
 
   return /*#__PURE__*/React$1.createElement("div", {
     className: props.className,
-    style: props.styles
+    style: _objectSpread2(_objectSpread2({}, props.styles), {
+      position: 'relative'
+    })
   }, /*#__PURE__*/React$1.createElement("div", {
     className: styles$f.header
   }, /*#__PURE__*/React$1.createElement("div", {
@@ -3671,449 +3863,73 @@ VerticalTabs.proptypes = {
   children: PropTypes.node.isRequired
 };
 
-var css_248z$f = "@import '../../../misc/theme/styles.module.css';\n\n.Navigation-module_button__18QIy {\n    width: 50px;\n    height: 100%;\n    padding: 8px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.Navigation-module_overflowEllipsis__1chHT {\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    overflow: hidden;\n\n}\n\n\n.Navigation-module_header__1CMBT {\n    position: sticky;\n    top: 0;\n    z-index: 75;\n    /*overflow: visible;*/\n    height: 45px;\n    max-height: 45px;\n    overflow: hidden;\n    width: 100%;\n    justify-items: center;\n\n    transition: 150ms linear;\n    box-sizing: border-box;\n\n    display: flex;\n    justify-content: space-between;\n    background: var(--mfc-background-primary);\n\n    padding: 4px;\n    font-family: \"Roboto\";\n\n    flex-grow: 1;\n}\n\n\n.Navigation-module_content__WWuYu {\n    display: flex;\n    font-size: .9rem;\n    gap: 16px;\n    align-items: center;\n    height: 100%;\n    color: var(--mfc-color-tertiary);\n    font-weight: 600;\n    font-family: \"Roboto\" !important;\n}\n\n.Navigation-module_children__uzAyf {\n\n\n    border-radius: 8px 0 0 0;\n\n    color: var(--mfc-color-tertiary);\n    background: var(--mfc-background-secondary);\n    width: 100%;\n    height: 100%;\n    transition: 150ms linear;\n    margin-left: auto;\n\n    overflow: hidden;\n}\n\n.Navigation-module_wrapper__wzxdZ {\n    display: flex;\n    height: 100vh;\n    overflow: hidden;\n    width: 100%;\n    background: var(--mfc-background-primary);\n\n\n}\n\n.Navigation-module_contentWrapper__2xpt6 {\n\n    display: flex;\n    flex-flow: column;\n\n    max-width: 100%;\n    overflow: hidden;\n    width: 100%;\n\n    height: 100%;\n}\n";
-var styles$e = {"button":"Navigation-module_button__18QIy","overflowEllipsis":"Navigation-module_overflowEllipsis__1chHT","header":"Navigation-module_header__1CMBT","content":"Navigation-module_content__WWuYu","children":"Navigation-module_children__uzAyf","wrapper":"Navigation-module_wrapper__wzxdZ","contentWrapper":"Navigation-module_contentWrapper__2xpt6"};
+var css_248z$f = ".Bar-module_bottomOptions__10Ava {\r\n    position: absolute;\r\n    bottom: 4px;\r\n    width: calc(100% - 8px);\r\n    transform: translateX(4px);\r\n\r\n    display: grid;\r\n    align-content: flex-start;\r\n    gap: 8px;\r\n}\r\n\r\n.Bar-module_buttons__EFwoj {\r\n    width: 100%;\r\n    padding: 4px;\r\n    position: relative;\r\n    height: 100%;\r\n    display: grid;\r\n    align-content: flex-start;\r\n\r\n    gap: 8px;\r\n}\r\n\r\n.Bar-module_button__3PXzG {\r\n    width: 100%;\r\n\r\n    padding: 4px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n\r\n.Bar-module_wrapperHorizontal__1dz9H {\r\n    padding: 4px;\r\n    overflow: hidden;\r\n    /*width: 60px;*/\r\n    transition: 250ms ease-in-out;\r\n    background: var(--mfc-background-primary);\r\n    position: sticky;\r\n    left: 0;\r\n    top: 0;\r\n    height: 40px;\r\n    width: 100%;\r\n    display: flex;\r\n\r\n}\r\n\r\n.Bar-module_wrapperVertical__1ROE7 {\r\n    padding: 4px;\r\n    display: flex;\r\n    flex-direction: column;\r\n\r\n    overflow: hidden;\r\n    width: 60px;\r\n    transition: 250ms ease-in-out;\r\n    background: var(--mfc-background-primary);\r\n    position: sticky;\r\n    left: 0;\r\n    top: 0;\r\n    height: 100%;\r\n\r\n}\r\n\r\n\r\n\r\n.Bar-module_buttonContainer__2CV9H {\r\n    align-items: center;\r\n\r\n    cursor: pointer;\r\n    width: 100%;\r\n    max-width: 100%;\r\n    height: 50px;\r\n    overflow: hidden;\r\n\r\n    transition: 250ms ease-in-out;\r\n    border-radius: 5px;\r\n    padding: 8px 4px;\r\n\r\n    position: relative;\r\n\r\n\r\n}\r\n\r\n\r\n.Bar-module_buttonLabel__3CrmY {\r\n\r\n    outline: none;\r\n    background: none;\r\n    border: none;\r\n    padding: 0;\r\n\r\n    font-size: .7rem;\r\n    overflow: hidden;\r\n    color: var(--mfc-color-quaternary);\r\n\r\n    font-family: \"Roboto\";\r\n    /*font-weight: 575;*/\r\n}\r\n\r\n.Bar-module_activeButton__35KQw {\r\n    animation: Bar-module_slideDown__2VhN7 150ms linear forwards;\r\n\r\n    position: absolute;\r\n    left: 4px;\r\n    height: 42px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n@keyframes Bar-module_slideDown__2VhN7 {\r\n    0% {\r\n        top: 0;\r\n        /*transform: translateY(-50%);*/\r\n    }\r\n    100% {\r\n        top: 50%;\r\n        transform: translateY(-50%);\r\n    }\r\n}\r\n\r\n.Bar-module_buttonLabel__3CrmY:disabled {\r\n    color: var(--mfc-color-quinary);\r\n}\r\n\r\n.Bar-module_overflowEllipsis__3KezM {\r\n    max-width: 100%;\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n}\r\n\r\n\r\n.Bar-module_alignEnd__bal_Y[data-variant = 'vertical'] {\r\n\r\n    flex-flow: column;\r\n    align-content: flex-end;\r\n    align-items: flex-end;\r\n    /*justify-items: center;*/\r\n    /*justify-content: stretch;*/\r\n\r\n}\r\n\r\n.Bar-module_alignStart__3OBLV[data-variant = 'vertical'] {\r\n\r\n    flex-flow: column;\r\n    /*justify-content: stretch;*/\r\n    align-content: flex-start;\r\n    align-items: flex-start;\r\n    /*justify-items: center;*/\r\n}\r\n\r\n.Bar-module_alignEnd__bal_Y[data-variant = 'horizontal'] {\r\n\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n}\r\n\r\n.Bar-module_alignStart__3OBLV[data-variant = 'horizontal'] {\r\n\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n}\r\n\r\n.Bar-module_alignEnd__bal_Y {\r\n    display: flex;\r\n    gap: 8px;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.Bar-module_alignStart__3OBLV {\r\n    display: flex;\r\n    gap: 8px;\r\n    width: 100%;\r\n    height: 100%;\r\n    /*display: var(--display);*/\r\n}";
+var styles$e = {"bottomOptions":"Bar-module_bottomOptions__10Ava","buttons":"Bar-module_buttons__EFwoj","button":"Bar-module_button__3PXzG","wrapperHorizontal":"Bar-module_wrapperHorizontal__1dz9H","wrapperVertical":"Bar-module_wrapperVertical__1ROE7","buttonContainer":"Bar-module_buttonContainer__2CV9H","buttonLabel":"Bar-module_buttonLabel__3CrmY","activeButton":"Bar-module_activeButton__35KQw","slideDown":"Bar-module_slideDown__2VhN7","overflowEllipsis":"Bar-module_overflowEllipsis__3KezM","alignEnd":"Bar-module_alignEnd__bal_Y","alignStart":"Bar-module_alignStart__3OBLV"};
 styleInject(css_248z$f);
 
-var css_248z$e = "@import '../../../misc/theme/styles.module.css';\n\n\n.Profile-module_profileButton__3Xbfc {\n    display: grid;\n    justify-content: center;\n    justify-items: center;\n    align-items: center;\n    gap: 8px;\n    height: auto;\n    padding: 8px;\n\n    width: 100%;\n    font-size: .75rem;\n    font-weight: 600;\n}\n\n.Profile-module_buttonLabel__F1jLy {\n    margin-left: 8px;\n    overflow: hidden;\n}\n\n.Profile-module_buttonContainer__2Egq_ {\n    min-width: 150px;\n    max-width: 250px;\n\n    width: auto;\n    display: grid;\n    grid-auto-flow: column;\n    align-items: center;\n    align-content: center;\n\n    gap: 8px;\n    height: 100%;\n    padding: 8px;\n\n}\n\n.Profile-module_appsContainer__3JnZl {\n    position: relative;\n    height: 100%;\n}\n\n.Profile-module_overflowEllipsis__vJrhd {\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    overflow: hidden;\n}\n\n.Profile-module_floatingBox__e46hT {\n\n\n    position: absolute;\n    right: 0;\n    transform: translate(50%, 24px);\n    height: auto;\n\n    width: 250px;\n\n    background: var(--mfc-background-primary);\n    box-shadow: var(--mfc-box-shadow-primary) 0 2px 8px 0px;\n\n\n    border-radius: 5px;\n}\n\n\n.Profile-module_divider__3WWbI {\n    height: 1px;\n    width: 100%;\n    background: var(--mfc-border-primary);\n\n}\n\n.Profile-module_avatar__2xvFk {\n\n    width: 30px;\n    height: 30px;\n    border-radius: 50%;\n    background: #bdbdbd;\n    color: white;\n    overflow: hidden;\n\n    display: flex;\n    align-content: center;\n    justify-content: center;\n    align-items: center;\n}\n";
-var styles$d = {"profileButton":"Profile-module_profileButton__3Xbfc","buttonLabel":"Profile-module_buttonLabel__F1jLy","buttonContainer":"Profile-module_buttonContainer__2Egq_","appsContainer":"Profile-module_appsContainer__3JnZl","overflowEllipsis":"Profile-module_overflowEllipsis__vJrhd","floatingBox":"Profile-module_floatingBox__e46hT","divider":"Profile-module_divider__3WWbI","avatar":"Profile-module_avatar__2xvFk"};
-styleInject(css_248z$e);
-
-var profileTemplate = {
-  name: PropTypes.string,
-  email: PropTypes.string,
-  image: PropTypes.string
-};
-function Profile(props) {
-  var _props$registeredProf;
-
-  var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      open = _useState2[0],
-      setOpen = _useState2[1];
-
-  useEffect(function () {
-    if (!props.profile || Object.keys(props.profile).length === 0) setOpen(false);
-  }, [props.profile]);
+function Bar$1(props) {
   return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$d.appsContainer
-  }, props.profile && Object.keys(props.profile).length > 0 ? /*#__PURE__*/React$1.createElement(Button, {
-    className: styles$d.buttonContainer,
-    onClick: function onClick() {
-      return setOpen(!open);
-    },
-    highlight: open,
-    styles: {
-      paddingLeft: '2px',
-      paddingRight: '2px'
-    }
+    className: props.orientation === 'horizontal' ? styles$e.wrapperHorizontal : styles$e.wrapperVertical
   }, /*#__PURE__*/React$1.createElement("div", {
-    style: {
-      fontWeight: 'bold',
-      whiteSpace: 'nowrap'
-    }
-  }, "Bem vindo"), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$d.overflowEllipsis,
-    style: {
-      maxWidth: '100%'
-    }
-  }, props.profile.name), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$d.avatar
-  }, props.profile.image ? /*#__PURE__*/React$1.createElement("img", {
-    src: props.profile.image,
-    alt: props.profile.name,
-    style: {
-      width: '30px ',
-      height: '30px'
-    }
-  }) : /*#__PURE__*/React$1.createElement(PersonRounded, {
-    style: {
-      color: 'white',
-      width: '60%',
-      height: '60%'
-    }
-  })), /*#__PURE__*/React$1.createElement(ToolTip, {
-    content: props.profile.name
-  })) : /*#__PURE__*/React$1.createElement(Button, {
-    className: styles$d.buttonContainer,
-    onClick: function onClick() {
-      return props.fallbackProfileButton.onClick();
-    },
-    styles: {
-      justifyContent: 'center',
-      minWidth: '100px',
-      gap: '8px'
-    }
-  }, /*#__PURE__*/React$1.createElement("div", null, props.fallbackProfileButton.label), props.fallbackProfileButton.icon), /*#__PURE__*/React$1.createElement(Modal, {
-    variant: 'fit',
-    open: open,
-    handleClose: function handleClose() {
-      return setOpen(false);
-    },
-    blurIntensity: 0,
-    className: styles$d.floatingBox,
-    animationStyle: 'fade'
-  }, /*#__PURE__*/React$1.createElement(Button, {
-    className: styles$d.profileButton,
-    disabled: props.disabledProfile,
-    onClick: function onClick() {
-      return props.onProfileClick();
-    }
-  }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$d.avatar,
-    style: {
-      width: '50px',
-      height: '50px',
-      borderRadius: '50%'
-    }
-  }, props.profile.image ? /*#__PURE__*/React$1.createElement("img", {
-    src: props.profile.image,
-    alt: props.profile.name,
-    style: {
-      width: '30px',
-      height: '30px'
-    }
-  }) : /*#__PURE__*/React$1.createElement(PersonRounded, {
-    style: {
-      color: 'white',
-      width: '60%',
-      height: '60%'
-    }
-  })), /*#__PURE__*/React$1.createElement(ToolTip, {
-    content: props.profile.name
-  }), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$d.overflowEllipsis,
-    style: {
-      maxWidth: '100%'
-    }
-  }, props.profile.name, /*#__PURE__*/React$1.createElement("div", {
-    style: {
-      fontWeight: 'normal'
-    }
-  }, props.profile.email))), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$d.divider
-  }), (_props$registeredProf = props.registeredProfiles) === null || _props$registeredProf === void 0 ? void 0 : _props$registeredProf.map(function (b, i) {
-    return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
-      key: 'registered-profile-button-' + i
-    }, /*#__PURE__*/React$1.createElement(Button, {
-      className: styles$d.buttonContainer,
-      disabled: b.disabled,
-      onClick: function onClick() {
-        return b.onClick;
-      },
-      styles: {
-        width: '100%',
-        justifyContent: 'space-between',
-        height: '44px'
-      }
-    }, /*#__PURE__*/React$1.createElement("div", {
-      className: styles$d.avatar
-    }, b.image ? /*#__PURE__*/React$1.createElement("img", {
-      src: b.image,
-      alt: b.name,
-      style: {
-        width: '30px ',
-        height: '30px'
-      }
-    }) : /*#__PURE__*/React$1.createElement(PersonRounded, {
-      style: {
-        color: 'white',
-        width: '60%',
-        height: '60%'
-      }
-    })), b.name));
-  }), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$d.divider,
-    style: {
-      display: props.registeredProfiles && props.registeredProfiles.length > 0 ? undefined : 'none'
-    }
-  }), props.buttons.map(function (button, index) {
-    return !button ? null : /*#__PURE__*/React$1.createElement(React$1.Fragment, {
-      key: 'profile-button-' + index
-    }, /*#__PURE__*/React$1.createElement(Button, {
-      className: styles$d.buttonContainer,
-      disabled: button.disabled,
-      onClick: function onClick() {
-        return button.onClick();
-      },
-      styles: {
-        width: '100%',
-        justifyContent: 'space-between',
-        height: '44px'
-      }
-    }, button.icon, /*#__PURE__*/React$1.createElement("div", {
-      className: styles$d.buttonLabel
-    }, " ", button.label)));
+    className: styles$e.alignStart,
+    "data-variant": props.orientation ? props.orientation : 'vertical'
+  }, React$1.Children.toArray(props.children).filter(function (e) {
+    return e.props.place !== 'end';
+  }).map(function (e, i) {
+    if (e.type === ActionButton) return e;else return /*#__PURE__*/React$1.createElement("div", {
+      key: i + '-bar-node-start',
+      className: e.props.className,
+      style: e.props.styles
+    }, e);
+  })), /*#__PURE__*/React$1.createElement("div", {
+    className: styles$e.alignEnd,
+    "data-variant": props.orientation ? props.orientation : 'vertical'
+  }, React$1.Children.toArray(props.children).filter(function (e) {
+    return e.props.place === 'end';
+  }).map(function (e, i) {
+    if (e.type === ActionButton) return e;else return /*#__PURE__*/React$1.createElement("div", {
+      key: i + '-bar-node-end',
+      className: e.props.className,
+      style: e.props.styles
+    }, e);
   })));
 }
-Profile.propTypes = {
-  onProfileClick: PropTypes.func,
-  disabledProfile: PropTypes.bool,
-  fallbackProfileButton: PropTypes.shape({
-    label: PropTypes.string,
-    icon: PropTypes.any,
-    onClick: PropTypes.func,
-    disabled: PropTypes.bool
-  }),
-  profile: PropTypes.shape(profileTemplate),
-  registeredProfiles: PropTypes.arrayOf(PropTypes.shape(_objectSpread2(_objectSpread2({}, profileTemplate), {}, {
-    onClick: PropTypes.func,
-    disabled: PropTypes.bool
-  }))),
-  buttons: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    icon: PropTypes.any,
-    onClick: PropTypes.func,
-    disabled: PropTypes.bool
-  }))
+Bar$1.propTypes = {
+  orientation: PropTypes.oneOf(['vertical', 'horizontal']),
+  children: PropTypes.node
 };
 
-var css_248z$d = "@import '../../../misc/theme/styles.module.css';\n\n.Apps-module_appLabel__3tPTO {\n    font-size: .8rem;\n    font-weight: bold;\n    font-family: \"Roboto\";\n    color: var(--mfc-color-secondary);\n    max-width: 100%;\n\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.Apps-module_appButton__1tf-J {\n    outline: none;\n    width: calc(33.333% - 6px);\n    height: 60px;\n\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n    color: var(--mfc-color-tertiary);\n    display: grid;\n    justify-content: center;\n    justify-items: center;\n    gap: 4px;\n    padding: 8px;\n\n    transition: 150ms linear;\n\n    cursor: pointer;\n\n}\n\n\n.Apps-module_appsWrapper__2dziI {\n    position: absolute;\n    top: 50%;\n    transform: translate(-50%, calc(50% - 8px));\n    /*left: 0;*/\n    height: auto;\n    width: 250px;\n\n    background: var(--mfc-background-primary);\n    box-shadow: var(--mfc-box-shadow-primary) 0px 2px 8px 0px;\n    padding: 8px;\n\n    border-radius: 5px;\n    display: flex;\n    flex-flow: row wrap;\n    align-items: flex-start;\n    gap: 8px;\n}\n\n.Apps-module_overflowEllipsis__3-kuc {\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    overflow: hidden;\n}\n\n\n.Apps-module_buttonContainer__Aeu8f {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    max-width: 225px;\n    height: 100%;\n\n    padding: 8px;\n}\n";
-var styles$c = {"appLabel":"Apps-module_appLabel__3tPTO","appButton":"Apps-module_appButton__1tf-J","appsWrapper":"Apps-module_appsWrapper__2dziI","overflowEllipsis":"Apps-module_overflowEllipsis__3-kuc","buttonContainer":"Apps-module_buttonContainer__Aeu8f"};
-styleInject(css_248z$d);
-
-function App(props) {
-  return /*#__PURE__*/React$1.createElement(Button, {
-    variant: "outlined",
-    disabled: props.disabled,
-    className: styles$c.appButton,
-    onClick: function onClick() {
-      return props.onClick();
-    }
-  }, props.icon, /*#__PURE__*/React$1.createElement("div", {
-    className: [styles$c.appLabel, styles$c.overflowEllipsis].join(' ')
-  }, props.label), /*#__PURE__*/React$1.createElement(ToolTip, {
-    content: props.label
-  }));
+function BarAction(props) {
+  return props.children;
 }
-App.propTypes = {
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
-  icon: PropTypes.object,
-  label: PropTypes.string
-};
-
-function Apps(props) {
-  var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      open = _useState2[0],
-      setOpen = _useState2[1];
-
-  return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$c.appsContainer,
-    onBlur: function onBlur(event) {// if (!event.currentTarget.contains(event.relatedTarget))
-      // setOpen(false)
-    }
-  }, /*#__PURE__*/React$1.createElement(Button, {
-    onClick: function onClick() {
-      setOpen(!open);
-    },
-    highlight: open,
-    className: styles$c.buttonContainer
-  }, /*#__PURE__*/React$1.createElement(AppsRounded, null)), /*#__PURE__*/React$1.createElement(Modal, {
-    variant: 'fit',
-    open: open,
-    handleClose: function handleClose() {
-      return setOpen(false);
-    },
-    blurIntensity: 0,
-    className: styles$c.appsWrapper,
-    animationStyle: 'fade'
-  }, props.buttons.map(function (button, index) {
-    return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
-      key: 'app-button-' + index
-    }, /*#__PURE__*/React$1.createElement(App, button));
-  })));
-}
-Apps.propTypes = {
-  buttons: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string,
-    icon: PropTypes.any,
-    disabled: PropTypes.bool,
-    onClick: PropTypes.func.isRequired
-  }))
-};
-
-var css_248z$c = ".SideBar-module_bottomOptions__2OJPW {\r\n    position: absolute;\r\n    bottom: 4px;\r\n    width: calc(100% - 8px);\r\n    transform: translateX(4px);\r\n\r\n    display: grid;\r\n    align-content: flex-start;\r\n    gap: 8px;\r\n}\r\n\r\n.SideBar-module_buttons__jLFEx {\r\n    width: 100%;\r\n    padding: 4px;\r\n    position: relative;\r\n    height: 100%;\r\n    display: grid;\r\n    align-content: flex-start;\r\n\r\n    gap: 8px;\r\n}\r\n\r\n.SideBar-module_button__36Ex4 {\r\n    width: 50px;\r\n    height: 100%;\r\n    padding: 8px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.SideBar-module_wrapper__2JSYI {\r\n    overflow: hidden;\r\n    /*width: 60px;*/\r\n    transition: 250ms ease-in-out;\r\n    background: var(--mfc-background-primary);\r\n    position: sticky;\r\n    left: 0;\r\n    height: 100%;\r\n\r\n}\r\n\r\n.SideBar-module_buttonIcon__2yO7L {\r\n    transition: 250ms ease-in-out;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    overflow: hidden;\r\n    width: 42px;\r\n\r\n}\r\n\r\n.SideBar-module_buttonContainer__is3uf {\r\n    align-items: center;\r\n\r\n    cursor: pointer;\r\n    max-width: 215px;\r\n    height: 50px;\r\n    overflow: hidden;\r\n\r\n    transition: 250ms ease-in-out;\r\n    border-radius: 5px;\r\n    padding: 8px 4px;\r\n\r\n    position: relative;\r\n}\r\n\r\n\r\n.SideBar-module_buttonLabel__z_j4W {\r\n\r\n    outline: none;\r\n    background: none;\r\n    border: none;\r\n    padding: 0;\r\n\r\n    font-size: .7rem;\r\n    overflow: hidden;\r\n    color: var(--mfc-color-quaternary);\r\n\r\n    font-family: \"Roboto\";\r\n    /*font-weight: 575;*/\r\n}\r\n\r\n.SideBar-module_activeButton__RRx-r {\r\n    animation: SideBar-module_slideDown__2nNFa 150ms linear forwards;\r\n\r\n    position: absolute;\r\n    left: 4px;\r\n    height: 42px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n@keyframes SideBar-module_slideDown__2nNFa {\r\n    0% {\r\n        top: 0;\r\n        /*transform: translateY(-50%);*/\r\n    }\r\n    100% {\r\n        top: 50%;\r\n        transform: translateY(-50%);\r\n    }\r\n}\r\n\r\n.SideBar-module_buttonLabel__z_j4W:disabled {\r\n    color: var(--mfc-color-quinary);\r\n}\r\n\r\n.SideBar-module_overflowEllipsis__eyU40 {\r\n    max-width: 100%;\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n}\r\n";
-var styles$b = {"bottomOptions":"SideBar-module_bottomOptions__2OJPW","buttons":"SideBar-module_buttons__jLFEx","button":"SideBar-module_button__36Ex4","wrapper":"SideBar-module_wrapper__2JSYI","buttonIcon":"SideBar-module_buttonIcon__2yO7L","buttonContainer":"SideBar-module_buttonContainer__is3uf","buttonLabel":"SideBar-module_buttonLabel__z_j4W","activeButton":"SideBar-module_activeButton__RRx-r","slideDown":"SideBar-module_slideDown__2nNFa","overflowEllipsis":"SideBar-module_overflowEllipsis__eyU40"};
-styleInject(css_248z$c);
-
-function SideBar(props) {
-  var _props$buttons, _props$buttons2;
-
-  var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      open = _useState2[0],
-      setOpen = _useState2[1];
-
-  var buttonStyle = useMemo(function () {
-    return {
-      display: open ? 'flex' : 'grid',
-      width: !open ? '50px' : '100%'
-    };
-  }, [open]);
-
-  var getContent = function getContent(button) {
-    return /*#__PURE__*/React$1.createElement(Button, {
-      variant: 'minimal-horizontal',
-      highlight: button.highlight,
-      className: styles$b.buttonContainer,
-      disabled: button.disabled,
-      onClick: function onClick() {
-        return button.onClick();
-      },
-      styles: buttonStyle
-    }, /*#__PURE__*/React$1.createElement("div", {
-      className: [styles$b.buttonIcon, !button.highlight || open ? undefined : styles$b.activeButton].join(' '),
-      style: {}
-    }, button.icon), /*#__PURE__*/React$1.createElement("div", {
-      className: [styles$b.buttonLabel, styles$b.overflowEllipsis].join(' '),
-      style: {
-        textAlign: open ? undefined : 'center',
-        opacity: !button.highlight || open ? 1 : 0
-      }
-    }, button.label));
-  };
-
-  return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$b.wrapper,
-    style: {
-      width: !open ? '60px' : '225px'
-    }
-  }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$b.buttons
-  }, /*#__PURE__*/React$1.createElement(Button, {
-    highlight: open,
-    className: styles$b.button,
-    onClick: function onClick() {
-      return setOpen(!open);
-    }
-  }, /*#__PURE__*/React$1.createElement(MenuOpenRounded, {
-    style: {
-      transform: open ? undefined : 'rotate(180deg)',
-      transition: '150ms linear'
-    }
-  })), (_props$buttons = props.buttons) === null || _props$buttons === void 0 ? void 0 : _props$buttons.filter(function (e) {
-    return e && e.position !== 'bottom';
-  }).map(function (button, index) {
-    return !button ? null : /*#__PURE__*/React$1.createElement("div", {
-      key: 'side-bar-button-' + index
-    }, getContent(button), /*#__PURE__*/React$1.createElement(ToolTip, {
-      align: 'middle',
-      justify: 'end',
-      content: button.label
-    }));
-  }), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$b.bottomOptions
-  }, (_props$buttons2 = props.buttons) === null || _props$buttons2 === void 0 ? void 0 : _props$buttons2.filter(function (e) {
-    return e && e.position === 'bottom';
-  }).map(function (button, index) {
-    return !button ? null : /*#__PURE__*/React$1.createElement("div", {
-      key: 'side-bar-bottom-button-' + index
-    }, getContent(button), /*#__PURE__*/React$1.createElement(ToolTip, {
-      align: 'middle',
-      justify: 'end',
-      content: button.label
-    }));
-  }))));
-}
-SideBar.propTypes = {
-  buttons: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string,
-    icon: PropTypes.any,
-    onClick: PropTypes.func,
-    highlight: PropTypes.bool,
-    position: PropTypes.oneOf(['bottom', 'default'])
-  }))
-};
-
-var css_248z$b = "\n.Animations-module_fadeIn__2DAjl {\n    position: relative;\n    animation: Animations-module_fadeIn__2DAjl linear 150ms forwards;\n\n}\n\n.Animations-module_fadeOutAnimation__2wHNN {\n    position: relative;\n    animation: Animations-module_fadeOut__inmZ4 linear 150ms forwards;\n\n}\n\n\n@keyframes Animations-module_fadeOut__inmZ4 {\n\n    0% {\n        opacity: 1;\n        height: inherit;\n    }\n    50% {\n        opacity: .5;\n        height: inherit;\n    }\n    90% {\n        opacity: .1;\n        height: inherit;\n    }\n    100% {\n        opacity: 0;\n        display: none;\n        height: 0;\n        z-index: -1;\n    }\n}\n@keyframes Animations-module_fadeIn__2DAjl {\n    from {\n        opacity: 0;\n    }\n    to {\n        opacity: 1;\n    }\n\n}\n\n.Animations-module_slideRight__1ojD0{\n    animation: Animations-module_slideRight__1ojD0 ease-in-out 250ms forwards;\n}\n.Animations-module_slideLeft__rirKa{\n    animation: Animations-module_slideLeft__rirKa ease-in-out 250ms forwards;\n}\n@keyframes Animations-module_slideRight__1ojD0{\n    from {\n        transform: translateX(-15.5vw);\n    }\n    to {\n        transform: translateX(0);\n    }\n\n}\n\n@keyframes Animations-module_slideLeft__rirKa {\n    from {\n        transform: translateX(0);\n    }\n    to {\n        transform: translateX(-15.5vw);\n    }\n\n}\n\n\n.Animations-module_loading__m1cIx {\n    height: 100vh;\n    width: 100vw;\n    position: fixed;\n    z-index: 999;\n    background-color: rgba(0, 0, 0, .4);\n    backdrop-filter: blur(1px);\n    top: 0;\n    left: 0;\n    animation: Animations-module_loadingAnimation__3IJVd 2s ease-in-out infinite, Animations-module_fadeIn__2DAjl 250ms ease-in-out forwards;\n}\n@keyframes Animations-module_fadeIn__2DAjl {\n    from{\n        opacity: 0;\n    }\n    to{\n        opacity: 1;\n    }\n}\n@keyframes Animations-module_loadingAnimation__3IJVd {\n    0% {\n        border-top: rgba(0, 149, 255, 1) 5px solid;\n    }\n    50% {\n        border-top: rgba(0, 149, 255, .5) 5px solid;\n    }\n    100% {\n        border-top: rgba(0, 149, 255, 1) 5px solid;\n    }\n}";
-var styles$a = {"fadeIn":"Animations-module_fadeIn__2DAjl","fadeOutAnimation":"Animations-module_fadeOutAnimation__2wHNN","fadeOut":"Animations-module_fadeOut__inmZ4","slideRight":"Animations-module_slideRight__1ojD0","slideLeft":"Animations-module_slideLeft__rirKa","loading":"Animations-module_loading__m1cIx","loadingAnimation":"Animations-module_loadingAnimation__3IJVd"};
-styleInject(css_248z$b);
-
-function Loading(props) {
-  return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$a.loading,
-    style: {
-      display: props.loading ? undefined : 'none'
-    }
-  });
-}
-Loading.propTypes = {
-  loading: PropTypes.bool
-};
-
-function Layout(props) {
-  var components = useMemo(function () {
-    var nodes = React$1.Children.toArray(props.children);
-    return {
-      profile: nodes.find(function (e) {
-        return e.type === Profile;
-      }),
-      apps: nodes.find(function (e) {
-        return e.type === Apps;
-      }),
-      sideBar: nodes.find(function (e) {
-        return e.type === SideBar;
-      }),
-      child: nodes.find(function (e) {
-        return e.type !== SideBar && e.type !== Apps && e.type !== Profile;
-      })
-    };
-  }, [props]);
-  return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$e.wrapper
-  }, components.sideBar, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$e.contentWrapper
-  }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$e.header
-  }, /*#__PURE__*/React$1.createElement(Loading, {
-    loading: props.loading
-  }), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$e.content
-  }, /*#__PURE__*/React$1.createElement("img", {
-    style: {
-      height: '35px'
-    },
-    src: props.logo,
-    alt: 'logo'
-  }), props.appName), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$e.content,
-    style: {
-      justifyContent: 'flex-end',
-      gap: '8px'
-    }
-  }, components.apps, components.profile)), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$e.children
-  }, components.child)));
-}
-Layout.propTypes = {
+BarAction.propTypes = {
   children: PropTypes.node,
-  appName: PropTypes.string,
-  logo: PropTypes.any,
-  loading: PropTypes.bool
+  className: PropTypes.string,
+  styles: PropTypes.string,
+  place: PropTypes.oneOf(['start', 'end'])
 };
 
-var css_248z$a = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.Breadcrumbs-module_wrapper__3KOun {\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n    justify-content: center;\r\n    gap: 8px;\r\n    border-radius: 5px;\r\n    background: var(--mfc-background-primary);\r\n    width: 100%;\r\n    padding: 8px;\r\n\r\n    overflow: hidden;\r\n}\r\n\r\n.Breadcrumbs-module_crumbWrapper__3KMnN {\r\n    display: flex;\r\n    align-items: center;\r\n\r\n}";
-var styles$9 = {"wrapper":"Breadcrumbs-module_wrapper__3KOun","crumbWrapper":"Breadcrumbs-module_crumbWrapper__3KMnN"};
-styleInject(css_248z$a);
+var css_248z$e = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.Breadcrumbs-module_wrapper__3KOun {\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n    justify-content: center;\r\n    gap: 8px;\r\n    border-radius: 5px;\r\n    background: var(--mfc-background-primary);\r\n    width: 100%;\r\n    padding: 8px;\r\n\r\n    overflow: hidden;\r\n}\r\n\r\n.Breadcrumbs-module_crumbWrapper__3KMnN {\r\n    display: flex;\r\n    align-items: center;\r\n\r\n}";
+var styles$d = {"wrapper":"Breadcrumbs-module_wrapper__3KOun","crumbWrapper":"Breadcrumbs-module_crumbWrapper__3KMnN"};
+styleInject(css_248z$e);
 
 function Breadcrumbs(props) {
   return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$9.wrapper,
+    className: styles$d.wrapper,
     style: {
       justifyContent: props.justify === 'start' ? 'flex-start' : props.justify === 'end' ? 'flex-end' : undefined
     }
   }, React$1.Children.toArray(props.children).map(function (crumb, i) {
     return /*#__PURE__*/React$1.createElement("div", {
-      className: styles$9.crumbWrapper,
+      className: styles$d.crumbWrapper,
       key: 'breadcrumb-' + i
-    }, crumb, /*#__PURE__*/React$1.createElement(ArrowForwardIosRounded, {
+    }, crumb, /*#__PURE__*/React$1.createElement("span", {
       style: {
         fontSize: '1rem',
         display: i === React$1.Children.toArray(props.children).length - 1 ? 'none' : undefined
-      }
-    }));
+      },
+      className: "material-icons-round"
+    }, "arrow_forward_ios"));
   }));
 }
 Breadcrumbs.propTypes = {
@@ -4122,13 +3938,13 @@ Breadcrumbs.propTypes = {
   justify: PropTypes.oneOf(['start', 'middle', 'end'])
 };
 
-var css_248z$9 = ".Carousel-module_wrapper__3jfG8{\r\n    padding: 16px;\r\n    height: 50vh;\r\n    overflow: hidden;\r\n    position: relative;\r\n\r\n    display: grid;\r\n    align-content: space-between;\r\n    user-select: none;\r\n}";
-var styles$8 = {"wrapper":"Carousel-module_wrapper__3jfG8"};
-styleInject(css_248z$9);
+var css_248z$d = ".Carousel-module_wrapper__3jfG8{\r\n    padding: 16px;\r\n    height: 50vh;\r\n    overflow: hidden;\r\n    position: relative;\r\n\r\n    display: grid;\r\n    align-content: space-between;\r\n    user-select: none;\r\n}";
+var styles$c = {"wrapper":"Carousel-module_wrapper__3jfG8"};
+styleInject(css_248z$d);
 
-var css_248z$8 = ".Card-module_cardWrapper__2VU2m {\r\n    /*border: var(--mfc-border-primary) 1px solid;*/\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 8px;\r\n    height: 115px;\r\n\r\n\r\n    position: relative;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n\r\n    transition: 150ms linear;\r\n}\r\n.Card-module_cardWrapper__2VU2m:active{\r\n    transform: scale(.98);\r\n}\r\n.Card-module_cardImage__2t-3X {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    left: 0;\r\n    border-radius: 8px;\r\n    z-index: 0;\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Card-module_cardTitle__S4Fs3 {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 0;\r\n    transform: translate(4px, -50%);\r\n    transition: 250ms linear;\r\n}\r\n\r\n.Card-module_cardHeaderBackground__2lcN2{\r\n    z-index: 0;\r\n    opacity: .8;\r\n    background: var(--mfc-background-primary);\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n.Card-module_cardHeader__25Kks {\r\n    overflow: hidden;\r\n\r\n    display: grid;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n\r\n    padding: 4px 0;\r\n    user-select: none;\r\n    height: 30%;\r\n    width: 50%;\r\n\r\n    color: var(--mfc-color-primary);\r\n    position: relative;\r\n    z-index: 5;\r\n\r\n    border-radius: 0 5px 5px 0;\r\n    transition: 150ms linear;\r\n\r\n    font-family: \"Roboto\";\r\n    font-weight: 600;\r\n    font-size: 1rem;\r\n}\r\n.Card-module_cardWrapper__2VU2m:hover, .Card-module_onRender__2Z0Qp{\r\n    border: #0095ff 2px solid;\r\n\r\n}\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardTitle__S4Fs3 {\r\n    position: relative;\r\n    top: 0;\r\n    transform: translateX(4px);\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardHeader__25Kks {\r\n    height: 50%;\r\n    width: 75%;\r\n    align-items: flex-start;\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardImage__2t-3X {\r\n    transform: scale(1.2);\r\n}\r\n\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardTitle__S4Fs3 {\r\n    position: relative;\r\n    top: 0;\r\n    transform: translateX(4px);\r\n}\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardHeader__25Kks {\r\n    height: 50%;\r\n    width: 75%;\r\n    align-items: flex-start;\r\n}\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardImage__2t-3X {\r\n    transform: scale(1.2);\r\n}\r\n\r\n\r\n.Card-module_cardDescription__9H_cz {\r\n    position: relative;\r\n    z-index: 5;\r\n    visibility: hidden;\r\n    opacity: 0;\r\n    transition: 150ms linear;\r\n\r\n    font-weight: normal;\r\n    font-size: .8rem;\r\n    color: var(--mfc-color-quaternary);\r\n    padding-left: 4px;\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardDescription__9H_cz {\r\n    visibility: visible;\r\n    opacity: 1;\r\n}\r\n.Card-module_onRender__2Z0Qp .Card-module_cardDescription__9H_cz {\r\n    visibility: visible;\r\n    opacity: 1;\r\n}\r\n\r\n.Card-module_overflow__VDvpD {\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n";
-var styles$7 = {"cardWrapper":"Card-module_cardWrapper__2VU2m","cardImage":"Card-module_cardImage__2t-3X","cardTitle":"Card-module_cardTitle__S4Fs3","cardHeaderBackground":"Card-module_cardHeaderBackground__2lcN2","cardHeader":"Card-module_cardHeader__25Kks","onRender":"Card-module_onRender__2Z0Qp","cardDescription":"Card-module_cardDescription__9H_cz","overflow":"Card-module_overflow__VDvpD"};
-styleInject(css_248z$8);
+var css_248z$c = ".Card-module_cardWrapper__2VU2m {\r\n    /*border: var(--mfc-border-primary) 1px solid;*/\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 8px;\r\n    height: 115px;\r\n\r\n\r\n    position: relative;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n\r\n    transition: 150ms linear;\r\n}\r\n.Card-module_cardWrapper__2VU2m:active{\r\n    transform: scale(.98);\r\n}\r\n.Card-module_cardImage__2t-3X {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    left: 0;\r\n    border-radius: 8px;\r\n    z-index: 0;\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Card-module_cardTitle__S4Fs3 {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 0;\r\n    transform: translate(4px, -50%);\r\n    transition: 250ms linear;\r\n}\r\n\r\n.Card-module_cardHeaderBackground__2lcN2{\r\n    z-index: 0;\r\n    opacity: .8;\r\n    background: var(--mfc-background-primary);\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n.Card-module_cardHeader__25Kks {\r\n    overflow: hidden;\r\n\r\n    display: grid;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n\r\n    padding: 4px 0;\r\n    user-select: none;\r\n    height: 30%;\r\n    width: 50%;\r\n\r\n    color: var(--mfc-color-primary);\r\n    position: relative;\r\n    z-index: 5;\r\n\r\n    border-radius: 0 5px 5px 0;\r\n    transition: 150ms linear;\r\n\r\n    font-family: \"Roboto\";\r\n    font-weight: 600;\r\n    font-size: 1rem;\r\n}\r\n.Card-module_cardWrapper__2VU2m:hover, .Card-module_onRender__2Z0Qp{\r\n    border: #0095ff 2px solid;\r\n\r\n}\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardTitle__S4Fs3 {\r\n    position: relative;\r\n    top: 0;\r\n    transform: translateX(4px);\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardHeader__25Kks {\r\n    height: 50%;\r\n    width: 75%;\r\n    align-items: flex-start;\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardImage__2t-3X {\r\n    transform: scale(1.2);\r\n}\r\n\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardTitle__S4Fs3 {\r\n    position: relative;\r\n    top: 0;\r\n    transform: translateX(4px);\r\n}\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardHeader__25Kks {\r\n    height: 50%;\r\n    width: 75%;\r\n    align-items: flex-start;\r\n}\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardImage__2t-3X {\r\n    transform: scale(1.2);\r\n}\r\n\r\n\r\n.Card-module_cardDescription__9H_cz {\r\n    position: relative;\r\n    z-index: 5;\r\n    visibility: hidden;\r\n    opacity: 0;\r\n    transition: 150ms linear;\r\n\r\n    font-weight: normal;\r\n    font-size: .8rem;\r\n    color: var(--mfc-color-quaternary);\r\n    padding-left: 4px;\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardDescription__9H_cz {\r\n    visibility: visible;\r\n    opacity: 1;\r\n}\r\n.Card-module_onRender__2Z0Qp .Card-module_cardDescription__9H_cz {\r\n    visibility: visible;\r\n    opacity: 1;\r\n}\r\n\r\n.Card-module_overflow__VDvpD {\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n";
+var styles$b = {"cardWrapper":"Card-module_cardWrapper__2VU2m","cardImage":"Card-module_cardImage__2t-3X","cardTitle":"Card-module_cardTitle__S4Fs3","cardHeaderBackground":"Card-module_cardHeaderBackground__2lcN2","cardHeader":"Card-module_cardHeader__25Kks","onRender":"Card-module_onRender__2Z0Qp","cardDescription":"Card-module_cardDescription__9H_cz","overflow":"Card-module_overflow__VDvpD"};
+styleInject(css_248z$c);
 
 function Card(props) {
   var ref = useRef();
@@ -4142,7 +3958,7 @@ function Card(props) {
     setWidth(ref.current.parentNode.offsetWidth * (12.5 / 100));
   }, []);
   return /*#__PURE__*/React$1.createElement("div", {
-    className: [styles$7.cardWrapper, props.currentOnRender ? styles$7.onRender : ''].join(' '),
+    className: [styles$b.cardWrapper, props.currentOnRender ? styles$b.onRender : ''].join(' '),
     ref: ref,
     style: {
       minWidth: width + 'px'
@@ -4154,17 +3970,17 @@ function Card(props) {
       return props.onClick();
     }
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$7.cardHeader
+    className: styles$b.cardHeader
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$7.cardHeaderBackground
+    className: styles$b.cardHeaderBackground
   }), /*#__PURE__*/React$1.createElement("div", {
-    className: [styles$7.overflow, styles$7.cardTitle].join(' ')
+    className: [styles$b.overflow, styles$b.cardTitle].join(' ')
   }, props.data.title), /*#__PURE__*/React$1.createElement("div", {
-    className: [styles$7.cardDescription, styles$7.overflow].join(' ')
+    className: [styles$b.cardDescription, styles$b.overflow].join(' ')
   }, props.data.details)), /*#__PURE__*/React$1.createElement("img", {
     src: props.data.image,
     alt: props.data.title,
-    className: styles$7.cardImage
+    className: styles$b.cardImage
   }));
 }
 Card.propTypes = {
@@ -4178,9 +3994,9 @@ Card.propTypes = {
   onClick: PropTypes.func
 };
 
-var css_248z$7 = ".CardGroup-module_groupWrapper__11q7W {\r\n    display: flex;\r\n    gap: 16px;\r\n    overflow: hidden;\r\n    width: 100%;\r\n    position: relative;\r\n\r\n    height: fit-content;\r\n\r\n    padding: 0 16px;\r\n\r\n}\r\n.CardGroup-module_button__3_U-r{\r\n    color: var(--mfc-color-tertiary);\r\n    position: absolute;\r\n    right: 0;\r\n    bottom: 65px;\r\n    transform: translateY(25%);\r\n\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px;\r\n    width: 20px;\r\n    height: 45px;\r\n\r\n    z-index: 50;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n\r\n    transition: 150ms linear;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    outline: none;\r\n    cursor: pointer;\r\n}\r\n.CardGroup-module_button__3_U-r:hover{\r\n\r\n    background: var(--mfc-background-quaternary);\r\n    color: #0095ff;\r\n}\r\n.CardGroup-module_button__3_U-r:active{\r\n    background: #0095ff;\r\n    color: white;\r\n    border-color: #0095ff;\r\n}\r\n\r\n";
-var styles$6 = {"groupWrapper":"CardGroup-module_groupWrapper__11q7W","button":"CardGroup-module_button__3_U-r"};
-styleInject(css_248z$7);
+var css_248z$b = ".CardGroup-module_groupWrapper__11q7W {\r\n    display: flex;\r\n    gap: 16px;\r\n    overflow: hidden;\r\n    width: 100%;\r\n    position: relative;\r\n\r\n    height: fit-content;\r\n\r\n    padding: 0 16px;\r\n\r\n}\r\n.CardGroup-module_button__3_U-r{\r\n    color: var(--mfc-color-tertiary);\r\n    position: absolute;\r\n    right: 0;\r\n    bottom: 65px;\r\n    transform: translateY(25%);\r\n\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px;\r\n    width: 20px;\r\n    height: 45px;\r\n\r\n    z-index: 50;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n\r\n    transition: 150ms linear;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    outline: none;\r\n    cursor: pointer;\r\n}\r\n.CardGroup-module_button__3_U-r:hover{\r\n\r\n    background: var(--mfc-background-quaternary);\r\n    color: #0095ff;\r\n}\r\n.CardGroup-module_button__3_U-r:active{\r\n    background: #0095ff;\r\n    color: white;\r\n    border-color: #0095ff;\r\n}\r\n\r\n";
+var styles$a = {"groupWrapper":"CardGroup-module_groupWrapper__11q7W","button":"CardGroup-module_button__3_U-r"};
+styleInject(css_248z$b);
 
 function CardGroup(props) {
   var _useState = useState(false),
@@ -4195,7 +4011,7 @@ function CardGroup(props) {
 
   var ref = useRef();
   return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("button", {
-    className: styles$6.button,
+    className: styles$a.button,
     style: {
       right: '20px',
       visibility: buttonEnd ? 'visible' : 'hidden',
@@ -4205,12 +4021,13 @@ function CardGroup(props) {
       ref.current.scrollLeft = ref.current.scrollLeft + ref.current.scrollWidth * 0.25;
       if (ref.current.scrollWidth - ref.current.offsetWidth < ref.current.scrollLeft) setButtonEnd(true);else setButtonEnd(false);
     }
-  }, /*#__PURE__*/React$1.createElement(ArrowDropDownRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
     style: {
       transform: 'rotate(-90deg)'
-    }
-  })), /*#__PURE__*/React$1.createElement("button", {
-    className: styles$6.button,
+    },
+    className: "material-icons-round"
+  }, "arrow_drop_down")), /*#__PURE__*/React$1.createElement("button", {
+    className: styles$a.button,
     style: {
       left: '20px',
       visibility: buttonStart ? 'visible' : 'hidden',
@@ -4221,12 +4038,13 @@ function CardGroup(props) {
       ref.current.scrollLeft = newScroll;
       if (newScroll > 0) setButtonStart(true);else setButtonStart(false);
     }
-  }, /*#__PURE__*/React$1.createElement(ArrowDropDownRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
     style: {
       transform: 'rotate(90deg)'
-    }
-  })), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$6.groupWrapper,
+    },
+    className: "material-icons-round"
+  }, "arrow_drop_down")), /*#__PURE__*/React$1.createElement("div", {
+    className: styles$a.groupWrapper,
     ref: ref,
     onMouseEnter: function onMouseEnter() {
       if (ref.current.scrollWidth - ref.current.offsetWidth > ref.current.scrollLeft) setButtonEnd(true);
@@ -4238,15 +4056,15 @@ CardGroup.propTypes = {
   children: PropTypes.node
 };
 
-var css_248z$6 = ".Panel-module_image__1kM7v{\r\n    position: absolute;\r\n    border-radius: 5px 5px 0 0;\r\n    width: calc(100% - 32px);\r\n    height: calc(100% - 97px);\r\n    overflow: hidden;\r\n    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) calc(100% - 65px), rgba(0,0,0,0) 100%);\r\n    transition: 150ms linear;\r\n\r\n}\r\n\r\n\r\n.Panel-module_wrapper__2Sl2K{\r\n    transition: 150ms linear;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n}\r\n.Panel-module_wrapper__2Sl2K:active{\r\n    opacity: .8;\r\n}\r\n\r\n\r\n.Panel-module_title__2hU7K{\r\n    height: 20%;\r\n    max-width: 35%;\r\n    overflow: hidden;\r\n    position: absolute;\r\n\r\n    /*transform: translateY(-50%);*/\r\n    top: calc(50% - 65px);\r\n\r\n    font-size: 1.5rem;\r\n    font-weight: bold;\r\n    padding: 8px 16px;\r\n\r\n    border-radius: 0 5px 5px 0;\r\n\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    display: grid;\r\n    gap: 8px;\r\n\r\n\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Panel-module_description__2S5Fu{\r\n    font-size: .9rem;\r\n    color: var(--mfc-color-tertiary);\r\n}\r\n\r\n.Panel-module_overflow__bIsf5{\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    max-width: 100%;\r\n}\r\n";
-var styles$5 = {"image":"Panel-module_image__1kM7v","wrapper":"Panel-module_wrapper__2Sl2K","title":"Panel-module_title__2hU7K","description":"Panel-module_description__2S5Fu","overflow":"Panel-module_overflow__bIsf5"};
-styleInject(css_248z$6);
+var css_248z$a = ".Panel-module_image__1kM7v{\r\n    position: absolute;\r\n    border-radius: 5px 5px 0 0;\r\n    width: calc(100% - 32px);\r\n    height: calc(100% - 97px);\r\n    overflow: hidden;\r\n    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) calc(100% - 65px), rgba(0,0,0,0) 100%);\r\n    transition: 150ms linear;\r\n\r\n}\r\n\r\n\r\n.Panel-module_wrapper__2Sl2K{\r\n    transition: 150ms linear;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n}\r\n.Panel-module_wrapper__2Sl2K:active{\r\n    opacity: .8;\r\n}\r\n\r\n\r\n.Panel-module_title__2hU7K{\r\n    height: 20%;\r\n    max-width: 35%;\r\n    overflow: hidden;\r\n    position: absolute;\r\n\r\n    /*transform: translateY(-50%);*/\r\n    top: calc(50% - 65px);\r\n\r\n    font-size: 1.5rem;\r\n    font-weight: bold;\r\n    padding: 8px 16px;\r\n\r\n    border-radius: 0 5px 5px 0;\r\n\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    display: grid;\r\n    gap: 8px;\r\n\r\n\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Panel-module_description__2S5Fu{\r\n    font-size: .9rem;\r\n    color: var(--mfc-color-tertiary);\r\n}\r\n\r\n.Panel-module_overflow__bIsf5{\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    max-width: 100%;\r\n}\r\n";
+var styles$9 = {"image":"Panel-module_image__1kM7v","wrapper":"Panel-module_wrapper__2Sl2K","title":"Panel-module_title__2hU7K","description":"Panel-module_description__2S5Fu","overflow":"Panel-module_overflow__bIsf5"};
+styleInject(css_248z$a);
 
 function Panel(props) {
   return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$5.wrapper
+    className: styles$9.wrapper
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$5.image
+    className: styles$9.image
   }, /*#__PURE__*/React$1.createElement("img", {
     src: props.data.image,
     alt: props.data.title,
@@ -4254,9 +4072,9 @@ function Panel(props) {
       width: '100%'
     }
   })), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$5.title
+    className: styles$9.title
   }, props.data.title, /*#__PURE__*/React$1.createElement("div", {
-    className: [styles$5.description, styles$5.overflow].join(' ')
+    className: [styles$9.description, styles$9.overflow].join(' ')
   }, props.data.details)));
 }
 Panel.propTypes = {
@@ -4283,7 +4101,7 @@ function Carousel(props) {
     };
   }, [currentOnRender]);
   return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$8.wrapper
+    className: styles$c.wrapper
   }, /*#__PURE__*/React$1.createElement(Switcher, {
     openChild: currentOnRender
   }, props.data.map(function (panel, i) {
@@ -4337,13 +4155,13 @@ DynamicRoutes.propTypes = {
   componentProps: PropTypes.object
 };
 
-var css_248z$5 = "@import '../../../misc/theme/styles.module.css';\n\n.List-module_tableWrapper__191zi {\n    max-width: 100%;\n    height: fit-content;\n    overflow-x: hidden;\n    overflow-y: hidden;\n\n    display: grid;\n    align-content: flex-start;\n\n    gap: 4px;\n\n    padding-bottom: 64px;\n}\n\n.List-module_container__20irL {\n\n\n    display: grid;\n    gap: 8px;\n    max-height: 100%;\n    height: 100%;\n    overflow-y: auto;\n    overflow-x: hidden;\n    position: relative;\n\n    align-content: flex-start;\n}\n\n.List-module_divider__20Bn- {\n    height: 50%;\n    width: 1px;\n    background: var(--mfc-border-secondary);\n}";
-var styles$4 = {"tableWrapper":"List-module_tableWrapper__191zi","container":"List-module_container__20irL","divider":"List-module_divider__20Bn-"};
-styleInject(css_248z$5);
+var css_248z$9 = "@import '../../../misc/theme/styles.module.css';\n\n.List-module_tableWrapper__191zi {\n    max-width: 100%;\n    height: fit-content;\n    overflow-x: hidden;\n    overflow-y: hidden;\n\n    display: grid;\n    align-content: flex-start;\n\n    gap: 4px;\n\n    padding-bottom: 64px;\n}\n\n.List-module_container__20irL {\n\n\n    display: grid;\n    gap: 8px;\n    max-height: 100%;\n    height: 100%;\n    overflow-y: auto;\n    overflow-x: hidden;\n    position: relative;\n\n    align-content: flex-start;\n}\n\n.List-module_divider__20Bn- {\n    height: 50%;\n    width: 1px;\n    background: var(--mfc-border-secondary);\n}";
+var styles$8 = {"tableWrapper":"List-module_tableWrapper__191zi","container":"List-module_container__20irL","divider":"List-module_divider__20Bn-"};
+styleInject(css_248z$9);
 
-var css_248z$4 = ".Row-module_row__2HKgP {\r\n    display: flex;\r\n    align-items: center;\r\n    height: 60px;\r\n    width: 100%;\r\n    padding: 0;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px 0 0 5px;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n}\r\n\r\n\r\n.Row-module_cell__1glv0 {\r\n    background: var(--mfc-background-primary);\r\n    padding: 0 8px;\r\n    color: inherit;\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n    height: 100%;\r\n}\r\n\r\n\r\n.Row-module_overflow__3ktb- {\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n.Row-module_headerRow__zvgwa {\r\n    /*border: var(--mfc-border-primary) 1px solid;*/\r\n    position: sticky;\r\n    top: 0;\r\n    z-index: 50;\r\n\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    transition: 150ms linear;\r\n\r\n}\r\n\r\n.Row-module_scrolledHeader__2XQ70 {\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 1px 1px;\r\n}\r\n\r\n\r\n.Row-module_mainButton__26HDy {\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    border-left: none;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 0 5px 5px 0;\r\n    padding: 4px;\r\n    width: 30px;\r\n    height: 60px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.Row-module_divider__2xBdi {\r\n    height: 50%;\r\n    width: 1px;\r\n    background: var(--mfc-border-secondary);\r\n}";
-var styles$3 = {"row":"Row-module_row__2HKgP","cell":"Row-module_cell__1glv0","overflow":"Row-module_overflow__3ktb-","headerRow":"Row-module_headerRow__zvgwa","scrolledHeader":"Row-module_scrolledHeader__2XQ70","mainButton":"Row-module_mainButton__26HDy","divider":"Row-module_divider__2xBdi"};
-styleInject(css_248z$4);
+var css_248z$8 = ".Row-module_row__2HKgP {\r\n    display: flex;\r\n    align-items: center;\r\n    height: 60px;\r\n    width: 100%;\r\n    padding: 0;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px 0 0 5px;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n}\r\n\r\n\r\n.Row-module_cell__1glv0 {\r\n    background: var(--mfc-background-primary);\r\n    padding: 0 8px;\r\n    color: inherit;\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n    height: 100%;\r\n}\r\n\r\n\r\n.Row-module_overflow__3ktb- {\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n.Row-module_headerRow__zvgwa {\r\n    /*border: var(--mfc-border-primary) 1px solid;*/\r\n    position: sticky;\r\n    top: 0;\r\n    z-index: 50;\r\n\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    transition: 150ms linear;\r\n\r\n}\r\n\r\n.Row-module_scrolledHeader__2XQ70 {\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 1px 1px;\r\n}\r\n\r\n\r\n.Row-module_mainButton__26HDy {\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    border-left: none;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 0 5px 5px 0;\r\n    padding: 4px;\r\n    width: 30px;\r\n    height: 60px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.Row-module_divider__2xBdi {\r\n    height: 50%;\r\n    width: 1px;\r\n    background: var(--mfc-border-secondary);\r\n}";
+var styles$7 = {"row":"Row-module_row__2HKgP","cell":"Row-module_cell__1glv0","overflow":"Row-module_overflow__3ktb-","headerRow":"Row-module_headerRow__zvgwa","scrolledHeader":"Row-module_scrolledHeader__2XQ70","mainButton":"Row-module_mainButton__26HDy","divider":"Row-module_divider__2xBdi"};
+styleInject(css_248z$8);
 
 function HeaderCell(props) {
   var ref = useRef();
@@ -4354,11 +4172,11 @@ function HeaderCell(props) {
       setCurrentSort = _useState2[1];
 
   return /*#__PURE__*/React$1.createElement(Button, {
-    className: styles$3.cell,
+    className: styles$7.cell,
     variant: 'minimal-horizontal',
     styles: {
       width: "calc(".concat(1 / props.length * 100, "% + ").concat(props.additionalWidth, ")"),
-      color: props.value.type === 'object' ? 'var(--mfc-color-quinary)' : 'inherit',
+      color: props.value.type === 'object' ? 'var(--mfc-color-quinary)' : 'var(--mfc-color-secondary)',
       justifyContent: props.value.type !== 'object' ? 'space-between' : 'flex-start'
     },
     disabled: props.value.type === 'object',
@@ -4408,16 +4226,18 @@ function HeaderCell(props) {
       }
     },
     reference: ref
-  }, /*#__PURE__*/React$1.createElement(LinkRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-round",
     style: {
       display: props.value.type !== 'object' ? 'none' : undefined,
       fontSize: '1.1rem'
     }
-  }), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$3.overflow
+  }, "link"), /*#__PURE__*/React$1.createElement("div", {
+    className: styles$7.overflow
   }, props.value.label, /*#__PURE__*/React$1.createElement(ToolTip, {
     content: props.value.label.toUpperCase()
-  })), /*#__PURE__*/React$1.createElement(ArrowDownwardRounded, {
+  })), /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-round",
     style: {
       display: props.value.type === 'object' ? 'none' : undefined,
       transform: currentSort === 'desc' ? 'rotate(180deg)' : undefined,
@@ -4425,7 +4245,7 @@ function HeaderCell(props) {
       transition: '150ms linear',
       color: currentSort === undefined ? 'var(--mfc-color-quinary)' : 'inherit'
     }
-  }));
+  }, "arrow_downward"));
 }
 HeaderCell.propTypes = {
   hasOptions: PropTypes.bool,
@@ -4439,7 +4259,7 @@ HeaderCell.propTypes = {
 function Header(props) {
   var ref = useRef();
   return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$3.headerRow,
+    className: styles$7.headerRow,
     ref: ref
   }, props.keys.map(function (e, i) {
     return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
@@ -4455,22 +4275,23 @@ function Header(props) {
       style: {
         display: i === props.keys.length - 1 && !props.hasOptions ? 'none' : undefined
       },
-      className: styles$3.divider
+      className: styles$7.divider
     }));
   }), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$3.cell,
+    className: styles$7.cell,
     disabled: true,
     style: {
       display: props.hasOptions ? 'flex' : 'none',
       justifyContent: 'center',
       width: '30px'
     }
-  }, /*#__PURE__*/React$1.createElement(SettingsRounded, {
+  }, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-round",
     style: {
       fontSize: '1.1rem',
       color: 'var(--mfc-color-quinary)'
     }
-  })));
+  }, "settings")));
 }
 Header.propTypes = {
   keys: PropTypes.arrayOf(keyTemplate),
@@ -4484,18 +4305,15 @@ function ListHeader(props) {
       getType = _useHeader.getType,
       parseDate = _useHeader.parseDate,
       open = _useHeader.open,
-      setOpen = _useHeader.setOpen,
-      selectedField = _useHeader.selectedField,
-      setSelectedField = _useHeader.setSelectedField,
-      getField = _useHeader.getField;
+      setOpen = _useHeader.setOpen;
 
   return /*#__PURE__*/React$1.createElement("div", {
-    className: styles$n.wrapper,
+    className: styles$o.wrapper,
     style: {
       boxShadow: props.scrolled ? undefined : 'none'
     }
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$n.header,
+    className: styles$o.header,
     style: {
       marginBottom: props.hook.filters.length === 0 ? '8px' : undefined
     }
@@ -4507,39 +4325,48 @@ function ListHeader(props) {
     }
   }, /*#__PURE__*/React$1.createElement(Button, {
     variant: 'outlined',
-    className: styles$n.button,
+    className: styles$o.button,
+    styles: {
+      gap: '16px'
+    },
     onClick: function onClick() {
       return props.hook.clean();
     }
-  }, "Recarregar", /*#__PURE__*/React$1.createElement(RefreshRounded, {
+  }, "Recarregar", /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-round",
     style: {
       fontSize: '1.3rem'
     }
-  })), /*#__PURE__*/React$1.createElement(Button, {
+  }, "refresh")), /*#__PURE__*/React$1.createElement(Button, {
     variant: 'outlined',
-    className: styles$n.button,
+    styles: {
+      gap: '16px'
+    },
+    className: styles$o.button,
     onClick: function onClick() {
       return props.setOpenSettings(true);
     }
-  }, "Configura\xE7\xF5es", /*#__PURE__*/React$1.createElement(SettingsRounded, {
+  }, "Configura\xE7\xF5es", /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-round",
     style: {
       fontSize: '1.3rem'
     }
-  })), props.noFilters ? null : /*#__PURE__*/React$1.createElement(Dropdown, {
-    className: styles$n.button,
-    disabled: false,
-    variant: 'outlined',
-    label: /*#__PURE__*/React$1.createElement("div", {
-      className: styles$n.dropdownLabel
-    }, "Filtros", /*#__PURE__*/React$1.createElement(FilterListRounded, {
-      style: {
-        fontSize: '1.3rem'
-      }
-    })),
-    buttons: props.keys.map(function (e) {
-      return getField(e);
-    })
-  }), /*#__PURE__*/React$1.createElement(Button, {
+  }, "settings")), /*#__PURE__*/React$1.createElement(Button, {
+    styles: {
+      display: !props.noFilters ? undefined : 'none',
+      gap: '16px'
+    },
+    onClick: function onClick() {
+      return setOpen(true);
+    },
+    variant: "outlined",
+    className: styles$o.button
+  }, "Filtros", /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-round",
+    style: {
+      fontSize: '1.3rem'
+    }
+  }, "filter_list")), /*#__PURE__*/React$1.createElement(Button, {
     styles: {
       display: props.createOption ? undefined : 'none',
       color: 'white'
@@ -4548,8 +4375,13 @@ function ListHeader(props) {
       return props.onCreate();
     },
     variant: "filled",
-    className: styles$n.button
-  }, /*#__PURE__*/React$1.createElement(AddRounded, null)))), props.noFilters ? null : /*#__PURE__*/React$1.createElement("div", {
+    className: styles$o.button
+  }, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-round",
+    style: {
+      fontSize: '1.3rem'
+    }
+  }, "add")))), props.noFilters ? null : /*#__PURE__*/React$1.createElement("div", {
     style: {
       padding: '8px'
     }
@@ -4560,9 +4392,7 @@ function ListHeader(props) {
     getType: getType,
     open: open,
     setOpen: setOpen,
-    parseDate: parseDate,
-    selectedField: selectedField,
-    setSelectedField: setSelectedField
+    parseDate: parseDate
   })), /*#__PURE__*/React$1.createElement(Header, {
     keys: props.keys.filter(function (e) {
       return e.visible === true;
@@ -4649,38 +4479,41 @@ function useList(initialKeys) {
   };
 }
 
-var css_248z$3 = "@import '../../../misc/theme/styles.module.css';\n\n.Settings-module_modal__37ZQb {\n    overflow: hidden;\n    background-color: var(--mfc-background-primary);\n\n    border-radius: 5px 0 5px 0;\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 25%;\n    height: 100%;\n    padding: 16px;\n    box-shadow: var(--mfc-box-shadow-primary) -1px 0 3px 1px;\n}\n\n.Settings-module_contentWrapper__2PqW1 {\n    display: grid;\n    gap: 8px;\n\n    margin-top: 16px;\n\n    align-content: flex-start;\n    height: 100%;\n\n    width: 100%;\n}\n\n.Settings-module_content__2xUqh {\n    display: grid;\n    gap: 8px;\n    height: 100%;\n    background: var(--mfc-background-secondary);\n    border-radius: 5px;\n    padding: 8px;\n    overflow-y: auto;\n\n    border: var(--mfc-border-primary) 1px solid;\n}\n\n.Settings-module_fieldRow__35E7r {\n\n    height: 60px;\n    position: relative;\n    z-index: 999;\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    padding: 8px;\n\n    display: flex;\n    gap: 16px;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    /*height: auto;*/\n\n    user-select: none;\n}\n\n.Settings-module_fieldRow__35E7r:hover {\n    border-color: #0095ff;\n}\n\n.Settings-module_fieldLabel__VuNf- {\n\n\n    text-transform: capitalize;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    font-weight: 600;\n    color: var(--mfc-color-tertiary);\n    font-size: .9rem;\n\n}\n\n.Settings-module_visibilityButton__2k5Pv {\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n}\n\n\n.Settings-module_header__ToHmR {\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n}";
-var styles$2 = {"modal":"Settings-module_modal__37ZQb","contentWrapper":"Settings-module_contentWrapper__2PqW1","content":"Settings-module_content__2xUqh","fieldRow":"Settings-module_fieldRow__35E7r","fieldLabel":"Settings-module_fieldLabel__VuNf-","visibilityButton":"Settings-module_visibilityButton__2k5Pv","header":"Settings-module_header__ToHmR"};
-styleInject(css_248z$3);
+var css_248z$7 = "@import '../../../misc/theme/styles.module.css';\n\n.Settings-module_modal__37ZQb {\n    overflow: hidden;\n    background-color: var(--mfc-background-primary);\n\n    border-radius: 5px 0 5px 0;\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 25%;\n    height: 100%;\n    padding: 16px;\n    box-shadow: var(--mfc-box-shadow-primary) -1px 0 3px 1px;\n}\n\n.Settings-module_contentWrapper__2PqW1 {\n    display: grid;\n    gap: 8px;\n\n    margin-top: 16px;\n\n    align-content: flex-start;\n    height: 100%;\n\n    width: 100%;\n}\n\n.Settings-module_content__2xUqh {\n    display: grid;\n    gap: 8px;\n    height: 100%;\n    background: var(--mfc-background-secondary);\n    border-radius: 5px;\n    padding: 8px;\n    overflow-y: auto;\n\n    border: var(--mfc-border-primary) 1px solid;\n}\n\n.Settings-module_fieldRow__35E7r {\n\n    height: 60px;\n    position: relative;\n    z-index: 999;\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    padding: 8px;\n\n    display: flex;\n    gap: 16px;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    /*height: auto;*/\n\n    user-select: none;\n}\n\n.Settings-module_fieldRow__35E7r:hover {\n    border-color: #0095ff;\n}\n\n.Settings-module_fieldLabel__VuNf- {\n\n\n    text-transform: capitalize;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    font-weight: 600;\n    color: var(--mfc-color-tertiary);\n    font-size: .9rem;\n\n}\n\n.Settings-module_visibilityButton__2k5Pv {\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n}\n\n\n.Settings-module_header__ToHmR {\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n}\n\n.Settings-module_range__pOYnk{\n    /*max-width: */\n}";
+var styles$6 = {"modal":"Settings-module_modal__37ZQb","contentWrapper":"Settings-module_contentWrapper__2PqW1","content":"Settings-module_content__2xUqh","fieldRow":"Settings-module_fieldRow__35E7r","fieldLabel":"Settings-module_fieldLabel__VuNf-","visibilityButton":"Settings-module_visibilityButton__2k5Pv","header":"Settings-module_header__ToHmR","range":"Settings-module_range__pOYnk"};
+styleInject(css_248z$7);
 
 function Settings(props) {
   var getField = function getField(field, index) {
     return /*#__PURE__*/React$1.createElement("div", {
       className: shared$2.wrapper
     }, /*#__PURE__*/React$1.createElement("div", {
-      className: styles$2.fieldRow
+      className: styles$6.fieldRow
     }, /*#__PURE__*/React$1.createElement("div", {
-      className: styles$2.fieldLabel
-    }, field.label), /*#__PURE__*/React$1.createElement(TextField, {
-      width: '100%',
-      size: 'small',
-      value: field.additionalWidth ? parseInt(field.additionalWidth.replace('%', '')) : '',
-      maskEnd: '%',
-      label: 'Largura adicional',
-      placeholder: 'Largura adicional',
-      type: "number",
+      className: styles$6.fieldLabel
+    }, field.label), /*#__PURE__*/React$1.createElement("input", {
       disabled: !field.visible,
-      handleChange: function handleChange(event) {
+      type: 'range',
+      max: 100,
+      min: 0,
+      onChange: function onChange(event) {
+        console.log({
+          key: field.key,
+          size: event.target.value + '%'
+        });
         props.dispatchKeys({
           type: props.actions.UPDATE_SIZE,
           payload: {
             key: field.key,
-            size: event.target.value + '%'
+            size: event.target.value + '%',
+            subfieldKey: field.subfieldKey
           }
         });
-      }
+      },
+      className: styles$6.range,
+      value: field.additionalWidth ? parseInt(field.additionalWidth.replace('%', '')) : '0'
     }), /*#__PURE__*/React$1.createElement(Button, {
-      className: styles$2.visibilityButton,
+      className: styles$6.visibilityButton,
       color: field.visible ? 'secondary' : undefined,
       onClick: function onClick() {
         console.log({
@@ -4694,7 +4527,11 @@ function Settings(props) {
           payload: field
         });
       }
-    }, field.visible ? /*#__PURE__*/React$1.createElement(VisibilityRounded, null) : /*#__PURE__*/React$1.createElement(VisibilityOffRounded, null), /*#__PURE__*/React$1.createElement(ToolTip, null, field.visible ? 'Esconder' : 'Mostrar'))));
+    }, field.visible ? /*#__PURE__*/React$1.createElement("span", {
+      className: "material-icons-round"
+    }, "visibility") : /*#__PURE__*/React$1.createElement("span", {
+      className: "material-icons-round"
+    }, "visibility_off"), /*#__PURE__*/React$1.createElement(ToolTip, null, field.visible ? 'Esconder' : 'Mostrar'))));
   };
 
   var fields = useMemo(function () {
@@ -4714,21 +4551,21 @@ function Settings(props) {
     },
     animationStyle: "slide-right",
     blurIntensity: 0,
-    className: styles$2.modal
+    className: styles$6.modal
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$2.header
+    className: styles$6.header
   }, "Configura\xE7\xF5es"), /*#__PURE__*/React$1.createElement(Tabs, {
-    className: styles$2.contentWrapper
+    className: styles$6.contentWrapper
   }, /*#__PURE__*/React$1.createElement(Tab, {
     label: 'Todos',
-    className: styles$2.content
+    className: styles$6.content
   }, props.keys.map(function (e, i) {
     return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
       key: i + '-row-' + JSON.stringify(e.label)
     }, getField(e));
   })), /*#__PURE__*/React$1.createElement(Tab, {
     label: 'Visíveis',
-    className: styles$2.content
+    className: styles$6.content
   }, fields.visible.length > 0 ? fields.visible.map(function (e, i) {
     return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
       key: i + '-row-' + JSON.stringify(e.label)
@@ -4737,7 +4574,7 @@ function Settings(props) {
     customLabel: 'Todos os campos estão escondidos'
   })), /*#__PURE__*/React$1.createElement(Tab, {
     label: 'Escondidos',
-    className: styles$2.content
+    className: styles$6.content
   }, fields.hidden.length > 0 ? fields.hidden.map(function (e, i) {
     return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
       key: i + '-row-' + JSON.stringify(e.label)
@@ -4754,6 +4591,70 @@ Settings.propTypes = {
   actions: PropTypes.object
 };
 
+var css_248z$6 = "@import '../../../misc/theme/styles.module.css';\n\n.Dropdown-module_wrapper__3QXzm {\n    position: relative;\n\n}\n\n.Dropdown-module_buttons__2J8JD {\n    width: 200px;\n    border-radius: 5px;\n    background: var(--mfc-background-primary);\n    height: auto;\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 2px 1px;\n\n    overflow-y: auto;\n    max-height: clamp(250px, 10vh, 300px);\n\n    display: grid;\n    transition: 150ms ease;\n}\n\n\n.Dropdown-module_button__3lkck {\n\n\n    overflow: hidden;\n    outline: none;\n    border: none;\n    padding: 12px 0 12px 8px;\n    text-align: left;\n    background: transparent;\n\n    transition: 150ms linear;\n    cursor: pointer;\n\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.Dropdown-module_buttonLabel__2HvoU {\n    display: flex;\n    padding: 0 10px;\n    justify-content: flex-end;\n    width: 100%;\n}\n";
+var styles$5 = {"wrapper":"Dropdown-module_wrapper__3QXzm","buttons":"Dropdown-module_buttons__2J8JD","button":"Dropdown-module_button__3lkck","buttonLabel":"Dropdown-module_buttonLabel__2HvoU"};
+styleInject(css_248z$6);
+
+function Dropdown(props) {
+  var _props$buttons;
+
+  var _useState = useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      open = _useState2[0],
+      setOpen = _useState2[1];
+
+  return /*#__PURE__*/React$1.createElement("div", {
+    className: styles$5.wrapper
+  }, /*#__PURE__*/React$1.createElement(Button, {
+    highlight: open,
+    variant: props.variant,
+    onClick: function onClick() {
+      return setOpen(true);
+    },
+    disabled: props.disabled,
+    className: props.className
+  }, props.label), /*#__PURE__*/React$1.createElement(Modal, {
+    variant: "fit",
+    styles: {
+      transform: props.align === 'top' ? 'translateY(-100%)' : 'translateY(100%)'
+    },
+    blurIntensity: 0,
+    className: styles$5.buttons,
+    animationStyle: 'fade',
+    open: open,
+    handleClose: function handleClose() {
+      return setOpen(false);
+    }
+  }, (_props$buttons = props.buttons) === null || _props$buttons === void 0 ? void 0 : _props$buttons.map(function (b, i) {
+    return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
+      key: 'dropdown-' + i
+    }, /*#__PURE__*/React$1.createElement(Button, {
+      disabled: b.disabled,
+      onClick: function onClick() {
+        b.onClick(props.onClickProps);
+        setOpen(false);
+      },
+      className: styles$5.button
+    }, b.icon, /*#__PURE__*/React$1.createElement("div", {
+      className: styles$5.buttonLabel
+    }, b.label)));
+  })));
+}
+Dropdown.propTypes = {
+  variant: PropTypes.oneOf(['minimal', 'filled', 'outlined', 'minimal-horizontal']),
+  className: PropTypes.string,
+  onClickProps: PropTypes.any,
+  label: PropTypes.any,
+  disabled: PropTypes.bool,
+  buttons: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.any,
+    icon: PropTypes.object,
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool
+  })),
+  align: PropTypes.oneOf(['top', 'bottom'])
+};
+
 function Row(props) {
   return /*#__PURE__*/React$1.createElement("div", {
     style: {
@@ -4763,7 +4664,7 @@ function Row(props) {
     },
     ref: props.reference
   }, /*#__PURE__*/React$1.createElement(Button, {
-    className: styles$3.row,
+    className: styles$7.row,
     variant: 'minimal-horizontal',
     onClick: function onClick() {
       return props.onClick();
@@ -4776,22 +4677,22 @@ function Row(props) {
         display: i === 0 ? 'none' : undefined,
         height: '40%'
       },
-      className: styles$3.divider
+      className: styles$7.divider
     }), /*#__PURE__*/React$1.createElement("div", {
-      className: styles$3.cell,
+      className: styles$7.cell,
       style: {
         maxWidth: "calc(".concat(1 / props.keys.length * 100, "% + ").concat(e.additionalWidth ? e.additionalWidth : '0px', ")"),
         width: "calc(".concat(1 / props.keys.length * 100, "% + ").concat(e.additionalWidth ? e.additionalWidth : '0px', ")"),
         overflow: 'hidden'
       }
     }, /*#__PURE__*/React$1.createElement("div", {
-      className: styles$3.overflow
+      className: styles$7.overflow
     }, /*#__PURE__*/React$1.createElement(RowCell, {
       data: props.entry,
       field: e
     }))));
   })), props.controlButtons ? /*#__PURE__*/React$1.createElement("div", {
-    className: styles$3.cell,
+    className: styles$7.cell,
     style: {
       width: '30px',
       alignItems: 'unset',
@@ -4799,9 +4700,11 @@ function Row(props) {
       padding: 0
     }
   }, /*#__PURE__*/React$1.createElement(Dropdown, {
-    className: styles$3.mainButton,
+    className: styles$7.mainButton,
     variant: 'minimal-horizontal',
-    label: /*#__PURE__*/React$1.createElement(ArrowDropDownRounded, null),
+    label: /*#__PURE__*/React$1.createElement("span", {
+      className: "material-icons-round"
+    }, "arrow_drop_down"),
     buttons: props.controlButtons,
     onClickProps: props.entry
   })) : null);
@@ -4835,7 +4738,7 @@ function List(props) {
     onScroll: function onScroll(event) {
       if (event.target.scrollTop > 0) setScrolled(true);else setScrolled(false);
     },
-    className: styles$4.container
+    className: styles$8.container
   }, /*#__PURE__*/React$1.createElement(Settings, {
     open: openSettings,
     keys: keys,
@@ -4855,7 +4758,7 @@ function List(props) {
     dispatch: keysDispatcher,
     setOpenSettings: setOpenSettings
   }), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$4.tableWrapper
+    className: styles$8.tableWrapper
   }, props.hook.data.length === 0 ? /*#__PURE__*/React$1.createElement(Empty, null) : null, props.hook.data.map(function (e, index) {
     return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
       key: e.id + '-list-row'
@@ -4995,9 +4898,9 @@ var Bar = /*#__PURE__*/function () {
   return Bar;
 }();
 
-var css_248z$2 = "@import '../../../misc/theme/styles.module.css';\r\n@import url('http://fonts.cdnfonts.com/css/roboto');\r\n\r\n.Charts-module_wrapper__2bzGf {\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    border-radius: 5px;\r\n    padding: 4px;\r\n    width: fit-content;\r\n    height: fit-content;\r\n    display: grid;\r\n    gap: 8px;\r\n}\r\n\r\n.Charts-module_title__19E6C {\r\n    font-size: 1.1rem;\r\n    color: var(--mfc-color-primary);\r\n    text-align: left;\r\n    font-weight: 600;\r\n    margin: unset;\r\n    padding: 0;\r\n}\r\n\r\n";
+var css_248z$5 = "@import '../../../misc/theme/styles.module.css';\r\n@import url('http://fonts.cdnfonts.com/css/roboto');\r\n\r\n.Charts-module_wrapper__2bzGf {\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    border-radius: 5px;\r\n    padding: 4px;\r\n    width: fit-content;\r\n    height: fit-content;\r\n    display: grid;\r\n    gap: 8px;\r\n}\r\n\r\n.Charts-module_title__19E6C {\r\n    font-size: 1.1rem;\r\n    color: var(--mfc-color-primary);\r\n    text-align: left;\r\n    font-weight: 600;\r\n    margin: unset;\r\n    padding: 0;\r\n}\r\n\r\n";
 var shared = {"wrapper":"Charts-module_wrapper__2bzGf","title":"Charts-module_title__19E6C"};
-styleInject(css_248z$2);
+styleInject(css_248z$5);
 
 function HorizontalChart(props) {
   var drawBar = function drawBar(_ref) {
@@ -5340,28 +5243,28 @@ VerticalChart.propTypes = {
   color: PropTypes.string
 };
 
-var css_248z$1 = ".Feed-module_wrapper__Xvrje{\r\n    padding: 16px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-flow: wrap;\r\n    gap: 16px;\r\n}\r\n.Feed-module_title__1yn-F{\r\n    font-size: 1.2rem;\r\n    color: var(--mfc-color-secondary);\r\n    font-weight: 600;\r\n\r\n    display: flex;\r\n    gap: 8px;\r\n    align-items: center;\r\n    padding: 16px;\r\n    white-space: nowrap;\r\n}\r\n\r\n.Feed-module_titleDivider__3dtLy{\r\n    height: 1px;\r\n    width: 100%;\r\n    background: var(--mfc-border-secondary);\r\n}";
-var styles$1 = {"wrapper":"Feed-module_wrapper__Xvrje","title":"Feed-module_title__1yn-F","titleDivider":"Feed-module_titleDivider__3dtLy"};
-styleInject(css_248z$1);
+var css_248z$4 = ".Feed-module_wrapper__Xvrje{\r\n    padding: 16px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-flow: wrap;\r\n    gap: 16px;\r\n}\r\n.Feed-module_title__1yn-F{\r\n    font-size: 1.2rem;\r\n    color: var(--mfc-color-secondary);\r\n    font-weight: 600;\r\n\r\n    display: flex;\r\n    gap: 8px;\r\n    align-items: center;\r\n    padding: 16px;\r\n    white-space: nowrap;\r\n}\r\n\r\n.Feed-module_titleDivider__3dtLy{\r\n    height: 1px;\r\n    width: 100%;\r\n    background: var(--mfc-border-secondary);\r\n}";
+var styles$4 = {"wrapper":"Feed-module_wrapper__Xvrje","title":"Feed-module_title__1yn-F","titleDivider":"Feed-module_titleDivider__3dtLy"};
+styleInject(css_248z$4);
 
-var css_248z = ".Card-module_cardWrapper__JQNtF {\r\n    width: calc(16.666% - 13.4px);\r\n    height: 25vh;\r\n    overflow: hidden;\r\n    border-radius: 8px;\r\n\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    cursor: pointer;\r\n\r\n    transition: 150ms linear;\r\n\r\n    user-select: none;\r\n}\r\n.Card-module_cardWrapper__JQNtF:active{\r\n    transform: scale(.98);\r\n}\r\n.Card-module_cardImage__3fNss {\r\n    height: 75%;\r\n    overflow: hidden;\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Card-module_cardContent__1DzmO {\r\n    transition: 150ms linear;\r\n    padding: 8px;\r\n\r\n    display: grid;\r\n    gap: 4px;\r\n    align-items: flex-start;\r\n    align-content: flex-start;\r\n}\r\n\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_cardImage__3fNss {\r\n    height: 25%;\r\n}\r\n\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_cardContent__1DzmO {\r\n    height: 75%;\r\n}\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_description__3PC9l {\r\n    white-space: normal;\r\n}\r\n.Card-module_header__2vgzP {\r\n    font-size: 1.1rem;\r\n    font-weight: 600;\r\n    color: var(--mfc-color-secondary);\r\n}\r\n\r\n.Card-module_description__3PC9l {\r\n    font-size: .8rem;\r\n    font-weight: normal;\r\n    color: var(--mfc-color-tertiary);\r\n\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}";
-var styles = {"cardWrapper":"Card-module_cardWrapper__JQNtF","cardImage":"Card-module_cardImage__3fNss","cardContent":"Card-module_cardContent__1DzmO","description":"Card-module_description__3PC9l","header":"Card-module_header__2vgzP"};
-styleInject(css_248z);
+var css_248z$3 = ".Card-module_cardWrapper__JQNtF {\r\n    width: calc(16.666% - 13.4px);\r\n    height: 25vh;\r\n    overflow: hidden;\r\n    border-radius: 8px;\r\n\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    cursor: pointer;\r\n\r\n    transition: 150ms linear;\r\n\r\n    user-select: none;\r\n}\r\n.Card-module_cardWrapper__JQNtF:active{\r\n    transform: scale(.98);\r\n}\r\n.Card-module_cardImage__3fNss {\r\n    height: 75%;\r\n    overflow: hidden;\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Card-module_cardContent__1DzmO {\r\n    transition: 150ms linear;\r\n    padding: 8px;\r\n\r\n    display: grid;\r\n    gap: 4px;\r\n    align-items: flex-start;\r\n    align-content: flex-start;\r\n}\r\n\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_cardImage__3fNss {\r\n    height: 25%;\r\n}\r\n\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_cardContent__1DzmO {\r\n    height: 75%;\r\n}\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_description__3PC9l {\r\n    white-space: normal;\r\n}\r\n.Card-module_header__2vgzP {\r\n    font-size: 1.1rem;\r\n    font-weight: 600;\r\n    color: var(--mfc-color-secondary);\r\n}\r\n\r\n.Card-module_description__3PC9l {\r\n    font-size: .8rem;\r\n    font-weight: normal;\r\n    color: var(--mfc-color-tertiary);\r\n\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}";
+var styles$3 = {"cardWrapper":"Card-module_cardWrapper__JQNtF","cardImage":"Card-module_cardImage__3fNss","cardContent":"Card-module_cardContent__1DzmO","description":"Card-module_description__3PC9l","header":"Card-module_header__2vgzP"};
+styleInject(css_248z$3);
 
 function FeedCard(props) {
   return /*#__PURE__*/React$1.createElement("div", {
-    className: styles.cardWrapper
+    className: styles$3.cardWrapper
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles.cardImage
+    className: styles$3.cardImage
   }, /*#__PURE__*/React$1.createElement("img", {
     src: props.image,
     alt: props.title
   })), /*#__PURE__*/React$1.createElement("div", {
-    className: styles.cardContent
+    className: styles$3.cardContent
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles.header
+    className: styles$3.header
   }, props.title), /*#__PURE__*/React$1.createElement("div", {
-    className: styles.description
+    className: styles$3.description
   }, props.description)));
 }
 FeedCard.propTypes = {
@@ -5378,11 +5281,11 @@ function Feed(props) {
       width: props.width
     }
   }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$1.title
+    className: styles$4.title
   }, props.title, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$1.titleDivider
+    className: styles$4.titleDivider
   })), /*#__PURE__*/React$1.createElement("div", {
-    className: styles$1.wrapper
+    className: styles$4.wrapper
   }, props.data.filter(function (_, i) {
     return i % 2;
   }).map(function (entry, i) {
@@ -5408,4 +5311,431 @@ Feed.propTypes = {
   width: PropTypes.string
 };
 
-export { Alert, Breadcrumbs, Button, Carousel, Checkbox, CheckboxGroup, DateField, DropDownField, DynamicRoutes, Feed, FeedCard, FileField, Filter, Form, FormRow, HorizontalChart, Layout, LineChart, List, Modal, MultiSelectField, PieChart, Ripple, Selector, SideBar, Switcher, Tab, Tabs, TextField, ThemeContext, ThemeProvider, ToolTip, VerticalChart, VerticalTabs, Request as request, useInfiniteScroll, useQuery };
+var css_248z$2 = "/*HEADER*/\r\n.Article-module_headers__VgW0I {\r\n    display: grid;\r\n    align-items: flex-start;\r\n    text-align: left;\r\n\r\n}\r\n\r\n.Article-module_header__1uZNZ[ data-variant = 'primary'] {\r\n    font-size: 1.3rem;\r\n    color: var(--mfc-color-secondary);\r\n    font-weight: 600;\r\n\r\n    font-family: 'Roboto';\r\n\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.Article-module_header__1uZNZ[ data-variant = 'secondary'] {\r\n    font-size: .95rem;\r\n    color: var(--mfc-color-tertiary);\r\n    font-weight: 600;\r\n\r\n    font-family: 'Roboto';\r\n\r\n    margin: 0;\r\n}\r\n\r\n.Article-module_header__1uZNZ[ data-variant = 'tertiary'] {\r\n    font-size: .75rem;\r\n    color: var(--mfc-color-quaternary);\r\n    font-weight: 600;\r\n\r\n    font-family: 'Roboto';\r\n\r\n    margin: 0;\r\n}\r\n\r\n\r\n/*BODY*/\r\n.Article-module_body__3fgRT {\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    border-radius: 5px;\r\n    padding: 8px;\r\n    display: grid;\r\n    align-items: flex-start;\r\n    gap: 12px;\r\n    background: var(--mfc-background-primary);\r\n    text-align: left;\r\n    font-size: .9rem;\r\n    color: var(--mfc-color-tertiary);\r\n}\r\n\r\n\r\n\r\n.Article-module_baseText__2TAlu {\r\n    margin: 0;\r\n    font-size: 1rem;\r\n}\r\n\r\n\r\n/*MISC*/\r\n.Article-module_block__2rf8r {\r\n    display: grid;\r\n    gap: 12px;\r\n}\r\n\r\n.Article-module_link__2f9QC {\r\n    transition: 150ms linear;\r\n    width: fit-content;\r\n    text-decoration: none;\r\n    color: #0095ff;\r\n    font-weight: bold;\r\n}\r\n\r\n.Article-module_link__2f9QC:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n.Article-module_link__2f9QC:active {\r\n    color: var(--mfc-color-quaternary);\r\n    text-decoration: none;\r\n}\r\n\r\n.Article-module_footer__1yhY4 {\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    border-radius: 5px;\r\n    padding: 16px;\r\n\r\n    display: flex;\r\n    text-align: left;\r\n    font-size: .9rem;\r\n    color: var(--mfc-color-tertiary);\r\n}\r\n\r\n.Article-module_wrapper__3Ek7A {\r\n    width: 100%;\r\n    display: grid;\r\n    gap: 32px;\r\nheight: fit-content;\r\n\r\n    padding-bottom: 25%;\r\n}\r\n\r\n.Article-module_container__3Zz32 {\r\n    padding: 8px 0;\r\n    display: flex;\r\n    scroll-behavior: smooth;\r\n    max-height: 100%;\r\n    overflow-y: auto;\r\n    gap: 32px;\r\n\r\n\r\n}\r\n.Article-module_nativeCode__2wLu7{\r\n    gap: 8px;\r\n    width: 100%;\r\n    padding: 8px;\r\n    border-radius: 5px;\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n}\r\n\r\n\r\n.Article-module_preFormattedText__3jcDF {\r\n\r\n    margin: 16px 0 0;\r\n    justify-self: stretch;\r\n\r\n    background: var(--mfc-background-secondary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    color: var(--mfc-color-primary);\r\n    border-radius: 5px;\r\n    padding: 16px 24px;\r\n    text-align: left;\r\n}\r\n";
+var styles$2 = {"headers":"Article-module_headers__VgW0I","header":"Article-module_header__1uZNZ","body":"Article-module_body__3fgRT","baseText":"Article-module_baseText__2TAlu","block":"Article-module_block__2rf8r","link":"Article-module_link__2f9QC","footer":"Article-module_footer__1yhY4","wrapper":"Article-module_wrapper__3Ek7A","container":"Article-module_container__3Zz32","nativeCode":"Article-module_nativeCode__2wLu7","preFormattedText":"Article-module_preFormattedText__3jcDF"};
+styleInject(css_248z$2);
+
+var css_248z$1 = ".Block-module_code__HODBm {\r\n    /*font-family: \"Roboto\" !important;*/\r\n    /*font-size: .85rem;*/\r\n\r\n    white-space: pre-wrap;\r\n    word-wrap: break-word;\r\n    tab-size: 16;\r\n}\r\n\r\n.Block-module_button__1vdzp {\r\n    position: absolute !important;\r\n    top: 0;\r\n    left: 0;\r\n    --transform: translate(-50%, -50%);\r\n\r\n    padding: 8px;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    /*background: var(--mfc-background-primary) !important;*/\r\n}\r\n\r\n\r\n.Block-module_wrapper__1eIkX {\r\n    padding: 8px;\r\n    background: var(--mfc-background-secondary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    max-height: 100%;\r\n    overflow: auto;\r\n\r\n    border-radius: 5px;\r\n\r\n    max-width: 100%;\r\n    margin: 16px auto;\r\n    position: relative;\r\n\r\n    display: grid;\r\n    gap: 0;\r\n}\r\n";
+var styles$1 = {"code":"Block-module_code__HODBm","button":"Block-module_button__1vdzp","wrapper":"Block-module_wrapper__1eIkX"};
+styleInject(css_248z$1);
+
+function copyToClipboard(element) {
+  element.select();
+  element.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(element.value);
+}
+
+function Wrapper(props) {
+  return /*#__PURE__*/React$1.createElement("div", {
+    className: styles$1.wrapper,
+    style: {
+      width: props.width
+    },
+    "data-float": props["float"] ? props["float"] : 'none'
+  }, !props.noCopy ? null : /*#__PURE__*/React$1.createElement(Button, {
+    variant: "filled",
+    onClick: function onClick() {
+      copyToClipboard(props.contentRef);
+    },
+    className: styles$1.button
+  }, /*#__PURE__*/React$1.createElement("span", {
+    className: "material-icons-round",
+    style: {
+      fontSize: '1.2rem'
+    }
+  }, "content_copy")), props.children);
+}
+Wrapper.propTypes = {
+  width: PropTypes.string,
+  "float": PropTypes.oneOf(['right', 'left', 'stretch']),
+  children: PropTypes.node,
+  contentRef: PropTypes.object,
+  noCopy: PropTypes.bool
+};
+
+function TypeTag(props) {
+  var ref = useRef();
+  var content = useMemo(function () {
+    switch (props.type) {
+      case 'pre-formatted':
+        return /*#__PURE__*/React$1.createElement("pre", {
+          ref: ref,
+          className: styles$2.preFormattedText
+        }, props.content);
+
+      case 'native-code':
+        return /*#__PURE__*/React$1.createElement("div", {
+          className: styles$2.nativeCode
+        }, props.content);
+
+      case 'image':
+        return /*#__PURE__*/React$1.createElement("img", {
+          src: props.content,
+          alt: 'image-' + props.index,
+          className: styles$2.image,
+          "data-float": props["float"]
+        });
+
+      default:
+        if (props.linkTo) return /*#__PURE__*/React$1.createElement("a", {
+          className: styles$2.link,
+          href: props.linkTo
+        }, props.content);else return /*#__PURE__*/React$1.createElement("p", {
+          className: styles$2.baseText,
+          dangerouslySetInnerHTML: {
+            __html: props.content
+          },
+          "data-float": props["float"]
+        });
+    }
+  }, [props.content]);
+  return content;
+}
+TypeTag.propTypes = {
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  type: PropTypes.oneOf(['native-code', 'pre-formatted', 'text', 'image']),
+  index: PropTypes.number,
+  "float": PropTypes.oneOf(['right', 'left', 'stretch']),
+  linkTo: PropTypes.string,
+  noCopy: PropTypes.bool
+};
+
+var css_248z = ".Navigation-module_wrapper__fZnqT{\r\n    width: 20%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 4px;\r\n\r\n    position: sticky;\r\n    top: 0;\r\n}\r\n\r\n.Navigation-module_button__11JVb{\r\n    font-weight: 600;\r\n    text-align: left;\r\n    background: var(--mfc-background-primary);\r\n}";
+var styles = {"wrapper":"Navigation-module_wrapper__fZnqT","button":"Navigation-module_button__11JVb"};
+styleInject(css_248z);
+
+function ArticleNavigation(props) {
+  return /*#__PURE__*/React$1.createElement("div", {
+    className: styles.wrapper
+  }, props.headers.map(function (e, i) {
+    return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
+      key: i + '-headers'
+    }, /*#__PURE__*/React$1.createElement(Button, {
+      variant: 'minimal-horizontal',
+      className: styles.button,
+      highlight: props.onHeader === i,
+      onClick: function onClick() {
+        var element = document.getElementById(e.id);
+
+        if (element) {
+          var target = element.parentNode;
+          props.scrollTo(target.offsetTop);
+        }
+      }
+    }, e.content));
+  }));
+}
+ArticleNavigation.propTypes = {
+  setOnHeader: PropTypes.func,
+  onHeader: PropTypes.number,
+  scrollTo: PropTypes.func,
+  headers: PropTypes.arrayOf(PropTypes.shape({
+    content: PropTypes.string,
+    type: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+    linkTo: PropTypes.string,
+    id: PropTypes.string
+  }))
+};
+
+function Article(props) {
+  var ref = useRef();
+  var headers = useMemo(function () {
+    var h = [];
+    props.data.forEach(function (e, eI) {
+      var _e$headers;
+
+      return (_e$headers = e.headers) === null || _e$headers === void 0 ? void 0 : _e$headers.forEach(function (l, i) {
+        if (l.type === 'primary') h.push(_objectSpread2(_objectSpread2({}, l), {}, {
+          id: 'header-' + eI
+        }));
+      });
+    });
+    return h;
+  }, [props.data]);
+  var intersectionObs = useRef();
+
+  var _useState = useState(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      onHeader = _useState2[0],
+      setOnHeader = _useState2[1];
+
+  var handleIntersection = function handleIntersection(event) {
+    var inter = event.filter(function (e) {
+      return e.isIntersecting;
+    });
+
+    if (inter && inter.length > 0) {
+      var i = parseInt(inter[0].target.id.split('-')[1]);
+      setOnHeader(i);
+    }
+  };
+
+  useEffect(function () {
+    intersectionObs.current = new IntersectionObserver(handleIntersection, {
+      root: ref.current,
+      rootMargin: "0px 0px -50% 0px"
+    });
+    headers.forEach(function (e) {
+      var _intersectionObs$curr;
+
+      var element = document.getElementById(e.id);
+      (_intersectionObs$curr = intersectionObs.current) === null || _intersectionObs$curr === void 0 ? void 0 : _intersectionObs$curr.observe(element);
+    });
+    return function () {
+      headers.forEach(function (e) {
+        var _intersectionObs$curr2;
+
+        var element = document.getElementById(e.id);
+        if (element !== null) (_intersectionObs$curr2 = intersectionObs.current) === null || _intersectionObs$curr2 === void 0 ? void 0 : _intersectionObs$curr2.unobserve(element);
+      });
+    };
+  }, []);
+  return /*#__PURE__*/React$1.createElement("div", {
+    className: styles$2.container,
+    ref: ref
+  }, /*#__PURE__*/React$1.createElement("article", {
+    className: [props.className, styles$2.wrapper].join(' '),
+    style: props.styles
+  }, props.data.map(function (data, index) {
+    var _data$headers, _data$body;
+
+    return /*#__PURE__*/React$1.createElement("section", {
+      className: styles$2.block,
+      key: "".concat(index, "-data_object"),
+      style: {
+        position: 'relative'
+      }
+    }, /*#__PURE__*/React$1.createElement("div", {
+      id: 'header-' + index,
+      style: {
+        height: '10px',
+        position: 'absolute',
+        top: '0'
+      }
+    }), /*#__PURE__*/React$1.createElement("header", {
+      className: styles$2.headers
+    }, (_data$headers = data.headers) === null || _data$headers === void 0 ? void 0 : _data$headers.map(function (header, hIndex) {
+      return /*#__PURE__*/React$1.createElement("h1", {
+        key: "".concat(index, "-data_object-").concat(hIndex, "-header"),
+        className: styles$2.header,
+        "data-variant": header.type
+      }, header.linkTo ? /*#__PURE__*/React$1.createElement("a", {
+        className: styles$2.link,
+        href: header.linkTo
+      }, header.content) : header.content);
+    })), /*#__PURE__*/React$1.createElement("section", {
+      className: styles$2.body
+    }, (_data$body = data.body) === null || _data$body === void 0 ? void 0 : _data$body.map(function (body, bIndex) {
+      return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
+        key: "".concat(index, "-data_object-").concat(bIndex, "-body")
+      }, /*#__PURE__*/React$1.createElement(TypeTag, {
+        linkTo: body.linkTo,
+        type: body.type,
+        "float": body["float"],
+        content: body.content,
+        index: bIndex
+      }));
+    })), /*#__PURE__*/React$1.createElement("footer", {
+      className: styles$2.footer,
+      dangerouslySetInnerHTML: {
+        __html: data.alert
+      },
+      style: {
+        display: data.alert ? undefined : 'none'
+      }
+    }));
+  })), /*#__PURE__*/React$1.createElement(ArticleNavigation, {
+    onHeader: onHeader,
+    headers: headers,
+    setOnHeader: setOnHeader,
+    scrollTo: function scrollTo(position) {
+      ref.current.scroll(0, position - ref.current.offsetTop);
+    }
+  }));
+}
+Article.propTypes = {
+  className: PropTypes.string,
+  styles: PropTypes.object,
+  data: PropTypes.arrayOf(PropTypes.shape({
+    headers: PropTypes.arrayOf(PropTypes.shape({
+      content: PropTypes.string,
+      type: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+      linkTo: PropTypes.string
+    })),
+    body: PropTypes.arrayOf(PropTypes.shape({
+      content: PropTypes.any,
+      type: PropTypes.oneOf(['text', 'native-code', 'pre-formatted', 'image']),
+      "float": PropTypes.oneOf(['right', 'left', 'stretch']),
+      linkTo: PropTypes.string
+    })),
+    alert: PropTypes.any
+  }))
+};
+
+var SPACE = '  ';
+
+var parseData = function parseData(field, layer) {
+  if (field !== null && field && _typeof(field) === 'object' && !Array.isArray(field)) {
+    if (Object.keys(field).length > 0) return "".concat(parseObject(field, layer + 1));else return "".concat(SPACE.repeat(layer - 1), "{}");
+  } else if (field !== null && field && Array.isArray(field)) {
+    var newField = [];
+    var subFieldLayer = field.length === 1 ? layer : layer + 1;
+    field.forEach(function (e) {
+      var parsed = parseData(e, subFieldLayer);
+      newField.push(typeof e === 'string' ? "\"".concat(parsed, "\"") : parsed);
+    });
+    var startP, endP;
+    startP = SPACE.repeat(layer + 2);
+    endP = SPACE.repeat(layer + 1);
+    if (field.length === 0 || field.length === 1) return "[".concat(newField.join(',<br>' + startP), "]");else return "[<br>".concat(startP).concat(newField.join(',<br>' + startP), "<br>").concat(endP, "]");
+  } else return "<i style=\"color: red\">".concat(field, "</i>");
+};
+
+var removeDoubleQuotes = function removeDoubleQuotes(string) {
+  return string.replace("\"{", '{').replace("}\"", '}').replace("\"[", '[').replace("]\"", ']').replace("]\"\"", ']').replace(" ]\"", ']').replace("\"[", '[').replace("}]\"", '}]');
+};
+
+var parseObject = function parseObject(obj, layer, isWrapper) {
+  var keys = Object.keys(obj);
+  var newObj = {};
+  if (!isWrapper) keys.forEach(function (e) {
+    newObj[e] = parseData(obj[e], layer);
+  });else newObj = obj;
+  var str = removeDoubleQuotes(JSON.stringify(newObj));
+  keys.forEach(function (e) {
+    str = str.replace("\"".concat(e, "\":"), "".concat(layer === 0 || layer > 0 ? '<br>' + SPACE.repeat(layer + 1) : '', "<b style=\"color: #0095ff\">\"").concat(e, "\": </b>"));
+  });
+  str = str.split('');
+  if (str[str.length - 1] === '}') str[str.length - 1] = '<br>' + SPACE.repeat(!isWrapper ? layer ? layer : 1 : 0) + '}';
+  return str.join('');
+};
+
+var replaceTypes = function replaceTypes(string) {
+  return string.replace('"\<i style="color: red">null</i>\"', '<i style="color: red">null</i>').replace('"\<i style="color: red">true</i>\"', '<i style="color: red">true</i>').replace('"\<i style="color: red">false</i>\"', '<i style= "color: red">false</i>');
+};
+
+function jsonParser(data) {
+  var keys = Object.keys(data);
+  var newObj = {};
+  keys.forEach(function (e) {
+    var v = parseData(data[e], 0);
+    newObj[e] = _typeof(data[e]) === 'object' || typeof data[e] === 'boolean' ? removeDoubleQuotes(v) : v;
+  });
+  newObj = parseObject(newObj, 0, true).replaceAll("\\", '');
+  newObj = replaceTypes(newObj);
+  return newObj;
+}
+
+function jsxParser(component) {
+  if (component.type === React$1.Fragment && component.props.children && component.props.children.length > 0) {
+    var data = '';
+    component.props.children.forEach(function (child) {
+      data = data + '<br>' + jsxParser(child);
+    });
+    return data;
+  } else try {
+    var _component$type;
+
+    var type = (_component$type = component.type) === null || _component$type === void 0 ? void 0 : _component$type.name;
+    var props = component.props;
+    var propsString = "";
+    var childrenNode = '';
+
+    for (var key in props) {
+      var propValue = props[key];
+
+      if (key !== "children" && typeof propValue !== 'function' && typeof propValue !== 'boolean') {
+        var value = "";
+
+        if (propValue instanceof Object) {
+          value = "{".concat(JSON.stringify(propValue).replace(/['"]+/g, ''), "}");
+        } else {
+          value = "\"".concat(propValue, "\"");
+        }
+
+        propsString += " <b style=\"color: #0095ff\">".concat(key, "=</b><i style=\"color: #007d07\">").concat(value, "</i>");
+      } else if (typeof props[key] === 'function') propsString += " <b style=\"color: #0095ff\">".concat(key, "=</b><i style=\"color: #FFBF00\">").concat(key, "</i>");else if (typeof propValue === 'boolean') propsString += " <b style=\"color: #0095ff\">".concat(key, "=</b><i style=\"color: #FF1500\">").concat(propValue, "</i>");
+    }
+
+    if (props.children) {
+      switch (true) {
+        case Array.isArray(props.children):
+          {
+            childrenNode = props.children.join('').replace(/\s\s+/g, ' ');
+            break;
+          }
+
+        case /*#__PURE__*/React$1.isValidElement(props.children):
+          {
+            childrenNode = jsxParser(props.children);
+            break;
+          }
+
+        default:
+          {
+            childrenNode = props.children;
+            break;
+          }
+      }
+    }
+
+    console.log(childrenNode);
+    if (type) return props.children ? "&lt;<b style=\"color:#86128f;\">".concat(type, "</b>").concat(propsString, "&gt;") + '<br>   ' + childrenNode + '<br>' + "&lt;/<b style=\"color:#86128f;\">".concat(type, "</b>&gt;") : "&lt;<b style=\"color:#86128f;\">".concat(type, "</b>").concat(propsString, "/&gt;");else return childrenNode;
+  } catch (e) {
+    return component;
+  }
+}
+
+function useCode(data, language) {
+  return useMemo(function () {
+    switch (language) {
+      case 'json':
+        {
+          return jsonParser(data);
+        }
+
+      case 'jsx':
+        return jsxParser(data);
+
+      default:
+        return;
+    }
+  }, [language, data]);
+}
+
+function enumerateLines(data) {
+  var d = data;
+
+  try {
+    d = d.split('<br>');
+    d = d.map(function (line, i) {
+      return line.length > 0 ? "<span style=\"user-select: none; color: var(--mfc-color-quinary); position: absolute\">".concat(i, "</span>      ").concat(line) : '';
+    });
+    d = d.join('<br>');
+  } catch (e) {}
+
+  return d;
+}
+
+function CodeBlock(props) {
+  var parsedString = useCode(props.language === 'jsx' ? props.children : props.json, props.language);
+  var ref = useRef();
+  return /*#__PURE__*/React$1.createElement(Wrapper, {
+    contentRef: ref.current,
+    width: props.width
+  }, /*#__PURE__*/React$1.createElement("code", {
+    ref: ref,
+    className: styles$1.code,
+    dangerouslySetInnerHTML: {
+      __html: enumerateLines(parsedString)
+    }
+  }));
+}
+CodeBlock.propTypes = {
+  width: PropTypes.string,
+  json: PropTypes.string,
+  children: PropTypes.node,
+  language: PropTypes.oneOf(['json', 'jsx'])
+};
+
+export { ActionButton, Alert, Article, Bar$1 as Bar, BarAction, Breadcrumbs, Button, Carousel, Checkbox, CheckboxGroup, CodeBlock, DateField, DropDownField, DynamicRoutes, Empty, Feed, FeedCard, FileField, Filter, Form, FormRow, HorizontalChart, LineChart, List, Modal, MultiSelectField, PieChart, Ripple, Selector, Switcher, Tab, Tabs, TextField, ThemeContext, ThemeProvider, ToolTip, VerticalChart, VerticalTabs, Request as request, useInfiniteScroll, useQuery };

@@ -31,27 +31,18 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 | Package            | Version | NPM                      | Github                                         |
 |--------------------|---------|--------------------------|------------------------------------------------|
-| @material-ui/core  | ^4.12.3 | npm i @material-ui/core  | https://github.com/mui-org/material-ui         |
-| @material-ui/icons | ^4.11.2 | npm i @material-ui/icons | https://github.com/mui-org/material-ui         |
 | axios              | ^0.24.0 | npm i axios              | https://github.com/axios/axios                 |
 | react-input-mask   | ^2.0.4  | npm i react-input-mask   | https://github.com/sanniassin/react-input-mask |
+| prop-types   | ^15.7.2  | npm i prop-types   | https://github.com/facebook/prop-types |
 
-Thanks to all those awesome people that worked on these packages, you're all breathtaking.
+## Documentation and examples
 
-## Examples
+#### https://mfc-documentation-vercel.vercel.app/en
 
-Coming soon.
-
-## Documentation
-
-Coming soon.
+The package documentation is currently <b>under development</b>, any questions can be made through <b>github</b>.
 
 ## Changelog
-
 Coming soon.
+
 ## Roadmap
-
 Coming soon.
-## License
-
-This project is licensed under the terms of the MIT licence.

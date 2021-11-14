@@ -1,6 +1,6 @@
 {
   "name": "mfc-core",
-  "version": "0.9.8",
+  "version": "1.0.4",
   "author": "facobackup",
   "license": "MIT",
   "main": "dist/index.js",
@@ -16,8 +16,6 @@
     "prop-types": "^15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
     "react-input-mask": "^2.0.4",
     "axios": "^0.24.0"
   },
@@ -45,19 +43,26 @@
   "files": [
     "dist"
   ],
-  "description": "Useful and clean React components.",
+  "description": "Useful React components.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FacoBackup/mfc-core.git"
   },
   "keywords": [
-    "react", "react-component", "material", "clean design", "flat design"
+    "react",
+    "react-component",
+    "material",
+    "clean design",
+    "flat design",
+    "jsx to string",
+    "code highlight",
+    "json highlight",
+    "inputs",
+    "navigation"
   ],
   "bugs": {
     "url": "https://github.com/FacoBackup/mfc-core/issues"
   },
   "homepage": "https://github.com/FacoBackup/mfc-core#readme",
-  "dependencies": {
-
-  }
+  "dependencies": {}
 }
