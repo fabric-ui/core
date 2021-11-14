@@ -5315,8 +5315,8 @@ var css_248z$2 = "/*HEADER*/\r\n.Article-module_headers__VgW0I {\r\n    display:
 var styles$2 = {"headers":"Article-module_headers__VgW0I","header":"Article-module_header__1uZNZ","body":"Article-module_body__3fgRT","baseText":"Article-module_baseText__2TAlu","block":"Article-module_block__2rf8r","link":"Article-module_link__2f9QC","footer":"Article-module_footer__1yhY4","wrapper":"Article-module_wrapper__3Ek7A","container":"Article-module_container__3Zz32","nativeCode":"Article-module_nativeCode__2wLu7","preFormattedText":"Article-module_preFormattedText__3jcDF"};
 styleInject(css_248z$2);
 
-var css_248z$1 = ".Block-module_code__HODBm {\r\n    /*font-family: \"Roboto\" !important;*/\r\n    /*font-size: .85rem;*/\r\n\r\n    white-space: pre-wrap;\r\n    word-wrap: break-word;\r\n    tab-size: 16;\r\n}\r\n\r\n.Block-module_button__1vdzp {\r\n    position: absolute !important;\r\n    top: 0;\r\n    left: 0;\r\n    --transform: translate(-50%, -50%);\r\n\r\n    padding: 8px;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    /*background: var(--mfc-background-primary) !important;*/\r\n}\r\n\r\n\r\n.Block-module_wrapper__1eIkX {\r\n    padding: 8px;\r\n    background: var(--mfc-background-secondary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    max-height: 100%;\r\n    overflow: auto;\r\n\r\n    border-radius: 5px;\r\n\r\n    max-width: 100%;\r\n    margin: 16px auto;\r\n    position: relative;\r\n\r\n    display: grid;\r\n    gap: 0;\r\n}\r\n";
-var styles$1 = {"code":"Block-module_code__HODBm","button":"Block-module_button__1vdzp","wrapper":"Block-module_wrapper__1eIkX"};
+var css_248z$1 = ".Block-module_code__HODBm {\r\n    white-space: pre-wrap;\r\n    word-wrap: break-word;\r\n    tab-size: 16;\r\n    padding-bottom: 16px;\r\n}\r\n\r\n.Block-module_button__1vdzp {\r\n    position: absolute !important;\r\n    top: 0;\r\n    left: 0;\r\n    --transform: translate(-50%, -50%);\r\n\r\n    padding: 8px;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    /*background: var(--mfc-background-primary) !important;*/\r\n}\r\n\r\n\r\n.Block-module_wrapper__1eIkX {\r\n    padding: 8px;\r\n    background: var(--mfc-background-secondary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    max-height: 100%;\r\n    overflow: auto;\r\n\r\n    border-radius: 5px;\r\n\r\n    max-width: 100%;\r\n    margin: 16px auto;\r\n    position: relative;\r\n\r\n    display: grid;\r\n    gap: 0;\r\n}\r\n\r\n.Block-module_enumeration__3VK4l{\r\n    padding: 0;\r\n    margin: 0;\r\n    background: transparent;\r\n    border: none;\r\n    outline: none;\r\n\r\n    text-align: left;\r\n    user-select: none;\r\n    color: var(--mfc-color-quinary);\r\n    position: absolute;\r\n    width: calc(100% - 16px);\r\n    transition: 150ms linear;\r\n\r\n}\r\n.Block-module_enumContent__btUnw{\r\n    width: fit-content;\r\n    position: absolute;\r\n    z-index: 1;\r\n    padding-left: 16px;\r\n}\r\n\r\n\r\n.Block-module_line__a_hET:hover .Block-module_enumeration__3VK4l{\r\n\r\n    color: var(--mfc-color-primary);\r\n    background: var(--mfc-background-quaternary);\r\n    /*background: red !important;*/\r\n}";
+var styles$1 = {"code":"Block-module_code__HODBm","button":"Block-module_button__1vdzp","wrapper":"Block-module_wrapper__1eIkX","enumeration":"Block-module_enumeration__3VK4l","enumContent":"Block-module_enumContent__btUnw","line":"Block-module_line__a_hET"};
 styleInject(css_248z$1);
 
 function copyToClipboard(element) {
@@ -5572,11 +5572,11 @@ Article.propTypes = {
   }))
 };
 
-var SPACE = '  ';
+var SPACE$1 = '  ';
 
 var parseData = function parseData(field, layer) {
   if (field !== null && field && _typeof(field) === 'object' && !Array.isArray(field)) {
-    if (Object.keys(field).length > 0) return "".concat(parseObject(field, layer + 1));else return "".concat(SPACE.repeat(layer - 1), "{}");
+    if (Object.keys(field).length > 0) return "".concat(parseObject(field, layer + 1));else return "".concat(SPACE$1.repeat(layer - 1), "{}");
   } else if (field !== null && field && Array.isArray(field)) {
     var newField = [];
     var subFieldLayer = field.length === 1 ? layer : layer + 1;
@@ -5585,8 +5585,8 @@ var parseData = function parseData(field, layer) {
       newField.push(typeof e === 'string' ? "\"".concat(parsed, "\"") : parsed);
     });
     var startP, endP;
-    startP = SPACE.repeat(layer + 2);
-    endP = SPACE.repeat(layer + 1);
+    startP = SPACE$1.repeat(layer + 2);
+    endP = SPACE$1.repeat(layer + 1);
     if (field.length === 0 || field.length === 1) return "[".concat(newField.join(',<br>' + startP), "]");else return "[<br>".concat(startP).concat(newField.join(',<br>' + startP), "<br>").concat(endP, "]");
   } else return "<i style=\"color: red\">".concat(field, "</i>");
 };
@@ -5603,10 +5603,10 @@ var parseObject = function parseObject(obj, layer, isWrapper) {
   });else newObj = obj;
   var str = removeDoubleQuotes(JSON.stringify(newObj));
   keys.forEach(function (e) {
-    str = str.replace("\"".concat(e, "\":"), "".concat(layer === 0 || layer > 0 ? '<br>' + SPACE.repeat(layer + 1) : '', "<b style=\"color: #0095ff\">\"").concat(e, "\": </b>"));
+    str = str.replace("\"".concat(e, "\":"), "".concat(layer === 0 || layer > 0 ? '<br>' + SPACE$1.repeat(layer + 1) : '', "<b style=\"color: #0095ff\">\"").concat(e, "\": </b>"));
   });
   str = str.split('');
-  if (str[str.length - 1] === '}') str[str.length - 1] = '<br>' + SPACE.repeat(!isWrapper ? layer ? layer : 1 : 0) + '}';
+  if (str[str.length - 1] === '}') str[str.length - 1] = '<br>' + SPACE$1.repeat(!isWrapper ? layer ? layer : 1 : 0) + '}';
   return str.join('');
 };
 
@@ -5615,6 +5615,7 @@ var replaceTypes = function replaceTypes(string) {
 };
 
 function jsonParser(data) {
+  console.log(data);
   var keys = Object.keys(data);
   var newObj = {};
   keys.forEach(function (e) {
@@ -5686,6 +5687,30 @@ function jsxParser(component) {
   }
 }
 
+function htmlParser(htmlText) {
+  return htmlText.replaceAll('<', '&lt;').replaceAll('>', '&gt;') // attr
+  .replaceAll(/[a-zA-Z]+=/ig, '<b style="color: #0095ff;">$&</b>') // attr value
+  .replaceAll(/{[^}]*}/ig, '<span style="color: #007d07;" >$&</span>') // tag
+  .replaceAll(/&lt;[a-zA-Z]+\s/ig, '<b style="color:#86128f;">$&</b>').replaceAll(/&lt;[a-zA-Z]+&gt;/g, '<b style="color:#86128f;">$&</b>').replaceAll(/&lt;\/[a-zA-Z]+&gt;/g, '<b style="color:#86128f;">$&</b>') // attr value
+  .replaceAll(/\s[a-zA-Z]+""[a-zA-Z]+"/ig, '<span style="color: #007d07;">$&</span>') // attr
+  .replaceAll(/"[a-zA-Z]+"/ig, '<span style="color: #007d07;">$&</span>');
+}
+
+function javascriptParser(data) {
+  var parsed = '';
+
+  try {
+    if (data.split('///JSX').length > 0) {
+      var jsx = data.split('///JSX')[1];
+      parsed = htmlParser(jsx);
+    }
+  } catch (e) {
+    console.log(e);
+  }
+
+  return parsed;
+}
+
 function useCode(data, language) {
   return useMemo(function () {
     switch (language) {
@@ -5693,6 +5718,9 @@ function useCode(data, language) {
         {
           return jsonParser(data);
         }
+
+      case 'javascript':
+        return javascriptParser(data);
 
       case 'jsx':
         return jsxParser(data);
@@ -5703,22 +5731,43 @@ function useCode(data, language) {
   }, [language, data]);
 }
 
-function enumerateLines(data) {
+var SPACE = '  ';
+function enumerateLines(data, divider) {
   var d = data;
+  var smallestWhiteSpace;
 
   try {
-    d = d.split('<br>');
-    d = d.map(function (line, i) {
-      return line.length > 0 ? "<span style=\"user-select: none; color: var(--mfc-color-quinary); position: absolute\">".concat(i, "</span>      ").concat(line) : '';
+    d = d.split(divider);
+    d.forEach(function (e) {
+      if (e !== '\r') {
+        var c = e.split('');
+        var whitespaces = 0;
+        c.every(function (s) {
+          if (/\s/.test(s)) {
+            console.log(s);
+            whitespaces = whitespaces + 1;
+            return true;
+          } else return false;
+        });
+        if (whitespaces < smallestWhiteSpace || smallestWhiteSpace === undefined) smallestWhiteSpace = whitespaces;
+      }
     });
-    d = d.join('<br>');
+    var removedLines = 0;
+    d = d.map(function (line, i) {
+      var content = line.replace(' '.repeat(smallestWhiteSpace), '');
+      if (content.length > 0 && content !== '\r') return "<span class=".concat(styles$1.line, "><button class=").concat(styles$1.enumeration, ">").concat(i - removedLines, "</button>").concat(SPACE, "<span class=").concat(styles$1.enumContent, ">").concat(content, "</span></span>");else {
+        removedLines += 1;
+        return null;
+      }
+    });
+    d = d.join(divider);
   } catch (e) {}
 
   return d;
 }
 
 function CodeBlock(props) {
-  var parsedString = useCode(props.language === 'jsx' ? props.children : props.json, props.language);
+  var parsedString = useCode(props.data, props.language);
   var ref = useRef();
   return /*#__PURE__*/React$1.createElement(Wrapper, {
     contentRef: ref.current,
@@ -5727,15 +5776,14 @@ function CodeBlock(props) {
     ref: ref,
     className: styles$1.code,
     dangerouslySetInnerHTML: {
-      __html: enumerateLines(parsedString)
+      __html: enumerateLines(parsedString, props.language === 'jsx' || props.language === 'javascript' ? '\n' : '<br>')
     }
   }));
 }
 CodeBlock.propTypes = {
   width: PropTypes.string,
-  json: PropTypes.string,
-  children: PropTypes.node,
-  language: PropTypes.oneOf(['json', 'jsx'])
+  data: PropTypes.string,
+  language: PropTypes.oneOf(['json', 'jsx', 'javascript'])
 };
 
 export { ActionButton, Alert, Article, Bar$1 as Bar, BarAction, Breadcrumbs, Button, Carousel, Checkbox, CheckboxGroup, CodeBlock, DateField, DropDownField, DynamicRoutes, Empty, Feed, FeedCard, FileField, Filter, Form, FormRow, HorizontalChart, LineChart, List, Modal, MultiSelectField, PieChart, Ripple, Selector, Switcher, Tab, Tabs, TextField, ThemeContext, ThemeProvider, ToolTip, VerticalChart, VerticalTabs, Request as request, useInfiniteScroll, useQuery };
