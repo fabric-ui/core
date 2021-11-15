@@ -50,8 +50,8 @@ The package documentation is currently <b>under development</b>, any questions c
 ## Available components and hooks
 
 ### Hooks
-<b>useCopyToClipboard: Copy any text to the clipboard.<br>
-<b>useFile: Easy way to read the content from a local file.<br>
+<b>useCopyToClipboard</b>: Copy any text to the clipboard.<br>
+<b>useFile</b>: Easy way to read the content from a local file.<br>
 
 ### Feedback
 
