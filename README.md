@@ -37,7 +37,7 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 ## News
 
 ### useCopyToClipboard
-<b>React Hook for coping text.</b>
+<b>React Hook for copying text.</b>
 ### CodeBlock
 <b>Javascript syntax highlight working</b>
 
