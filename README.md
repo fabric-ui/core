@@ -34,13 +34,24 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 | react-input-mask   | ^2.0.4  | npm i react-input-mask   | https://github.com/sanniassin/react-input-mask |
 | prop-types   | ^15.7.2  | npm i prop-types   | https://github.com/facebook/prop-types |
 
+## News
+
+### useCopyToClipboard
+<b>React Hook for coping text.</b>
+### CodeBlock
+<b>Javascript syntax highlight working</b>
+
 ## Documentation and examples
 
 #### https://mfc-documentation-vercel.vercel.app/en
 
 The package documentation is currently <b>under development</b>, any questions can be made through <b>github</b>.
 
-## Available components
+## Available components and hooks
+
+### Hooks
+<b>useCopyToClipboard: Copy any text to the clipboard.<br>
+<b>useFile: Easy way to read the content from a local file.<br>
 
 ### Feedback
 

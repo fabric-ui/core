@@ -22,7 +22,8 @@ import FileField from './core/inputs/file/FileField'
 import ThemeContext from './core/misc/theme/ThemeContext'
 import ThemeProvider from './core/misc/theme/ThemeProvider'
 import Ripple from './core/misc/ripple/Ripple'
-
+import useCopyToClipboard from './core/misc/useCopyToClipboard'
+import useFile from './core/misc/useFile'
 
 import Tabs from './core/navigation/tabs/Tabs'
 import Tab from './core/navigation/tabs/Tab'
@@ -52,6 +53,8 @@ import CodeBlock from './core/visualization/code_block/CodeBlock'
 import Empty from './core/feedback/empty/Empty'
 
 export {
+  useCopyToClipboard, useFile,
+
   Empty,
   request, Alert, ToolTip,
 

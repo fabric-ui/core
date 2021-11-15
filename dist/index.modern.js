@@ -735,16 +735,15 @@ function Alert(props) {
     }
   }, [props.variant]);
   useEffect(function () {
-    var timeout;
-    if (props.delay) timeout = setTimeout(function () {
-      if (!props.open) try {
+    var timeout = setTimeout(function () {
+      try {
         props.handleClose();
       } catch (e) {}
-    }, 5000);
+    }, props.delay ? props.delay : 5000);
     return function () {
       if (timeout) clearTimeout(timeout);
     };
-  }, [props.open, props.delay]);
+  }, [props.open]);
   return /*#__PURE__*/React$1.createElement(Modal, {
     open: props.open,
     wrapperClassName: styles$z.wrapper,
@@ -758,7 +757,7 @@ function Alert(props) {
   }, /*#__PURE__*/React$1.createElement("div", {
     className: styles$z.content,
     onClick: function onClick() {
-      return props.onClick();
+      if (props.onClick) props.onClick();
     }
   }, /*#__PURE__*/React$1.createElement("div", {
     className: [styles$z.icon, styles$z.button].join(' ')
@@ -3634,6 +3633,76 @@ ThemeProvider.propTypes = {
   children: PropTypes.node
 };
 
+function useCopyToClipboard(element) {
+  return function () {
+    var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
+    var success = false;
+    var toCopy = text ? text : element === null || element === void 0 ? void 0 : element.textContent;
+    var copyRange, selection, copyRef;
+
+    try {
+      copyRange = document.createRange();
+      selection = document.getSelection();
+      copyRef = document.createElement("span");
+      copyRef.textContent = toCopy;
+      copyRef.style.all = "unset";
+      copyRef.style.position = "fixed";
+      copyRef.style.top = 0;
+      copyRef.style.clip = "rect(0, 0, 0, 0)";
+      copyRef.style.whiteSpace = "pre";
+      copyRef.style.userSelect = "text";
+      copyRef.addEventListener("copy", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        e.clipboardData.clearData();
+        e.clipboardData.setData("text/plain", text);
+        e.preventDefault();
+      });
+      document.body.appendChild(copyRef);
+      copyRange.selectNodeContents(copyRef);
+      selection.addRange(copyRange);
+      success = document.execCommand("copy");
+    } catch (e) {} finally {
+      if (selection) {
+        if (typeof selection.removeRange == "function") {
+          selection.removeRange(copyRange);
+        } else {
+          selection.removeAllRanges();
+        }
+      }
+
+      if (copyRef) document.body.removeChild(copyRef);
+    }
+
+    return success;
+  };
+}
+
+function useFile(pathname, asJson) {
+  var _useState = useState(),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      setData = _useState2[1];
+
+  useEffect(function () {
+    fetch(pathname).then(function (res) {
+      if (!asJson) res.text().then(function (text) {
+        setData(text);
+      })["catch"](function (e) {
+        return console.log(e);
+      });else res.json().then(function (json) {
+        console.log(json);
+        setData(json);
+      })["catch"](function (e) {
+        return console.log(e);
+      });
+    })["catch"](function (e) {
+      return console.log(e);
+    });
+  }, [pathname]);
+  return data;
+}
+
 var css_248z$i = "@import \"../../../misc/theme/styles.module.css\";\n@import url('http://fonts.cdnfonts.com/css/roboto');\n\n.Tabs-module_header__8l5LJ {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n    justify-content: center;\n    border: var(--mfc-border-primary) 1px solid;\n\n    height: fit-content;\n    width: 100%;\n\n    display: grid;\n    /*border-bottom: var(--mfc-border-primary) 1px solid;*/\n    transition: 150ms ease-in;\n}\n\n.Tabs-module_tabs__3EMRN {\n    max-width: 100%;\n    width: 100%;\n\n    overflow: hidden;\n    margin: auto;\n    display: flex;\n    align-items: center;\n}\n\n\n.Tabs-module_button__1f53r {\n    text-transform: uppercase;\n    /*font-family: \"Roboto\" !important;*/\n    text-rendering: optimizeLegibility;\n    color: var(--mfc-color-tertiary);\n    font-weight: bold;\n    font-size: .73rem;\n    padding: 8px 24px;\n    height: 35px;\n    transition: 150ms ease;\n\n    text-overflow: ellipsis;\n    overflow: hidden;\n    max-width: 100%;\n    white-space: nowrap;\n}\n\n.Tabs-module_button__1f53r:hover, .Tabs-module_button__1f53r:active, .Tabs-module_button__1f53r[data-highlight=\"true\"] {\n    color: var(--color) !important;\n}\n\n\n.Tabs-module_enterA__2UsDT {\n    animation: Tabs-module_enter__10Gu2 150ms ease-in-out;\n}\n\n.Tabs-module_exitA__3_0uq {\n    animation: Tabs-module_exit__2fucC 150ms ease-in-out;\n}\n\n@keyframes Tabs-module_exit__2fucC {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}\n\n@keyframes Tabs-module_enter__10Gu2 {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n";
 var styles$h = {"header":"Tabs-module_header__8l5LJ","tabs":"Tabs-module_tabs__3EMRN","button":"Tabs-module_button__1f53r","enterA":"Tabs-module_enterA__2UsDT","enter":"Tabs-module_enter__10Gu2","exitA":"Tabs-module_exitA__3_0uq","exit":"Tabs-module_exit__2fucC"};
 styleInject(css_248z$i);
@@ -3740,7 +3809,7 @@ function Tabs(props) {
     }, el);
   })));
 }
-Tabs.proptypes = {
+Tabs.propTypes = {
   align: PropTypes.oneOf(['start', 'end', 'center']),
   className: PropTypes.string,
   styles: PropTypes.object,
@@ -3748,8 +3817,8 @@ Tabs.proptypes = {
   indicator: PropTypes.oneOf(['stretch', 'fit'])
 };
 
-var css_248z$g = "@import \"../../../misc/theme/styles.module.css\";\n\n.Vertical-module_content__3mXHl {\n    width: 100%;\n}\n\n.Vertical-module_wrapper__3BFk5 {\n    overflow: hidden;\n    max-height: 100%;\n    height: 100%;\n    position: relative;\n    width: 100%;\n\n    display: flex;\n\n    padding: 8px;\n}\n\n\n.Vertical-module_header__1E32z {\n    position: sticky;\n    top: 0;\n\n    border: var(--mfc-border-primary) 1px solid;\n\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n\n    flex-grow: 1;\n    width: 25%;\n    max-width: 250px;\n\n    display: grid;\n    gap: 24px;\n\n\n    transition: 150ms linear;\n    height: 100%;\n}\n\n.Vertical-module_tabs__1DGLb {\n\n    overflow: hidden;\n\n    width: 100%;\n    padding: 4px;\n}\n\n.Vertical-module_button__3sXjY {\n\n    padding: 12px 24px;\n\n    max-width: 100%;\n    width: 100%;\n\n\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n    text-rendering: optimizeLegibility;\n\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    gap: 16px;\n}\n\n.Vertical-module_color__1eEjz {\n    color: var(--mfc-color-quaternary)\n}\n\n.Vertical-module_color__1eEjz:hover, .Vertical-module_color__1eEjz:active, .Vertical-module_highlight__2lbgS {\n    color: var(--color)\n}\n\n.Vertical-module_rowLabel__F8jVb {\n    display: flex;\n    align-content: center;\n    align-items: center;\n    justify-content: space-between;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    color: var(--mfc-color-secondary);\n    font-size: .8rem;\n    padding: 4px 0 4px 16px;\n    margin-top: 8px;\n}\n\n.Vertical-module_overflow__1UgBi {\n    max-width: 100%;\n\n    text-align: left;\n\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}";
-var styles$f = {"content":"Vertical-module_content__3mXHl","wrapper":"Vertical-module_wrapper__3BFk5","header":"Vertical-module_header__1E32z","tabs":"Vertical-module_tabs__1DGLb","button":"Vertical-module_button__3sXjY","color":"Vertical-module_color__1eEjz","highlight":"Vertical-module_highlight__2lbgS","rowLabel":"Vertical-module_rowLabel__F8jVb","overflow":"Vertical-module_overflow__1UgBi"};
+var css_248z$g = "@import \"../../../misc/theme/styles.module.css\";\n\n.Vertical-module_content__3mXHl {\n    width: 100%;\n}\n\n.Vertical-module_wrapper__3BFk5 {\n    overflow: hidden;\n    max-height: 100%;\n    height: 100%;\n    position: relative;\n    width: 100%;\n\n    display: flex;\n\n    padding: 8px;\n}\n\n\n.Vertical-module_header__1E32z {\n    overflow-y: auto;\n    overflow-x: hidden;\n    position: sticky;\n    top: 0;\n\n    border: var(--mfc-border-primary) 1px solid;\n\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n\n    flex-grow: 1;\n    width: 25%;\n    max-width: 250px;\n\n    display: grid;\n    align-content: flex-start;\n    align-items: flex-start;\n    gap: 16px;\n\n\n    transition: 150ms linear;\n    height: 100%;\n\n\n    padding: 4px;\n}\n\n\n.Vertical-module_button__3sXjY {\n\n    padding: 12px 24px;\n\n    max-width: 100%;\n    width: 100%;\n\n\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n    text-rendering: optimizeLegibility;\n\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    gap: 16px;\n}\n\n.Vertical-module_color__1eEjz {\n    color: var(--mfc-color-quaternary)\n}\n\n.Vertical-module_color__1eEjz:hover, .Vertical-module_color__1eEjz:active, .Vertical-module_highlight__2lbgS {\n    color: var(--color)\n}\n\n.Vertical-module_rowLabel__F8jVb {\n    display: flex;\n    align-content: center;\n    align-items: center;\n    justify-content: space-between;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    color: var(--mfc-color-secondary);\n    font-size: .8rem;\n    padding: 4px 0 4px 16px;\n    margin-top: 8px;\n}\n\n.Vertical-module_overflow__1UgBi {\n    max-width: 100%;\n\n    text-align: left;\n\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}";
+var styles$f = {"content":"Vertical-module_content__3mXHl","wrapper":"Vertical-module_wrapper__3BFk5","header":"Vertical-module_header__1E32z","button":"Vertical-module_button__3sXjY","color":"Vertical-module_color__1eEjz","highlight":"Vertical-module_highlight__2lbgS","rowLabel":"Vertical-module_rowLabel__F8jVb","overflow":"Vertical-module_overflow__1UgBi"};
 styleInject(css_248z$g);
 
 function Row$1(props) {
@@ -3760,8 +3829,7 @@ function Row$1(props) {
 
   return /*#__PURE__*/React$1.createElement("div", {
     style: {
-      width: '100%',
-      overflow: 'hidden'
+      width: '100%'
     }
   }, /*#__PURE__*/React$1.createElement(Button, {
     className: styles$f.button,
@@ -3775,15 +3843,19 @@ function Row$1(props) {
     onClick: function onClick() {
       return setHidden(!hidden);
     }
-  }, props.groupName, /*#__PURE__*/React$1.createElement("span", {
+  }, /*#__PURE__*/React$1.createElement("div", {
+    className: styles$f.overflow
+  }, props.groupName), /*#__PURE__*/React$1.createElement(ToolTip, {
+    content: props.groupName,
+    align: 'middle',
+    justify: "end"
+  }), /*#__PURE__*/React$1.createElement("span", {
     className: "material-icons-round",
     style: {
       transform: hidden ? 'rotate(180deg)' : "unset",
       transition: '150ms linear'
     }
-  }, "arrow_drop_down")), /*#__PURE__*/React$1.createElement(Switcher, {
-    openChild: hidden ? 0 : 1
-  }, /*#__PURE__*/React$1.createElement("div", null), /*#__PURE__*/React$1.createElement("div", null, props.buttons.map(function (b, bI) {
+  }, "arrow_drop_down")), hidden ? null : props.buttons.map(function (b, bI) {
     return b.group === props.groupName ? /*#__PURE__*/React$1.createElement(React$1.Fragment, {
       key: props.index + '-button-header-tab-' + bI
     }, /*#__PURE__*/React$1.createElement(Button, {
@@ -3800,7 +3872,7 @@ function Row$1(props) {
     }, /*#__PURE__*/React$1.createElement("div", {
       className: styles$f.overflow
     }, b.label))) : null;
-  }))));
+  }));
 }
 Row$1.propTypes = {
   groupName: PropTypes.string,
@@ -3829,8 +3901,6 @@ function VerticalTabs(props) {
     })
   }, /*#__PURE__*/React$1.createElement("div", {
     className: styles$f.header
-  }, /*#__PURE__*/React$1.createElement("div", {
-    className: styles$f.tabs
   }, groups.map(function (e, i) {
     return /*#__PURE__*/React$1.createElement(React$1.Fragment, {
       key: i + '-class'
@@ -3847,7 +3917,7 @@ function VerticalTabs(props) {
       }),
       groupName: e
     }));
-  }))), /*#__PURE__*/React$1.createElement(Switcher, {
+  })), /*#__PURE__*/React$1.createElement(Switcher, {
     className: children[open].props.className,
     styles: children[open].styles,
     openChild: open
@@ -5315,41 +5385,73 @@ var css_248z$2 = "/*HEADER*/\r\n.Article-module_headers__VgW0I {\r\n    display:
 var styles$2 = {"headers":"Article-module_headers__VgW0I","header":"Article-module_header__1uZNZ","body":"Article-module_body__3fgRT","baseText":"Article-module_baseText__2TAlu","block":"Article-module_block__2rf8r","link":"Article-module_link__2f9QC","footer":"Article-module_footer__1yhY4","wrapper":"Article-module_wrapper__3Ek7A","container":"Article-module_container__3Zz32","nativeCode":"Article-module_nativeCode__2wLu7","preFormattedText":"Article-module_preFormattedText__3jcDF"};
 styleInject(css_248z$2);
 
-var css_248z$1 = ".Block-module_code__HODBm {\r\n    white-space: pre-wrap;\r\n    word-wrap: break-word;\r\n    tab-size: 16;\r\n    padding-bottom: 16px;\r\n}\r\n\r\n.Block-module_button__1vdzp {\r\n    position: absolute !important;\r\n    top: 0;\r\n    left: 0;\r\n    --transform: translate(-50%, -50%);\r\n\r\n    padding: 8px;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    /*background: var(--mfc-background-primary) !important;*/\r\n}\r\n\r\n\r\n.Block-module_wrapper__1eIkX {\r\n    padding: 8px;\r\n    background: var(--mfc-background-secondary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    max-height: 100%;\r\n    overflow: auto;\r\n\r\n    border-radius: 5px;\r\n\r\n    max-width: 100%;\r\n    margin: 16px auto;\r\n    position: relative;\r\n\r\n    display: grid;\r\n    gap: 0;\r\n}\r\n\r\n.Block-module_enumeration__3VK4l{\r\n    padding: 0;\r\n    margin: 0;\r\n    background: transparent;\r\n    border: none;\r\n    outline: none;\r\n\r\n    text-align: left;\r\n    user-select: none;\r\n    color: var(--mfc-color-quinary);\r\n    position: absolute;\r\n    width: calc(100% - 16px);\r\n    transition: 150ms linear;\r\n\r\n}\r\n.Block-module_enumContent__btUnw{\r\n    width: fit-content;\r\n    position: absolute;\r\n    z-index: 1;\r\n    padding-left: 16px;\r\n}\r\n\r\n\r\n.Block-module_line__a_hET:hover .Block-module_enumeration__3VK4l{\r\n\r\n    color: var(--mfc-color-primary);\r\n    background: var(--mfc-background-quaternary);\r\n    /*background: red !important;*/\r\n}";
-var styles$1 = {"code":"Block-module_code__HODBm","button":"Block-module_button__1vdzp","wrapper":"Block-module_wrapper__1eIkX","enumeration":"Block-module_enumeration__3VK4l","enumContent":"Block-module_enumContent__btUnw","line":"Block-module_line__a_hET"};
+var css_248z$1 = ".Block-module_code__HODBm {\r\n    white-space: pre-wrap;\r\n    word-wrap: break-word;\r\n    tab-size: 16;\r\n    /*padding-bottom: 16px;*/\r\n\r\n    max-width: 100%;\r\n    padding: 8px;\r\n    background: var(--mfc-background-secondary);\r\n}\r\n.Block-module_buttons__3Ygx3{\r\n    display: flex;\r\n    gap: 8px;\r\n    justify-content: flex-end;\r\n    padding: 8px;\r\n}\r\n.Block-module_button__1vdzp {\r\n    padding: 8px;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    /*background: var(--mfc-background-primary) !important;*/\r\n}\r\n\r\n\r\n.Block-module_wrapper__1eIkX {\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    max-height: 100%;\r\n\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n\r\n    border-radius: 5px;\r\n    width: 100%;\r\n    max-width: 100%;\r\n    margin: 16px auto;\r\n    position: relative;\r\n\r\n    display: grid;\r\n    gap: 0;\r\n}\r\n\r\n.Block-module_enumeration__3VK4l{\r\n    padding: 0;\r\n    margin: 0;\r\n    background: transparent;\r\n    border: none;\r\n    outline: none;\r\n\r\n    text-align: left;\r\n    user-select: none;\r\n    color: var(--mfc-color-quinary);\r\n    position: absolute;\r\n\r\n    transition: 150ms linear;\r\n\r\n    width: 100%;\r\n}\r\n.Block-module_enumeration__3VK4l:hover{\r\n    background: var(--mfc-background-quaternary);\r\n}\r\n.Block-module_enumContent__btUnw{\r\n    width: fit-content;\r\n    height: 1rem;\r\n    line-break: strict;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    /*line-break: strict;*/\r\n    z-index: 1;\r\n\r\n    padding-left: 16px;\r\n}\r\n";
+var styles$1 = {"code":"Block-module_code__HODBm","buttons":"Block-module_buttons__3Ygx3","button":"Block-module_button__1vdzp","wrapper":"Block-module_wrapper__1eIkX","enumeration":"Block-module_enumeration__3VK4l","enumContent":"Block-module_enumContent__btUnw"};
 styleInject(css_248z$1);
 
-function copyToClipboard(element) {
-  element.select();
-  element.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(element.value);
-}
-
 function Wrapper(props) {
+  var _props$options;
+
+  var copy = useCopyToClipboard();
+
+  var _useState = useState(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      content = _useState2[0],
+      setContent = _useState2[1];
+
+  var _useState3 = useState(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      success = _useState4[0],
+      setSuccess = _useState4[1];
+
   return /*#__PURE__*/React$1.createElement("div", {
     className: styles$1.wrapper,
     style: {
       width: props.width
     },
     "data-float": props["float"] ? props["float"] : 'none'
-  }, !props.noCopy ? null : /*#__PURE__*/React$1.createElement(Button, {
+  }, props.children(setContent), /*#__PURE__*/React$1.createElement(Alert, {
+    handleClose: function handleClose() {
+      return setSuccess(null);
+    },
+    open: success !== null,
+    variant: success ? 'success' : 'alert',
+    delay: 3000
+  }, success ? 'Copied!' : 'Copy was unsuccessful.'), /*#__PURE__*/React$1.createElement("div", {
+    className: styles$1.buttons
+  }, (_props$options = props.options) === null || _props$options === void 0 ? void 0 : _props$options.map(function (e, i) {
+    return /*#__PURE__*/React$1.createElement(Button, {
+      variant: 'minimal',
+      color: e.color,
+      onClick: e.onClick,
+      className: styles$1.button
+    }, e.icon, /*#__PURE__*/React$1.createElement(ToolTip, {
+      content: e.label
+    }));
+  }), /*#__PURE__*/React$1.createElement(Button, {
     variant: "filled",
     onClick: function onClick() {
-      copyToClipboard(props.contentRef);
+      setSuccess(copy(content));
     },
     className: styles$1.button
-  }, /*#__PURE__*/React$1.createElement("span", {
+  }, /*#__PURE__*/React$1.createElement(ToolTip, {
+    content: 'Copy content'
+  }), /*#__PURE__*/React$1.createElement("span", {
     className: "material-icons-round",
     style: {
       fontSize: '1.2rem'
     }
-  }, "content_copy")), props.children);
+  }, "content_copy"))));
 }
 Wrapper.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.shape({
+    onClick: PropTypes.func,
+    label: PropTypes.string,
+    icon: PropTypes.node
+  })),
   width: PropTypes.string,
   "float": PropTypes.oneOf(['right', 'left', 'stretch']),
-  children: PropTypes.node,
-  contentRef: PropTypes.object,
+  children: PropTypes.func.isRequired,
   noCopy: PropTypes.bool
 };
 
@@ -5357,6 +5459,9 @@ function TypeTag(props) {
   var ref = useRef();
   var content = useMemo(function () {
     switch (props.type) {
+      case 'any':
+        return props.content;
+
       case 'pre-formatted':
         return /*#__PURE__*/React$1.createElement("pre", {
           ref: ref,
@@ -5377,23 +5482,25 @@ function TypeTag(props) {
         });
 
       default:
-        if (props.linkTo) return /*#__PURE__*/React$1.createElement("a", {
-          className: styles$2.link,
-          href: props.linkTo
-        }, props.content);else return /*#__PURE__*/React$1.createElement("p", {
-          className: styles$2.baseText,
-          dangerouslySetInnerHTML: {
-            __html: props.content
-          },
-          "data-float": props["float"]
-        });
+        {
+          if (props.linkTo) return /*#__PURE__*/React$1.createElement("a", {
+            className: styles$2.link,
+            href: props.linkTo
+          }, props.content);else return /*#__PURE__*/React$1.createElement("p", {
+            className: styles$2.baseText,
+            dangerouslySetInnerHTML: {
+              __html: props.content
+            },
+            "data-float": props["float"]
+          });
+        }
     }
   }, [props.content]);
   return content;
 }
 TypeTag.propTypes = {
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  type: PropTypes.oneOf(['native-code', 'pre-formatted', 'text', 'image']),
+  type: PropTypes.oneOf(['any', 'native-code', 'pre-formatted', 'text', 'image']),
   index: PropTypes.number,
   "float": PropTypes.oneOf(['right', 'left', 'stretch']),
   linkTo: PropTypes.string,
@@ -5572,11 +5679,11 @@ Article.propTypes = {
   }))
 };
 
-var SPACE$1 = '  ';
+var SPACE = '  ';
 
 var parseData = function parseData(field, layer) {
   if (field !== null && field && _typeof(field) === 'object' && !Array.isArray(field)) {
-    if (Object.keys(field).length > 0) return "".concat(parseObject(field, layer + 1));else return "".concat(SPACE$1.repeat(layer - 1), "{}");
+    if (Object.keys(field).length > 0) return "".concat(parseObject(field, layer + 1));else return "".concat(SPACE.repeat(layer - 1), "{}");
   } else if (field !== null && field && Array.isArray(field)) {
     var newField = [];
     var subFieldLayer = field.length === 1 ? layer : layer + 1;
@@ -5585,8 +5692,8 @@ var parseData = function parseData(field, layer) {
       newField.push(typeof e === 'string' ? "\"".concat(parsed, "\"") : parsed);
     });
     var startP, endP;
-    startP = SPACE$1.repeat(layer + 2);
-    endP = SPACE$1.repeat(layer + 1);
+    startP = SPACE.repeat(layer + 2);
+    endP = SPACE.repeat(layer + 1);
     if (field.length === 0 || field.length === 1) return "[".concat(newField.join(',<br>' + startP), "]");else return "[<br>".concat(startP).concat(newField.join(',<br>' + startP), "<br>").concat(endP, "]");
   } else return "<i style=\"color: red\">".concat(field, "</i>");
 };
@@ -5603,10 +5710,10 @@ var parseObject = function parseObject(obj, layer, isWrapper) {
   });else newObj = obj;
   var str = removeDoubleQuotes(JSON.stringify(newObj));
   keys.forEach(function (e) {
-    str = str.replace("\"".concat(e, "\":"), "".concat(layer === 0 || layer > 0 ? '<br>' + SPACE$1.repeat(layer + 1) : '', "<b style=\"color: #0095ff\">\"").concat(e, "\": </b>"));
+    str = str.replace("\"".concat(e, "\":"), "".concat(layer === 0 || layer > 0 ? '<br>' + SPACE.repeat(layer + 1) : '', "<b style=\"color: #0095ff\">\"").concat(e, "\": </b>"));
   });
   str = str.split('');
-  if (str[str.length - 1] === '}') str[str.length - 1] = '<br>' + SPACE$1.repeat(!isWrapper ? layer ? layer : 1 : 0) + '}';
+  if (str[str.length - 1] === '}') str[str.length - 1] = '<br>' + SPACE.repeat(!isWrapper ? layer ? layer : 1 : 0) + '}';
   return str.join('');
 };
 
@@ -5689,26 +5796,71 @@ function jsxParser(component) {
 
 function htmlParser(htmlText) {
   return htmlText.replaceAll('<', '&lt;').replaceAll('>', '&gt;') // attr
-  .replaceAll(/[a-zA-Z]+=/ig, '<b style="color: #0095ff;">$&</b>') // attr value
+  .replaceAll(/[a-zA-Z0-9]+=/ig, '<b style="color: #0095ff;">$&</b>') // attr value
   .replaceAll(/{[^}]*}/ig, '<span style="color: #007d07;" >$&</span>') // tag
-  .replaceAll(/&lt;[a-zA-Z]+\s/ig, '<b style="color:#86128f;">$&</b>').replaceAll(/&lt;[a-zA-Z]+&gt;/g, '<b style="color:#86128f;">$&</b>').replaceAll(/&lt;\/[a-zA-Z]+&gt;/g, '<b style="color:#86128f;">$&</b>') // attr value
-  .replaceAll(/\s[a-zA-Z]+""[a-zA-Z]+"/ig, '<span style="color: #007d07;">$&</span>') // attr
-  .replaceAll(/"[a-zA-Z]+"/ig, '<span style="color: #007d07;">$&</span>');
+  .replaceAll(/&lt;[a-zA-Z0-9]+\s/ig, '<b style="color:#86128f;">$&</b>').replaceAll(/&lt;[a-zA-Z0-9]+&gt;/g, '<b style="color:#86128f;">$&</b>').replaceAll(/&lt;\/[a-zA-Z0-9]+&gt;/g, '<b style="color:#86128f;">$&</b>') // attr value
+  .replaceAll(/\s[a-zA-Z0-9]+""[a-zA-Z0-9]+"/ig, '<span style="color: #007d07;">$&</span>') // attr
+  .replaceAll(/"[a-zA-Z0-9]+"/ig, '<span style="color: #007d07;">$&</span>');
 }
 
+var reactDomHighlight = function reactDomHighlight(str) {
+  return str.replace(/(.*?)ReactDOM.render/igm, '<b style="color: #EA00FF">$&</b>').replace(/(.*?)ReactDOM.unmountComponentAtNode/igm, '<b style="color: #EA00FF">$&</b>');
+};
+
 function javascriptParser(data) {
-  var parsed = '';
+  var res = [];
+  var fullCode = [];
 
   try {
-    if (data.split('///JSX').length > 0) {
-      var jsx = data.split('///JSX')[1];
-      parsed = htmlParser(jsx);
-    }
+    var js = data.replace('\r', '\n').split('\n');
+    var ended = false;
+    var startsOn = undefined;
+    var indexes = [];
+    var regexStartJSX = /^\s*\/\/\/JSX$/gm;
+    var regexEndJSX = /^\s*\/\/\/JSX-END$/gm;
+    js.forEach(function (e, i) {
+      if (regexEndJSX.test(e)) {
+        indexes.push({
+          startsOn: startsOn,
+          endsOn: i
+        });
+        ended = true;
+      }
+
+      if (regexStartJSX.test(e) && (ended || startsOn === undefined)) {
+        startsOn = i;
+        ended = false;
+      }
+    });
+    indexes.forEach(function (e, index) {
+      var str = _toConsumableArray(js).splice(e.startsOn, e.endsOn - e.startsOn);
+
+      var jsx = htmlParser(str.join('\n').replace(regexStartJSX, '').replace(regexEndJSX, ''));
+      var before = [],
+          after = '';
+
+      if (index > 0) {
+        _toConsumableArray(js).forEach(function (h, i) {
+          if (i >= indexes[index - 1].endsOn && i <= e.startsOn) before.push(h);
+        });
+
+        before = before.join('\n');
+      } else if (index === 0) before = _toConsumableArray(js).splice(0, e.startsOn + 2).join('\n');
+
+      if (index === indexes.length - 1) after = _toConsumableArray(js).splice(e.endsOn, js.length).join('\n');
+      if (typeof before === 'string') before = before.replace(/ const /igm, '<b style="color: #003DFF">$&</b>').replace(/const /igm, '<b style="color: #003DFF">$&</b>').replace(/ let /igm, '<b style="color: #003DFF">$&</b>').replace(/ var /igm, '<b style="color: #003DFF">$&</b>').replace(/ import /igm, '<b style="color: #63474D">$&</b>').replace(/import /igm, '<b style="color: orange">$&</b>').replace(/ from /igm, '<b style="color: orange">$&</b>').replace(/function /igm, '<b style="color: #FF6A00">$&</b>').replace(/return /igm, '<b style="color: #FF6A00">$&</b>');
+      fullCode.push(reactDomHighlight(before) + jsx + '\n' + reactDomHighlight(after));
+      res.push(jsx);
+    });
   } catch (e) {
     console.log(e);
   }
 
-  return parsed;
+  return {
+    jsxContent: res,
+    fullCode: fullCode.join('\n'),
+    originalCode: data
+  };
 }
 
 function useCode(data, language) {
@@ -5731,20 +5883,18 @@ function useCode(data, language) {
   }, [language, data]);
 }
 
-var SPACE = '  ';
 function enumerateLines(data, divider) {
   var d = data;
   var smallestWhiteSpace;
 
   try {
     d = d.split(divider);
-    d.forEach(function (e) {
+    d.forEach(function (e, index) {
       if (e !== '\r') {
         var c = e.split('');
         var whitespaces = 0;
         c.every(function (s) {
           if (/\s/.test(s)) {
-            console.log(s);
             whitespaces = whitespaces + 1;
             return true;
           } else return false;
@@ -5754,11 +5904,26 @@ function enumerateLines(data, divider) {
     });
     var removedLines = 0;
     d = d.map(function (line, i) {
-      var content = line.replace(' '.repeat(smallestWhiteSpace), '');
-      if (content.length > 0 && content !== '\r') return "<span class=".concat(styles$1.line, "><button class=").concat(styles$1.enumeration, ">").concat(i - removedLines, "</button>").concat(SPACE, "<span class=").concat(styles$1.enumContent, ">").concat(content, "</span></span>");else {
+      if (!/^\s+$/gm.test(line)) {
+        var c = line.split('');
+        var newLine = [];
+        var reachedLetter = false;
+        c.forEach(function (s) {
+          if (/\s/.test(s) && !reachedLetter) newLine.push('&nbsp');else {
+            reachedLetter = true;
+            newLine.push(s);
+          }
+        });
+        newLine = newLine.join('');
+        var content = newLine.replace(' '.repeat(smallestWhiteSpace), '');
+        return "<span><button class=".concat(styles$1.enumeration, ">").concat(i - removedLines, "</button><span class=").concat(styles$1.enumContent, ">").concat(content, "</span></span>");
+      } else {
         removedLines += 1;
         return null;
       }
+    });
+    d.filter(function (e) {
+      return e !== null;
     });
     d = d.join(divider);
   } catch (e) {}
@@ -5766,24 +5931,135 @@ function enumerateLines(data, divider) {
   return d;
 }
 
-function CodeBlock(props) {
-  var parsedString = useCode(props.data, props.language);
+function JavascriptCode(props) {
   var ref = useRef();
-  return /*#__PURE__*/React$1.createElement(Wrapper, {
-    contentRef: ref.current,
-    width: props.width
-  }, /*#__PURE__*/React$1.createElement("code", {
-    ref: ref,
+  var tabs = useMemo(function () {
+    return props.jsxContent.map(function (c, i) {
+      return enumerateLines(c, '\n');
+    });
+  }, []);
+  var full = useMemo(function () {
+    return enumerateLines(props.fullCode, '\n');
+  }, []);
+  useEffect(function () {
+    props.setCopy(props.originalCode);
+  }, []);
+  return useMemo(function () {
+    if (props.extended) {
+      return /*#__PURE__*/React$1.createElement("code", {
+        style: {
+          display: 'grid',
+          alignItems: 'flex-start',
+          alignContent: 'flex-start'
+        },
+        className: styles$1.code,
+        ref: ref,
+        dangerouslySetInnerHTML: {
+          __html: full
+        }
+      });
+    } else if (tabs.length > 1) {
+      return /*#__PURE__*/React$1.createElement(Tabs, {
+        styles: {
+          position: 'relative'
+        }
+      }, tabs.map(function (c, i) {
+        return /*#__PURE__*/React$1.createElement(Tab, {
+          label: 'Jsx code ' + i
+        }, /*#__PURE__*/React$1.createElement("code", {
+          ref: ref,
+          className: styles$1.code,
+          dangerouslySetInnerHTML: {
+            __html: c
+          },
+          style: {
+            display: 'grid',
+            alignItems: 'flex-start',
+            alignContent: 'flex-start'
+          }
+        }));
+      }));
+    } else if (tabs.length === 1) return /*#__PURE__*/React$1.createElement("code", {
+      ref: ref,
+      className: styles$1.code,
+      dangerouslySetInnerHTML: {
+        __html: tabs[0]
+      },
+      style: {
+        display: 'grid',
+        alignItems: 'flex-start',
+        alignContent: 'flex-start'
+      }
+    });else return null;
+  }, [props.extended, props.jsxContent]);
+}
+JavascriptCode.propTypes = {
+  originalCode: PropTypes.string,
+  jsxContent: PropTypes.arrayOf(PropTypes.shape({
+    jsx: PropTypes.string,
+    before: PropTypes.string,
+    after: PropTypes.string
+  })),
+  fullCode: PropTypes.string,
+  setCopy: PropTypes.func,
+  extended: PropTypes.bool
+};
+
+function JsonCode(props) {
+  useEffect(function () {
+    props.setCopy(props.data);
+  });
+  return /*#__PURE__*/React$1.createElement("code", {
     className: styles$1.code,
     dangerouslySetInnerHTML: {
-      __html: enumerateLines(parsedString, props.language === 'jsx' || props.language === 'javascript' ? '\n' : '<br>')
+      __html: enumerateLines(props.parsedData, '<br>')
     }
-  }));
+  });
+}
+JsonCode.propTypes = {
+  setCopy: PropTypes.func,
+  data: PropTypes.object,
+  parsedData: PropTypes.string
+};
+
+function CodeBlock(props) {
+  var parsedString = useCode(props.data, props.language);
+
+  var _useState = useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      extended = _useState2[0],
+      setExtended = _useState2[1];
+
+  return /*#__PURE__*/React$1.createElement(Wrapper, {
+    width: props.width,
+    options: props.language === 'javascript' ? [{
+      icon: /*#__PURE__*/React$1.createElement("span", {
+        className: "material-icons-round",
+        style: {
+          fontSize: '1rem'
+        }
+      }, "code"),
+      onClick: function onClick() {
+        return setExtended(!extended);
+      },
+      label: 'Show code',
+      color: extended ? 'secondary' : 'primary'
+    }] : []
+  }, function (copyContent) {
+    return props.language === 'javascript' ? JavascriptCode(_objectSpread2(_objectSpread2({}, parsedString), {}, {
+      setCopy: copyContent,
+      extended: extended
+    })) : JsonCode({
+      setCopy: copyContent,
+      data: props.data,
+      parsedData: parsedString
+    });
+  });
 }
 CodeBlock.propTypes = {
   width: PropTypes.string,
-  data: PropTypes.string,
-  language: PropTypes.oneOf(['json', 'jsx', 'javascript'])
+  data: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+  language: PropTypes.oneOf(['json', 'jsx', 'javascript']).isRequired
 };
 
-export { ActionButton, Alert, Article, Bar$1 as Bar, BarAction, Breadcrumbs, Button, Carousel, Checkbox, CheckboxGroup, CodeBlock, DateField, DropDownField, DynamicRoutes, Empty, Feed, FeedCard, FileField, Filter, Form, FormRow, HorizontalChart, LineChart, List, Modal, MultiSelectField, PieChart, Ripple, Selector, Switcher, Tab, Tabs, TextField, ThemeContext, ThemeProvider, ToolTip, VerticalChart, VerticalTabs, Request as request, useInfiniteScroll, useQuery };
+export { ActionButton, Alert, Article, Bar$1 as Bar, BarAction, Breadcrumbs, Button, Carousel, Checkbox, CheckboxGroup, CodeBlock, DateField, DropDownField, DynamicRoutes, Empty, Feed, FeedCard, FileField, Filter, Form, FormRow, HorizontalChart, LineChart, List, Modal, MultiSelectField, PieChart, Ripple, Selector, Switcher, Tab, Tabs, TextField, ThemeContext, ThemeProvider, ToolTip, VerticalChart, VerticalTabs, Request as request, useCopyToClipboard, useFile, useInfiniteScroll, useQuery };
