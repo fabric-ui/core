@@ -39,7 +39,7 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 ### useCopyToClipboard
 <b>React Hook for copying text.</b>
 ### CodeBlock
-<b>Javascript syntax highlight working</b>
+<b>Javascript syntax highlight is now working.</b>
 
 ## Documentation and examples
 
