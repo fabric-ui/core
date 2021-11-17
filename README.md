@@ -37,8 +37,11 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 ## News
 
 ### useCopyToClipboard
+
 <b>React Hook for copying text.</b>
+
 ### CodeBlock
+
 <b>Javascript syntax highlight is now working.</b>
 
 ## Documentation and examples
@@ -50,6 +53,7 @@ The package documentation is currently <b>under development</b>, any questions c
 ## Available components and hooks
 
 ### Hooks
+
 <b>useCopyToClipboard</b>: Copy any text to the clipboard.<br>
 <b>useFile</b>: Easy way to read the content from a local file.<br>
 
@@ -60,17 +64,19 @@ The package documentation is currently <b>under development</b>, any questions c
 
 ### Inputs
 
-<b>Selector</b>: List with selection intended usage with listing api<br>
+[comment]: <> (<b>Selector</b>: List with selection intended usage with listing api<br>)
 <b>Form</b>: Form with default layout, data validation and integration with all inputs from the package<br>
 <b>FormRow</b>: Process block for the Form component, facilitates the navigation inside a big complex form.<br>
 <b>DateField</b>: Date field with ability to parse data formats and many input patterns<br>
-<b>DropDownField</b>: Basic DropDown component<br>
+<b>SelectField</b>: Basic DropDown component<br>
 <b>MultiSelectField</b>: Multi-select field, supports array or string divided with pattern.<br>
-<b>TextField</b>: A basic text input, customizable with masks (Thanks to <a href='https://github.com/sanniassin/react-input-mask'>react-input-mask</a>), Adornments and more.<br>
+<b>TextField</b>: A basic text input, customizable with masks (Thanks
+to <a href='https://github.com/sanniassin/react-input-mask'>react-input-mask</a>), Adornments and more.<br>
 <b>Button</b>: Basic button with many beautiful and clean design variants.<br>
 <b>Checkbox</b>: Basic checkbox<br>
 <b>CheckboxGroup</b>: Group your checkboxes in a wrapper with a clean layout with CheckboxGroup. <br>
-<b>FileField</b>: File upload input, clean, beautiful and easy to use and setup. Manage your uploaded files with FileField component<br>
+<b>FileField</b>: File upload input, clean, beautiful and easy to use and setup. Manage your uploaded files with
+FileField component<br>
 
 ### Navigation
 
@@ -78,14 +84,18 @@ The package documentation is currently <b>under development</b>, any questions c
 <b>Tabs</b>: Beautiful tab system with enter and exit animations.<br>
 <b>VerticalTabs</b>: Vertical tabs system with enter and exit animations.<br>
 <b>Modal</b>: Animated modal window<br>
-<b>Bar</b>: Navigation bar.<br>
-<b>Breadcrumbs</b>: Breadcrumbs, yeah<br>
+<b>RailActionButton</b>: Minimal dynamic button.<br>
+
+[comment]: <> (<b>RailContext</b>: Context for the current state of the NavigationBar &#40;extended or &#41; .<br>)
+<b>NavigationRail</b>: Main vertical bar.<br>
+<b>Dropdown</b>: More options, less occupied space.<br>
+<b>RailActionWrapper</b>.<br>
+<b>Breadcrumbs</b>.<br>
 <b>Switcher</b>: Animate enter and exit of content from the visible dom elements.<br>
-<b>BarAction</b>: Content wrapper for the Bar component<br>
 
 ### Data display and visualization
 
-<b>List</b>: List with infinite scroll intended for listing things from external data source (e.g. an api)<br>
+[comment]: <> (<b>List</b>: List with infinite scroll intended for listing things from external data source &#40;e.g. an api&#41;<br>)
 <b>HorizontalChart</b>: Horizontal bars chart (under development, some things may change)<br>
 <b>LineChart</b>: Line chart (under development, some things may change)<br>
 <b>PieChart</b>: Pie chart (under development, some things may change)<br>
@@ -99,7 +109,7 @@ The package documentation is currently <b>under development</b>, any questions c
 
 ### Misc
 
-<b>ThemeProvider</b>: Wrapper intended to set up a default color pallet across all components from this package. <br>
+<b>MfcWrapper</b>: Necessary to load correctly the icons, language and color.<br>
 <b>Ripple</b>: Ripple effect activated with a mouse down event. <br>
 
 ## Changelog

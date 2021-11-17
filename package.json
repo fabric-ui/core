@@ -67,6 +67,6 @@
   "bugs": {
     "url": "https://github.com/FacoBackup/mfc-core/issues"
   },
-  "homepage": "https://github.com/FacoBackup/mfc-core#readme",
+  "homepage": "https://mfc-documentation-vercel.vercel.app/en",
   "dependencies": {}
 }

@@ -279,17 +279,6 @@ var css_248z$F = "@import '../../../misc/theme/styles.module.css';\n\n.Details-m
 var styles$C = {"wrapper":"Details-module_wrapper__J27HM","header":"Details-module_header__1tt1f","subHeader":"Details-module_subHeader__2sD0y","body":"Details-module_body__2pm_N","footer":"Details-module_footer__Pdo9j","copyButton":"Details-module_copyButton__2-6G0"};
 styleInject(css_248z$F);
 
-var AlertPT = {
-  error: 'Algum erro ocorreu',
-  success: 'Sucesso',
-  created: 'Criado com sucesso',
-  details: 'Detalhes',
-  params: 'Parâmetros da requisição',
-  method: 'Método http:',
-  setPackage: 'Pacote enviado:',
-  url: 'URL enviado:'
-};
-
 var css_248z$E = "@import '../../../misc/theme/styles.module.css';\n\n.Modal-module_wrapper__peqWF {\n    /*overflow: hidden;*/\n    position: fixed;\n    z-index: 300;\n    transition: opacity 150ms ease-in-out;\n    bottom: 0;\n}\n\n.Modal-module_fitContent__3p_fP {\n    height: fit-content;\n    width: fit-content;\n}\n\n.Modal-module_fitPage__CXDNO {\n    height: 100vh;\n    width: 100vw;\n}\n\n.Modal-module_modalContainer__3aKtV {\n    width: 100%;\n    height: 100%;\n}\n\n\n\n@keyframes Modal-module_fadeOutAnim__2SUYV {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}\n\n@keyframes Modal-module_fadeInAnim__3Gixz {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n\n.Modal-module_enterFade__1xlj8 {\n    animation: Modal-module_fadeInAnim__3Gixz ease-in-out 250ms forwards;\n}\n\n.Modal-module_exitFade__2gmwF {\n    animation: Modal-module_fadeOutAnim__2SUYV ease-in-out 250ms forwards;\n}\n\n\n.Modal-module_slideLeftEnter__1a4nB {\n    animation: Modal-module_slideLeftEnterAnim__3Y1mE ease-in-out 250ms;\n}\n\n.Modal-module_slideLeftExit__3lXC7 {\n    animation: Modal-module_slideLeftExitAnim__2uGD2 ease-in-out 250ms;\n}\n\n.Modal-module_slideRightEnter__c2m0V {\n    animation: Modal-module_slideRightEnterAnim__zSDil ease-in-out 250ms;\n}\n\n.Modal-module_slideRightExit__3rrOc {\n    animation: Modal-module_slideRightExitAnim__187-I ease-in-out 250ms;\n}\n\n@keyframes Modal-module_slideLeftEnterAnim__3Y1mE {\n    0% {\n        transform: translateX(-100%);\n\n    }\n    100% {\n        transform: translateX(0);\n    }\n}\n\n@keyframes Modal-module_slideLeftExitAnim__2uGD2 {\n    0% {\n        transform: translateX(0);\n    }\n    100% {\n        transform: translateX(-100%);\n    }\n}\n\n@keyframes Modal-module_slideRightEnterAnim__zSDil {\n    0% {\n        transform: translateX(100%);\n\n    }\n    100% {\n        transform: translateX(0);\n    }\n}\n\n@keyframes Modal-module_slideRightExitAnim__187-I {\n    0% {\n        transform: translateX(0);\n    }\n    100% {\n        transform: translateX(100%);\n    }\n}\n\n.Modal-module_background__101HU {\n    background-color: var(--mfc-background-primary);\n}\n\n.Modal-module_slideBottomEnter__39VPK{\n    animation: Modal-module_slideBottomEnterAnim__PXHAQ ease-in-out 250ms;\n}\n.Modal-module_slideBottomExit__3uVE9{\n    animation: Modal-module_slideBottomExitAnim__15zxc ease-in-out 250ms;\n}\n\n@keyframes Modal-module_slideBottomEnterAnim__PXHAQ {\n    0% {\n        transform: translateY(100%);\n\n    }\n    100% {\n        transform: translateY(0);\n    }\n}\n\n@keyframes Modal-module_slideBottomExitAnim__15zxc {\n    0% {\n        transform: translateY(0);\n    }\n    100% {\n        transform: translateY(100%);\n    }\n}\n";
 var styles$B = {"wrapper":"Modal-module_wrapper__peqWF","fitContent":"Modal-module_fitContent__3p_fP","fitPage":"Modal-module_fitPage__CXDNO","modalContainer":"Modal-module_modalContainer__3aKtV","enterFade":"Modal-module_enterFade__1xlj8","fadeInAnim":"Modal-module_fadeInAnim__3Gixz","exitFade":"Modal-module_exitFade__2gmwF","fadeOutAnim":"Modal-module_fadeOutAnim__2SUYV","slideLeftEnter":"Modal-module_slideLeftEnter__1a4nB","slideLeftEnterAnim":"Modal-module_slideLeftEnterAnim__3Y1mE","slideLeftExit":"Modal-module_slideLeftExit__3lXC7","slideLeftExitAnim":"Modal-module_slideLeftExitAnim__2uGD2","slideRightEnter":"Modal-module_slideRightEnter__c2m0V","slideRightEnterAnim":"Modal-module_slideRightEnterAnim__zSDil","slideRightExit":"Modal-module_slideRightExit__3rrOc","slideRightExitAnim":"Modal-module_slideRightExitAnim__187-I","background":"Modal-module_background__101HU","slideBottomEnter":"Modal-module_slideBottomEnter__39VPK","slideBottomEnterAnim":"Modal-module_slideBottomEnterAnim__PXHAQ","slideBottomExit":"Modal-module_slideBottomExit__3uVE9","slideBottomExitAnim":"Modal-module_slideBottomExitAnim__15zxc"};
 styleInject(css_248z$E);
@@ -498,8 +487,79 @@ Modal.propTypes = {
   children: PropTypes__default["default"].node
 };
 
+var LanguageContext = /*#__PURE__*/React__default["default"].createContext('en');
+
+var LocaleEN = {
+  required: 'This field is required.',
+  values: 'Selected',
+  create_new: 'Create new',
+  reload_data: 'Reload data',
+  filters: 'Filters',
+  clear_selected: 'Clear selected',
+  nothing_selected: 'Nothing selected',
+  error: 'Some error occurred',
+  success: 'Success',
+  created: 'Created with success',
+  details: 'Details',
+  params: 'Request parameters',
+  method: 'HTTP method:',
+  setPackage: 'Package sent:',
+  url: 'URL:',
+  upload_files: 'Upload files',
+  uploaded_files: 'Uploaded',
+  create: 'Create',
+  save: 'Save',
+  accepted_types: 'Accepted file types',
+  all: 'All',
+  drag_files: 'Drag your files here',
+  not_completed: 'Not completed',
+  completed: 'Completed',
+  step: 'Procedure'
+};
+
+var LocalePT = {
+  required: 'Este campo é obrigatório.',
+  values: 'Selecionados',
+  create_new: 'Criar novo',
+  reload_data: 'Recarregar dados',
+  filters: 'Filtros',
+  clear_selected: 'Limpar selecionado',
+  nothing_selected: 'Nada selecionado',
+  error: 'Algum erro ocorreu',
+  success: 'Sucesso',
+  created: 'Criado com sucesso',
+  details: 'Detalhes',
+  params: 'Parâmetros da requisição',
+  method: 'Método http:',
+  setPackage: 'Pacote enviado:',
+  url: 'URL enviado:',
+  upload_files: 'Anexar arquivos',
+  uploaded_files: 'Anexados',
+  create: 'Criar',
+  save: 'Salvar',
+  accepted_types: 'Tipos aceitos',
+  all: 'Todos',
+  drag_files: 'Arraste seus arquivos aqui',
+  not_completed: 'Não completo',
+  completed: 'Completo',
+  step: 'Procedimento'
+};
+
+function useLocale() {
+  var locale = React$1.useContext(LanguageContext);
+  return function (word) {
+    switch (locale) {
+      case 'en':
+        return LocaleEN[word];
+
+      default:
+        return LocalePT[word];
+    }
+  };
+}
+
 function Details(props) {
-  var lang = AlertPT;
+  var translate = useLocale();
   var data = React$1.useMemo(function () {
     var res = props.data.details;
 
@@ -520,7 +580,7 @@ function Details(props) {
     animationStyle: "slide-right"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles$C.header
-  }, props.data.httpStatusCode >= 300 ? lang.error : lang.success, " - ", props.data.httpStatusCode, /*#__PURE__*/React__default["default"].createElement("div", {
+  }, props.data.httpStatusCode >= 300 ? translate('error') : translate('success'), " - ", props.data.httpStatusCode, /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles$C.subHeader
   }, props.data.url)), /*#__PURE__*/React__default["default"].createElement("div", {
     style: {
@@ -534,22 +594,7 @@ function Details(props) {
       alignItems: 'center',
       position: 'relative'
     }
-  }, lang.details, /*#__PURE__*/React__default["default"].createElement("button", {
-    className: styles$C.copyButton,
-    onClick: function onClick(event) {
-      navigator.clipboard.writeText(props.data.details);
-      event.target.innerText = 'Copiado';
-      event.target.style.background = 'white';
-      event.target.style.color = '#555555';
-      event.target.style.border = '#ecedf2 1px solid';
-      setTimeout(function () {
-        event.target.innerText = 'Copiar';
-        event.target.style.background = '#0095ff';
-        event.target.style.color = 'white';
-        event.target.style.border = 'transparent 1px solid';
-      }, 5000);
-    }
-  }, "Copiar")), /*#__PURE__*/React__default["default"].createElement("pre", {
+  }, translate('details')), /*#__PURE__*/React__default["default"].createElement("pre", {
     className: styles$C.body,
     style: {
       overflow: 'auto'
@@ -558,19 +603,19 @@ function Details(props) {
     style: {
       paddingBottom: '16px'
     }
-  }, lang.params, /*#__PURE__*/React__default["default"].createElement("div", {
+  }, translate('params'), /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles$C.footer
-  }, /*#__PURE__*/React__default["default"].createElement("div", null, lang.method, " ", props.data.method), /*#__PURE__*/React__default["default"].createElement("div", {
+  }, /*#__PURE__*/React__default["default"].createElement("div", null, translate('method'), " ", props.data.method), /*#__PURE__*/React__default["default"].createElement("div", {
     style: {
       width: '100%',
       overflow: 'hidden'
     }
-  }, lang.setPackage, /*#__PURE__*/React__default["default"].createElement("pre", {
+  }, translate('setPackage'), /*#__PURE__*/React__default["default"].createElement("pre", {
     className: styles$C.body,
     style: {
       overflow: 'auto'
     }
-  }, JSON.stringify(props.data["package"], null, 4))), /*#__PURE__*/React__default["default"].createElement("div", null, lang.url, " ", props.data.url))));
+  }, JSON.stringify(props.data["package"], null, 4))), /*#__PURE__*/React__default["default"].createElement("div", null, translate('url'), " ", props.data.url))));
 }
 Details.propTypes = {
   open: PropTypes__default["default"].bool,
@@ -1066,13 +1111,6 @@ var css_248z$y = "@import \"../../../misc/theme/styles.module.css\";\n\n.Selecto
 var styles$v = {"createModal":"Selector-module_createModal__zGsa_","labelContainer":"Selector-module_labelContainer__zPMB5","button":"Selector-module_button__2l_e_","alertLabel":"Selector-module_alertLabel__2-P3S","inputContainer":"Selector-module_inputContainer__1xcoQ","fieldsContainer":"Selector-module_fieldsContainer__37Ep6","searchButtonContainer":"Selector-module_searchButtonContainer__3Jw7g","selectedEntityContainer":"Selector-module_selectedEntityContainer__3Vnam","removeButton":"Selector-module_removeButton__1TFvA","divider":"Selector-module_divider__2Ossq","overflow":"Selector-module_overflow__3TwOW","buttonWrapper":"Selector-module_buttonWrapper__LLyJf","enter":"Selector-module_enter__2WjLM","exit":"Selector-module_exit__2Dzcn"};
 styleInject(css_248z$y);
 
-var SelectorsPT = {
-  close: 'Fechar',
-  search: 'Pesquisar',
-  required: 'Este campo é obrigatório.',
-  selected: 'Selecionado'
-};
-
 var css_248z$x = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.SelectorModal-module_wrapper__39kRR {\r\n    height: 100%;\r\n    width: clamp(250px, 25%, 500px);\r\n    background: var(--mfc-background-primary);\r\n    margin-left: auto;\r\n    border-radius: 8px 0 0 8px;\r\n    box-shadow: var(--mfc-box-shadow-primary) -1px 0 3px 1px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 16px;\r\n    padding: 12px;\r\n}\r\n\r\n.SelectorModal-module_header__ckwRV {\r\n    font-family: \"Roboto\";\r\n\r\n    display: flex;\r\n    height: fit-content;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    width: 100%;\r\n    font-size: 1.2rem;\r\n    border-radius: 5px;\r\n    font-weight: bold;\r\n    color: var(--mfc-color-primary);\r\n}\r\n\r\n.SelectorModal-module_row__28prZ {\r\n    overflow: hidden;\r\n    outline: none;\r\n\r\n    width: 100%;\r\n    max-width: 100%;\r\n\r\n    padding: 4px;\r\n    height: 50px;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.SelectorModal-module_overflowEllipsis__2C1KC {\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    text-align: left;\r\n}\r\n\r\n.SelectorModal-module_rowColumn__2wgID {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    justify-items: center;\r\n\r\n    gap: 4px;\r\n}\r\n\r\n.SelectorModal-module_columnLabel__3EXCz {\r\n    font-size: .75rem;\r\n    color: var(--mfc-color-quaternary);\r\n}\r\n\r\n.SelectorModal-module_rows__dqCYe {\r\n    position: relative;\r\n    display: grid;\r\n    align-content: flex-start;\r\n    gap: 8px;\r\n    overflow-y: auto;\r\n    height: 100%;\r\n    /*padding-top: 16px;*/\r\n    /*display: flex;*/\r\n    /*flex-direction: column;*/\r\n    width: 100%;\r\n    /*gap: 4px;*/\r\n}\r\n\r\n.SelectorModal-module_hoveredRow__2kDC6 {\r\n    background: var(--mfc-background-quaternary);\r\n    border-color: #0095ff;\r\n    border-style: solid;\r\n}\r\n\r\n\r\n\r\n.SelectorModal-module_emptyRow__9HWYo {\r\n    color: var(--mfc-color-quinary);\r\n}\r\n\r\n.SelectorModal-module_divider__1O8uU {\r\n    height: 1px;\r\n    width: 100%;\r\n    background: var(--mfc-border-secondary);\r\n}\r\n\r\n.SelectorModal-module_headerButton__1tHp5 {\r\n    height: 30px;\r\n    padding: 4px 8px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    background: var(--mfc-background-primary);\r\n}\r\n\r\n\r\n.SelectorModal-module_headerButtons__1TWSf {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n}\r\n\r\n.SelectorModal-module_mainRow__1PE1p{\r\n    background: var(--mfc-background-tertiary);\r\n}";
 var styles$u = {"wrapper":"SelectorModal-module_wrapper__39kRR","header":"SelectorModal-module_header__ckwRV","row":"SelectorModal-module_row__28prZ","overflowEllipsis":"SelectorModal-module_overflowEllipsis__2C1KC","rowColumn":"SelectorModal-module_rowColumn__2wgID","columnLabel":"SelectorModal-module_columnLabel__3EXCz","rows":"SelectorModal-module_rows__dqCYe","hoveredRow":"SelectorModal-module_hoveredRow__2kDC6","emptyRow":"SelectorModal-module_emptyRow__9HWYo","divider":"SelectorModal-module_divider__1O8uU","headerButton":"SelectorModal-module_headerButton__1tHp5","headerButtons":"SelectorModal-module_headerButtons__1TWSf","mainRow":"SelectorModal-module_mainRow__1PE1p"};
 styleInject(css_248z$x);
@@ -1144,6 +1182,7 @@ RowCell.propTypes = {
 };
 
 function Row$2(props) {
+  var translate = useLocale();
   return /*#__PURE__*/React__default["default"].createElement(Button, {
     onClick: function onClick() {
       return props.onClick();
@@ -1164,7 +1203,7 @@ function Row$2(props) {
     style: {
       display: props.main && !props.data ? undefined : 'none'
     }
-  }, "Nada selecionado."), props.main && !props.data ? null : props.keys.map(function (k, i) {
+  }, translate('nothing_selected')), props.main && !props.data ? null : props.keys.map(function (k, i) {
     return !k.visible ? null : /*#__PURE__*/React__default["default"].createElement("div", {
       key: 'selector-row-' + i,
       className: styles$u.rowColumn,
@@ -1284,11 +1323,6 @@ var css_248z$u = ".Input-module_fieldsContainer__EoW_4 {\n    display: flex;\n  
 var styles$r = {"fieldsContainer":"Input-module_fieldsContainer__EoW_4","inputContainer":"Input-module_inputContainer__3Jx-t","mask":"Input-module_mask__27obY","focus":"Input-module_focus__1hNr4","fadeIn":"Input-module_fadeIn__1BfZu"};
 styleInject(css_248z$u);
 
-var LocalePT = {
-  required: 'Este campo é obrigatório.',
-  values: 'Selecionados'
-};
-
 function ParseCurrency(event) {
   var value = event;
   value = value + '';
@@ -1298,18 +1332,18 @@ function ParseCurrency(event) {
   return value;
 }
 
-var css_248z$t = "\r\n.Shared-module_wrapper__184dI {\r\n    --accent_color: #0095ff;\r\n\r\n    transition: 150ms linear;\r\n    height: fit-content;\r\n\r\n    outline: transparent 1px solid;\r\n    border-radius: 5px;\r\n}\r\n\r\n.Shared-module_secondaryVariant__JSqkU {\r\n    --accent_color: #ff5555;\r\n}\r\n\r\n\r\n.Shared-module_wrapper__184dI:hover, .Shared-module_wrapper__184dI:focus-within, .Shared-module_wrapper__184dI[data-highlight], .Shared-module_wrapper__184dI:active {\r\n    outline: var(--accent_color) 1px solid;\r\n}\r\n\r\n.Shared-module_wrapper__184dI[data-disabled], .Shared-module_wrapper__184dI:disabled {\r\n    outline: transparent 1px solid;\r\n}\r\n\r\n\r\n.Shared-module_labelContainer__3uQR- {\r\n    transition: 200ms ease-in-out;\r\n\r\n    color: var(--mfc-color-secondary);\r\n    /*font-weight: 600;*/\r\n    font-size: .8rem;\r\n    margin-top: auto;\r\n    user-select: none;\r\n    font-family: \"Roboto\";\r\n    text-transform: capitalize;\r\n\r\n    display: flex;\r\n    width: 100%;\r\n    align-items: center;\r\n\r\n    gap: 6px;\r\n}\r\n\r\n.Shared-module_overflow__2coWY{\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    max-width: 75%;\r\n    overflow: hidden;\r\n}\r\n.Shared-module_alertLabel__KuMWx {\r\n    color: var(--mfc-color-quaternary);\r\n    font-family: \"Roboto\";\r\n    margin-left: auto;\r\n    font-size: .75rem;\r\n    user-select: none;\r\n\r\n}\r\n.Shared-module_helperText__2Ugyl{\r\n    transition: 150ms linear;\r\n    color: #FFAC3E;\r\n    cursor: help;\r\n}\r\n.Shared-module_helperText__2Ugyl:hover{\r\n    color: #0095ff;\r\n}";
-var shared$2 = {"wrapper":"Shared-module_wrapper__184dI","secondaryVariant":"Shared-module_secondaryVariant__JSqkU","labelContainer":"Shared-module_labelContainer__3uQR-","overflow":"Shared-module_overflow__2coWY","alertLabel":"Shared-module_alertLabel__KuMWx","helperText":"Shared-module_helperText__2Ugyl"};
+var css_248z$t = "\r\n.Shared-module_wrapper__1akhG {\r\n    --accent_color: #0095ff;\r\n\r\n    transition: 150ms linear;\r\n    height: fit-content;\r\n\r\n    outline: transparent 1px solid;\r\n    border-radius: 5px;\r\n}\r\n\r\n.Shared-module_secondaryVariant__lmsuI {\r\n    --accent_color: #ff5555;\r\n}\r\n\r\n\r\n.Shared-module_wrapper__1akhG:hover, .Shared-module_wrapper__1akhG:focus-within, .Shared-module_wrapper__1akhG[data-highlight], .Shared-module_wrapper__1akhG:active {\r\n    outline: var(--accent_color) 1px solid;\r\n}\r\n\r\n.Shared-module_wrapper__1akhG[data-disabled], .Shared-module_wrapper__1akhG:disabled {\r\n    outline: transparent 1px solid;\r\n}\r\n\r\n\r\n.Shared-module_labelContainer__2eUNz {\r\n    transition: 200ms ease-in-out;\r\n\r\n    color: var(--mfc-color-secondary);\r\n    /*font-weight: 600;*/\r\n    font-size: .8rem;\r\n    margin-top: auto;\r\n    user-select: none;\r\n    font-family: \"Roboto\";\r\n    text-transform: capitalize;\r\n\r\n    display: flex;\r\n    width: 100%;\r\n    align-items: center;\r\n\r\n    gap: 6px;\r\n}\r\n\r\n.Shared-module_overflow__xMSr0{\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    max-width: 75%;\r\n    overflow: hidden;\r\n}\r\n.Shared-module_alertLabel__2FAHg {\r\n    color: var(--mfc-color-quaternary);\r\n    font-family: \"Roboto\";\r\n    margin-left: auto;\r\n    font-size: .75rem;\r\n    user-select: none;\r\n\r\n}\r\n.Shared-module_helperText__1QbdR{\r\n    transition: 150ms linear;\r\n    color: #FFAC3E;\r\n    cursor: help;\r\n}\r\n.Shared-module_helperText__1QbdR:hover{\r\n    color: #0095ff;\r\n}";
+var shared$2 = {"wrapper":"Shared-module_wrapper__1akhG","secondaryVariant":"Shared-module_secondaryVariant__lmsuI","labelContainer":"Shared-module_labelContainer__2eUNz","overflow":"Shared-module_overflow__xMSr0","alertLabel":"Shared-module_alertLabel__2FAHg","helperText":"Shared-module_helperText__1QbdR"};
 styleInject(css_248z$t);
 
 function TextField(props) {
-  var lang = LocalePT;
+  var translate = useLocale();
   var maskEndRef = React$1.useRef();
   var maskStartRef = React$1.useRef();
   var ref = React$1.useRef();
   React$1.useEffect(function () {
-    if (props.maskStart) ref.current.style.paddingLeft = maskStartRef.current.offsetWidth + 12 + 'px';
-    if (props.maskEnd) ref.current.style.paddingRight = maskEndRef.current.offsetWidth + 12 + 'px';
+    if (props.maskStart) ref.current.style.paddingLeft = maskStartRef.current.offsetWidth + 10 + 'px';
+    if (props.maskEnd) ref.current.style.paddingRight = maskEndRef.current.offsetWidth + 10 + 'px';
   }, [props.maskStart, props.maskEnd]);
 
   var content = function content(value) {
@@ -1450,7 +1484,7 @@ function TextField(props) {
       visibility: props.required ? 'visible' : 'hidden',
       display: props.noMargin && !props.required ? 'none' : undefined
     }
-  }, lang.required));
+  }, translate('required')));
 }
 TextField.propTypes = {
   helperText: PropTypes__default["default"].string,
@@ -1674,6 +1708,14 @@ function DateField(props) {
     return res;
   };
 
+  var _useState3 = React$1.useState(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      mask = _useState4[0],
+      setMask = _useState4[1];
+
+  React$1.useEffect(function () {
+    setMask(pattern.replaceAll('y', '9').replaceAll('d', '9').replaceAll('m', '9'));
+  }, [pattern]);
   return /*#__PURE__*/React__default["default"].createElement("div", {
     ref: ref,
     style: {
@@ -1695,7 +1737,7 @@ function DateField(props) {
     colorVariant: date.valid ? 'primary' : 'secondary',
     placeholder: props.label,
     label: props.label,
-    mask: pattern.replaceAll('y', '9').replaceAll('d', '9').replaceAll('m', '9'),
+    mask: mask,
     maskEnd: /*#__PURE__*/React__default["default"].createElement(Button, {
       onClick: function onClick() {
         return setOpen(true);
@@ -2435,6 +2477,7 @@ function SelectorModal(props) {
   React$1.useEffect(function () {
     if (props.open) props.hook.clean();
   }, [props.open]);
+  var translate = useLocale();
   return /*#__PURE__*/React__default["default"].createElement(Modal, {
     open: props.open,
     handleClose: function handleClose() {
@@ -2463,9 +2506,9 @@ function SelectorModal(props) {
     },
     className: styles$u.headerButton
   }, /*#__PURE__*/React__default["default"].createElement("span", {
-    className: "material-icons-outlined"
+    className: "material-icons-round"
   }, "add"), /*#__PURE__*/React__default["default"].createElement(ToolTip, {
-    content: 'Criar novo'
+    content: translate('create_new')
   })), /*#__PURE__*/React__default["default"].createElement(Button, {
     variant: 'outlined',
     onClick: function onClick() {
@@ -2473,9 +2516,9 @@ function SelectorModal(props) {
     },
     className: styles$u.headerButton
   }, /*#__PURE__*/React__default["default"].createElement("span", {
-    className: "material-icons-outlined"
+    className: "material-icons-round"
   }, "refresh"), /*#__PURE__*/React__default["default"].createElement(ToolTip, {
-    content: 'Recarregar dados'
+    content: translate('reload_data')
   })), /*#__PURE__*/React__default["default"].createElement(Button, {
     variant: 'outlined',
     onClick: function onClick() {
@@ -2483,9 +2526,9 @@ function SelectorModal(props) {
     },
     className: styles$u.headerButton
   }, /*#__PURE__*/React__default["default"].createElement("span", {
-    className: "material-icons-outlined"
+    className: "material-icons-round"
   }, "filter_list"), /*#__PURE__*/React__default["default"].createElement(ToolTip, {
-    content: 'Filtros'
+    content: translate('filters')
   }))), /*#__PURE__*/React__default["default"].createElement(Button, {
     variant: 'outlined',
     onClick: function onClick() {
@@ -2496,9 +2539,9 @@ function SelectorModal(props) {
     className: styles$u.headerButton,
     disabled: !props.value
   }, /*#__PURE__*/React__default["default"].createElement("span", {
-    className: "material-icons-outlined"
-  }, "clear_all"), "Limpar selecionado", /*#__PURE__*/React__default["default"].createElement(ToolTip, {
-    content: 'Limpar'
+    className: "material-icons-round"
+  }, "clear_all"), translate('clear_selected'), /*#__PURE__*/React__default["default"].createElement(ToolTip, {
+    content: translate('clear_selected')
   }))), /*#__PURE__*/React__default["default"].createElement(Filter, {
     keys: props.keys,
     filters: props.hook.filters,
@@ -2567,7 +2610,7 @@ function Selector(props) {
       openCreate = _useState4[0],
       setOpenCreate = _useState4[1];
 
-  var lang = SelectorsPT;
+  var translate = useLocale();
   var color = React$1.useMemo(function () {
     if (props.colorVariant === 'secondary') return {
       className: shared$2.secondaryVariant,
@@ -2603,7 +2646,7 @@ function Selector(props) {
   }, props.label), props.helperText ? /*#__PURE__*/React__default["default"].createElement("div", {
     className: shared$2.helperText
   }, /*#__PURE__*/React__default["default"].createElement("span", {
-    className: "material-icons-outlined",
+    className: "material-icons-round",
     style: {
       fontSize: '1rem'
     }
@@ -2650,7 +2693,7 @@ function Selector(props) {
       color: props.value === null || props.value === undefined ? '#ff5555' : undefined,
       visibility: props.required ? 'visible' : 'hidden'
     }
-  }, lang.required)), /*#__PURE__*/React__default["default"].createElement(Modal, {
+  }, translate('required'))), /*#__PURE__*/React__default["default"].createElement(Modal, {
     open: openCreate,
     handleClose: function handleClose() {
       return setOpenCreate(false);
@@ -2694,19 +2737,10 @@ var css_248z$o = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.For
 var shared$1 = {"wrapper":"Form-module_wrapper__153NP","buttonContainer":"Form-module_buttonContainer__1aUGJ","submitButton":"Form-module_submitButton__3Y6mQ","divider":"Form-module_divider__3Byas","header":"Form-module_header__2ybTo","headerContent":"Form-module_headerContent__3Z2U_","content":"Form-module_content__2bq-t","buttons":"Form-module_buttons__IkVi0"};
 styleInject(css_248z$o);
 
-var EntityLayoutPT = {
-  history: 'Histórico de mudanças',
-  edit: 'Editar',
-  overview: 'Visão geral',
-  info: 'Informações',
-  create: 'Criar',
-  save: 'Salvar'
-};
-
 function Header$1(props) {
   var _props$options;
 
-  var lang = EntityLayoutPT;
+  var translate = useLocale();
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: shared$1.header,
     style: {
@@ -2741,7 +2775,7 @@ function Header$1(props) {
       props.hook.setChanged(false);
       props.handleSubmit(props.hook.data, props.hook.clearState);
     }
-  }, props.submitLabel ? props.submitLabel : props.create ? lang.create : lang.save))), /*#__PURE__*/React__default["default"].createElement("div", {
+  }, props.submitLabel ? props.submitLabel : props.create ? translate('create') : translate('save')))), /*#__PURE__*/React__default["default"].createElement("div", {
     className: shared$1.buttons,
     style: {
       display: !props.options || props.options.length === 0 ? 'none' : undefined
@@ -2879,6 +2913,7 @@ function FormRow(props) {
       setIndex = _useState4[1];
 
   var ref = React$1.useRef();
+  var translate = useLocale();
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles$m.wrapper,
     ref: ref,
@@ -2886,7 +2921,7 @@ function FormRow(props) {
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles$m.legendContent
   }, /*#__PURE__*/React__default["default"].createElement(ToolTip, {
-    content: !completed ? 'Não completo' : 'Completo',
+    content: !completed ? translate('not_completed') : translate('complete'),
     justify: "start",
     align: 'middle'
   }), /*#__PURE__*/React__default["default"].createElement("div", {
@@ -2906,18 +2941,18 @@ function FormRow(props) {
     className: "material-icons-round"
   }, "arrow_drop_down")), /*#__PURE__*/React__default["default"].createElement("h1", {
     className: styles$m.legend
-  }, props.title ? props.title : 'Procedimento ' + index)), open ? props.children : null);
+  }, props.title ? props.title : translate('step') + ' ' + index)), open ? props.children : null);
 }
 FormRow.propTypes = {
   children: PropTypes__default["default"].node,
   title: PropTypes__default["default"].string
 };
 
-var css_248z$m = "@import \"../../misc/theme/styles.module.css\";\n\n.Dropdown-module_wrapper__1Blgv {\n    display: grid;\n    gap: 4px;\n    position: relative;\n    overflow: visible;\n}\n\n\n.Dropdown-module_selectContainer__3u-GM {\n    position: relative;\n    z-index: 5;\n    display: flex;\n    justify-content: flex-start;\n    gap: 4px;\n    align-items: center;\n    transition: 150ms linear;\n    background: var(--mfc-background-primary);\n    width: 100%;\n    padding: 5px;\n    border-radius: 5px;\n}\n.Dropdown-module_selectContainer__3u-GM:hover{\n    border-color: var(--accent-color);\n}\n.Dropdown-module_selectContainer__3u-GM:disabled {\n    border-color: var(--mfc-border-primary);\n    cursor: default;\n    color: var(--mfc-color-quinary);\n}\n\n.Dropdown-module_dropDownContainer__3KRpm {\n    display: grid;\n}\n\n.Dropdown-module_dropDownChoicesContainer__1PZFY {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);\n    width: 100%;\n    max-height: 200px;\n    height: fit-content;\n    overflow: auto;\n\n}\n\n.Dropdown-module_dropDownButton__hsTSD {\n    height: 35px;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n}\n\n.Dropdown-module_overflow__2BgnM {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    max-width: 100%;\n}\n\n.Dropdown-module_multiSelectRow__2Zipw {\n    display: flex;\n    user-select: none;\n    overflow: hidden;\n    align-items: center;\n    justify-content: flex-start;\n    height: 40px;\n    background: var(--mfc-background-primary);\n    gap: 8px;\n}\n\n.Dropdown-module_multiSelectRowContent__1ArWF {\n    user-select: none;\n    color: var(--mfc-color-secondary);\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .8rem;\n}\n\n.Dropdown-module_multiSelectRowCheckbox__Qu8ga {\n    cursor: pointer;\n}\n";
-var styles$l = {"wrapper":"Dropdown-module_wrapper__1Blgv","selectContainer":"Dropdown-module_selectContainer__3u-GM","dropDownContainer":"Dropdown-module_dropDownContainer__3KRpm","dropDownChoicesContainer":"Dropdown-module_dropDownChoicesContainer__1PZFY","dropDownButton":"Dropdown-module_dropDownButton__hsTSD","overflow":"Dropdown-module_overflow__2BgnM","multiSelectRow":"Dropdown-module_multiSelectRow__2Zipw","multiSelectRowContent":"Dropdown-module_multiSelectRowContent__1ArWF","multiSelectRowCheckbox":"Dropdown-module_multiSelectRowCheckbox__Qu8ga"};
+var css_248z$m = "@import \"../../../misc/theme/styles.module.css\";\n\n.Select-module_wrapper__1Jond {\n    display: grid;\n    gap: 4px;\n    position: relative;\n    overflow: visible;\n}\n\n\n.Select-module_selectContainer__286gp {\n    position: relative;\n    z-index: 5;\n    display: flex;\n    justify-content: flex-start;\n    gap: 4px;\n    align-items: center;\n    transition: 150ms linear;\n    background: var(--mfc-background-primary);\n    width: 100%;\n    padding: 5px;\n    border-radius: 5px;\n}\n.Select-module_selectContainer__286gp:hover{\n    border-color: var(--accent-color);\n}\n.Select-module_selectContainer__286gp:disabled {\n    border-color: var(--mfc-border-primary);\n    cursor: default;\n    color: var(--mfc-color-quinary);\n}\n\n.Select-module_dropDownContainer__1MFxG {\n    display: grid;\n}\n\n.Select-module_dropDownChoicesContainer__1b-aa {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);\n    width: 100%;\n    max-height: 200px;\n    height: fit-content;\n    overflow: auto;\n\n}\n\n.Select-module_dropDownButton__1_9m6 {\n    height: 35px;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n}\n\n.Select-module_overflow__Eaw8K {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    max-width: 100%;\n}\n\n.Select-module_multiSelectRow__3xH6B {\n    display: flex;\n    user-select: none;\n    overflow: hidden;\n    align-items: center;\n    justify-content: flex-start;\n    height: 40px;\n    background: var(--mfc-background-primary);\n    gap: 8px;\n}\n\n.Select-module_multiSelectRowContent__2aRAa {\n    user-select: none;\n    color: var(--mfc-color-secondary);\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-align: left;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .8rem;\n}\n\n.Select-module_multiSelectRowCheckbox__WOD6G {\n    cursor: pointer;\n}\n";
+var styles$l = {"wrapper":"Select-module_wrapper__1Jond","selectContainer":"Select-module_selectContainer__286gp","dropDownContainer":"Select-module_dropDownContainer__1MFxG","dropDownChoicesContainer":"Select-module_dropDownChoicesContainer__1b-aa","dropDownButton":"Select-module_dropDownButton__1_9m6","overflow":"Select-module_overflow__Eaw8K","multiSelectRow":"Select-module_multiSelectRow__3xH6B","multiSelectRowContent":"Select-module_multiSelectRowContent__2aRAa","multiSelectRowCheckbox":"Select-module_multiSelectRowCheckbox__WOD6G"};
 styleInject(css_248z$m);
 
-function DropDownField(props) {
+function SelectField(props) {
   var _ref$current;
 
   var _useState = React$1.useState(false),
@@ -2925,8 +2960,7 @@ function DropDownField(props) {
       open = _useState2[0],
       setOpen = _useState2[1];
 
-  var themes = React$1.useContext(ThemeContext);
-  var lang = LocalePT;
+  var translate = useLocale();
   var ref = React$1.useRef();
   var selected = React$1.useMemo(function () {
     return props.choices.find(function (e) {
@@ -3004,14 +3038,12 @@ function DropDownField(props) {
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles$l.dropDownChoicesContainer
   }, props.choices.map(function (choice, index) {
-    var _themes$theme;
-
     return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
       key: index + '-choice-button'
     }, /*#__PURE__*/React__default["default"].createElement(Button, {
       styles: {
         borderRadius: '0',
-        borderTop: index > 0 ? ((_themes$theme = themes.theme) === null || _themes$theme === void 0 ? void 0 : _themes$theme.border0) + ' 1px solid' : 'none'
+        borderTop: index > 0 ? 'var(--mfc-border-primary) 1px solid' : 'none'
       },
       highlight: choice.key === props.value,
       onClick: function onClick() {
@@ -3030,9 +3062,9 @@ function DropDownField(props) {
       color: props.value === null || props.value === undefined ? '#ff5555' : '#262626',
       visibility: props.required ? 'visible' : 'hidden'
     }
-  }, lang.required));
+  }, translate('required')));
 }
-DropDownField.propTypes = {
+SelectField.propTypes = {
   helperText: PropTypes__default["default"].string,
   width: PropTypes__default["default"].string,
   label: PropTypes__default["default"].string,
@@ -3055,7 +3087,7 @@ function MultiSelectField(props) {
       open = _useState2[0],
       setOpen = _useState2[1];
 
-  var lang = LocalePT;
+  var translate = useLocale();
   var ref = React$1.useRef();
 
   var _useState3 = React$1.useState([]),
@@ -3125,7 +3157,7 @@ function MultiSelectField(props) {
     className: "material-icons-round"
   }, "arrow_drop_down"), props.value ? /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles$l.valueContainer
-  }, props.asArray ? props.value.length : props.value.split('-*/').length - 1, " - ", lang.values) : props.label)), /*#__PURE__*/React__default["default"].createElement(FloatingBox, {
+  }, props.asArray ? props.value.length : props.value.split('-*/').length - 1, " - ", translate('values')) : props.label)), /*#__PURE__*/React__default["default"].createElement(FloatingBox, {
     open: open,
     setOpen: setOpen,
     reference: ref.current,
@@ -3184,7 +3216,7 @@ function MultiSelectField(props) {
       color: props.value === null || props.value === undefined ? '#ff5555' : '#262626',
       visibility: props.required ? 'visible' : 'hidden'
     }
-  }, lang.required));
+  }, translate('required')));
 }
 MultiSelectField.propTypes = {
   helperText: PropTypes__default["default"].string,
@@ -3204,42 +3236,8 @@ MultiSelectField.propTypes = {
   colorVariant: PropTypes__default["default"].oneOf(['default', 'secondary', 'primary'])
 };
 
-var css_248z$l = "\r\n.Action-module_buttonWrapper__3MOeL {\r\n    width: 100%;\r\n    max-width: 100%;\r\n    height: 55px;\r\n    overflow: hidden;\r\n\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    gap: 6px;\r\n\r\n\r\n    padding: 0;\r\n    background: transparent;\r\n    outline: none;\r\n    border: none;\r\n\r\n    color: var(--mfc-color-secondary);\r\n\r\n    cursor: pointer;\r\n}\r\n.Action-module_buttonWrapper__3MOeL[data-highlight = 'true']{\r\n    color: #0095ff !important;\r\n}\r\n.Action-module_buttonWrapper__3MOeL[data-highlight = 'true'] .Action-module_iconWrapper__irMuB::after{\r\n    opacity: .15;\r\n}\r\n/*.buttonWrapper[data-highlight = 'true'] .icon > * {*/\r\n/*    font-size: 1.3rem !important;*/\r\n/*}*/\r\n/*.buttonWrapper[data-highlight = 'false'] .icon > * {*/\r\n/*    font-size: 1.5rem !important;*/\r\n/*}*/\r\n\r\n.Action-module_buttonWrapper__3MOeL:active .Action-module_icon__3E4df {\r\n    color: #0095ff;\r\n}\r\n\r\n.Action-module_iconWrapper__irMuB {\r\n    overflow: hidden;\r\n\r\n    width: 100%;\r\n    height: 50%;\r\n    border-radius: 25%/50%;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n\r\n    padding: 8px 16px;\r\n\r\n    position: relative;\r\n}\r\n\r\n\r\n.Action-module_icon__3E4df {\r\n    transition: 150ms linear !important;\r\n\r\n\r\n    position: relative;\r\n    z-index: 2;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: fit-content;\r\n    height: 100%;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n\r\n\r\n}\r\n.Action-module_icon__3E4df > * {\r\n\r\n    font-size: 1.3rem !important;\r\n}\r\n\r\n\r\n\r\n.Action-module_iconWrapper__irMuB::after {\r\n    content: '';\r\n\r\n    z-index: 0;\r\n\r\n    position: absolute;\r\n\r\n    background: #0095ff;\r\n    opacity: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n\r\n.Action-module_label__2NqHm {\r\n    padding: 0 1px;\r\n    max-width: 100%;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    font-weight: 600;\r\n    font-family: 'Roboto';\r\n    text-align: center;\r\n    font-size: .7rem;\r\n}";
-var styles$k = {"buttonWrapper":"Action-module_buttonWrapper__3MOeL","iconWrapper":"Action-module_iconWrapper__irMuB","icon":"Action-module_icon__3E4df","label":"Action-module_label__2NqHm"};
-styleInject(css_248z$l);
-
-function ActionButton(props) {
-  return /*#__PURE__*/React.createElement("button", {
-    onClick: props.onClick,
-    disabled: props.disabled,
-    className: styles$k.buttonWrapper,
-    "data-highlight": JSON.stringify(props.highlight)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: styles$k.iconWrapper
-  }, /*#__PURE__*/React.createElement("span", {
-    className: styles$k.icon
-  }, props.icon), /*#__PURE__*/React.createElement(Ripple, {
-    disabled: props.disabled,
-    opacity: .3
-  })), /*#__PURE__*/React.createElement("div", {
-    className: styles$k.label
-  }, props.label), /*#__PURE__*/React.createElement(ToolTip, {
-    content: props.label,
-    align: 'middle',
-    justify: "end"
-  }));
-}
-ActionButton.propTypes = {
-  width: PropTypes__default["default"].oneOf(['fit', 'stretch']),
-  highlight: PropTypes__default["default"].bool,
-  disabled: PropTypes__default["default"].bool,
-  label: PropTypes__default["default"].any,
-  icon: PropTypes__default["default"].any,
-  onClick: PropTypes__default["default"].func
-};
-
 function CheckboxGroup(props) {
-  var lang = LocalePT;
+  var translate = useLocale();
   return /*#__PURE__*/React__default["default"].createElement("div", {
     style: {
       width: props.width,
@@ -3276,7 +3274,7 @@ function CheckboxGroup(props) {
       color: props.value === null || props.value === undefined ? '#ff5555' : '#262626',
       visibility: props.required ? 'visible' : 'hidden'
     }
-  }, lang.required));
+  }, translate('required')));
 }
 CheckboxGroup.propTypes = {
   helperText: PropTypes__default["default"].string,
@@ -3287,13 +3285,13 @@ CheckboxGroup.propTypes = {
   required: PropTypes__default["default"].bool
 };
 
-var css_248z$k = ".FileField-module_button__2UlZj {\r\n    user-select: none;\r\n    position: relative;\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n\r\n\r\n    transition: inherit;\r\n    background: var(--mfc-background-primary);\r\n    width: 100%;\r\n\r\n    padding: 5px;\r\n\r\n    max-width: 100%;\r\n    overflow: hidden;\r\n}\r\n\r\n.FileField-module_button__2UlZj:hover {\r\n    border-color: var(--accent-color);\r\n}\r\n\r\n.FileField-module_button__2UlZj:disabled {\r\n    border-color: var(--mfc-border-primary);\r\n}\r\n";
-var styles$j = {"button":"FileField-module_button__2UlZj"};
-styleInject(css_248z$k);
+var css_248z$l = ".FileField-module_button__2UlZj {\r\n    user-select: none;\r\n    position: relative;\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n\r\n\r\n    transition: inherit;\r\n    background: var(--mfc-background-primary);\r\n    width: 100%;\r\n\r\n    padding: 5px;\r\n\r\n    max-width: 100%;\r\n    overflow: hidden;\r\n}\r\n\r\n.FileField-module_button__2UlZj:hover {\r\n    border-color: var(--accent-color);\r\n}\r\n\r\n.FileField-module_button__2UlZj:disabled {\r\n    border-color: var(--mfc-border-primary);\r\n}\r\n";
+var styles$k = {"button":"FileField-module_button__2UlZj"};
+styleInject(css_248z$l);
 
-var css_248z$j = "@import \"../../../misc/theme/styles.module.css\";\n\n.File-module_dropArea__1w63h {\n    position: relative;\n    color: var(--mfc-color-quaternary);\n    transition: 150ms linear;\n    width: 100%;\n    height: 100%;\n    border-radius: 5px;\n    background: var(--mfc-background-secondary);\n    border: var(--mfc-border-secondary) 2px dashed;\n}\n.File-module_dropAreaContent__4oh19{\n    display: flex;\n    align-items: flex-start;\n    align-content: flex-start;\n    justify-content: flex-start;\n\n    gap: 18.5px;\n\n    flex-flow: row wrap;\n    overflow-y: auto;\n    padding: 16px;\n}\n\n\n.File-module_fileContainer__1DNbz{\n    position: relative;\n    width: 15%;\n    height: 25%;\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    display: grid;\n    align-content: space-between;\n    gap: 4px;\n    justify-content: center;\n    justify-items: center;\n    font-size: .9rem;\n    padding: 16px 8px 8px 8px;\n\n\n\n}\n\n.File-module_fileLabel__2-mr7{\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    overflow: hidden;\n    max-width: 100%;\n\n}\n\n\n.File-module_header__2_0MX{\n    height: 45px;\n    font-size: 1rem;\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n    /*border-bottom: var(--mfc-border-secondary) 1px solid;*/\n    width: 100%;\n    display: flex;\n\n    align-items: center;\n}\n.File-module_headerAccepted__25LIt{\n    text-align: right;\n    border-left: var(--mfc-border-primary) 1px solid;\n    height: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n    font-size: .7rem;\n    color: var(--mfc-color-quaternary);\n}\n.File-module_overflow__7Foyg{\n    max-width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n\n\n.File-module_modalContainer__28Sut{\n    height: 100vh;\n    width: 100vw;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.File-module_modalContent__Cegaf {\n    height: 100%;\n    width: clamp(250px, 25%, 500px);\n    background: var(--mfc-background-primary);\n    margin-left: auto;\n    border-radius: 8px 0 0 8px;\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 2px 1px;\n\n    display: grid;\n    gap: 16px;\n    grid-template-rows: 45px 35px calc(100% - 114px);\n\n\n    top: 0;\n    right: 0;\n\n    align-content: flex-start;\n    /*background: var(--mfc-background-secondary);*/\n    position: absolute;\n\n    border: var(--mfc-border-secondary) 1px solid;\n\n    padding: 16px;\n}\n";
-var styles$i = {"dropArea":"File-module_dropArea__1w63h","dropAreaContent":"File-module_dropAreaContent__4oh19","fileContainer":"File-module_fileContainer__1DNbz","fileLabel":"File-module_fileLabel__2-mr7","header":"File-module_header__2_0MX","headerAccepted":"File-module_headerAccepted__25LIt","overflow":"File-module_overflow__7Foyg","modalContainer":"File-module_modalContainer__28Sut","modalContent":"File-module_modalContent__Cegaf"};
-styleInject(css_248z$j);
+var css_248z$k = "@import \"../../../misc/theme/styles.module.css\";\n\n.File-module_dropArea__1w63h {\n    position: relative;\n    color: var(--mfc-color-quaternary);\n    transition: 150ms linear;\n    width: 100%;\n    height: 100%;\n    border-radius: 5px;\n    background: var(--mfc-background-secondary);\n    border: var(--mfc-border-secondary) 2px dashed;\n}\n.File-module_dropAreaContent__4oh19{\n    display: flex;\n    align-items: flex-start;\n    align-content: flex-start;\n    justify-content: flex-start;\n\n    gap: 18.5px;\n\n    flex-flow: row wrap;\n    overflow-y: auto;\n    padding: 16px;\n}\n\n\n.File-module_fileContainer__1DNbz{\n    position: relative;\n    width: 15%;\n    height: 25%;\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    display: grid;\n    align-content: space-between;\n    gap: 4px;\n    justify-content: center;\n    justify-items: center;\n    font-size: .9rem;\n    padding: 16px 8px 8px 8px;\n\n\n\n}\n\n.File-module_fileLabel__2-mr7{\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    overflow: hidden;\n    max-width: 100%;\n\n}\n\n\n.File-module_header__2_0MX{\n    height: 45px;\n    font-size: 1rem;\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n    /*border-bottom: var(--mfc-border-secondary) 1px solid;*/\n    width: 100%;\n    display: flex;\n\n    align-items: center;\n}\n.File-module_headerAccepted__25LIt{\n    text-align: right;\n    border-left: var(--mfc-border-primary) 1px solid;\n    height: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n    font-size: .7rem;\n    color: var(--mfc-color-quaternary);\n}\n.File-module_overflow__7Foyg{\n    max-width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n\n\n.File-module_modalContainer__28Sut{\n    height: 100vh;\n    width: 100vw;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.File-module_modalContent__Cegaf {\n    height: 100%;\n    width: clamp(250px, 25%, 500px);\n    background: var(--mfc-background-primary);\n    margin-left: auto;\n    border-radius: 8px 0 0 8px;\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 2px 1px;\n\n    display: grid;\n    gap: 16px;\n    grid-template-rows: 45px 35px calc(100% - 114px);\n\n\n    top: 0;\n    right: 0;\n\n    align-content: flex-start;\n    /*background: var(--mfc-background-secondary);*/\n    position: absolute;\n\n    border: var(--mfc-border-secondary) 1px solid;\n\n    padding: 16px;\n}\n";
+var styles$j = {"dropArea":"File-module_dropArea__1w63h","dropAreaContent":"File-module_dropAreaContent__4oh19","fileContainer":"File-module_fileContainer__1DNbz","fileLabel":"File-module_fileLabel__2-mr7","header":"File-module_header__2_0MX","headerAccepted":"File-module_headerAccepted__25LIt","overflow":"File-module_overflow__7Foyg","modalContainer":"File-module_modalContainer__28Sut","modalContent":"File-module_modalContent__Cegaf"};
+styleInject(css_248z$k);
 
 function File(props) {
   // const [hover, setHover] = useState(false)
@@ -3371,7 +3369,7 @@ function File(props) {
     return icon;
   }, [props.type]);
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$i.fileContainer
+    className: styles$j.fileContainer
   }, /*#__PURE__*/React__default["default"].createElement(Button, {
     onClick: function onClick() {
       return props.handleDelete(props.index);
@@ -3385,7 +3383,7 @@ function File(props) {
     },
     className: "material-icons-round"
   }, "close")), icon, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$i.fileLabel
+    className: styles$j.fileLabel
   }, props.name.split('.')[0]));
 }
 File.propTypes = {
@@ -3411,6 +3409,7 @@ function FileModal(props) {
     });
   }, [props.files]);
   var themes = React$1.useContext(ThemeContext);
+  var translate = useLocale();
   return /*#__PURE__*/React__default["default"].createElement(Modal, {
     open: props.open,
     handleClose: function handleClose() {
@@ -3418,36 +3417,36 @@ function FileModal(props) {
     },
     animationStyle: 'slide-right',
     blurIntensity: 0,
-    className: styles$i.modalContent
+    className: styles$j.modalContent
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$i.header
+    className: styles$j.header
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     style: {
       width: '100%'
     }
-  }, "Anexar arquivos"), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [styles$i.headerAccepted, styles$i.overflow].join(' '),
+  }, translate('upload_files')), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: [styles$j.headerAccepted, styles$j.overflow].join(' '),
     style: {
       width: '100%'
     }
-  }, "Tipos aceitos: ", props.accept.length > 0 ? props.accept.map(function (e, i) {
+  }, translate('accepted_types'), ": ", props.accept.length > 0 ? props.accept.map(function (e, i) {
     return e.split('.')[e.split('.').length - 1] + (i < props.accept.length - 1 ? ', ' : '');
-  }) : 'todos')), /*#__PURE__*/React__default["default"].createElement(Button, {
+  }) : translate('all'))), /*#__PURE__*/React__default["default"].createElement(Button, {
     disabled: !props.multiple && props.files.length > 0,
     onClick: function onClick(event) {
       event.preventDefault();
       ref.current.click();
     }
-  }, "Anexar arquivos"), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [styles$i.dropArea, props.files.length > 0 ? styles$i.dropAreaContent : ''].join(' '),
+  }, translate('upload_files')), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: [styles$j.dropArea, props.files.length > 0 ? styles$j.dropAreaContent : ''].join(' '),
     ref: areaRef,
     style: {
       background: !props.multiple && props.files.length > 0 ? themes.theme.background1 : undefined
     },
     onDragLeave: function onDragLeave(e) {
       if (!(!props.multiple && props.files.length > 0)) {
-        areaRef.current.style.borderColor = themes.theme.border1;
-        areaRef.current.style.background = themes.theme.backgroundBase;
+        areaRef.current.style.borderColor = 'var(--mfc-border-primary)';
+        areaRef.current.style.background = 'var(--mfc-background-primary)';
       }
     },
     onDragOver: function onDragOver(e) {
@@ -3455,7 +3454,7 @@ function FileModal(props) {
 
       if (!(!props.multiple && props.files.length > 0)) {
         areaRef.current.style.borderColor = '#0095ff';
-        areaRef.current.style.background = themes.theme.background3;
+        areaRef.current.style.background = 'var(--mfc-background-tertiary)';
       }
     },
     onDrop: function onDrop(e) {
@@ -3463,12 +3462,12 @@ function FileModal(props) {
 
       if (!(!props.multiple && props.files.length > 0)) {
         areaRef.current.style.borderColor = '#0095ff';
-        areaRef.current.style.background = themes.theme.background3;
+        areaRef.current.style.background = 'var(--mfc-background-tertiary)';
         props.setFiles([].concat(_toConsumableArray(props.files), _toConsumableArray(Array.from(e.dataTransfer.files))));
       }
     }
   }, props.files.length === 0 ? /*#__PURE__*/React__default["default"].createElement(Empty, {
-    customLabel: 'Arraste seus arquivos aqui'
+    customLabel: translate('drag_files')
   }) : files), /*#__PURE__*/React__default["default"].createElement("input", {
     type: "file",
     style: {
@@ -3495,7 +3494,7 @@ FileModal.propTypes = {
 };
 
 function FileField(props) {
-  var lang = LocalePT;
+  var translate = useLocale();
 
   var _useState = React$1.useState(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3555,7 +3554,7 @@ function FileField(props) {
       marginTop: 'unset'
     },
     color: props.colorVariant === 'secondary' ? 'secondary' : 'primary',
-    className: [styles$j.button, shared$2.labelContainer].join(' '),
+    className: [styles$k.button, shared$2.labelContainer].join(' '),
     onClick: function onClick() {
       return setOpenModal(true);
     }
@@ -3566,14 +3565,14 @@ function FileField(props) {
       height: '100%',
       gap: '16px',
       display: 'flex',
-      color: themes ? themes.themes.color1 : '#555555'
+      color: themes ? 'var(--mfc-color-primary)' : '#555555'
     }
-  }, "Anexar arquivos", files.length > 0 ? /*#__PURE__*/React__default["default"].createElement("div", {
+  }, translate('upload_files'), files.length > 0 ? /*#__PURE__*/React__default["default"].createElement("div", {
     style: {
       fontSize: '.7rem',
-      color: themes ? themes.themes.color2 : '#777777'
+      color: themes ? 'var(--mfc-color-secondary)' : '#777777'
     }
-  }, "(", files.length, " Anexados)") : null), /*#__PURE__*/React__default["default"].createElement("span", {
+  }, "(", files.length, "  ", translate('uploaded_files'), ")") : null), /*#__PURE__*/React__default["default"].createElement("span", {
     style: {
       fontSize: '1.2rem'
     },
@@ -3584,7 +3583,7 @@ function FileField(props) {
       color: files.length === 0 ? '#ff5555' : undefined,
       visibility: props.required ? 'visible' : 'hidden'
     }
-  }, lang.required), /*#__PURE__*/React__default["default"].createElement(FileModal, {
+  }, translate('required')), /*#__PURE__*/React__default["default"].createElement(FileModal, {
     open: openModal,
     setOpen: setOpenModal,
     files: files,
@@ -3609,8 +3608,10 @@ FileField.propTypes = {
   colorVariant: PropTypes__default["default"].oneOf(['default', 'secondary', 'primary'])
 };
 
-function ThemeProvider(props) {
-  return /*#__PURE__*/React__default["default"].createElement(ThemeContext.Provider, {
+function MfcWrapper(props) {
+  return /*#__PURE__*/React__default["default"].createElement(LanguageContext.Provider, {
+    value: props.language ? props.language : 'pt'
+  }, /*#__PURE__*/React__default["default"].createElement(ThemeContext.Provider, {
     value: {
       dark: props.onDark,
       styles: styles$A,
@@ -3636,12 +3637,13 @@ function ThemeProvider(props) {
   }), /*#__PURE__*/React__default["default"].createElement("div", {
     className: [props.onDark ? styles$A.dark : styles$A.light, props.className].join(' '),
     style: props.styles
-  }, props.children));
+  }, props.children)));
 }
-ThemeProvider.propTypes = {
+MfcWrapper.propTypes = {
   className: PropTypes__default["default"].string,
   styles: PropTypes__default["default"].object,
   onDark: PropTypes__default["default"].bool,
+  language: PropTypes__default["default"].oneOf(['pt', 'en']),
   children: PropTypes__default["default"].node
 };
 
@@ -3715,13 +3717,13 @@ function useFile(pathname, asJson) {
   return data;
 }
 
-var css_248z$i = "@import \"../../../misc/theme/styles.module.css\";\n@import url('http://fonts.cdnfonts.com/css/roboto');\n\n.Tabs-module_header__8l5LJ {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n    justify-content: center;\n    border: var(--mfc-border-primary) 1px solid;\n\n    height: fit-content;\n    width: 100%;\n\n    display: grid;\n    /*border-bottom: var(--mfc-border-primary) 1px solid;*/\n    transition: 150ms ease-in;\n}\n\n.Tabs-module_tabs__3EMRN {\n    max-width: 100%;\n    width: 100%;\n\n    overflow: hidden;\n    margin: auto;\n    display: flex;\n    align-items: center;\n}\n\n\n.Tabs-module_button__1f53r {\n    text-transform: uppercase;\n    /*font-family: \"Roboto\" !important;*/\n    text-rendering: optimizeLegibility;\n    color: var(--mfc-color-tertiary);\n    font-weight: bold;\n    font-size: .73rem;\n    padding: 8px 24px;\n    height: 35px;\n    transition: 150ms ease;\n\n    text-overflow: ellipsis;\n    overflow: hidden;\n    max-width: 100%;\n    white-space: nowrap;\n}\n\n.Tabs-module_button__1f53r:hover, .Tabs-module_button__1f53r:active, .Tabs-module_button__1f53r[data-highlight=\"true\"] {\n    color: var(--color) !important;\n}\n\n\n.Tabs-module_enterA__2UsDT {\n    animation: Tabs-module_enter__10Gu2 150ms ease-in-out;\n}\n\n.Tabs-module_exitA__3_0uq {\n    animation: Tabs-module_exit__2fucC 150ms ease-in-out;\n}\n\n@keyframes Tabs-module_exit__2fucC {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}\n\n@keyframes Tabs-module_enter__10Gu2 {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n";
-var styles$h = {"header":"Tabs-module_header__8l5LJ","tabs":"Tabs-module_tabs__3EMRN","button":"Tabs-module_button__1f53r","enterA":"Tabs-module_enterA__2UsDT","enter":"Tabs-module_enter__10Gu2","exitA":"Tabs-module_exitA__3_0uq","exit":"Tabs-module_exit__2fucC"};
-styleInject(css_248z$i);
+var css_248z$j = "@import \"../../../misc/theme/styles.module.css\";\n@import url('http://fonts.cdnfonts.com/css/roboto');\n\n.Tabs-module_header__8l5LJ {\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n    justify-content: center;\n    border: var(--mfc-border-primary) 1px solid;\n\n    height: fit-content;\n    width: 100%;\n\n    display: grid;\n    /*border-bottom: var(--mfc-border-primary) 1px solid;*/\n    transition: 150ms ease-in;\n}\n\n.Tabs-module_tabs__3EMRN {\n    max-width: 100%;\n    width: 100%;\n\n    overflow: hidden;\n    margin: auto;\n    display: flex;\n    align-items: center;\n}\n\n\n.Tabs-module_button__1f53r {\n    text-transform: uppercase;\n    /*font-family: \"Roboto\" !important;*/\n    text-rendering: optimizeLegibility;\n    color: var(--mfc-color-tertiary);\n    font-weight: bold;\n    font-size: .73rem;\n    padding: 8px 24px;\n    height: 35px;\n    transition: 150ms ease;\n\n    text-overflow: ellipsis;\n    overflow: hidden;\n    max-width: 100%;\n    white-space: nowrap;\n}\n\n.Tabs-module_button__1f53r:hover, .Tabs-module_button__1f53r:active, .Tabs-module_button__1f53r[data-highlight=\"true\"] {\n    color: var(--color) !important;\n}\n\n\n.Tabs-module_enterA__2UsDT {\n    animation: Tabs-module_enter__10Gu2 150ms ease-in-out;\n}\n\n.Tabs-module_exitA__3_0uq {\n    animation: Tabs-module_exit__2fucC 150ms ease-in-out;\n}\n\n@keyframes Tabs-module_exit__2fucC {\n    0% {\n        opacity: 1;\n    }\n    100% {\n        opacity: 0;\n    }\n}\n\n@keyframes Tabs-module_enter__10Gu2 {\n    0% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n";
+var styles$i = {"header":"Tabs-module_header__8l5LJ","tabs":"Tabs-module_tabs__3EMRN","button":"Tabs-module_button__1f53r","enterA":"Tabs-module_enterA__2UsDT","enter":"Tabs-module_enter__10Gu2","exitA":"Tabs-module_exitA__3_0uq","exit":"Tabs-module_exit__2fucC"};
+styleInject(css_248z$j);
 
-var css_248z$h = "\r\n.Switcher-module_enterA__2RSrB {\r\n    animation: Switcher-module_enter__3bQ2E 150ms ease-in-out;\r\n}\r\n\r\n.Switcher-module_exitA__2rXXT {\r\n    animation: Switcher-module_exit__1sA5x 150ms ease-in-out;\r\n}\r\n\r\n@keyframes Switcher-module_exit__1sA5x {\r\n    0% {\r\n        opacity: 1;\r\n    }\r\n    100% {\r\n        opacity: 0;\r\n    }\r\n}\r\n\r\n@keyframes Switcher-module_enter__3bQ2E {\r\n    0% {\r\n        opacity: 0;\r\n    }\r\n    100% {\r\n        opacity: 1;\r\n    }\r\n}\r\n\r\n";
-var styles$g = {"enterA":"Switcher-module_enterA__2RSrB","enter":"Switcher-module_enter__3bQ2E","exitA":"Switcher-module_exitA__2rXXT","exit":"Switcher-module_exit__1sA5x"};
-styleInject(css_248z$h);
+var css_248z$i = "\r\n.Switcher-module_enterA__2RSrB {\r\n    animation: Switcher-module_enter__3bQ2E 150ms ease-in-out;\r\n}\r\n\r\n.Switcher-module_exitA__2rXXT {\r\n    animation: Switcher-module_exit__1sA5x 150ms ease-in-out;\r\n}\r\n\r\n@keyframes Switcher-module_exit__1sA5x {\r\n    0% {\r\n        opacity: 1;\r\n    }\r\n    100% {\r\n        opacity: 0;\r\n    }\r\n}\r\n\r\n@keyframes Switcher-module_enter__3bQ2E {\r\n    0% {\r\n        opacity: 0;\r\n    }\r\n    100% {\r\n        opacity: 1;\r\n    }\r\n}\r\n\r\n";
+var styles$h = {"enterA":"Switcher-module_enterA__2RSrB","enter":"Switcher-module_enter__3bQ2E","exitA":"Switcher-module_exitA__2rXXT","exit":"Switcher-module_exit__1sA5x"};
+styleInject(css_248z$i);
 
 function Switcher(props) {
   var ref = React$1.useRef();
@@ -3735,7 +3737,7 @@ function Switcher(props) {
     if (props.openChild !== currentChild && props.openChild < React__default["default"].Children.toArray(props.children).length) {
       var _ref$current;
 
-      (_ref$current = ref.current) === null || _ref$current === void 0 ? void 0 : _ref$current.classList.add(styles$g.exitA);
+      (_ref$current = ref.current) === null || _ref$current === void 0 ? void 0 : _ref$current.classList.add(styles$h.exitA);
     }
   }, [props.openChild]);
   return /*#__PURE__*/React__default["default"].createElement("div", {
@@ -3746,8 +3748,8 @@ function Switcher(props) {
       var _ref$current2, _ref$current3;
 
       setCurrentChild(props.openChild);
-      (_ref$current2 = ref.current) === null || _ref$current2 === void 0 ? void 0 : _ref$current2.classList.add(styles$g.enterA);
-      (_ref$current3 = ref.current) === null || _ref$current3 === void 0 ? void 0 : _ref$current3.classList.remove(styles$g.exitA);
+      (_ref$current2 = ref.current) === null || _ref$current2 === void 0 ? void 0 : _ref$current2.classList.add(styles$h.enterA);
+      (_ref$current3 = ref.current) === null || _ref$current3 === void 0 ? void 0 : _ref$current3.classList.remove(styles$h.exitA);
     }
   }, React__default["default"].Children.toArray(props.children).map(function (c, i) {
     return i !== currentChild ? null : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
@@ -3764,9 +3766,10 @@ Switcher.propTypes = {
 };
 
 function Tab(props) {
-  return props.children;
+  return props.children ? props.children : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null);
 }
 Tab.propTypes = {
+  disabled: PropTypes__default["default"].bool,
   className: PropTypes__default["default"].string,
   styles: PropTypes__default["default"].object,
   group: PropTypes__default["default"].string,
@@ -3790,21 +3793,21 @@ function Tabs(props) {
     style: props.styles,
     "data-open-tab": open
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$h.header,
+    className: styles$i.header,
     style: {
       justifyContent: props.align === 'end' ? 'flex-end' : props.align === 'start' ? 'flex-start' : undefined,
       width: props.indicator === 'fit' ? 'fit-content' : undefined,
       margin: props.indicator === 'fit' ? 'auto' : undefined
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$h.tabs
+    className: styles$i.tabs
   }, children.map(function (e, i) {
     return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
       key: i + '-button-header-tab'
     }, /*#__PURE__*/React__default["default"].createElement(Button, {
       variant: 'minimal',
       highlight: open === i,
-      className: styles$h.button,
+      className: styles$i.button,
       onClick: function onClick() {
         setOpen(i);
       }
@@ -3822,6 +3825,8 @@ function Tabs(props) {
   })));
 }
 Tabs.propTypes = {
+  open: PropTypes__default["default"].number,
+  setOpen: PropTypes__default["default"].func,
   align: PropTypes__default["default"].oneOf(['start', 'end', 'center']),
   className: PropTypes__default["default"].string,
   styles: PropTypes__default["default"].object,
@@ -3829,9 +3834,9 @@ Tabs.propTypes = {
   indicator: PropTypes__default["default"].oneOf(['stretch', 'fit'])
 };
 
-var css_248z$g = "@import \"../../../misc/theme/styles.module.css\";\n\n.Vertical-module_content__3mXHl {\n    width: 100%;\n}\n\n.Vertical-module_wrapper__3BFk5 {\n    overflow: hidden;\n    max-height: 100%;\n    height: 100%;\n    position: relative;\n    width: 100%;\n\n    display: flex;\n\n    padding: 8px;\n}\n\n\n.Vertical-module_header__1E32z {\n    overflow-y: auto;\n    overflow-x: hidden;\n    position: sticky;\n    top: 0;\n\n    border: var(--mfc-border-primary) 1px solid;\n\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n\n    flex-grow: 1;\n    width: 25%;\n    max-width: 250px;\n\n    display: grid;\n    align-content: flex-start;\n    align-items: flex-start;\n    gap: 16px;\n\n\n    transition: 150ms linear;\n    height: 100%;\n\n\n    padding: 4px;\n}\n\n\n.Vertical-module_button__3sXjY {\n\n    padding: 12px 24px;\n\n    max-width: 100%;\n    width: 100%;\n\n\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n    text-rendering: optimizeLegibility;\n\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    gap: 16px;\n}\n\n.Vertical-module_color__1eEjz {\n    color: var(--mfc-color-quaternary)\n}\n\n.Vertical-module_color__1eEjz:hover, .Vertical-module_color__1eEjz:active, .Vertical-module_highlight__2lbgS {\n    color: var(--color)\n}\n\n.Vertical-module_rowLabel__F8jVb {\n    display: flex;\n    align-content: center;\n    align-items: center;\n    justify-content: space-between;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    color: var(--mfc-color-secondary);\n    font-size: .8rem;\n    padding: 4px 0 4px 16px;\n    margin-top: 8px;\n}\n\n.Vertical-module_overflow__1UgBi {\n    max-width: 100%;\n\n    text-align: left;\n\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}";
-var styles$f = {"content":"Vertical-module_content__3mXHl","wrapper":"Vertical-module_wrapper__3BFk5","header":"Vertical-module_header__1E32z","button":"Vertical-module_button__3sXjY","color":"Vertical-module_color__1eEjz","highlight":"Vertical-module_highlight__2lbgS","rowLabel":"Vertical-module_rowLabel__F8jVb","overflow":"Vertical-module_overflow__1UgBi"};
-styleInject(css_248z$g);
+var css_248z$h = "@import \"../../../misc/theme/styles.module.css\";\n\n.Vertical-module_content__3mXHl {\n    width: 100%;\n}\n\n.Vertical-module_wrapper__3BFk5 {\n    overflow: hidden;\n    max-height: 100%;\n    height: 100%;\n    position: relative;\n    width: 100%;\n\n    display: flex;\n\n    padding: 8px;\n}\n\n\n.Vertical-module_header__1E32z {\n    overflow-y: auto;\n    overflow-x: hidden;\n    position: sticky;\n    top: 0;\n\n    border: var(--mfc-border-primary) 1px solid;\n\n    background-color: var(--mfc-background-primary);\n    border-radius: 5px;\n\n    flex-grow: 1;\n    width: 25%;\n    max-width: 250px;\n\n    display: grid;\n    align-content: flex-start;\n    align-items: flex-start;\n    gap: 16px;\n\n\n    transition: 150ms linear;\n    height: 100%;\n\n\n    padding: 4px;\n}\n\n\n.Vertical-module_button__3sXjY {\n\n    padding: 12px 24px;\n\n    max-width: 100%;\n    width: 100%;\n\n\n    font-weight: 600;\n    font-family: \"Roboto\";\n    font-size: .75rem;\n    text-rendering: optimizeLegibility;\n\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    gap: 16px;\n}\n\n.Vertical-module_color__1eEjz {\n    color: var(--mfc-color-tertiary)\n}\n.Vertical-module_color__1eEjz:disabled {\n    color: var(--mfc-color-quinary) !important;\n}\n\n.Vertical-module_color__1eEjz:hover, .Vertical-module_color__1eEjz:active, .Vertical-module_highlight__2lbgS {\n    color: var(--color)\n}\n\n.Vertical-module_rowLabel__F8jVb {\n    display: flex;\n    align-content: center;\n    align-items: center;\n    justify-content: space-between;\n    font-weight: 600;\n    font-family: \"Roboto\";\n    color: var(--mfc-color-secondary);\n    font-size: .8rem;\n    padding: 4px 0 4px 16px;\n    margin-top: 8px;\n}\n\n.Vertical-module_overflow__1UgBi {\n    max-width: 100%;\n\n    text-align: left;\n\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}";
+var styles$g = {"content":"Vertical-module_content__3mXHl","wrapper":"Vertical-module_wrapper__3BFk5","header":"Vertical-module_header__1E32z","button":"Vertical-module_button__3sXjY","color":"Vertical-module_color__1eEjz","highlight":"Vertical-module_highlight__2lbgS","rowLabel":"Vertical-module_rowLabel__F8jVb","overflow":"Vertical-module_overflow__1UgBi"};
+styleInject(css_248z$h);
 
 function Row$1(props) {
   var _useState = React$1.useState(false),
@@ -3841,10 +3846,12 @@ function Row$1(props) {
 
   return /*#__PURE__*/React__default["default"].createElement("div", {
     style: {
-      width: '100%'
+      width: '100%',
+      maxWidth: '100%',
+      overflowX: 'hidden'
     }
   }, /*#__PURE__*/React__default["default"].createElement(Button, {
-    className: styles$f.button,
+    className: styles$g.button,
     variant: 'minimal-horizontal',
     color: hidden ? 'primary' : "secondary",
     styles: {
@@ -3856,7 +3863,7 @@ function Row$1(props) {
       return setHidden(!hidden);
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$f.overflow
+    className: styles$g.overflow
   }, props.groupName), /*#__PURE__*/React__default["default"].createElement(ToolTip, {
     content: props.groupName,
     align: 'middle',
@@ -3872,17 +3879,19 @@ function Row$1(props) {
       key: props.index + '-button-header-tab-' + bI
     }, /*#__PURE__*/React__default["default"].createElement(Button, {
       variant: 'minimal-horizontal',
-      className: [styles$f.button, styles$f.color].join(' '),
+      className: [styles$g.button, styles$g.color].join(' '),
       styles: {
         fontWeight: 'normal',
+        maxWidth: '100%',
         width: '100%'
       },
       highlight: props.open === bI,
+      disabled: b.disabled,
       onClick: function onClick() {
         props.setOpen(bI);
       }
     }, /*#__PURE__*/React__default["default"].createElement("div", {
-      className: styles$f.overflow
+      className: styles$g.overflow
     }, b.label))) : null;
   }));
 }
@@ -3912,7 +3921,7 @@ function VerticalTabs(props) {
       position: 'relative'
     })
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$f.header
+    className: styles$g.header
   }, groups.map(function (e, i) {
     return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
       key: i + '-class'
@@ -3924,14 +3933,15 @@ function VerticalTabs(props) {
       buttons: children.map(function (item) {
         return {
           label: item.props.label,
-          group: item.props.group
+          group: item.props.group,
+          disabled: item.props.disabled
         };
       }),
       groupName: e
     }));
   })), /*#__PURE__*/React__default["default"].createElement(Switcher, {
     className: children[open].props.className,
-    styles: children[open].styles,
+    styles: children[open].props.styles,
     openChild: open
   }, children.map(function (el, index) {
     return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
@@ -3940,26 +3950,82 @@ function VerticalTabs(props) {
   })));
 }
 VerticalTabs.proptypes = {
+  open: PropTypes__default["default"].number,
+  setOpen: PropTypes__default["default"].func,
   className: PropTypes__default["default"].string,
   styles: PropTypes__default["default"].object,
   children: PropTypes__default["default"].node.isRequired
 };
 
-var css_248z$f = ".Bar-module_bottomOptions__10Ava {\r\n    position: absolute;\r\n    bottom: 4px;\r\n    width: calc(100% - 8px);\r\n    transform: translateX(4px);\r\n\r\n    display: grid;\r\n    align-content: flex-start;\r\n    gap: 8px;\r\n}\r\n\r\n.Bar-module_buttons__EFwoj {\r\n    width: 100%;\r\n    padding: 4px;\r\n    position: relative;\r\n    height: 100%;\r\n    display: grid;\r\n    align-content: flex-start;\r\n\r\n    gap: 8px;\r\n}\r\n\r\n.Bar-module_button__3PXzG {\r\n    width: 100%;\r\n\r\n    padding: 4px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n\r\n.Bar-module_wrapperHorizontal__1dz9H {\r\n    padding: 4px;\r\n    overflow: hidden;\r\n    /*width: 60px;*/\r\n    transition: 250ms ease-in-out;\r\n    background: var(--mfc-background-primary);\r\n    position: sticky;\r\n    left: 0;\r\n    top: 0;\r\n    height: 40px;\r\n    width: 100%;\r\n    display: flex;\r\n\r\n}\r\n\r\n.Bar-module_wrapperVertical__1ROE7 {\r\n    padding: 4px;\r\n    display: flex;\r\n    flex-direction: column;\r\n\r\n    overflow: hidden;\r\n    width: 60px;\r\n    transition: 250ms ease-in-out;\r\n    background: var(--mfc-background-primary);\r\n    position: sticky;\r\n    left: 0;\r\n    top: 0;\r\n    height: 100%;\r\n\r\n}\r\n\r\n\r\n\r\n.Bar-module_buttonContainer__2CV9H {\r\n    align-items: center;\r\n\r\n    cursor: pointer;\r\n    width: 100%;\r\n    max-width: 100%;\r\n    height: 50px;\r\n    overflow: hidden;\r\n\r\n    transition: 250ms ease-in-out;\r\n    border-radius: 5px;\r\n    padding: 8px 4px;\r\n\r\n    position: relative;\r\n\r\n\r\n}\r\n\r\n\r\n.Bar-module_buttonLabel__3CrmY {\r\n\r\n    outline: none;\r\n    background: none;\r\n    border: none;\r\n    padding: 0;\r\n\r\n    font-size: .7rem;\r\n    overflow: hidden;\r\n    color: var(--mfc-color-quaternary);\r\n\r\n    font-family: \"Roboto\";\r\n    /*font-weight: 575;*/\r\n}\r\n\r\n.Bar-module_activeButton__35KQw {\r\n    animation: Bar-module_slideDown__2VhN7 150ms linear forwards;\r\n\r\n    position: absolute;\r\n    left: 4px;\r\n    height: 42px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n@keyframes Bar-module_slideDown__2VhN7 {\r\n    0% {\r\n        top: 0;\r\n        /*transform: translateY(-50%);*/\r\n    }\r\n    100% {\r\n        top: 50%;\r\n        transform: translateY(-50%);\r\n    }\r\n}\r\n\r\n.Bar-module_buttonLabel__3CrmY:disabled {\r\n    color: var(--mfc-color-quinary);\r\n}\r\n\r\n.Bar-module_overflowEllipsis__3KezM {\r\n    max-width: 100%;\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n}\r\n\r\n\r\n.Bar-module_alignEnd__bal_Y[data-variant = 'vertical'] {\r\n\r\n    flex-flow: column;\r\n    align-content: flex-end;\r\n    align-items: flex-end;\r\n    /*justify-items: center;*/\r\n    /*justify-content: stretch;*/\r\n\r\n}\r\n\r\n.Bar-module_alignStart__3OBLV[data-variant = 'vertical'] {\r\n\r\n    flex-flow: column;\r\n    /*justify-content: stretch;*/\r\n    align-content: flex-start;\r\n    align-items: flex-start;\r\n    /*justify-items: center;*/\r\n}\r\n\r\n.Bar-module_alignEnd__bal_Y[data-variant = 'horizontal'] {\r\n\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n}\r\n\r\n.Bar-module_alignStart__3OBLV[data-variant = 'horizontal'] {\r\n\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n}\r\n\r\n.Bar-module_alignEnd__bal_Y {\r\n    display: flex;\r\n    gap: 8px;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.Bar-module_alignStart__3OBLV {\r\n    display: flex;\r\n    gap: 8px;\r\n    width: 100%;\r\n    height: 100%;\r\n    /*display: var(--display);*/\r\n}";
-var styles$e = {"bottomOptions":"Bar-module_bottomOptions__10Ava","buttons":"Bar-module_buttons__EFwoj","button":"Bar-module_button__3PXzG","wrapperHorizontal":"Bar-module_wrapperHorizontal__1dz9H","wrapperVertical":"Bar-module_wrapperVertical__1ROE7","buttonContainer":"Bar-module_buttonContainer__2CV9H","buttonLabel":"Bar-module_buttonLabel__3CrmY","activeButton":"Bar-module_activeButton__35KQw","slideDown":"Bar-module_slideDown__2VhN7","overflowEllipsis":"Bar-module_overflowEllipsis__3KezM","alignEnd":"Bar-module_alignEnd__bal_Y","alignStart":"Bar-module_alignStart__3OBLV"};
+var css_248z$g = "\r\n.Action-module_buttonWrapper__1K3tR {\r\n    width: clamp(57px, calc(3vw - 8px), 92px);\r\n    height: clamp(57px, calc(3vw - 8px), 92px);\r\n    /*max-width: clamp(49px, calc(3vw - 16px), 84px);*/\r\n\r\n    overflow: hidden;\r\n\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    gap: 6px;\r\n\r\n\r\n    padding:2px;\r\n    background: transparent;\r\n    outline: none;\r\n    border: none;\r\n\r\n    color: var(--mfc-color-tertiary);\r\n\r\n    cursor: pointer;\r\n    position: relative;\r\n\r\n    border-radius: 5px;\r\n\r\n}\r\n\r\n.Action-module_buttonWrapper__1K3tR[data-highlight = 'true'] {\r\n    color: var(--mfc-color-primary);\r\n    gap: 6px;\r\n}\r\n.Action-module_buttonWrapper__1K3tR[data-highlight = 'false'] {\r\n    gap: 0;\r\n    height: clamp(50px, calc(3vw - 15px),85px);\r\n}\r\n.Action-module_buttonWrapper__1K3tR:disabled{\r\n    cursor: unset;\r\n    color: var(--mfc-color-quinary) !important;\r\n}\r\n\r\n.Action-module_buttonWrapper__1K3tR:active{\r\n    color: #0095ff;\r\n}\r\n\r\n.Action-module_iconWrapper__BGNhO {\r\n    overflow: hidden;\r\n    margin: auto;\r\n    width: 16px;\r\n    height: 55%;\r\n    border-radius: 25%/50%;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n\r\n    padding: 8px 16px;\r\n\r\n    position: relative;\r\n\r\n    transition: 150ms linear;\r\n}\r\n\r\n\r\n.Action-module_icon__WV_7w {\r\n    transition: 150ms linear;\r\n\r\n\r\n    position: relative;\r\n    z-index: 2;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: fit-content;\r\n    height: 100%;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n\r\n\r\n}\r\n\r\n.Action-module_icon__WV_7w > * {\r\n\r\n    font-size: 1.3rem !important;\r\n}\r\n\r\n.Action-module_buttonWrapper__1K3tR[data-highlight = 'true'] .Action-module_iconWrapper__BGNhO {\r\n    background: #49B3FF;\r\n    color: white;\r\n    width: 100%;\r\n}\r\n\r\n.Action-module_label__11qm2 {\r\n    padding: 0 1px;\r\n    width: 100%;\r\n    max-width: 100%;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    font-weight: 550;\r\n    font-family: 'Roboto';\r\n    text-align: center;\r\n    font-size: .7rem;\r\n}";
+var styles$f = {"buttonWrapper":"Action-module_buttonWrapper__1K3tR","iconWrapper":"Action-module_iconWrapper__BGNhO","icon":"Action-module_icon__WV_7w","label":"Action-module_label__11qm2"};
+styleInject(css_248z$g);
+
+function RailActionButton(props) {
+  return /*#__PURE__*/React__default["default"].createElement("span", null, /*#__PURE__*/React__default["default"].createElement("button", {
+    onClick: props.onClick,
+    disabled: props.disabled,
+    className: styles$f.buttonWrapper,
+    "data-extended": JSON.stringify(props.extended),
+    "data-highlight": JSON.stringify(props.highlight)
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles$f.iconWrapper
+  }, /*#__PURE__*/React__default["default"].createElement("span", {
+    className: styles$f.icon
+  }, props.icon)), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles$f.label
+  }, props.label), /*#__PURE__*/React__default["default"].createElement(Ripple, {
+    disabled: props.disabled,
+    opacity: .15
+  })), /*#__PURE__*/React__default["default"].createElement(ToolTip, {
+    content: props.label + (props.disabled ? ' (Disabled)' : ''),
+    align: 'middle',
+    justify: "end"
+  }));
+}
+RailActionButton.propTypes = {
+  extended: PropTypes__default["default"].bool,
+  highlight: PropTypes__default["default"].bool,
+  disabled: PropTypes__default["default"].bool,
+  label: PropTypes__default["default"].any,
+  icon: PropTypes__default["default"].any,
+  onClick: PropTypes__default["default"].func
+};
+
+function RailActionWrapper(props) {
+  return props.children ? props.children : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null);
+}
+RailActionWrapper.propTypes = {
+  children: PropTypes__default["default"].node,
+  className: PropTypes__default["default"].string,
+  styles: PropTypes__default["default"].string,
+  place: PropTypes__default["default"].oneOf(['start', 'end'])
+};
+
+var RailContext = /*#__PURE__*/React__default["default"].createContext(false);
+
+var css_248z$f = ".Rail-module_bottomOptions__3EzQp {\r\n    position: absolute;\r\n    bottom: 4px;\r\n    width: calc(100% - 8px);\r\n    transform: translateX(4px);\r\n\r\n    display: grid;\r\n    align-content: flex-start;\r\n    gap: 8px;\r\n}\r\n\r\n.Rail-module_buttons__28CnC {\r\n    width: 100%;\r\n    padding: 4px;\r\n    position: relative;\r\n    height: 100%;\r\n    display: grid;\r\n    align-content: flex-start;\r\n\r\n    gap: 8px;\r\n}\r\n\r\n.Rail-module_button__23Yrt {\r\n    width: 100%;\r\n\r\n    padding: 4px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.Rail-module_wrapperVertical__3vB2K {\r\n    padding: 4px;\r\n    display: flex;\r\n    flex-direction: column;\r\n\r\n    overflow: hidden;\r\n    width: clamp(65px, 3vw, 100px);\r\n    transition: 250ms ease-in-out;\r\n    background: var(--mfc-background-primary);\r\n    position: sticky;\r\n    left: 0;\r\n    top: 0;\r\n    height: 100%;\r\n\r\n}\r\n\r\n\r\n\r\n.Rail-module_buttonContainer__3KBqq {\r\n    align-items: center;\r\n\r\n    cursor: pointer;\r\n    width: 100%;\r\n    max-width: 100%;\r\n    height: 50px;\r\n    overflow: hidden;\r\n\r\n    transition: 250ms ease-in-out;\r\n    border-radius: 5px;\r\n    padding: 8px 4px;\r\n\r\n    position: relative;\r\n\r\n\r\n}\r\n\r\n\r\n.Rail-module_buttonLabel__23YTk {\r\n\r\n    outline: none;\r\n    background: none;\r\n    border: none;\r\n    padding: 0;\r\n\r\n    font-size: .7rem;\r\n    overflow: hidden;\r\n    color: var(--mfc-color-quaternary);\r\n\r\n    font-family: \"Roboto\";\r\n    /*font-weight: 575;*/\r\n}\r\n\r\n.Rail-module_activeButton__2EOfu {\r\n    animation: Rail-module_slideDown__2hjgb 150ms linear forwards;\r\n\r\n    position: absolute;\r\n    left: 4px;\r\n    height: 42px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n@keyframes Rail-module_slideDown__2hjgb {\r\n    0% {\r\n        top: 0;\r\n        /*transform: translateY(-50%);*/\r\n    }\r\n    100% {\r\n        top: 50%;\r\n        transform: translateY(-50%);\r\n    }\r\n}\r\n\r\n.Rail-module_buttonLabel__23YTk:disabled {\r\n    color: var(--mfc-color-quinary);\r\n}\r\n\r\n.Rail-module_overflowEllipsis__1jjld {\r\n    max-width: 100%;\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n}\r\n\r\n\r\n.Rail-module_alignEnd__tizDz {\r\n    display: grid;\r\n    gap: 8px;\r\n    width: 100%;\r\n    height: 100%;\r\n    align-content: flex-end;\r\n    align-items: flex-end;\r\n}\r\n\r\n.Rail-module_alignStart__2GL1m {\r\n    display: grid;\r\n    align-content: flex-start;\r\n    align-items: flex-start;\r\n\r\n    gap: 8px;\r\n    width: 100%;\r\n    height: 100%;\r\n}";
+var styles$e = {"bottomOptions":"Rail-module_bottomOptions__3EzQp","buttons":"Rail-module_buttons__28CnC","button":"Rail-module_button__23Yrt","wrapperVertical":"Rail-module_wrapperVertical__3vB2K","buttonContainer":"Rail-module_buttonContainer__3KBqq","buttonLabel":"Rail-module_buttonLabel__23YTk","activeButton":"Rail-module_activeButton__2EOfu","slideDown":"Rail-module_slideDown__2hjgb","overflowEllipsis":"Rail-module_overflowEllipsis__1jjld","alignEnd":"Rail-module_alignEnd__tizDz","alignStart":"Rail-module_alignStart__2GL1m"};
 styleInject(css_248z$f);
 
-function Bar$1(props) {
+function NavigationRail(props) {
+  var _useState = React$1.useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      extended = _useState2[0];
+      _useState2[1];
+
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: props.orientation === 'horizontal' ? styles$e.wrapperHorizontal : styles$e.wrapperVertical
+    className: styles$e.wrapperVertical
+  }, /*#__PURE__*/React__default["default"].createElement(RailContext.Provider, {
+    value: extended
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles$e.alignStart,
     "data-variant": props.orientation ? props.orientation : 'vertical'
   }, React__default["default"].Children.toArray(props.children).filter(function (e) {
     return e.props.place !== 'end';
   }).map(function (e, i) {
-    if (e.type === ActionButton) return e;else return /*#__PURE__*/React__default["default"].createElement("div", {
-      key: i + '-bar-node-start',
+    if (e.type === RailActionButton) return e;else return /*#__PURE__*/React__default["default"].createElement("div", {
+      key: i + '-rail-node-start',
       className: e.props.className,
       style: e.props.styles
     }, e);
@@ -3969,41 +4035,130 @@ function Bar$1(props) {
   }, React__default["default"].Children.toArray(props.children).filter(function (e) {
     return e.props.place === 'end';
   }).map(function (e, i) {
-    if (e.type === ActionButton) return e;else return /*#__PURE__*/React__default["default"].createElement("div", {
-      key: i + '-bar-node-end',
+    if (e.type === RailActionButton) return e;else return /*#__PURE__*/React__default["default"].createElement("div", {
+      key: i + '-rail-node-end',
       className: e.props.className,
       style: e.props.styles
     }, e);
-  })));
+  }))));
 }
-Bar$1.propTypes = {
-  orientation: PropTypes__default["default"].oneOf(['vertical', 'horizontal']),
+NavigationRail.propTypes = {
   children: PropTypes__default["default"].node
 };
 
-function BarAction(props) {
-  return props.children;
+var css_248z$e = "@import '../../../misc/theme/styles.module.css';\n\n.Dropdown-module_wrapper__148qJ {\n    position: relative;\n\n}\n\n.Dropdown-module_buttons__1C8Y3 {\n    width: 200px;\n    border-radius: 5px;\n    background: var(--mfc-background-primary);\n    height: auto;\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 2px 1px;\n\n    overflow-y: auto;\n    max-height: clamp(250px, 10vh, 300px);\n\n    display: grid;\n    transition: 150ms ease;\n}\n\n\n.Dropdown-module_button__j9GrD {\n\n\n    overflow: hidden;\n    outline: none;\n    border: none;\n    padding: 12px 0 12px 8px;\n    text-align: left;\n    background: transparent;\n\n    transition: 150ms linear;\n    cursor: pointer;\n\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.Dropdown-module_buttonLabel__3grzf {\n    display: flex;\n    padding: 0 10px;\n    justify-content: flex-end;\n    width: 100%;\n}\n";
+var styles$d = {"wrapper":"Dropdown-module_wrapper__148qJ","buttons":"Dropdown-module_buttons__1C8Y3","button":"Dropdown-module_button__j9GrD","buttonLabel":"Dropdown-module_buttonLabel__3grzf"};
+styleInject(css_248z$e);
+
+function Dropdown(props) {
+  var _props$options;
+
+  var _useState = React$1.useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      open = _useState2[0],
+      setOpen = _useState2[1];
+
+  var _useState3 = React$1.useState(undefined),
+      _useState4 = _slicedToArray(_useState3, 2),
+      width = _useState4[0],
+      setWidth = _useState4[1];
+
+  var _useState5 = React$1.useState(undefined),
+      _useState6 = _slicedToArray(_useState5, 2),
+      height = _useState6[0],
+      setHeight = _useState6[1];
+
+  var ref = React$1.useRef();
+  var resizeObs = React$1.useRef();
+
+  var callback = function callback() {
+    var _ref$current, _ref$current2;
+
+    setWidth((_ref$current = ref.current) === null || _ref$current === void 0 ? void 0 : _ref$current.offsetWidth);
+    setHeight((_ref$current2 = ref.current) === null || _ref$current2 === void 0 ? void 0 : _ref$current2.offsetHeight);
+  };
+
+  React$1.useEffect(function () {
+    var _ref$current3, _ref$current4, _resizeObs$current;
+
+    setWidth((_ref$current3 = ref.current) === null || _ref$current3 === void 0 ? void 0 : _ref$current3.offsetWidth);
+    setHeight((_ref$current4 = ref.current) === null || _ref$current4 === void 0 ? void 0 : _ref$current4.offsetHeight);
+    resizeObs.current = new ResizeObserver(callback);
+    (_resizeObs$current = resizeObs.current) === null || _resizeObs$current === void 0 ? void 0 : _resizeObs$current.observe(ref.current);
+    return function () {
+      var _resizeObs$current2;
+
+      (_resizeObs$current2 = resizeObs.current) === null || _resizeObs$current2 === void 0 ? void 0 : _resizeObs$current2.disconnect();
+    };
+  }, []);
+  return /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles$d.wrapper
+  }, /*#__PURE__*/React__default["default"].createElement(Button, {
+    highlight: open,
+    reference: ref,
+    variant: props.variant,
+    onClick: function onClick() {
+      return setOpen(true);
+    },
+    disabled: props.disabled,
+    className: props.className
+  }, props.children), /*#__PURE__*/React__default["default"].createElement(Modal, {
+    variant: "fit",
+    styles: {
+      transform: "translate(".concat(props.justify === 'end' ? '-50%' : "calc(50% - ".concat(width / 2, "px)"), ", ").concat(props.align === 'top' ? "calc(-50% - ".concat(height / 2, "px)") : "calc(50% + ".concat(height / 2, "px)"), ")")
+    },
+    blurIntensity: 0,
+    className: styles$d.buttons,
+    animationStyle: 'fade',
+    open: open,
+    handleClose: function handleClose() {
+      return setOpen(false);
+    }
+  }, (_props$options = props.options) === null || _props$options === void 0 ? void 0 : _props$options.map(function (b, i) {
+    return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
+      key: 'select-' + i
+    }, /*#__PURE__*/React__default["default"].createElement(Button, {
+      disabled: b.disabled,
+      onClick: function onClick() {
+        b.onClick(b.onClickEvent);
+        setOpen(false);
+      },
+      className: styles$d.button
+    }, b.icon, /*#__PURE__*/React__default["default"].createElement("div", {
+      className: styles$d.buttonLabel
+    }, b.label)));
+  })));
 }
-BarAction.propTypes = {
-  children: PropTypes__default["default"].node,
+Dropdown.propTypes = {
+  variant: PropTypes__default["default"].oneOf(['minimal', 'filled', 'outlined', 'minimal-horizontal']),
   className: PropTypes__default["default"].string,
-  styles: PropTypes__default["default"].string,
-  place: PropTypes__default["default"].oneOf(['start', 'end'])
+  styles: PropTypes__default["default"].object,
+  disabled: PropTypes__default["default"].bool,
+  children: PropTypes__default["default"].node,
+  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
+    label: PropTypes__default["default"].any,
+    icon: PropTypes__default["default"].object,
+    onClick: PropTypes__default["default"].func,
+    disabled: PropTypes__default["default"].bool,
+    onClickEvent: PropTypes__default["default"].any
+  })),
+  align: PropTypes__default["default"].oneOf(['top', 'bottom']),
+  justify: PropTypes__default["default"].oneOf(['start', 'end'])
 };
 
-var css_248z$e = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.Breadcrumbs-module_wrapper__3KOun {\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n    justify-content: center;\r\n    gap: 8px;\r\n    border-radius: 5px;\r\n    background: var(--mfc-background-primary);\r\n    width: 100%;\r\n    padding: 8px;\r\n\r\n    overflow: hidden;\r\n}\r\n\r\n.Breadcrumbs-module_crumbWrapper__3KMnN {\r\n    display: flex;\r\n    align-items: center;\r\n\r\n}";
-var styles$d = {"wrapper":"Breadcrumbs-module_wrapper__3KOun","crumbWrapper":"Breadcrumbs-module_crumbWrapper__3KMnN"};
-styleInject(css_248z$e);
+var css_248z$d = "@import \"../../../misc/theme/styles.module.css\";\r\n\r\n.Breadcrumbs-module_wrapper__3KOun {\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n    justify-content: center;\r\n    gap: 8px;\r\n    border-radius: 5px;\r\n    background: var(--mfc-background-primary);\r\n    width: 100%;\r\n    padding: 8px;\r\n\r\n    overflow: hidden;\r\n}\r\n\r\n.Breadcrumbs-module_crumbWrapper__3KMnN {\r\n    display: flex;\r\n    align-items: center;\r\n\r\n}";
+var styles$c = {"wrapper":"Breadcrumbs-module_wrapper__3KOun","crumbWrapper":"Breadcrumbs-module_crumbWrapper__3KMnN"};
+styleInject(css_248z$d);
 
 function Breadcrumbs(props) {
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$d.wrapper,
+    className: styles$c.wrapper,
     style: {
       justifyContent: props.justify === 'start' ? 'flex-start' : props.justify === 'end' ? 'flex-end' : undefined
     }
   }, React__default["default"].Children.toArray(props.children).map(function (crumb, i) {
     return /*#__PURE__*/React__default["default"].createElement("div", {
-      className: styles$d.crumbWrapper,
+      className: styles$c.crumbWrapper,
       key: 'breadcrumb-' + i
     }, crumb, /*#__PURE__*/React__default["default"].createElement("span", {
       style: {
@@ -4020,13 +4175,13 @@ Breadcrumbs.propTypes = {
   justify: PropTypes__default["default"].oneOf(['start', 'middle', 'end'])
 };
 
-var css_248z$d = ".Carousel-module_wrapper__3jfG8{\r\n    padding: 16px;\r\n    height: 50vh;\r\n    overflow: hidden;\r\n    position: relative;\r\n\r\n    display: grid;\r\n    align-content: space-between;\r\n    user-select: none;\r\n}";
-var styles$c = {"wrapper":"Carousel-module_wrapper__3jfG8"};
-styleInject(css_248z$d);
-
-var css_248z$c = ".Card-module_cardWrapper__2VU2m {\r\n    /*border: var(--mfc-border-primary) 1px solid;*/\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 8px;\r\n    height: 115px;\r\n\r\n\r\n    position: relative;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n\r\n    transition: 150ms linear;\r\n}\r\n.Card-module_cardWrapper__2VU2m:active{\r\n    transform: scale(.98);\r\n}\r\n.Card-module_cardImage__2t-3X {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    left: 0;\r\n    border-radius: 8px;\r\n    z-index: 0;\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Card-module_cardTitle__S4Fs3 {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 0;\r\n    transform: translate(4px, -50%);\r\n    transition: 250ms linear;\r\n}\r\n\r\n.Card-module_cardHeaderBackground__2lcN2{\r\n    z-index: 0;\r\n    opacity: .8;\r\n    background: var(--mfc-background-primary);\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n.Card-module_cardHeader__25Kks {\r\n    overflow: hidden;\r\n\r\n    display: grid;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n\r\n    padding: 4px 0;\r\n    user-select: none;\r\n    height: 30%;\r\n    width: 50%;\r\n\r\n    color: var(--mfc-color-primary);\r\n    position: relative;\r\n    z-index: 5;\r\n\r\n    border-radius: 0 5px 5px 0;\r\n    transition: 150ms linear;\r\n\r\n    font-family: \"Roboto\";\r\n    font-weight: 600;\r\n    font-size: 1rem;\r\n}\r\n.Card-module_cardWrapper__2VU2m:hover, .Card-module_onRender__2Z0Qp{\r\n    border: #0095ff 2px solid;\r\n\r\n}\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardTitle__S4Fs3 {\r\n    position: relative;\r\n    top: 0;\r\n    transform: translateX(4px);\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardHeader__25Kks {\r\n    height: 50%;\r\n    width: 75%;\r\n    align-items: flex-start;\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardImage__2t-3X {\r\n    transform: scale(1.2);\r\n}\r\n\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardTitle__S4Fs3 {\r\n    position: relative;\r\n    top: 0;\r\n    transform: translateX(4px);\r\n}\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardHeader__25Kks {\r\n    height: 50%;\r\n    width: 75%;\r\n    align-items: flex-start;\r\n}\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardImage__2t-3X {\r\n    transform: scale(1.2);\r\n}\r\n\r\n\r\n.Card-module_cardDescription__9H_cz {\r\n    position: relative;\r\n    z-index: 5;\r\n    visibility: hidden;\r\n    opacity: 0;\r\n    transition: 150ms linear;\r\n\r\n    font-weight: normal;\r\n    font-size: .8rem;\r\n    color: var(--mfc-color-quaternary);\r\n    padding-left: 4px;\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardDescription__9H_cz {\r\n    visibility: visible;\r\n    opacity: 1;\r\n}\r\n.Card-module_onRender__2Z0Qp .Card-module_cardDescription__9H_cz {\r\n    visibility: visible;\r\n    opacity: 1;\r\n}\r\n\r\n.Card-module_overflow__VDvpD {\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n";
-var styles$b = {"cardWrapper":"Card-module_cardWrapper__2VU2m","cardImage":"Card-module_cardImage__2t-3X","cardTitle":"Card-module_cardTitle__S4Fs3","cardHeaderBackground":"Card-module_cardHeaderBackground__2lcN2","cardHeader":"Card-module_cardHeader__25Kks","onRender":"Card-module_onRender__2Z0Qp","cardDescription":"Card-module_cardDescription__9H_cz","overflow":"Card-module_overflow__VDvpD"};
+var css_248z$c = ".Carousel-module_wrapper__3jfG8{\r\n    padding: 16px;\r\n    height: 50vh;\r\n    overflow: hidden;\r\n    position: relative;\r\n\r\n    display: grid;\r\n    align-content: space-between;\r\n    user-select: none;\r\n}";
+var styles$b = {"wrapper":"Carousel-module_wrapper__3jfG8"};
 styleInject(css_248z$c);
+
+var css_248z$b = ".Card-module_cardWrapper__2VU2m {\r\n    /*border: var(--mfc-border-primary) 1px solid;*/\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 8px;\r\n    height: 115px;\r\n\r\n\r\n    position: relative;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n\r\n    transition: 150ms linear;\r\n}\r\n.Card-module_cardWrapper__2VU2m:active{\r\n    transform: scale(.98);\r\n}\r\n.Card-module_cardImage__2t-3X {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    left: 0;\r\n    border-radius: 8px;\r\n    z-index: 0;\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Card-module_cardTitle__S4Fs3 {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 0;\r\n    transform: translate(4px, -50%);\r\n    transition: 250ms linear;\r\n}\r\n\r\n.Card-module_cardHeaderBackground__2lcN2{\r\n    z-index: 0;\r\n    opacity: .8;\r\n    background: var(--mfc-background-primary);\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n.Card-module_cardHeader__25Kks {\r\n    overflow: hidden;\r\n\r\n    display: grid;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n\r\n    padding: 4px 0;\r\n    user-select: none;\r\n    height: 30%;\r\n    width: 50%;\r\n\r\n    color: var(--mfc-color-primary);\r\n    position: relative;\r\n    z-index: 5;\r\n\r\n    border-radius: 0 5px 5px 0;\r\n    transition: 150ms linear;\r\n\r\n    font-family: \"Roboto\";\r\n    font-weight: 600;\r\n    font-size: 1rem;\r\n}\r\n.Card-module_cardWrapper__2VU2m:hover, .Card-module_onRender__2Z0Qp{\r\n    border: #0095ff 2px solid;\r\n\r\n}\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardTitle__S4Fs3 {\r\n    position: relative;\r\n    top: 0;\r\n    transform: translateX(4px);\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardHeader__25Kks {\r\n    height: 50%;\r\n    width: 75%;\r\n    align-items: flex-start;\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardImage__2t-3X {\r\n    transform: scale(1.2);\r\n}\r\n\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardTitle__S4Fs3 {\r\n    position: relative;\r\n    top: 0;\r\n    transform: translateX(4px);\r\n}\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardHeader__25Kks {\r\n    height: 50%;\r\n    width: 75%;\r\n    align-items: flex-start;\r\n}\r\n\r\n.Card-module_onRender__2Z0Qp .Card-module_cardImage__2t-3X {\r\n    transform: scale(1.2);\r\n}\r\n\r\n\r\n.Card-module_cardDescription__9H_cz {\r\n    position: relative;\r\n    z-index: 5;\r\n    visibility: hidden;\r\n    opacity: 0;\r\n    transition: 150ms linear;\r\n\r\n    font-weight: normal;\r\n    font-size: .8rem;\r\n    color: var(--mfc-color-quaternary);\r\n    padding-left: 4px;\r\n}\r\n\r\n.Card-module_cardWrapper__2VU2m:hover .Card-module_cardDescription__9H_cz {\r\n    visibility: visible;\r\n    opacity: 1;\r\n}\r\n.Card-module_onRender__2Z0Qp .Card-module_cardDescription__9H_cz {\r\n    visibility: visible;\r\n    opacity: 1;\r\n}\r\n\r\n.Card-module_overflow__VDvpD {\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n";
+var styles$a = {"cardWrapper":"Card-module_cardWrapper__2VU2m","cardImage":"Card-module_cardImage__2t-3X","cardTitle":"Card-module_cardTitle__S4Fs3","cardHeaderBackground":"Card-module_cardHeaderBackground__2lcN2","cardHeader":"Card-module_cardHeader__25Kks","onRender":"Card-module_onRender__2Z0Qp","cardDescription":"Card-module_cardDescription__9H_cz","overflow":"Card-module_overflow__VDvpD"};
+styleInject(css_248z$b);
 
 function Card(props) {
   var ref = React$1.useRef();
@@ -4040,7 +4195,7 @@ function Card(props) {
     setWidth(ref.current.parentNode.offsetWidth * (12.5 / 100));
   }, []);
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [styles$b.cardWrapper, props.currentOnRender ? styles$b.onRender : ''].join(' '),
+    className: [styles$a.cardWrapper, props.currentOnRender ? styles$a.onRender : ''].join(' '),
     ref: ref,
     style: {
       minWidth: width + 'px'
@@ -4052,17 +4207,17 @@ function Card(props) {
       return props.onClick();
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$b.cardHeader
+    className: styles$a.cardHeader
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$b.cardHeaderBackground
+    className: styles$a.cardHeaderBackground
   }), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [styles$b.overflow, styles$b.cardTitle].join(' ')
+    className: [styles$a.overflow, styles$a.cardTitle].join(' ')
   }, props.data.title), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [styles$b.cardDescription, styles$b.overflow].join(' ')
+    className: [styles$a.cardDescription, styles$a.overflow].join(' ')
   }, props.data.details)), /*#__PURE__*/React__default["default"].createElement("img", {
     src: props.data.image,
     alt: props.data.title,
-    className: styles$b.cardImage
+    className: styles$a.cardImage
   }));
 }
 Card.propTypes = {
@@ -4076,9 +4231,9 @@ Card.propTypes = {
   onClick: PropTypes__default["default"].func
 };
 
-var css_248z$b = ".CardGroup-module_groupWrapper__11q7W {\r\n    display: flex;\r\n    gap: 16px;\r\n    overflow: hidden;\r\n    width: 100%;\r\n    position: relative;\r\n\r\n    height: fit-content;\r\n\r\n    padding: 0 16px;\r\n\r\n}\r\n.CardGroup-module_button__3_U-r{\r\n    color: var(--mfc-color-tertiary);\r\n    position: absolute;\r\n    right: 0;\r\n    bottom: 65px;\r\n    transform: translateY(25%);\r\n\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px;\r\n    width: 20px;\r\n    height: 45px;\r\n\r\n    z-index: 50;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n\r\n    transition: 150ms linear;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    outline: none;\r\n    cursor: pointer;\r\n}\r\n.CardGroup-module_button__3_U-r:hover{\r\n\r\n    background: var(--mfc-background-quaternary);\r\n    color: #0095ff;\r\n}\r\n.CardGroup-module_button__3_U-r:active{\r\n    background: #0095ff;\r\n    color: white;\r\n    border-color: #0095ff;\r\n}\r\n\r\n";
-var styles$a = {"groupWrapper":"CardGroup-module_groupWrapper__11q7W","button":"CardGroup-module_button__3_U-r"};
-styleInject(css_248z$b);
+var css_248z$a = ".CardGroup-module_groupWrapper__11q7W {\r\n    display: flex;\r\n    gap: 16px;\r\n    overflow: hidden;\r\n    width: 100%;\r\n    position: relative;\r\n\r\n    height: fit-content;\r\n\r\n    padding: 0 16px;\r\n\r\n}\r\n.CardGroup-module_button__3_U-r{\r\n    color: var(--mfc-color-tertiary);\r\n    position: absolute;\r\n    right: 0;\r\n    bottom: 65px;\r\n    transform: translateY(25%);\r\n\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px;\r\n    width: 20px;\r\n    height: 45px;\r\n\r\n    z-index: 50;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n\r\n    transition: 150ms linear;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    outline: none;\r\n    cursor: pointer;\r\n}\r\n.CardGroup-module_button__3_U-r:hover{\r\n\r\n    background: var(--mfc-background-quaternary);\r\n    color: #0095ff;\r\n}\r\n.CardGroup-module_button__3_U-r:active{\r\n    background: #0095ff;\r\n    color: white;\r\n    border-color: #0095ff;\r\n}\r\n\r\n";
+var styles$9 = {"groupWrapper":"CardGroup-module_groupWrapper__11q7W","button":"CardGroup-module_button__3_U-r"};
+styleInject(css_248z$a);
 
 function CardGroup(props) {
   var _useState = React$1.useState(false),
@@ -4093,7 +4248,7 @@ function CardGroup(props) {
 
   var ref = React$1.useRef();
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("button", {
-    className: styles$a.button,
+    className: styles$9.button,
     style: {
       right: '20px',
       visibility: buttonEnd ? 'visible' : 'hidden',
@@ -4109,7 +4264,7 @@ function CardGroup(props) {
     },
     className: "material-icons-round"
   }, "arrow_drop_down")), /*#__PURE__*/React__default["default"].createElement("button", {
-    className: styles$a.button,
+    className: styles$9.button,
     style: {
       left: '20px',
       visibility: buttonStart ? 'visible' : 'hidden',
@@ -4126,7 +4281,7 @@ function CardGroup(props) {
     },
     className: "material-icons-round"
   }, "arrow_drop_down")), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$a.groupWrapper,
+    className: styles$9.groupWrapper,
     ref: ref,
     onMouseEnter: function onMouseEnter() {
       if (ref.current.scrollWidth - ref.current.offsetWidth > ref.current.scrollLeft) setButtonEnd(true);
@@ -4138,15 +4293,15 @@ CardGroup.propTypes = {
   children: PropTypes__default["default"].node
 };
 
-var css_248z$a = ".Panel-module_image__1kM7v{\r\n    position: absolute;\r\n    border-radius: 5px 5px 0 0;\r\n    width: calc(100% - 32px);\r\n    height: calc(100% - 97px);\r\n    overflow: hidden;\r\n    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) calc(100% - 65px), rgba(0,0,0,0) 100%);\r\n    transition: 150ms linear;\r\n\r\n}\r\n\r\n\r\n.Panel-module_wrapper__2Sl2K{\r\n    transition: 150ms linear;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n}\r\n.Panel-module_wrapper__2Sl2K:active{\r\n    opacity: .8;\r\n}\r\n\r\n\r\n.Panel-module_title__2hU7K{\r\n    height: 20%;\r\n    max-width: 35%;\r\n    overflow: hidden;\r\n    position: absolute;\r\n\r\n    /*transform: translateY(-50%);*/\r\n    top: calc(50% - 65px);\r\n\r\n    font-size: 1.5rem;\r\n    font-weight: bold;\r\n    padding: 8px 16px;\r\n\r\n    border-radius: 0 5px 5px 0;\r\n\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    display: grid;\r\n    gap: 8px;\r\n\r\n\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Panel-module_description__2S5Fu{\r\n    font-size: .9rem;\r\n    color: var(--mfc-color-tertiary);\r\n}\r\n\r\n.Panel-module_overflow__bIsf5{\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    max-width: 100%;\r\n}\r\n";
-var styles$9 = {"image":"Panel-module_image__1kM7v","wrapper":"Panel-module_wrapper__2Sl2K","title":"Panel-module_title__2hU7K","description":"Panel-module_description__2S5Fu","overflow":"Panel-module_overflow__bIsf5"};
-styleInject(css_248z$a);
+var css_248z$9 = ".Panel-module_image__1kM7v{\r\n    position: absolute;\r\n    border-radius: 5px 5px 0 0;\r\n    width: calc(100% - 32px);\r\n    height: calc(100% - 97px);\r\n    overflow: hidden;\r\n    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) calc(100% - 65px), rgba(0,0,0,0) 100%);\r\n    transition: 150ms linear;\r\n\r\n}\r\n\r\n\r\n.Panel-module_wrapper__2Sl2K{\r\n    transition: 150ms linear;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n}\r\n.Panel-module_wrapper__2Sl2K:active{\r\n    opacity: .8;\r\n}\r\n\r\n\r\n.Panel-module_title__2hU7K{\r\n    height: 20%;\r\n    max-width: 35%;\r\n    overflow: hidden;\r\n    position: absolute;\r\n\r\n    /*transform: translateY(-50%);*/\r\n    top: calc(50% - 65px);\r\n\r\n    font-size: 1.5rem;\r\n    font-weight: bold;\r\n    padding: 8px 16px;\r\n\r\n    border-radius: 0 5px 5px 0;\r\n\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    display: grid;\r\n    gap: 8px;\r\n\r\n\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Panel-module_description__2S5Fu{\r\n    font-size: .9rem;\r\n    color: var(--mfc-color-tertiary);\r\n}\r\n\r\n.Panel-module_overflow__bIsf5{\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    max-width: 100%;\r\n}\r\n";
+var styles$8 = {"image":"Panel-module_image__1kM7v","wrapper":"Panel-module_wrapper__2Sl2K","title":"Panel-module_title__2hU7K","description":"Panel-module_description__2S5Fu","overflow":"Panel-module_overflow__bIsf5"};
+styleInject(css_248z$9);
 
 function Panel(props) {
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$9.wrapper
+    className: styles$8.wrapper
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$9.image
+    className: styles$8.image
   }, /*#__PURE__*/React__default["default"].createElement("img", {
     src: props.data.image,
     alt: props.data.title,
@@ -4154,9 +4309,9 @@ function Panel(props) {
       width: '100%'
     }
   })), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$9.title
+    className: styles$8.title
   }, props.data.title, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [styles$9.description, styles$9.overflow].join(' ')
+    className: [styles$8.description, styles$8.overflow].join(' ')
   }, props.data.details)));
 }
 Panel.propTypes = {
@@ -4183,7 +4338,7 @@ function Carousel(props) {
     };
   }, [currentOnRender]);
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$c.wrapper
+    className: styles$b.wrapper
   }, /*#__PURE__*/React__default["default"].createElement(Switcher, {
     openChild: currentOnRender
   }, props.data.map(function (panel, i) {
@@ -4237,13 +4392,13 @@ DynamicRoutes.propTypes = {
   componentProps: PropTypes__default["default"].object
 };
 
-var css_248z$9 = "@import '../../../misc/theme/styles.module.css';\n\n.List-module_tableWrapper__191zi {\n    max-width: 100%;\n    height: fit-content;\n    overflow-x: hidden;\n    overflow-y: hidden;\n\n    display: grid;\n    align-content: flex-start;\n\n    gap: 4px;\n\n    padding-bottom: 64px;\n}\n\n.List-module_container__20irL {\n\n\n    display: grid;\n    gap: 8px;\n    max-height: 100%;\n    height: 100%;\n    overflow-y: auto;\n    overflow-x: hidden;\n    position: relative;\n\n    align-content: flex-start;\n}\n\n.List-module_divider__20Bn- {\n    height: 50%;\n    width: 1px;\n    background: var(--mfc-border-secondary);\n}";
-var styles$8 = {"tableWrapper":"List-module_tableWrapper__191zi","container":"List-module_container__20irL","divider":"List-module_divider__20Bn-"};
-styleInject(css_248z$9);
-
-var css_248z$8 = ".Row-module_row__2HKgP {\r\n    display: flex;\r\n    align-items: center;\r\n    height: 60px;\r\n    width: 100%;\r\n    padding: 0;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px 0 0 5px;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n}\r\n\r\n\r\n.Row-module_cell__1glv0 {\r\n    background: var(--mfc-background-primary);\r\n    padding: 0 8px;\r\n    color: inherit;\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n    height: 100%;\r\n}\r\n\r\n\r\n.Row-module_overflow__3ktb- {\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n.Row-module_headerRow__zvgwa {\r\n    /*border: var(--mfc-border-primary) 1px solid;*/\r\n    position: sticky;\r\n    top: 0;\r\n    z-index: 50;\r\n\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    transition: 150ms linear;\r\n\r\n}\r\n\r\n.Row-module_scrolledHeader__2XQ70 {\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 1px 1px;\r\n}\r\n\r\n\r\n.Row-module_mainButton__26HDy {\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    border-left: none;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 0 5px 5px 0;\r\n    padding: 4px;\r\n    width: 30px;\r\n    height: 60px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.Row-module_divider__2xBdi {\r\n    height: 50%;\r\n    width: 1px;\r\n    background: var(--mfc-border-secondary);\r\n}";
-var styles$7 = {"row":"Row-module_row__2HKgP","cell":"Row-module_cell__1glv0","overflow":"Row-module_overflow__3ktb-","headerRow":"Row-module_headerRow__zvgwa","scrolledHeader":"Row-module_scrolledHeader__2XQ70","mainButton":"Row-module_mainButton__26HDy","divider":"Row-module_divider__2xBdi"};
+var css_248z$8 = "@import '../../../misc/theme/styles.module.css';\n\n.List-module_tableWrapper__191zi {\n    max-width: 100%;\n    height: fit-content;\n    overflow-x: hidden;\n    overflow-y: hidden;\n\n    display: grid;\n    align-content: flex-start;\n\n    gap: 4px;\n\n    padding-bottom: 64px;\n}\n\n.List-module_container__20irL {\n\n\n    display: grid;\n    gap: 8px;\n    max-height: 100%;\n    height: 100%;\n    overflow-y: auto;\n    overflow-x: hidden;\n    position: relative;\n\n    align-content: flex-start;\n}\n\n.List-module_divider__20Bn- {\n    height: 50%;\n    width: 1px;\n    background: var(--mfc-border-secondary);\n}";
+var styles$7 = {"tableWrapper":"List-module_tableWrapper__191zi","container":"List-module_container__20irL","divider":"List-module_divider__20Bn-"};
 styleInject(css_248z$8);
+
+var css_248z$7 = ".Row-module_row__2HKgP {\r\n    display: flex;\r\n    align-items: center;\r\n    height: 60px;\r\n    width: 100%;\r\n    padding: 0;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 5px 0 0 5px;\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n}\r\n\r\n\r\n.Row-module_cell__1glv0 {\r\n    background: var(--mfc-background-primary);\r\n    padding: 0 8px;\r\n    color: inherit;\r\n    display: flex;\r\n    align-items: center;\r\n    align-content: center;\r\n    height: 100%;\r\n}\r\n\r\n\r\n.Row-module_overflow__3ktb- {\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n.Row-module_headerRow__zvgwa {\r\n    /*border: var(--mfc-border-primary) 1px solid;*/\r\n    position: sticky;\r\n    top: 0;\r\n    z-index: 50;\r\n\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    transition: 150ms linear;\r\n\r\n}\r\n\r\n.Row-module_scrolledHeader__2XQ70 {\r\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 1px 1px;\r\n}\r\n\r\n\r\n.Row-module_mainButton__26HDy {\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    border-left: none;\r\n    background: var(--mfc-background-primary);\r\n    border-radius: 0 5px 5px 0;\r\n    padding: 4px;\r\n    width: 30px;\r\n    height: 60px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.Row-module_divider__2xBdi {\r\n    height: 50%;\r\n    width: 1px;\r\n    background: var(--mfc-border-secondary);\r\n}";
+var styles$6 = {"row":"Row-module_row__2HKgP","cell":"Row-module_cell__1glv0","overflow":"Row-module_overflow__3ktb-","headerRow":"Row-module_headerRow__zvgwa","scrolledHeader":"Row-module_scrolledHeader__2XQ70","mainButton":"Row-module_mainButton__26HDy","divider":"Row-module_divider__2xBdi"};
+styleInject(css_248z$7);
 
 function HeaderCell(props) {
   var ref = React$1.useRef();
@@ -4254,7 +4409,7 @@ function HeaderCell(props) {
       setCurrentSort = _useState2[1];
 
   return /*#__PURE__*/React__default["default"].createElement(Button, {
-    className: styles$7.cell,
+    className: styles$6.cell,
     variant: 'minimal-horizontal',
     styles: {
       width: "calc(".concat(1 / props.length * 100, "% + ").concat(props.additionalWidth, ")"),
@@ -4315,7 +4470,7 @@ function HeaderCell(props) {
       fontSize: '1.1rem'
     }
   }, "link"), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$7.overflow
+    className: styles$6.overflow
   }, props.value.label, /*#__PURE__*/React__default["default"].createElement(ToolTip, {
     content: props.value.label.toUpperCase()
   })), /*#__PURE__*/React__default["default"].createElement("span", {
@@ -4341,7 +4496,7 @@ HeaderCell.propTypes = {
 function Header(props) {
   var ref = React$1.useRef();
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$7.headerRow,
+    className: styles$6.headerRow,
     ref: ref
   }, props.keys.map(function (e, i) {
     return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
@@ -4357,10 +4512,10 @@ function Header(props) {
       style: {
         display: i === props.keys.length - 1 && !props.hasOptions ? 'none' : undefined
       },
-      className: styles$7.divider
+      className: styles$6.divider
     }));
   }), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$7.cell,
+    className: styles$6.cell,
     disabled: true,
     style: {
       display: props.hasOptions ? 'flex' : 'none',
@@ -4383,6 +4538,8 @@ Header.propTypes = {
 };
 
 function ListHeader(props) {
+  var _props$options;
+
   var _useHeader = useHeader(props.dispatch, props.actions),
       getType = _useHeader.getType,
       parseDate = _useHeader.parseDate,
@@ -4405,7 +4562,20 @@ function ListHeader(props) {
       alignItems: 'center',
       gap: '8px'
     }
-  }, /*#__PURE__*/React__default["default"].createElement(Button, {
+  }, (_props$options = props.options) === null || _props$options === void 0 ? void 0 : _props$options.map(function (op, ind) {
+    return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
+      key: ind + '-list-op'
+    }, /*#__PURE__*/React__default["default"].createElement(Button, {
+      variant: 'outlined',
+      className: styles$o.button,
+      styles: {
+        gap: '16px'
+      },
+      onClick: function onClick() {
+        return op.onClick();
+      }
+    }, op.label));
+  }), /*#__PURE__*/React__default["default"].createElement(Button, {
     variant: 'outlined',
     className: styles$o.button,
     styles: {
@@ -4485,6 +4655,10 @@ function ListHeader(props) {
   }));
 }
 ListHeader.propTypes = {
+  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
+    label: PropTypes__default["default"].string,
+    onClick: PropTypes__default["default"].func
+  })),
   scrolled: PropTypes__default["default"].bool,
   hook: PropTypes__default["default"].object,
   noFilters: PropTypes__default["default"].bool,
@@ -4561,18 +4735,18 @@ function useList(initialKeys) {
   };
 }
 
-var css_248z$7 = "@import '../../../misc/theme/styles.module.css';\n\n.Settings-module_modal__37ZQb {\n    overflow: hidden;\n    background-color: var(--mfc-background-primary);\n\n    border-radius: 5px 0 5px 0;\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 25%;\n    height: 100%;\n    padding: 16px;\n    box-shadow: var(--mfc-box-shadow-primary) -1px 0 3px 1px;\n}\n\n.Settings-module_contentWrapper__2PqW1 {\n    display: grid;\n    gap: 8px;\n\n    margin-top: 16px;\n\n    align-content: flex-start;\n    height: 100%;\n\n    width: 100%;\n}\n\n.Settings-module_content__2xUqh {\n    display: grid;\n    gap: 8px;\n    height: 100%;\n    background: var(--mfc-background-secondary);\n    border-radius: 5px;\n    padding: 8px;\n    overflow-y: auto;\n\n    border: var(--mfc-border-primary) 1px solid;\n}\n\n.Settings-module_fieldRow__35E7r {\n\n    height: 60px;\n    position: relative;\n    z-index: 999;\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    padding: 8px;\n\n    display: flex;\n    gap: 16px;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    /*height: auto;*/\n\n    user-select: none;\n}\n\n.Settings-module_fieldRow__35E7r:hover {\n    border-color: #0095ff;\n}\n\n.Settings-module_fieldLabel__VuNf- {\n\n\n    text-transform: capitalize;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    font-weight: 600;\n    color: var(--mfc-color-tertiary);\n    font-size: .9rem;\n\n}\n\n.Settings-module_visibilityButton__2k5Pv {\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n}\n\n\n.Settings-module_header__ToHmR {\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n}\n\n.Settings-module_range__pOYnk{\n    /*max-width: */\n}";
-var styles$6 = {"modal":"Settings-module_modal__37ZQb","contentWrapper":"Settings-module_contentWrapper__2PqW1","content":"Settings-module_content__2xUqh","fieldRow":"Settings-module_fieldRow__35E7r","fieldLabel":"Settings-module_fieldLabel__VuNf-","visibilityButton":"Settings-module_visibilityButton__2k5Pv","header":"Settings-module_header__ToHmR","range":"Settings-module_range__pOYnk"};
-styleInject(css_248z$7);
+var css_248z$6 = "@import '../../../misc/theme/styles.module.css';\n\n.Settings-module_modal__37ZQb {\n    overflow: hidden;\n    background-color: var(--mfc-background-primary);\n\n    border-radius: 5px 0 5px 0;\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 25%;\n    height: 100%;\n    padding: 16px;\n    box-shadow: var(--mfc-box-shadow-primary) -1px 0 3px 1px;\n}\n\n.Settings-module_contentWrapper__2PqW1 {\n    display: grid;\n    gap: 8px;\n\n    margin-top: 16px;\n\n    align-content: flex-start;\n    height: 100%;\n\n    width: 100%;\n}\n\n.Settings-module_content__2xUqh {\n    display: grid;\n    gap: 8px;\n    height: 100%;\n    background: var(--mfc-background-secondary);\n    border-radius: 5px;\n    padding: 8px;\n    overflow-y: auto;\n\n    border: var(--mfc-border-primary) 1px solid;\n}\n\n.Settings-module_fieldRow__35E7r {\n\n    height: 60px;\n    position: relative;\n    z-index: 999;\n    background: var(--mfc-background-primary);\n    border-radius: 5px;\n    border: var(--mfc-border-primary) 1px solid;\n    padding: 8px;\n\n    display: flex;\n    gap: 16px;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    /*height: auto;*/\n\n    user-select: none;\n}\n\n.Settings-module_fieldRow__35E7r:hover {\n    border-color: #0095ff;\n}\n\n.Settings-module_fieldLabel__VuNf- {\n\n\n    text-transform: capitalize;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    font-weight: 600;\n    color: var(--mfc-color-tertiary);\n    font-size: .9rem;\n\n}\n\n.Settings-module_visibilityButton__2k5Pv {\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n}\n\n\n.Settings-module_header__ToHmR {\n    font-weight: 600;\n    color: var(--mfc-color-secondary);\n}\n\n.Settings-module_range__pOYnk{\n    /*max-width: */\n}";
+var styles$5 = {"modal":"Settings-module_modal__37ZQb","contentWrapper":"Settings-module_contentWrapper__2PqW1","content":"Settings-module_content__2xUqh","fieldRow":"Settings-module_fieldRow__35E7r","fieldLabel":"Settings-module_fieldLabel__VuNf-","visibilityButton":"Settings-module_visibilityButton__2k5Pv","header":"Settings-module_header__ToHmR","range":"Settings-module_range__pOYnk"};
+styleInject(css_248z$6);
 
 function Settings(props) {
   var getField = function getField(field, index) {
     return /*#__PURE__*/React__default["default"].createElement("div", {
       className: shared$2.wrapper
     }, /*#__PURE__*/React__default["default"].createElement("div", {
-      className: styles$6.fieldRow
+      className: styles$5.fieldRow
     }, /*#__PURE__*/React__default["default"].createElement("div", {
-      className: styles$6.fieldLabel
+      className: styles$5.fieldLabel
     }, field.label), /*#__PURE__*/React__default["default"].createElement("input", {
       disabled: !field.visible,
       type: 'range',
@@ -4592,10 +4766,10 @@ function Settings(props) {
           }
         });
       },
-      className: styles$6.range,
+      className: styles$5.range,
       value: field.additionalWidth ? parseInt(field.additionalWidth.replace('%', '')) : '0'
     }), /*#__PURE__*/React__default["default"].createElement(Button, {
-      className: styles$6.visibilityButton,
+      className: styles$5.visibilityButton,
       color: field.visible ? 'secondary' : undefined,
       onClick: function onClick() {
         console.log({
@@ -4633,21 +4807,21 @@ function Settings(props) {
     },
     animationStyle: "slide-right",
     blurIntensity: 0,
-    className: styles$6.modal
+    className: styles$5.modal
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$6.header
+    className: styles$5.header
   }, "Configura\xE7\xF5es"), /*#__PURE__*/React__default["default"].createElement(Tabs, {
-    className: styles$6.contentWrapper
+    className: styles$5.contentWrapper
   }, /*#__PURE__*/React__default["default"].createElement(Tab, {
     label: 'Todos',
-    className: styles$6.content
+    className: styles$5.content
   }, props.keys.map(function (e, i) {
     return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
       key: i + '-row-' + JSON.stringify(e.label)
     }, getField(e));
   })), /*#__PURE__*/React__default["default"].createElement(Tab, {
     label: 'Visíveis',
-    className: styles$6.content
+    className: styles$5.content
   }, fields.visible.length > 0 ? fields.visible.map(function (e, i) {
     return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
       key: i + '-row-' + JSON.stringify(e.label)
@@ -4656,7 +4830,7 @@ function Settings(props) {
     customLabel: 'Todos os campos estão escondidos'
   })), /*#__PURE__*/React__default["default"].createElement(Tab, {
     label: 'Escondidos',
-    className: styles$6.content
+    className: styles$5.content
   }, fields.hidden.length > 0 ? fields.hidden.map(function (e, i) {
     return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
       key: i + '-row-' + JSON.stringify(e.label)
@@ -4673,70 +4847,6 @@ Settings.propTypes = {
   actions: PropTypes__default["default"].object
 };
 
-var css_248z$6 = "@import '../../../misc/theme/styles.module.css';\n\n.Dropdown-module_wrapper__3QXzm {\n    position: relative;\n\n}\n\n.Dropdown-module_buttons__2J8JD {\n    width: 200px;\n    border-radius: 5px;\n    background: var(--mfc-background-primary);\n    height: auto;\n    box-shadow: var(--mfc-box-shadow-primary) 0 0 2px 1px;\n\n    overflow-y: auto;\n    max-height: clamp(250px, 10vh, 300px);\n\n    display: grid;\n    transition: 150ms ease;\n}\n\n\n.Dropdown-module_button__3lkck {\n\n\n    overflow: hidden;\n    outline: none;\n    border: none;\n    padding: 12px 0 12px 8px;\n    text-align: left;\n    background: transparent;\n\n    transition: 150ms linear;\n    cursor: pointer;\n\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.Dropdown-module_buttonLabel__2HvoU {\n    display: flex;\n    padding: 0 10px;\n    justify-content: flex-end;\n    width: 100%;\n}\n";
-var styles$5 = {"wrapper":"Dropdown-module_wrapper__3QXzm","buttons":"Dropdown-module_buttons__2J8JD","button":"Dropdown-module_button__3lkck","buttonLabel":"Dropdown-module_buttonLabel__2HvoU"};
-styleInject(css_248z$6);
-
-function Dropdown(props) {
-  var _props$buttons;
-
-  var _useState = React$1.useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      open = _useState2[0],
-      setOpen = _useState2[1];
-
-  return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$5.wrapper
-  }, /*#__PURE__*/React__default["default"].createElement(Button, {
-    highlight: open,
-    variant: props.variant,
-    onClick: function onClick() {
-      return setOpen(true);
-    },
-    disabled: props.disabled,
-    className: props.className
-  }, props.label), /*#__PURE__*/React__default["default"].createElement(Modal, {
-    variant: "fit",
-    styles: {
-      transform: props.align === 'top' ? 'translateY(-100%)' : 'translateY(100%)'
-    },
-    blurIntensity: 0,
-    className: styles$5.buttons,
-    animationStyle: 'fade',
-    open: open,
-    handleClose: function handleClose() {
-      return setOpen(false);
-    }
-  }, (_props$buttons = props.buttons) === null || _props$buttons === void 0 ? void 0 : _props$buttons.map(function (b, i) {
-    return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
-      key: 'dropdown-' + i
-    }, /*#__PURE__*/React__default["default"].createElement(Button, {
-      disabled: b.disabled,
-      onClick: function onClick() {
-        b.onClick(props.onClickProps);
-        setOpen(false);
-      },
-      className: styles$5.button
-    }, b.icon, /*#__PURE__*/React__default["default"].createElement("div", {
-      className: styles$5.buttonLabel
-    }, b.label)));
-  })));
-}
-Dropdown.propTypes = {
-  variant: PropTypes__default["default"].oneOf(['minimal', 'filled', 'outlined', 'minimal-horizontal']),
-  className: PropTypes__default["default"].string,
-  onClickProps: PropTypes__default["default"].any,
-  label: PropTypes__default["default"].any,
-  disabled: PropTypes__default["default"].bool,
-  buttons: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
-    label: PropTypes__default["default"].any,
-    icon: PropTypes__default["default"].object,
-    onClick: PropTypes__default["default"].func,
-    disabled: PropTypes__default["default"].bool
-  })),
-  align: PropTypes__default["default"].oneOf(['top', 'bottom'])
-};
-
 function Row(props) {
   return /*#__PURE__*/React__default["default"].createElement("div", {
     style: {
@@ -4746,7 +4856,7 @@ function Row(props) {
     },
     ref: props.reference
   }, /*#__PURE__*/React__default["default"].createElement(Button, {
-    className: styles$7.row,
+    className: styles$6.row,
     variant: 'minimal-horizontal',
     onClick: function onClick() {
       return props.onClick();
@@ -4759,22 +4869,22 @@ function Row(props) {
         display: i === 0 ? 'none' : undefined,
         height: '40%'
       },
-      className: styles$7.divider
+      className: styles$6.divider
     }), /*#__PURE__*/React__default["default"].createElement("div", {
-      className: styles$7.cell,
+      className: styles$6.cell,
       style: {
         maxWidth: "calc(".concat(1 / props.keys.length * 100, "% + ").concat(e.additionalWidth ? e.additionalWidth : '0px', ")"),
         width: "calc(".concat(1 / props.keys.length * 100, "% + ").concat(e.additionalWidth ? e.additionalWidth : '0px', ")"),
         overflow: 'hidden'
       }
     }, /*#__PURE__*/React__default["default"].createElement("div", {
-      className: styles$7.overflow
+      className: styles$6.overflow
     }, /*#__PURE__*/React__default["default"].createElement(RowCell, {
       data: props.entry,
       field: e
     }))));
   })), props.controlButtons ? /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$7.cell,
+    className: styles$6.cell,
     style: {
       width: '30px',
       alignItems: 'unset',
@@ -4782,14 +4892,16 @@ function Row(props) {
       padding: 0
     }
   }, /*#__PURE__*/React__default["default"].createElement(Dropdown, {
-    className: styles$7.mainButton,
+    className: styles$6.mainButton,
     variant: 'minimal-horizontal',
-    label: /*#__PURE__*/React__default["default"].createElement("span", {
-      className: "material-icons-round"
-    }, "arrow_drop_down"),
-    buttons: props.controlButtons,
-    onClickProps: props.entry
-  })) : null);
+    options: props.controlButtons.map(function (e) {
+      return _objectSpread2(_objectSpread2({}, e), {}, {
+        onClickEvent: props.entry
+      });
+    })
+  }, /*#__PURE__*/React__default["default"].createElement("span", {
+    className: "material-icons-round"
+  }, "arrow_drop_down"))) : null);
 }
 Row.propTypes = {
   keys: PropTypes__default["default"].arrayOf(keyTemplate),
@@ -4820,7 +4932,7 @@ function List(props) {
     onScroll: function onScroll(event) {
       if (event.target.scrollTop > 0) setScrolled(true);else setScrolled(false);
     },
-    className: styles$8.container
+    className: styles$7.container
   }, /*#__PURE__*/React__default["default"].createElement(Settings, {
     open: openSettings,
     keys: keys,
@@ -4828,6 +4940,7 @@ function List(props) {
     setOpen: setOpenSettings,
     dispatchKeys: keysDispatcher
   }), /*#__PURE__*/React__default["default"].createElement(ListHeader, {
+    options: props.options,
     scrolled: scrolled,
     title: props.title,
     noFilters: props.noFilters,
@@ -4840,7 +4953,7 @@ function List(props) {
     dispatch: keysDispatcher,
     setOpenSettings: setOpenSettings
   }), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$8.tableWrapper
+    className: styles$7.tableWrapper
   }, props.hook.data.length === 0 ? /*#__PURE__*/React__default["default"].createElement(Empty, null) : null, props.hook.data.map(function (e, index) {
     return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
       key: e.id + '-list-row'
@@ -4860,6 +4973,10 @@ function List(props) {
   })));
 }
 List.propTypes = {
+  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
+    label: PropTypes__default["default"].string,
+    onClick: PropTypes__default["default"].func
+  })),
   noFilters: PropTypes__default["default"].bool,
   hook: PropTypes__default["default"].object.isRequired,
   onRowClick: PropTypes__default["default"].func.isRequired,
@@ -5329,34 +5446,6 @@ var css_248z$4 = ".Feed-module_wrapper__Xvrje{\r\n    padding: 16px;\r\n    widt
 var styles$4 = {"wrapper":"Feed-module_wrapper__Xvrje","title":"Feed-module_title__1yn-F","titleDivider":"Feed-module_titleDivider__3dtLy"};
 styleInject(css_248z$4);
 
-var css_248z$3 = ".Card-module_cardWrapper__JQNtF {\r\n    width: calc(16.666% - 13.4px);\r\n    height: 25vh;\r\n    overflow: hidden;\r\n    border-radius: 8px;\r\n\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    cursor: pointer;\r\n\r\n    transition: 150ms linear;\r\n\r\n    user-select: none;\r\n}\r\n.Card-module_cardWrapper__JQNtF:active{\r\n    transform: scale(.98);\r\n}\r\n.Card-module_cardImage__3fNss {\r\n    height: 75%;\r\n    overflow: hidden;\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Card-module_cardContent__1DzmO {\r\n    transition: 150ms linear;\r\n    padding: 8px;\r\n\r\n    display: grid;\r\n    gap: 4px;\r\n    align-items: flex-start;\r\n    align-content: flex-start;\r\n}\r\n\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_cardImage__3fNss {\r\n    height: 25%;\r\n}\r\n\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_cardContent__1DzmO {\r\n    height: 75%;\r\n}\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_description__3PC9l {\r\n    white-space: normal;\r\n}\r\n.Card-module_header__2vgzP {\r\n    font-size: 1.1rem;\r\n    font-weight: 600;\r\n    color: var(--mfc-color-secondary);\r\n}\r\n\r\n.Card-module_description__3PC9l {\r\n    font-size: .8rem;\r\n    font-weight: normal;\r\n    color: var(--mfc-color-tertiary);\r\n\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}";
-var styles$3 = {"cardWrapper":"Card-module_cardWrapper__JQNtF","cardImage":"Card-module_cardImage__3fNss","cardContent":"Card-module_cardContent__1DzmO","description":"Card-module_description__3PC9l","header":"Card-module_header__2vgzP"};
-styleInject(css_248z$3);
-
-function FeedCard(props) {
-  return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$3.cardWrapper
-  }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$3.cardImage
-  }, /*#__PURE__*/React__default["default"].createElement("img", {
-    src: props.image,
-    alt: props.title
-  })), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$3.cardContent
-  }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$3.header
-  }, props.title), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$3.description
-  }, props.description)));
-}
-FeedCard.propTypes = {
-  image: PropTypes__default["default"].string,
-  title: PropTypes__default["default"].string,
-  description: PropTypes__default["default"].string,
-  onClick: PropTypes__default["default"].func.isRequired,
-  index: PropTypes__default["default"].number
-};
-
 function Feed(props) {
   return /*#__PURE__*/React__default["default"].createElement("div", {
     style: {
@@ -5368,104 +5457,50 @@ function Feed(props) {
     className: styles$4.titleDivider
   })), /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles$4.wrapper
-  }, props.data.filter(function (_, i) {
-    return i % 2;
-  }).map(function (entry, i) {
-    return /*#__PURE__*/React__default["default"].createElement(FeedCard, {
-      onClick: function onClick() {
-        return props.onCardClick(entry);
-      },
-      description: entry[props.keys.description],
-      title: entry[props.keys.title],
-      index: i,
-      image: entry[props.keys.image]
-    });
-  })));
+  }, props.children));
 }
 Feed.propTypes = {
-  onCardClick: PropTypes__default["default"].func,
-  keys: PropTypes__default["default"].shape({
-    title: PropTypes__default["default"].string,
-    image: PropTypes__default["default"].string,
-    description: PropTypes__default["default"].string
-  }),
+  children: PropTypes__default["default"].node,
   title: PropTypes__default["default"].string,
   width: PropTypes__default["default"].string
+};
+
+var css_248z$3 = ".Card-module_cardWrapper__JQNtF {\r\n    width: calc(24% + 1.7px);\r\n    height: 25vh;\r\n    overflow: hidden;\r\n    border-radius: 8px;\r\n\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    cursor: pointer;\r\n\r\n    transition: 150ms linear;\r\n\r\n    user-select: none;\r\n    position: relative;\r\n}\r\n\r\n.Card-module_cardWrapper__JQNtF:active {\r\n    transform: scale(.98);\r\n}\r\n\r\n.Card-module_cardImage__3fNss {\r\n    height: 75%;\r\n    overflow: hidden;\r\n    transition: 150ms linear;\r\n}\r\n\r\n.Card-module_cardContent__1DzmO {\r\n    border-top: var(--mfc-border-primary) 1px solid;\r\n    transition: 150ms linear;\r\n    padding: 8px;\r\n\r\n    display: grid;\r\n    gap: 4px;\r\n    align-items: flex-start;\r\n    align-content: flex-start;\r\n}\r\n\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_cardImage__3fNss {\r\n    height: 25%;\r\n}\r\n\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_cardContent__1DzmO {\r\n    height: 75%;\r\n}\r\n\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_description__3PC9l {\r\n    white-space: normal;\r\n}\r\n\r\n.Card-module_header__2vgzP {\r\n    font-size: 1.1rem;\r\n    font-weight: 600;\r\n    color: var(--mfc-color-secondary);\r\n}\r\n\r\n.Card-module_description__3PC9l {\r\n    font-size: .8rem;\r\n    font-weight: normal;\r\n    color: var(--mfc-color-tertiary);\r\n\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n.Card-module_categories__1oZt6 {\r\n    display: flex;\r\n}\r\n\r\n.Card-module_category__1uRxa {\r\n    font-size: .75rem;\r\n    font-weight: bold;\r\n    color: var(--mfc-color-tertiary);\r\n\r\n    position: absolute;\r\n    top: 8px;\r\n    left: 8px;\r\n    transition: 150ms linear;\r\n    transform: translateX(calc(-100% - 8px));\r\n}\r\n.Card-module_cardWrapper__JQNtF:hover .Card-module_category__1uRxa {\r\n    transform: translateX(0);\r\n}\r\n";
+var styles$3 = {"cardWrapper":"Card-module_cardWrapper__JQNtF","cardImage":"Card-module_cardImage__3fNss","cardContent":"Card-module_cardContent__1DzmO","description":"Card-module_description__3PC9l","header":"Card-module_header__2vgzP","categories":"Card-module_categories__1oZt6","category":"Card-module_category__1uRxa"};
+styleInject(css_248z$3);
+
+function FeedCard(props) {
+  return /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles$3.cardWrapper
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles$3.cardImage
+  }, /*#__PURE__*/React__default["default"].createElement("img", {
+    src: props.image,
+    alt: props.title,
+    style: {
+      width: '100%'
+    }
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles$3.cardContent
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles$3.header
+  }, props.title), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles$3.description
+  }, props.description)), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles$3.category
+  }, props.category));
+}
+FeedCard.propTypes = {
+  image: PropTypes__default["default"].string,
+  title: PropTypes__default["default"].string,
+  description: PropTypes__default["default"].string,
+  category: PropTypes__default["default"].string,
+  onClick: PropTypes__default["default"].func.isRequired
 };
 
 var css_248z$2 = "/*HEADER*/\r\n.Article-module_headers__VgW0I {\r\n    display: grid;\r\n    align-items: flex-start;\r\n    text-align: left;\r\n\r\n}\r\n\r\n.Article-module_header__1uZNZ[ data-variant = 'primary'] {\r\n    font-size: 1.3rem;\r\n    color: var(--mfc-color-secondary);\r\n    font-weight: 600;\r\n\r\n    font-family: 'Roboto';\r\n\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.Article-module_header__1uZNZ[ data-variant = 'secondary'] {\r\n    font-size: .95rem;\r\n    color: var(--mfc-color-tertiary);\r\n    font-weight: 600;\r\n\r\n    font-family: 'Roboto';\r\n\r\n    margin: 0;\r\n}\r\n\r\n.Article-module_header__1uZNZ[ data-variant = 'tertiary'] {\r\n    font-size: .75rem;\r\n    color: var(--mfc-color-quaternary);\r\n    font-weight: 600;\r\n\r\n    font-family: 'Roboto';\r\n\r\n    margin: 0;\r\n}\r\n\r\n\r\n/*BODY*/\r\n.Article-module_body__3fgRT {\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    border-radius: 5px;\r\n    padding: 8px;\r\n    display: grid;\r\n    align-items: flex-start;\r\n    gap: 12px;\r\n    background: var(--mfc-background-primary);\r\n    text-align: left;\r\n    font-size: .9rem;\r\n    color: var(--mfc-color-tertiary);\r\n}\r\n\r\n\r\n\r\n.Article-module_baseText__2TAlu {\r\n    margin: 0;\r\n    font-size: 1rem;\r\n}\r\n\r\n\r\n/*MISC*/\r\n.Article-module_block__2rf8r {\r\n    display: grid;\r\n    gap: 12px;\r\n}\r\n\r\n.Article-module_link__2f9QC {\r\n    transition: 150ms linear;\r\n    width: fit-content;\r\n    text-decoration: none;\r\n    color: #0095ff;\r\n    font-weight: bold;\r\n}\r\n\r\n.Article-module_link__2f9QC:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n.Article-module_link__2f9QC:active {\r\n    color: var(--mfc-color-quaternary);\r\n    text-decoration: none;\r\n}\r\n\r\n.Article-module_footer__1yhY4 {\r\n    background: var(--mfc-background-primary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    border-radius: 5px;\r\n    padding: 16px;\r\n\r\n    display: flex;\r\n    text-align: left;\r\n    font-size: .9rem;\r\n    color: var(--mfc-color-tertiary);\r\n}\r\n\r\n.Article-module_wrapper__3Ek7A {\r\n    width: 100%;\r\n    display: grid;\r\n    gap: 32px;\r\nheight: fit-content;\r\n\r\n    padding-bottom: 25%;\r\n}\r\n\r\n.Article-module_container__3Zz32 {\r\n    padding: 8px 0;\r\n    display: flex;\r\n    scroll-behavior: smooth;\r\n    max-height: 100%;\r\n    overflow-y: auto;\r\n    gap: 32px;\r\n\r\n\r\n}\r\n.Article-module_nativeCode__2wLu7{\r\n    gap: 8px;\r\n    width: 100%;\r\n    padding: 8px;\r\n    border-radius: 5px;\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n}\r\n\r\n\r\n.Article-module_preFormattedText__3jcDF {\r\n\r\n    margin: 16px 0 0;\r\n    justify-self: stretch;\r\n\r\n    background: var(--mfc-background-secondary);\r\n    border: var(--mfc-border-primary) 1px solid;\r\n    color: var(--mfc-color-primary);\r\n    border-radius: 5px;\r\n    padding: 16px 24px;\r\n    text-align: left;\r\n}\r\n";
 var styles$2 = {"headers":"Article-module_headers__VgW0I","header":"Article-module_header__1uZNZ","body":"Article-module_body__3fgRT","baseText":"Article-module_baseText__2TAlu","block":"Article-module_block__2rf8r","link":"Article-module_link__2f9QC","footer":"Article-module_footer__1yhY4","wrapper":"Article-module_wrapper__3Ek7A","container":"Article-module_container__3Zz32","nativeCode":"Article-module_nativeCode__2wLu7","preFormattedText":"Article-module_preFormattedText__3jcDF"};
 styleInject(css_248z$2);
-
-var css_248z$1 = ".Block-module_code__HODBm {\r\n    white-space: pre-wrap;\r\n    word-wrap: break-word;\r\n    tab-size: 16;\r\n    /*padding-bottom: 16px;*/\r\n\r\n    max-width: 100%;\r\n    padding: 8px;\r\n    background: var(--mfc-background-secondary);\r\n}\r\n.Block-module_buttons__3Ygx3{\r\n    display: flex;\r\n    gap: 8px;\r\n    justify-content: flex-end;\r\n    padding: 8px;\r\n}\r\n.Block-module_button__1vdzp {\r\n    padding: 8px;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    /*background: var(--mfc-background-primary) !important;*/\r\n}\r\n\r\n\r\n.Block-module_wrapper__1eIkX {\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    max-height: 100%;\r\n\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n\r\n    border-radius: 5px;\r\n    width: 100%;\r\n    max-width: 100%;\r\n    margin: 16px auto;\r\n    position: relative;\r\n\r\n    display: grid;\r\n    gap: 0;\r\n}\r\n\r\n.Block-module_enumeration__3VK4l{\r\n    padding: 0;\r\n    margin: 0;\r\n    background: transparent;\r\n    border: none;\r\n    outline: none;\r\n\r\n    text-align: left;\r\n    user-select: none;\r\n    color: var(--mfc-color-quinary);\r\n    position: absolute;\r\n\r\n    transition: 150ms linear;\r\n\r\n    width: 100%;\r\n}\r\n.Block-module_enumeration__3VK4l:hover{\r\n    background: var(--mfc-background-quaternary);\r\n}\r\n.Block-module_enumContent__btUnw{\r\n    width: fit-content;\r\n    height: 1rem;\r\n    line-break: strict;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    /*line-break: strict;*/\r\n    z-index: 1;\r\n\r\n    padding-left: 16px;\r\n}\r\n";
-var styles$1 = {"code":"Block-module_code__HODBm","buttons":"Block-module_buttons__3Ygx3","button":"Block-module_button__1vdzp","wrapper":"Block-module_wrapper__1eIkX","enumeration":"Block-module_enumeration__3VK4l","enumContent":"Block-module_enumContent__btUnw"};
-styleInject(css_248z$1);
-
-function Wrapper(props) {
-  var _props$options;
-
-  var copy = useCopyToClipboard();
-
-  var _useState = React$1.useState(''),
-      _useState2 = _slicedToArray(_useState, 2),
-      content = _useState2[0],
-      setContent = _useState2[1];
-
-  var _useState3 = React$1.useState(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      success = _useState4[0],
-      setSuccess = _useState4[1];
-
-  return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$1.wrapper,
-    style: {
-      width: props.width
-    },
-    "data-float": props["float"] ? props["float"] : 'none'
-  }, props.children(setContent), /*#__PURE__*/React__default["default"].createElement(Alert, {
-    handleClose: function handleClose() {
-      return setSuccess(null);
-    },
-    open: success !== null,
-    variant: success ? 'success' : 'alert',
-    delay: 3000
-  }, success ? 'Copied!' : 'Copy was unsuccessful.'), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles$1.buttons
-  }, (_props$options = props.options) === null || _props$options === void 0 ? void 0 : _props$options.map(function (e, i) {
-    return /*#__PURE__*/React__default["default"].createElement(Button, {
-      variant: 'minimal',
-      color: e.color,
-      onClick: e.onClick,
-      className: styles$1.button
-    }, e.icon, /*#__PURE__*/React__default["default"].createElement(ToolTip, {
-      content: e.label
-    }));
-  }), /*#__PURE__*/React__default["default"].createElement(Button, {
-    variant: "filled",
-    onClick: function onClick() {
-      setSuccess(copy(content));
-    },
-    className: styles$1.button
-  }, /*#__PURE__*/React__default["default"].createElement(ToolTip, {
-    content: 'Copy content'
-  }), /*#__PURE__*/React__default["default"].createElement("span", {
-    className: "material-icons-round",
-    style: {
-      fontSize: '1.2rem'
-    }
-  }, "content_copy"))));
-}
-Wrapper.propTypes = {
-  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
-    onClick: PropTypes__default["default"].func,
-    label: PropTypes__default["default"].string,
-    icon: PropTypes__default["default"].node
-  })),
-  width: PropTypes__default["default"].string,
-  "float": PropTypes__default["default"].oneOf(['right', 'left', 'stretch']),
-  children: PropTypes__default["default"].func.isRequired,
-  noCopy: PropTypes__default["default"].bool
-};
 
 function TypeTag(props) {
   var ref = React$1.useRef();
@@ -5519,19 +5554,19 @@ TypeTag.propTypes = {
   noCopy: PropTypes__default["default"].bool
 };
 
-var css_248z = ".Navigation-module_wrapper__fZnqT{\r\n    width: 20%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 4px;\r\n\r\n    position: sticky;\r\n    top: 0;\r\n}\r\n\r\n.Navigation-module_button__11JVb{\r\n    font-weight: 600;\r\n    text-align: left;\r\n    background: var(--mfc-background-primary);\r\n}";
-var styles = {"wrapper":"Navigation-module_wrapper__fZnqT","button":"Navigation-module_button__11JVb"};
-styleInject(css_248z);
+var css_248z$1 = ".Navigation-module_wrapper__fZnqT{\r\n    width: 20%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 4px;\r\n\r\n    position: sticky;\r\n    top: 0;\r\n}\r\n\r\n.Navigation-module_button__11JVb{\r\n    font-weight: 600;\r\n    text-align: left;\r\n    background: var(--mfc-background-primary);\r\n}";
+var styles$1 = {"wrapper":"Navigation-module_wrapper__fZnqT","button":"Navigation-module_button__11JVb"};
+styleInject(css_248z$1);
 
 function ArticleNavigation(props) {
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: styles.wrapper
+    className: styles$1.wrapper
   }, props.headers.map(function (e, i) {
     return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, {
       key: i + '-headers'
     }, /*#__PURE__*/React__default["default"].createElement(Button, {
       variant: 'minimal-horizontal',
-      className: styles.button,
+      className: styles$1.button,
       highlight: props.onHeader === i,
       onClick: function onClick() {
         var element = document.getElementById(e.id);
@@ -5601,12 +5636,15 @@ function Article(props) {
       (_intersectionObs$curr = intersectionObs.current) === null || _intersectionObs$curr === void 0 ? void 0 : _intersectionObs$curr.observe(element);
     });
     return function () {
+      var _intersectionObs$curr3;
+
       headers.forEach(function (e) {
         var _intersectionObs$curr2;
 
         var element = document.getElementById(e.id);
         if (element !== null) (_intersectionObs$curr2 = intersectionObs.current) === null || _intersectionObs$curr2 === void 0 ? void 0 : _intersectionObs$curr2.unobserve(element);
       });
+      (_intersectionObs$curr3 = intersectionObs.current) === null || _intersectionObs$curr3 === void 0 ? void 0 : _intersectionObs$curr3.disconnect();
     };
   }, []);
   return /*#__PURE__*/React__default["default"].createElement("div", {
@@ -5693,57 +5731,82 @@ Article.propTypes = {
 
 var SPACE = '  ';
 
-var parseData = function parseData(field, layer) {
+var parseData = function parseData(field, layer, isArrayField) {
   if (field !== null && field && _typeof(field) === 'object' && !Array.isArray(field)) {
-    if (Object.keys(field).length > 0) return "".concat(parseObject(field, layer + 1));else return "".concat(SPACE.repeat(layer - 1), "{}");
+    if (Object.keys(field).length > 0) return "".concat(highlightObject(field, layer + 1));else return "".concat(SPACE.repeat(layer - 1), "{}");
   } else if (field !== null && field && Array.isArray(field)) {
-    var newField = [];
-    var subFieldLayer = field.length === 1 ? layer : layer + 1;
-    field.forEach(function (e) {
-      var parsed = parseData(e, subFieldLayer);
-      newField.push(typeof e === 'string' ? "\"".concat(parsed, "\"") : parsed);
-    });
-    var startP, endP;
-    startP = SPACE.repeat(layer + 2);
-    endP = SPACE.repeat(layer + 1);
-    if (field.length === 0 || field.length === 1) return "[".concat(newField.join(',<br>' + startP), "]");else return "[<br>".concat(startP).concat(newField.join(',<br>' + startP), "<br>").concat(endP, "]");
-  } else return "<i style=\"color: red\">".concat(field, "</i>");
+    return highlightArray(field, layer);
+  } else {
+    if (typeof field === 'string' && !isArrayField) return "\"<i style=\"color: red\">".concat(field, "</i>\"");else if (typeof field === 'boolean') return "<b style=\"color: #FF6A00\">".concat(field, "</b>");else return "<i style=\"color: red\">".concat(field, "</i>");
+  }
 };
 
-var removeDoubleQuotes = function removeDoubleQuotes(string) {
-  return string.replace("\"{", '{').replace("}\"", '}').replace("\"[", '[').replace("]\"", ']').replace("]\"\"", ']').replace(" ]\"", ']').replace("\"[", '[').replace("}]\"", '}]');
+var highlightArray = function highlightArray(field, layer, isWrapper) {
+  var newField = [],
+      startP,
+      endP;
+  var subFieldLayer = field.length === 1 ? layer : layer + 1;
+  field.forEach(function (e) {
+    var parsed = parseData(e, subFieldLayer, true);
+    newField.push(typeof e === 'string' && !isWrapper ? "\"".concat(parsed, "\"") : parsed);
+  });
+  startP = SPACE.repeat(layer + 2);
+  endP = SPACE.repeat(layer + 1);
+  if (field.length === 0 || field.length === 1) return "[".concat(newField.join(',\n' + startP), "]");else return "[\n".concat(startP).concat(newField.join(',\n' + startP), "\n").concat(endP, "]");
 };
 
-var parseObject = function parseObject(obj, layer, isWrapper) {
+var highlightObject = function highlightObject(obj, layer, isWrapper) {
   var keys = Object.keys(obj);
-  var newObj = {};
-  if (!isWrapper) keys.forEach(function (e) {
-    newObj[e] = parseData(obj[e], layer);
-  });else newObj = obj;
-  var str = removeDoubleQuotes(JSON.stringify(newObj));
+  var newObj = '';
+
+  if (!isWrapper) {
+    keys.forEach(function (e) {
+      newObj += "\"".concat(e, "\": ").concat(parseData(obj[e], layer, Array.isArray(obj[e])));
+    });
+    newObj = "{".concat(newObj, "}");
+  } else {
+    keys.forEach(function (e) {
+      newObj += "\"".concat(e, "\": ").concat(obj[e]);
+    });
+    newObj = "{".concat(newObj, "}");
+  }
+
+  var str = newObj;
+  var lineTerminator = keys.length > 1 || keys.length > 0 && _typeof(obj[keys[0]]) === 'object' ? '\n' : '';
   keys.forEach(function (e) {
-    str = str.replace("\"".concat(e, "\":"), "".concat(layer === 0 || layer > 0 ? '<br>' + SPACE.repeat(layer + 1) : '', "<b style=\"color: #0095ff\">\"").concat(e, "\": </b>"));
+    str = str.replace("\"".concat(e, "\":"), "".concat(layer === 0 || layer > 0 ? lineTerminator + SPACE.repeat(layer + 1) : '', "<b style=\"color: #0095ff\">\"").concat(e, "\": </b>"));
   });
   str = str.split('');
-  if (str[str.length - 1] === '}') str[str.length - 1] = '<br>' + SPACE.repeat(!isWrapper ? layer ? layer : 1 : 0) + '}';
+  if (str[str.length - 1] === '}') str[str.length - 1] = lineTerminator + SPACE.repeat(!isWrapper ? layer ? layer : 1 : 0) + '}';
   return str.join('');
 };
 
-var replaceTypes = function replaceTypes(string) {
-  return string.replace('"\<i style="color: red">null</i>\"', '<i style="color: red">null</i>').replace('"\<i style="color: red">true</i>\"', '<i style="color: red">true</i>').replace('"\<i style="color: red">false</i>\"', '<i style= "color: red">false</i>');
-};
-
 function jsonParser(data) {
-  console.log(data);
-  var keys = Object.keys(data);
-  var newObj = {};
-  keys.forEach(function (e) {
-    var v = parseData(data[e], 0);
-    newObj[e] = _typeof(data[e]) === 'object' || typeof data[e] === 'boolean' ? removeDoubleQuotes(v) : v;
-  });
-  newObj = parseObject(newObj, 0, true).replaceAll("\\", '');
-  newObj = replaceTypes(newObj);
-  return newObj;
+  var response;
+
+  if (Array.isArray(data)) {
+    var newArr = [];
+    data.forEach(function (e) {
+      var keys = Object.keys(e);
+      var newObj = {}; // console.log(e)
+
+      keys.forEach(function (key) {
+        newObj[key] = parseData(e[key], 0);
+      });
+      newArr.push(highlightObject(newObj, 0, true));
+    });
+    console.log(newArr);
+    response = highlightArray(newArr, 0, true);
+  } else {
+    var newObject = {};
+    Object.keys(data).forEach(function (e) {
+      newObject[e] = parseData(data[e], 0);
+    });
+    console.log(newObject);
+    response = highlightObject(newObject, 0, true);
+  }
+
+  return response;
 }
 
 function jsxParser(component) {
@@ -5895,12 +5958,99 @@ function useCode(data, language) {
   }, [language, data]);
 }
 
+var css_248z = ".Block-module_code__HODBm {\r\n    white-space: pre-wrap;\r\n    word-wrap: break-word;\r\n    tab-size: 16;\r\n    /*padding-bottom: 16px;*/\r\n\r\n    max-width: 100%;\r\n    padding: 8px;\r\n    background: var(--mfc-background-secondary);\r\n}\r\n.Block-module_buttons__3Ygx3{\r\n    display: flex;\r\n    gap: 8px;\r\n    justify-content: flex-end;\r\n    padding: 8px;\r\n}\r\n.Block-module_button__1vdzp {\r\n    padding: 8px;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    /*background: var(--mfc-background-primary) !important;*/\r\n}\r\n\r\n\r\n.Block-module_wrapper__1eIkX {\r\n\r\n    border: var(--mfc-border-primary) 1px solid;\r\n\r\n    max-height: 100%;\r\n\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n\r\n    border-radius: 5px;\r\n    width: 100%;\r\n    max-width: 100%;\r\n    margin: 16px auto;\r\n    position: relative;\r\n\r\n    display: grid;\r\n    gap: 0;\r\n}\r\n\r\n.Block-module_enumeration__3VK4l{\r\n    padding: 0;\r\n    margin: 0;\r\n    background: transparent;\r\n    border: none;\r\n    outline: none;\r\n\r\n    text-align: left;\r\n    user-select: none;\r\n    color: var(--mfc-color-quinary);\r\n    position: absolute;\r\n\r\n    transition: 150ms linear;\r\n\r\n    width: 100%;\r\n}\r\n.Block-module_enumeration__3VK4l:hover{\r\n    background: var(--mfc-background-quaternary);\r\n}\r\n.Block-module_enumContent__btUnw{\r\n    width: fit-content;\r\n    height: 1rem;\r\n    line-break: strict;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    /*line-break: strict;*/\r\n    z-index: 1;\r\n\r\n    padding-left: 16px;\r\n}\r\n";
+var styles = {"code":"Block-module_code__HODBm","buttons":"Block-module_buttons__3Ygx3","button":"Block-module_button__1vdzp","wrapper":"Block-module_wrapper__1eIkX","enumeration":"Block-module_enumeration__3VK4l","enumContent":"Block-module_enumContent__btUnw"};
+styleInject(css_248z);
+
+function Wrapper(props) {
+  var _props$options;
+
+  var copy = useCopyToClipboard();
+
+  var _useState = React$1.useState(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      content = _useState2[0],
+      setContent = _useState2[1];
+
+  var _useState3 = React$1.useState(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      success = _useState4[0],
+      setSuccess = _useState4[1];
+
+  return /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles.wrapper,
+    style: {
+      width: props.width
+    },
+    "data-float": props["float"] ? props["float"] : 'none'
+  }, props.children(setContent), /*#__PURE__*/React__default["default"].createElement(Alert, {
+    handleClose: function handleClose() {
+      return setSuccess(null);
+    },
+    open: success !== null,
+    variant: success ? 'success' : 'alert',
+    delay: 3000
+  }, success ? 'Copied!' : 'Copy was unsuccessful.'), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles.buttons
+  }, (_props$options = props.options) === null || _props$options === void 0 ? void 0 : _props$options.map(function (e, i) {
+    return /*#__PURE__*/React__default["default"].createElement(Button, {
+      variant: 'minimal',
+      color: e.color,
+      onClick: e.onClick,
+      className: styles.button
+    }, e.icon, /*#__PURE__*/React__default["default"].createElement(ToolTip, {
+      content: e.label
+    }));
+  }), /*#__PURE__*/React__default["default"].createElement(Button, {
+    variant: "filled",
+    onClick: function onClick() {
+      setSuccess(copy(content));
+    },
+    className: styles.button
+  }, /*#__PURE__*/React__default["default"].createElement(ToolTip, {
+    content: 'Copy content'
+  }), /*#__PURE__*/React__default["default"].createElement("span", {
+    className: "material-icons-round",
+    style: {
+      fontSize: '1.2rem'
+    }
+  }, "content_copy"))));
+}
+Wrapper.propTypes = {
+  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
+    onClick: PropTypes__default["default"].func,
+    label: PropTypes__default["default"].string,
+    icon: PropTypes__default["default"].node
+  })),
+  width: PropTypes__default["default"].string,
+  "float": PropTypes__default["default"].oneOf(['right', 'left', 'stretch']),
+  children: PropTypes__default["default"].func.isRequired,
+  noCopy: PropTypes__default["default"].bool
+};
+
+var getPadding = function getPadding(length) {
+  switch (true) {
+    case length > 10 && length < 100:
+      return '24px';
+
+    case length >= 100 && length < 1000:
+      return '32px';
+
+    default:
+      return '16px';
+  }
+};
+
 function enumerateLines(data, divider) {
-  var d = data;
-  var smallestWhiteSpace;
+  var smallestWhiteSpace,
+      removedLines = 0,
+      padding,
+      d = data;
 
   try {
     d = d.split(divider);
+    padding = getPadding(d.length);
+    console.log(padding);
     d.forEach(function (e, index) {
       if (e !== '\r') {
         var c = e.split('');
@@ -5914,7 +6064,6 @@ function enumerateLines(data, divider) {
         if (whitespaces < smallestWhiteSpace || smallestWhiteSpace === undefined) smallestWhiteSpace = whitespaces;
       }
     });
-    var removedLines = 0;
     d = d.map(function (line, i) {
       if (!/^\s+$/gm.test(line)) {
         var c = line.split('');
@@ -5928,7 +6077,7 @@ function enumerateLines(data, divider) {
         });
         newLine = newLine.join('');
         var content = newLine.replace(' '.repeat(smallestWhiteSpace), '');
-        return "<span><button class=".concat(styles$1.enumeration, ">").concat(i - removedLines, "</button><span class=").concat(styles$1.enumContent, ">").concat(content, "</span></span>");
+        return "<span><button class=".concat(styles.enumeration, ">").concat(i - removedLines, "</button><span class=").concat(styles.enumContent, " style=\"padding-left: ").concat(padding, "\">").concat(content, "</span></span>");
       } else {
         removedLines += 1;
         return null;
@@ -5964,7 +6113,7 @@ function JavascriptCode(props) {
           alignItems: 'flex-start',
           alignContent: 'flex-start'
         },
-        className: styles$1.code,
+        className: styles.code,
         ref: ref,
         dangerouslySetInnerHTML: {
           __html: full
@@ -5980,7 +6129,7 @@ function JavascriptCode(props) {
           label: 'Jsx code ' + i
         }, /*#__PURE__*/React__default["default"].createElement("code", {
           ref: ref,
-          className: styles$1.code,
+          className: styles.code,
           dangerouslySetInnerHTML: {
             __html: c
           },
@@ -5993,7 +6142,7 @@ function JavascriptCode(props) {
       }));
     } else if (tabs.length === 1) return /*#__PURE__*/React__default["default"].createElement("code", {
       ref: ref,
-      className: styles$1.code,
+      className: styles.code,
       dangerouslySetInnerHTML: {
         __html: tabs[0]
       },
@@ -6022,9 +6171,9 @@ function JsonCode(props) {
     props.setCopy(props.data);
   });
   return /*#__PURE__*/React__default["default"].createElement("code", {
-    className: styles$1.code,
+    className: styles.code,
     dangerouslySetInnerHTML: {
-      __html: enumerateLines(props.parsedData, '<br>')
+      __html: enumerateLines(props.parsedData, '\n')
     }
   });
 }
@@ -6074,11 +6223,8 @@ CodeBlock.propTypes = {
   language: PropTypes__default["default"].oneOf(['json', 'jsx', 'javascript']).isRequired
 };
 
-exports.ActionButton = ActionButton;
 exports.Alert = Alert;
 exports.Article = Article;
-exports.Bar = Bar$1;
-exports.BarAction = BarAction;
 exports.Breadcrumbs = Breadcrumbs;
 exports.Button = Button;
 exports.Carousel = Carousel;
@@ -6086,7 +6232,7 @@ exports.Checkbox = Checkbox;
 exports.CheckboxGroup = CheckboxGroup;
 exports.CodeBlock = CodeBlock;
 exports.DateField = DateField;
-exports.DropDownField = DropDownField;
+exports.Dropdown = Dropdown;
 exports.DynamicRoutes = DynamicRoutes;
 exports.Empty = Empty;
 exports.Feed = Feed;
@@ -6098,17 +6244,22 @@ exports.FormRow = FormRow;
 exports.HorizontalChart = HorizontalChart;
 exports.LineChart = LineChart;
 exports.List = List;
+exports.MfcWrapper = MfcWrapper;
 exports.Modal = Modal;
 exports.MultiSelectField = MultiSelectField;
+exports.NavigationRail = NavigationRail;
 exports.PieChart = PieChart;
+exports.RailActionButton = RailActionButton;
+exports.RailActionWrapper = RailActionWrapper;
+exports.RailContext = RailContext;
 exports.Ripple = Ripple;
+exports.SelectField = SelectField;
 exports.Selector = Selector;
 exports.Switcher = Switcher;
 exports.Tab = Tab;
 exports.Tabs = Tabs;
 exports.TextField = TextField;
 exports.ThemeContext = ThemeContext;
-exports.ThemeProvider = ThemeProvider;
 exports.ToolTip = ToolTip;
 exports.VerticalChart = VerticalChart;
 exports.VerticalTabs = VerticalTabs;
