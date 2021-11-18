@@ -37,6 +37,8 @@ import Breadcrumbs from './core/navigation/breadcrumbs/Breadcrumbs'
 import Carousel from './core/navigation/carousel/Carousel'
 import DynamicRoutes from './core/navigation/routing/DynamicRoutes'
 import Switcher from './core/navigation/switcher/Switcher'
+import ScrollStepper from './core/navigation/scroll/ScrollStepper'
+import StepperWrapper from './core/navigation/scroll/StepperWrapper'
 
 
 import List from './core/visualization/list/List'
@@ -67,6 +69,7 @@ export {
 
   ThemeContext, MfcWrapper, Ripple,
 
+  ScrollStepper, StepperWrapper,
   Tab, Tabs, VerticalTabs, Modal, Breadcrumbs,
   Carousel, DynamicRoutes, Switcher, RailActionButton,
   RailContext, NavigationRail, Dropdown, RailActionWrapper,
