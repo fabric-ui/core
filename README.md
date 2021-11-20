@@ -38,96 +38,98 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 
 ## News
 
-### Documentation
+<img src="https://i.kym-cdn.com/entries/icons/original/000/035/451/Woo_Yeah_Baby_.png" alt="Yeah baby"/>
 
-- Some ui tweaks.
-- Dropdown documentation.
+#### The new Charts are here, starting with the line-chart variant.
+
+### Documentation
+- Documentation for the **NavigationRail** component available.
+- Basic documentation for the **Chart** component available.
 
 ### Bug fixes
+- ScrollStepper: Added IntersectionObserver to allow for custom (from outside the component) scroll options.
+- Tabs and VerticalTabs: Now receives the "open" state as prop
 
-Many bug fixes to various components, including:
+### New components / Reworks
 
-- Dropdown fixed the styles prop and added the color prop.
-- CodeBlock fixed Javascript code display issue.
-- VerticalTabs fixed scrolling issue.
-
-### New components
-
-- ScrollStepper
-- StepperWrapper
+- All Chart variants now will be included within a single component, **Chart**.
+- Chart component now supports the _line-chart_ variant.
+- Tooltip added to the _line-chart_.
+- Grid added to the Chart component.
+- useDimensions hook will now adapt the canvas dimensions for the parent element width and height changes, this will allow for a more flexible experience with the **Chart** component.
 
 ## Documentation and examples
 
 ### https://mfc-documentation-vercel.vercel.app/en
 
-<b>Note: </b>The package documentation is currently <b>under development</b>, any questions can be made through <b>
-github</b>.
+**Note**:The package documentation is currently **under development**, any questions can be made through **github**.
 
 ## Available components and hooks
 
 ### Hooks
 
-- <b>useCopyToClipboard</b>: Copy any text to the clipboard.
-- <b>useFile</b>: Easy way to read the content from a local file.
+- **useCopyToClipboard**: Copy any text to the clipboard.
+- **useFile**: Easy way to read the content from a local file.
 
 ### Feedback
 
-- <b>Alert</b>: Alert wrapper, ideal for showing any notification.
-- <b>ToolTip</b>: Tooltip that doesn't modify the parent layout and super easy to set up inside your system
+- **Alert**: Alert wrapper, ideal for showing any notification.
+- **ToolTip**: Tooltip that doesn't modify the parent layout and super easy to set up inside your system
 
 ### Inputs
 
-[comment]: <> (<b>Selector</b>: List with selection intended usage with listing api)
+[comment]: <> (**Selector**: List with selection intended usage with listing api)
 
-- <b>Form</b>: Form with default layout, data validation and integration with all inputs from the package
-- <b>FormRow</b>: Process block for the Form component, facilitates the navigation inside a big complex form.
-- <b>DateField</b>: Date field with ability to parse data formats and many input patterns
-- <b>SelectField</b>: Basic DropDown component
-- <b>MultiSelectField</b>: Multi-select field, supports array or string divided with pattern.
-- <b>TextField</b>: A basic text input, customizable with masks (Thanks
+- **Form**: Form with default layout, data validation and integration with all inputs from the package
+- **FormRow**: Process block for the Form component, facilitates the navigation inside a big complex form.
+- **DateField**: Date field with ability to parse data formats and many input patterns
+- **SelectField**: Basic DropDown component
+- **MultiSelectField**: Multi-select field, supports array or string divided with pattern.
+- **TextField**: A basic text input, customizable with masks (Thanks
   to <a href='https://github.com/sanniassin/react-input-mask'>react-input-mask</a>), Adornments and more.
-- <b>Button</b>: Basic button with many beautiful and clean design variants.
-- <b>Checkbox</b>: Basic checkbox
-- <b>CheckboxGroup</b>: Group your checkboxes in a wrapper with a clean layout with CheckboxGroup.
-- <b>FileField</b>: File upload input, clean, beautiful and easy to use and setup. Manage your uploaded files with
+- **Button**: Basic button with many beautiful and clean design variants.
+- **Checkbox**: Basic checkbox
+- **CheckboxGroup**: Group your checkboxes in a wrapper with a clean layout with CheckboxGroup.
+- **FileField**: File upload input, clean, beautiful and easy to use and setup. Manage your uploaded files with
   FileField component
 
 ### Navigation
 
-- <b>ScrollStepper</b>: Replace scroll with vertical steps.
-- <b>StepperWrapper</b>: Content wrapper for the ScrollStepper component.
-- <b>Tab</b>: Wrapper for your components that will be rendered inside the Tabs or VerticalTabs component.
-- <b>Tabs</b>: Beautiful tab system with enter and exit animations.
-- <b>VerticalTabs</b>: Vertical tabs system with enter and exit animations.
-- <b>Modal</b>: Animated modal window
-- <b>RailActionButton</b>: Minimal dynamic button.
+- **ScrollStepper**: Replace scroll with vertical steps.
+- **StepperWrapper**: Content wrapper for the ScrollStepper component.
+- **Tab**: Wrapper for your components that will be rendered inside the Tabs or VerticalTabs component.
+- **Tabs**: Beautiful tab system with enter and exit animations.
+- **VerticalTabs**: Vertical tabs system with enter and exit animations.
+- **Modal**: Animated modal window
+- **RailActionButton**: Minimal dynamic button.
 
-[comment]: <> (<b>RailContext</b>: Context for the current state of the NavigationBar &#40;extended or &#41; .)
+[comment]: <> (**RailContext**: Context for the current state of the NavigationBar &#40;extended or &#41; .)
 
-- <b>NavigationRail</b>: Main vertical bar.
-- <b>Dropdown</b>: A dropdown menu, with everything you would expect.
-- <b>RailActionWrapper</b>.
-- <b>Breadcrumbs</b>.
-- <b>Switcher</b>: Animate enter and exit of content from the visible dom elements.
+- **NavigationRail**: Main vertical bar.
+- **Dropdown**: A dropdown menu, with everything you would expect.
+- **RailActionWrapper**.
+- **Breadcrumbs**.
+- **Switcher**: Animate enter and exit of content from the visible dom elements.
 
 ### Data display and visualization
 
-[comment]: <> (<b>List</b>: List with infinite scroll intended for listing things from external data source &#40;e.g. an api&#41;)
+[comment]: <> (**List**: List with infinite scroll intended for listing things from external data source &#40;e.g. an api&#41;)
 
-- <b>HorizontalChart</b>: Horizontal bars chart (under development, some things may change)
-- <b>LineChart</b>: Line chart (under development, some things may change)
-- <b>PieChart</b>: Pie chart (under development, some things may change)
-- <b>VerticalChart</b>: Vertical bars chart (under development, some things may change)
-- <b>useInfiniteScroll</b>: Hook for infinite scroll.
-- <b>useQuery</b>: Hook for utilization with List and Selector.
-- <b>Article</b>: Write articles with a default layout.
-- <b>CodeBlock</b>: Display your javascript or json code with syntax highlight.
+- **HorizontalChart**: Horizontal bars chart _**[removed]**_
+- **LineChart**: Line chart _**[removed]**_
+- **PieChart**: Pie chart  _**[removed]**_
+- **VerticalChart**: Vertical bars chart  _**[removed]**_
+-  **Chart**: Chart component is an easy way to display your data set.
+- **useInfiniteScroll**: Hook for infinite scroll.
+- **useQuery**: Hook for utilization with List and Selector.
+- **Article**: Write articles with a default layout.
+- **CodeBlock**: Display your javascript or json code with syntax highlight.
 -
 
 ### Misc
 
-- <b>MfcWrapper</b>: Necessary to load correctly the icons, language and color.
-- <b>Ripple</b>: Ripple effect activated with a mouse down event.
+- **MfcWrapper**: Necessary to load correctly the icons, language and color.
+- **Ripple**: Ripple effect activated with a mouse down event.
 
 #### More components are on the way and quality of life improvements are always being made to improve the experience.
 

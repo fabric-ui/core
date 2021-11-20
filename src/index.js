@@ -42,10 +42,8 @@ import StepperWrapper from './core/navigation/scroll/StepperWrapper'
 
 
 import List from './core/visualization/list/List'
-import HorizontalChart from './core/visualization/charts/horizontal/HorizontalChart'
-import LineChart from './core/visualization/charts/line/LineChart'
-import PieChart from './core/visualization/charts/pie/PieChart'
-import VerticalChart from './core/visualization/charts/vertical/VerticalChart'
+import Chart from './core/visualization/charts/Chart'
+
 import Feed from './core/visualization/feed/Feed'
 import FeedCard from './core/visualization/feed/FeedCard'
 import Filter from './core/visualization/filter/Filter'
@@ -74,8 +72,7 @@ export {
   Carousel, DynamicRoutes, Switcher, RailActionButton,
   RailContext, NavigationRail, Dropdown, RailActionWrapper,
 
-  List, HorizontalChart, LineChart, PieChart,
-  VerticalChart, Feed, FeedCard, Filter,
+  List, Chart, Feed, FeedCard, Filter,
   useInfiniteScroll, useQuery, Article,
   CodeBlock
 
