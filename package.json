@@ -1,6 +1,6 @@
 {
   "name": "mfc-core",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "facobackup",
   "license": "MIT",
   "main": "dist/index.js",
@@ -54,15 +54,10 @@
     "material",
     "clean design",
     "flat design",
-    "jsx to string",
-    "code highlight",
-    "json highlight",
     "inputs",
     "navigation",
     "copy-to-clipboard",
-    "read-file",
-    "syntax-highlight",
-    "charts"
+    "read-file"
   ],
   "bugs": {
     "url": "https://github.com/FacoBackup/mfc-core/issues"

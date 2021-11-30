@@ -38,28 +38,14 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 
 ## News
 
-<img src="https://i.kym-cdn.com/entries/icons/original/000/035/451/Woo_Yeah_Baby_.png" alt="Yeah baby"/>
+### Things are evolving
 
-#### The new Charts are here, starting with the line-chart variant.
-
-### Documentation
-
-- Documentation for the **NavigationRail** component available.
-- Basic documentation for the **Chart** component available.
+- ***Chart*** are becoming a standalone package coming soon with more variants and adjustments.
+- ***CodeBlock*** and ***Article*** are being scrapped and a new package (also coming soon) is coming to replace those utilities.
 
 ### Bug fixes
 
-- ScrollStepper: Added IntersectionObserver to allow for custom (from outside the component) scroll options.
-- Tabs and VerticalTabs: Now receives the "open" state as prop
-
-### New components / Reworks
-
-- All Chart variants now will be included within a single component, **Chart**.
-- Chart component now supports the _line-chart_ variant.
-- Tooltip added to the _line-chart_.
-- Grid added to the Chart component.
-- useDimensions hook will now adapt the canvas dimensions for the parent element width and height changes, this will
-  allow for a more flexible experience with the **Chart** component.
+- ***DateField***: Added prop *hoursOffset* as a fix for the timezone offset.
 
 ## Documentation and examples
 
@@ -118,16 +104,8 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 
 [comment]: <> (**List**: List with infinite scroll intended for listing things from external data source &#40;e.g. an api&#41;)
 
-- **HorizontalChart**: Horizontal bars chart _**[removed]**_
-- **LineChart**: Line chart _**[removed]**_
-- **PieChart**: Pie chart  _**[removed]**_
-- **VerticalChart**: Vertical bars chart  _**[removed]**_
-- **Chart**: Chart component is an easy way to display your data set.
 - **useInfiniteScroll**: Hook for infinite scroll.
 - **useQuery**: Hook for utilization with List and Selector.
-- **Article**: Write articles with a default layout.
-- **CodeBlock**: Display your javascript or json code with syntax highlight.
--
 
 ### Misc
 
