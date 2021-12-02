@@ -1,6 +1,6 @@
 {
-  "name": "mfc-core",
-  "version": "1.2.1",
+  "name": "fabric-ui-core",
+  "version": "1.0.0-beta",
   "author": "facobackup",
   "license": "MIT",
   "main": "dist/index.js",
@@ -46,21 +46,20 @@
   "description": "Useful React components.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FacoBackup/mfc-core.git"
+    "url": "git+https://github.com/FacoBackup/fabric-ui.git"
   },
   "keywords": [
     "react",
     "react-component",
-    "material",
-    "clean design",
-    "flat design",
+    "clean",
     "inputs",
     "navigation",
-    "copy-to-clipboard",
-    "read-file"
+    "ui",
+    "ux",
+    "easy"
   ],
   "bugs": {
-    "url": "https://github.com/FacoBackup/mfc-core/issues"
+    "url": "https://github.com/FacoBackup/fabric-ui/issues"
   },
   "homepage": "https://mfc-documentation-vercel.vercel.app/en",
   "dependencies": {}

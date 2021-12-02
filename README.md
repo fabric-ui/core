@@ -13,15 +13,15 @@ yarn add mfc-core
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {MfcWrapper, Button} from 'mfc-core';
+import {Fabric, Button} from 'fabric-ui';
 
 function App() {
   return (
-    <MfcWrapper language={'en'}>
+    <Fabric language={'en'} theme>
       <Button variant="filled" color="primary">
         Hello World
       </Button>
-    </MfcWrapper>
+    </Fabric>
   );
 }
 
