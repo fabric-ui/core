@@ -9,7 +9,7 @@ function App() {
   return (
     <Fabric>
         <Button>
-          Child
+          Children
         </Button>
     </Fabric>
   );
@@ -33,3 +33,4 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 - ***reference***: Element reference `ref object`.
 - ***className***: CSS class name `string`.
 - ***styles***: JSX inline style object `object`.
+- ***children***: `node`

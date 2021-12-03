@@ -15,7 +15,6 @@ yarn add axios react-input-mask prop-types fabric-ui
 
 | Package            | Version | NPM                      | Github                                         |
 |--------------------|---------|--------------------------|------------------------------------------------|
-| axios              | ^0.24.0 | npm i axios              | https://github.com/axios/axios                 |
 | react-input-mask   | ^2.0.4  | npm i react-input-mask   | https://github.com/sanniassin/react-input-mask |
 | prop-types   | ^15.7.2  | npm i prop-types   | https://github.com/facebook/prop-types |
 

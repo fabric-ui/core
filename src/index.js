@@ -44,8 +44,8 @@ import StepperWrapper from './core/navigation/scroll/StepperWrapper'
 import List from './core/visualization/list/List'
 
 
-import Feed from './core/visualization/feed/Feed'
-import FeedCard from './core/visualization/feed/FeedCard'
+import Feed from './core/visualization/feed/Masonry'
+import FeedCard from './core/visualization/feed/Card'
 import Filter from './core/visualization/filter/Filter'
 import useInfiniteScroll from './core/visualization/hooks/useInfiniteScroll'
 import useQuery from './core/visualization/hooks/useQuery'
