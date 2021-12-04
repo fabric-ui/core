@@ -1,4 +1,6 @@
-## Usage
+## *useCopyToClipboard* - hooks
+_useCopyToClipboard_ hook provides a simple method to copy your text content to the users clipboard
+### Usage
 
 ```jsx
 import React, {useRef} from 'react';
@@ -28,10 +30,10 @@ function App() {
 ReactDOM.render(<App/>, document.querySelector('#app'));
 ```
 
-## Params
+### Params
 - Element reference (Lower priority) `element`.
 
-## Copy method params
+### Copy method params
 
 - String value to be copied (Higher priority) `string`.
 

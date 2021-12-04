@@ -1,4 +1,7 @@
-## Usage
+## *Breadcrumbs* - navigation
+_Breadcrumbs_ gives the user an easy way to see the current step.
+
+### Usage
 
 ```jsx
 import React, {useState} from 'react';
@@ -23,7 +26,7 @@ function App() {
 ReactDOM.render(<App/>, document.querySelector('#app'));
 ```
 
-## Props
+### Props
 - ***justify***: Content justification `one of string`.
   - ***end***.
   - ***middle***.

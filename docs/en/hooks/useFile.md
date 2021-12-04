@@ -1,4 +1,7 @@
-## Usage
+## *useFile* - hooks
+The _useFile_ hook provides fast access to your local file content.
+
+### Usage
 
 ```jsx
 import React, {useRef} from 'react';
@@ -25,7 +28,7 @@ function App() {
 ReactDOM.render(<App/>, document.querySelector('#app'));
 ```
 
-## Params
+### Params
 
 - File path `string`.
 - as JSON `boolean`.

@@ -1,4 +1,8 @@
-## Usage
+## *Tooltip* - feedback
+
+_Tooltip_ component doesn't change your app layout and can be used to provide more information.
+
+### Usage
 
 ```jsx
 import React, {useState} from 'react';
@@ -22,7 +26,7 @@ function App() {
 ReactDOM.render(<App/>, document.querySelector('#app'));
 ```
 
-## Props
+### Props
 - ***justify***: Horizontal placement relative to parent node `one of string`.
   - ***end***.
   - ***middle***.

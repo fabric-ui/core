@@ -1,4 +1,8 @@
-## Usage
+## *Dropdown* - navigation
+
+The _Dropdown_ component allows you to show more options without changing your app layout.
+
+### Usage
 
 ```jsx
 import React from 'react';
@@ -19,7 +23,7 @@ function App() {
 ReactDOM.render(<App/>, document.querySelector('#app'));
 ```
 
-## Props
+### Props
 - ***disabled***: Disables button `boolean`.
 - ***highlight***: Highlight makes button fixed at _active_ state `boolean`.
 - ***onClick***: `function`.

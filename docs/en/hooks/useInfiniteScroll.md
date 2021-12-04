@@ -1,4 +1,8 @@
-## Usage
+## *useInfiniteScroll* - hooks
+
+The _useInfiniteScroll_ hook gives you the fast way to set up an infinite scroll list.
+
+### Usage
 
 ```jsx
 import React, {useEffect, useState} from 'react';
@@ -43,7 +47,7 @@ function App() {
 ReactDOM.render(<App/>, document.querySelector('#app'));
 ```
 
-## Params
+### Params
 
 1. ***setCurrentPage***: Set the new current page `function`.
 2. ***currentPage***: `number`.

@@ -1,4 +1,7 @@
-## Usage
+## *Button* - inputs
+One of the most useful components, the _Button_ provides a single tap action.
+
+### Usage
 
 ```jsx
 import React from 'react';
@@ -18,7 +21,7 @@ function App() {
 ReactDOM.render(<App/>, document.querySelector('#app'));
 ```
 
-## Props
+### Props
 - ***disabled***: Disables button `boolean`.
 - ***highlight***: Highlight makes button fixed at _active_ state `boolean`.
 - ***onClick***: Function for the _onclick_ event `function`.

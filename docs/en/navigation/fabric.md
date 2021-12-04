@@ -1,6 +1,8 @@
-The _Fabric_ component provides support for localization, theme switching and material icons, it is the basis for every other component to work
+## *Fabric* - navigation
 
-## Usage
+_Fabric_ component provides support for localization, theme switching and material icons, it is the basis for every other component to work correctly.
+
+### Usage
 
 ```jsx
 import React from 'react';
@@ -19,7 +21,7 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 ```
 **Note**: The default localization is _portuguese_ and the default theme is the _light_ one.
 
-## Props
+### Props
 The component receives four different props, being those:
 - ***language***: Language variant `one of string`:
   - ***en***.

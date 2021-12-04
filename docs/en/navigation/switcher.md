@@ -1,4 +1,8 @@
-## Usage
+## *Switcher* - navigation
+
+The _Switcher_ component animates the change between elements.
+
+### Usage
 
 ```jsx
 import React, {useState} from 'react';
@@ -21,7 +25,7 @@ function App() {
 ReactDOM.render(<App/>, document.querySelector('#app'));
 ```
 
-## Props
+### Props
 - ***className***: Wrapper className `string`.
 - ***openChild***: Child to be rendered (index) `number`.
 - ***styles***: Jsx style object `object`.

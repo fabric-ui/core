@@ -1,4 +1,7 @@
-## Usage
+## *Alert* - feedback
+
+The _Alert_ component provides a fast and visually intuitive way to inform your user of something.
+### Usage
 
 ```jsx
 import React, {useState} from 'react';
@@ -19,7 +22,7 @@ function App() {
 ReactDOM.render(<App/>, document.querySelector('#app'));
 ```
 
-## Props
+### Props
 - ***variant***: Visual variant `one of string`.
   - ***success***.
   - ***alert***.

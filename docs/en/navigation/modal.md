@@ -1,4 +1,8 @@
-## Usage
+## *Modal* - navigation
+
+_Modal_ provides an easy way to create dialogs, popups and more.
+
+### Usage
 
 ```jsx
 import React, {useState} from 'react';
@@ -19,7 +23,7 @@ function App() {
 ReactDOM.render(<App/>, document.querySelector('#app'));
 ```
 
-## Props
+### Props
 - ***wrapperClassName***: Modal wrapper className `string`.
 - ***variant***: Dimension variant `one of string`.
   - ***fill***: Fill the screen.

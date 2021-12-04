@@ -1,4 +1,4 @@
-## VerticalTabs
+## *VerticalTabs* - navigation
 ### Usage
 
 ```jsx
@@ -42,7 +42,7 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 
 
 
-## Tabs
+## *Tabs* - navigation
 ### Usage
 
 ```jsx
@@ -80,7 +80,7 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 - ***children***: Instances of the Tab component (anything else will be ignored) `node`.
 
 
-## Tab
+## *Tab* - navigation
 ### Usage
 
 
