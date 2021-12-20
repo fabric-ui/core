@@ -4,7 +4,7 @@
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, CheckBox} from 'fabric-ui';
+import {Fabric, CheckBox} from 'fabric-ui-core';
 
 function App() {
   const [checked, setChecked] = useState(false)
@@ -32,7 +32,7 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, CheckBox, CheckboxGroup} from 'fabric-ui';
+import {Fabric, CheckBox, CheckboxGroup} from 'fabric-ui-core';
 
 function App() {
   const [checked, setChecked] = useState(null)

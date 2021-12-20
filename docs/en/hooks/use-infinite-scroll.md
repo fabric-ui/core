@@ -7,7 +7,7 @@ The _useInfiniteScroll_ hook gives you the fast way to set up an infinite scroll
 ```jsx
 import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Alert} from 'fabric-ui';
+import {Fabric, Alert} from 'fabric-ui-core';
 
 function App() {
   const [loading, setLoading] = useState(true)

@@ -7,7 +7,7 @@ _Modal_ provides an easy way to create dialogs, popups and more.
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Modal} from 'fabric-ui';
+import {Fabric, Modal} from 'fabric-ui-core';
 
 function App() {
   const [open, setOpen] = useState(false)

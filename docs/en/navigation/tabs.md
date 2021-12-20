@@ -4,7 +4,7 @@
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, VerticalTabs, Tab} from 'fabric-ui';
+import {Fabric, VerticalTabs, Tab} from 'fabric-ui-core';
 
 function App() {
   const [open, setOpen] = useState(0)
@@ -48,7 +48,7 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Tabs, Tab} from 'fabric-ui';
+import {Fabric, Tabs, Tab} from 'fabric-ui-core';
 
 function App() {
   const [open, setOpen] = useState(false)
@@ -87,7 +87,7 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, VerticalTabs, Tab} from 'fabric-ui';
+import {Fabric, VerticalTabs, Tab} from 'fabric-ui-core';
 
 function App() {
   const [open, setOpen] = useState(0)

@@ -6,7 +6,7 @@ _Breadcrumbs_ gives the user an easy way to see the current step.
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Breadcrumbs, Button} from 'fabric-ui';
+import {Fabric, Breadcrumbs, Button} from 'fabric-ui-core';
 
 function App() {
 

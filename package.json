@@ -1,6 +1,6 @@
 {
   "name": "fabric-ui-core",
-  "version": "1.0.0-beta",
+  "version": "0.0.1-alpha",
   "author": "facobackup",
   "license": "MIT",
   "main": "dist/index.js",
@@ -55,12 +55,11 @@
     "inputs",
     "navigation",
     "ui",
-    "ux",
-    "easy"
+    "ux"
   ],
   "bugs": {
     "url": "https://github.com/FacoBackup/fabric-ui/issues"
   },
-  "homepage": "https://mfc-documentation-vercel.vercel.app/en",
+  "homepage": "https://fabric-ui.vercel.app/en",
   "dependencies": {}
 }

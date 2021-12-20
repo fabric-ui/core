@@ -6,7 +6,7 @@ The _Alert_ component provides a fast and visually intuitive way to inform your 
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Alert} from 'fabric-ui';
+import {Fabric, Alert} from 'fabric-ui-core';
 
 function App() {
   const [open, setOpen] = useState(false)

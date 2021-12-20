@@ -10,7 +10,7 @@
 
 [comment]: <> (import ReactDOM from 'react-dom';)
 
-[comment]: <> (import {Fabric, Button} from 'fabric-ui';)
+[comment]: <> (import {Fabric, Button} from 'fabric-ui-core';)
 
 [comment]: <> (function App&#40;&#41; {)
 

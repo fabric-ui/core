@@ -7,7 +7,7 @@ The _Switcher_ component animates the change between elements.
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Switcher} from 'fabric-ui';
+import {Fabric, Switcher} from 'fabric-ui-core';
 
 function App() {
 
