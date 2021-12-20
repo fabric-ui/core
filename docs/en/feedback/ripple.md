@@ -5,7 +5,7 @@ _Ripple_ components gives you an easy way to give the user a nice visual feedbac
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Ripple} from 'fabric-ui-core';
+import {Fabric, Ripple} from '@f-ui/core';
 
 function App() {
   return (

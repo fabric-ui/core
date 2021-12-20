@@ -7,7 +7,7 @@ The _Dropdown_ component allows you to show more options without changing your a
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Dropdown} from 'fabric-ui-core';
+import {Fabric, Dropdown} from '@f-ui/core';
 
 function App() {
 

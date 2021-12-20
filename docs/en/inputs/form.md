@@ -6,7 +6,7 @@ One of the most useful components, the _Button_ provides a single tap action.
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Button} from 'fabric-ui-core';
+import {Fabric, Button} from '@f-ui/core';
 
 function App() {
   return (

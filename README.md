@@ -7,10 +7,10 @@ A package that contains a big set of useful and beautiful react components and i
 
 ```sh
 // with npm
-npm i fabric-ui-core
+npm i @f-ui/core
 
 // with yarn
-yarn add fabric-ui-core
+yarn add @f-ui/core
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ yarn add fabric-ui-core
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Button} from 'fabric-ui-core';
+import {Fabric, Button} from '@f-ui/core';
 
 function App() {
   return (

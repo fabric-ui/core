@@ -7,7 +7,7 @@ _Tooltip_ component doesn't change your app layout and can be used to provide mo
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Tooltip, Button} from 'fabric-ui-core';
+import {Fabric, Tooltip, Button} from '@f-ui/core';
 
 function App() {
 

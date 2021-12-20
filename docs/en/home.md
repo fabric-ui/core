@@ -1,14 +1,14 @@
 ### Installation
-The fabric-ui-core package provides you with the ability to produce more while writing less, it includes components ranging from basic like a text-field to more complex like a chart.
+The @f-ui/core package provides you with the ability to produce more while writing less, it includes components ranging from basic like a text-field to more complex like a chart.
 
 To set up the package you can run the command below using your package installer of choice:
 
 
 ```shell
 // with npm
-npm install react-input-mask prop-types fabric-ui-core
+npm install react-input-mask prop-types @f-ui/core
 // with yarn
-yarn add react-input-mask prop-types fabric-ui-core
+yarn add react-input-mask prop-types @f-ui/core
 ```
 
 ### Additional Dependencies
@@ -23,7 +23,7 @@ yarn add react-input-mask prop-types fabric-ui-core
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Button} from 'fabric-ui-core';
+import {Fabric, Button} from '@f-ui/core';
 
 function App() {
   return (

@@ -7,12 +7,12 @@ _Fabric_ component provides support for localization, theme switching and materi
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Button} from 'fabric-ui-core';
+import {Fabric, Button} from '@f-ui/core';
 
 function App() {
   return (
     <Fabric>
-        {/*Your fabric-ui-core components here*/}
+        {/*Your @f-ui/core components here*/}
     </Fabric>
   );
 }

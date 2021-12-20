@@ -6,7 +6,7 @@ Flexible date input with interactive calendar and multiple date masks. Supports 
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, DateField} from 'fabric-ui-core';
+import {Fabric, DateField} from '@f-ui/core';
 
 function App() {
     const [state, setState] = useState('09/03/2021')
