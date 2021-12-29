@@ -1,6 +1,6 @@
 {
   "name": "@f-ui/core",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2-alpha",
   "author": "facobackup",
   "license": "MIT",
   "main": "dist/index.js",
@@ -12,11 +12,13 @@
   "scripts": {
     "start": "rollup -c "
   },
-  "peerDependencies": {
+  "dependencies": {
     "prop-types": "^15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-input-mask": "^2.0.4"
+  },
+  "peerDependencies": {
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
