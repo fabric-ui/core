@@ -1,6 +1,6 @@
 {
   "name": "@f-ui/core",
-  "version": "0.0.2-alpha",
+  "version": "0.0.4-alpha",
   "author": "facobackup",
   "license": "MIT",
   "main": "dist/index.js",
@@ -10,7 +10,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "rollup -c "
+    "start": "rollup -c"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
