@@ -5,9 +5,9 @@ import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 
 import pkg from './package.json'
-import react from 'react';
-import reactDom from 'react-dom';
-
+import * as react from 'react';
+import * as reactDom from 'react-dom';
+import * as propTypes from 'prop-types';
 
 export default {
   input: 'src/index.js',
@@ -30,12 +30,6 @@ export default {
       exclude: 'node_modules/**'
     }),
     resolve(),
-    commonjs({
-      include: 'node_modules/**',
-      namedExports: {
-        react: Object.keys(react),
-        'react-dom': Object.keys(reactDom)
-      }
-    })
+    commonjs()
   ]
 }
