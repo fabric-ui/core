@@ -5,9 +5,6 @@ import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 
 import pkg from './package.json'
-import * as react from 'react';
-import * as reactDom from 'react-dom';
-import * as propTypes from 'prop-types';
 
 export default {
   input: 'src/index.js',
