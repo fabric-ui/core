@@ -44,8 +44,8 @@ import StepperWrapper from './core/navigation/scroll/StepperWrapper'
 
 import DataRow from './core/visualization/row/DataRow'
 
-import Masonry from './core/visualization/masonry/Masonry'
-import Card from './core/visualization/masonry/Card'
+import Masonry from './core/visualization/list/Masonry'
+import Card from './core/visualization/card/Card'
 import useInfiniteScroll from './core/misc/hooks/useInfiniteScroll'
 
 export {
