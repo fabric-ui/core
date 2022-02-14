@@ -48,7 +48,17 @@ import Masonry from './core/visualization/list/Masonry'
 import Card from './core/visualization/card/Card'
 import useInfiniteScroll from './core/misc/hooks/useInfiniteScroll'
 
+import Loader from './core/feedback/loader/Loader'
+import LoaderProvider from './core/feedback/loader/LoaderProvider'
+import useLoader from './core/feedback/loader/useLoader'
+import ContextMenu from './core/navigation/context/ContextMenu'
+
 export {
+  ContextMenu,
+  Loader,
+  LoaderProvider,
+  useLoader,
+
   useCopyToClipboard, useFile,
 
     Alert, ToolTip,
