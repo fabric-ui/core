@@ -1,0 +1,107 @@
+
+.content {
+   width: 100%;
+
+}
+
+
+.wrapper {
+   background-color: var(--fabric-background-primary);
+   display: flex;
+   gap: 8px;
+}
+
+.header {
+   overflow-y: auto;
+   overflow-x: hidden;
+   position: sticky;
+   top: 0;
+
+   border: var(--fabric-border-primary) 1px solid;
+
+   background-color: var(--fabric-background-secondary) !important;
+
+   width: clamp(100px, 25%, 250px);
+
+
+   display: flex;
+   flex-direction: column;
+   align-content: flex-start;
+   justify-content: flex-start;
+   align-items: flex-start;
+
+   transition: 150ms linear;
+   height: 100%;
+   border-radius: 5px;
+
+   padding: 4px;
+}
+
+
+.button {
+
+   padding: 4px 24px;
+
+   max-width: 100%;
+   width: 100%;
+
+
+   font-weight: 550;
+
+   font-size: .7rem;
+   text-rendering: optimizeLegibility;
+
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   gap: 4px;
+}
+
+.color {
+   color: var(--fabric-color-tertiary)
+}
+
+.color:disabled {
+   color: var(--fabric-color-quinary) !important;
+}
+
+.color:hover, .color:active, .highlight {
+   color: var(--color)
+}
+
+.rowLabel {
+   display: flex;
+   align-content: center;
+   align-items: center;
+   justify-content: space-between;
+   font-weight: 600;
+   font-family: "Roboto";
+   color: var(--fabric-color-secondary);
+   font-size: .8rem;
+   padding: 4px 0 4px 16px;
+   margin-top: 8px;
+}
+
+.overflow {
+   max-width: 100%;
+
+   text-align: left;
+
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.rowWrapper {
+   width: 100%;
+   height: auto;
+   display: grid;
+   gap: 4px;
+   /*padding-bottom: 16px;*/
+
+
+   align-items: flex-start;
+
+   /*overflow-x: hidden;*/
+   overflow-y: visible;
+}

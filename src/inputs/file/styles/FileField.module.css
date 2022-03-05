@@ -1,0 +1,26 @@
+.button {
+    user-select: none;
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    transition: inherit;
+    background: var(--fabric-background-primary);
+    width: 100%;
+
+    padding: 5px;
+
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.button:hover {
+    border-color: var(--fabric-accent-color);
+}
+
+.button:disabled {
+    border-color: var(--fabric-border-primary);
+}

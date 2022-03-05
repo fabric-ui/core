@@ -1,0 +1,25 @@
+
+
+.content{
+    user-select: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 32px;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+
+    background: var(--fabric-background-tertiary);
+    border: var(--fabric-border-primary) 1px solid;
+    border-radius: 5px;
+    color: var(--fabric-color-quinary);
+}
+
+.label{
+    font-size: .8rem;
+    font-weight: bold;
+    color: var(--fabric-color-quaternary);
+    text-align: center;
+}

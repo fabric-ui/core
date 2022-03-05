@@ -1,0 +1,77 @@
+@import url('http://fonts.cdnfonts.com/css/roboto');
+
+.header {
+
+   background-color: var(--fabric-background-primary);
+   border-radius: 5px 5px 0 0;
+   justify-content: flex-start;
+   border-bottom: var(--fabric-border-primary) 1px solid;
+
+   height: fit-content;
+   width: 100%;
+
+   display: grid;
+   /*border-bottom: var(--fabric-border-primary) 1px solid;*/
+   transition: 150ms ease-in;
+}
+
+.tabs {
+   max-width: 100%;
+   width: 100%;
+
+   overflow: hidden;
+   margin: auto;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+
+
+.button {
+   text-transform: capitalize;
+   /*font-family: "Roboto" !important;*/
+   text-rendering: optimizeLegibility;
+   color: var(--fabric-color-tertiary);
+   font-weight: 550;
+   font-size: .7rem;
+   padding: 4px 8px !important;
+   height: 25px;
+   transition: 150ms ease;
+
+   text-overflow: ellipsis;
+   overflow: hidden;
+   max-width: 100%;
+   white-space: nowrap;
+}
+
+.button:hover, .button:active, .button[data-highlight="true"] {
+   color: var(--color) !important;
+}
+
+
+.enterA {
+   animation: enter 150ms ease-in-out;
+}
+
+.exitA {
+   animation: exit 150ms ease-in-out;
+}
+
+@keyframes exit {
+   0% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+   }
+}
+
+@keyframes enter {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
+   }
+}
+

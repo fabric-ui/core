@@ -1,0 +1,46 @@
+
+
+
+.container{
+    outline: none;
+
+    border: var(--fabric-color-tertiary) 1px solid;
+    width: 17px;
+    height: 17px;
+
+    border-radius: 50%;
+    background: transparent;
+    transition: 150ms linear;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container:hover{
+    border: var(--fabric-accent-color) 1px solid;
+}
+.container:active{
+    background: var(--fabric-background-quaternary);
+    border: var(--fabric-accent-color) 1px solid;
+}
+.container:disabled{
+    background: transparent;
+    border-color: var(--fabric-color-quinary);
+    cursor: unset;
+}
+
+.wrapper{
+
+
+
+    border: var(--fabric-border-primary) 1px solid;
+    border-radius: 5px;
+    padding: 8px;
+    width: fit-content;
+}
+.wrapperChildren{
+    display: grid;
+    gap: 8px;
+}
