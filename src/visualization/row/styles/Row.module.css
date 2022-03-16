@@ -10,6 +10,7 @@
 }
 
 .row {
+   overflow: hidden;
    padding: 4px;
    font-size: .8rem;
 
@@ -28,3 +29,13 @@
    font-weight: normal;
    color: var(--fabric-color-secondary);
 }
+
+.cell{
+   white-space: nowrap;
+   max-width: 100%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   /*transform: translateX(0);*/
+   /*transition: 1s;*/
+}
+

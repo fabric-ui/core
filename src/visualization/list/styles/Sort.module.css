@@ -1,0 +1,18 @@
+.container{
+   display: flex;
+   padding: 0  4px;
+}
+
+.cell{
+   width: 100%;
+   padding: 0 4px !important;
+
+
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 2px;
+
+   border-radius: 0 !important;
+   color: var(--fabric-color-secondary);
+}

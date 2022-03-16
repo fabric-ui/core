@@ -4,31 +4,36 @@ import styles from '../styles/Row.module.css'
 import React from 'react'
 
 export default function RowKey(props) {
-    const data = useField(props.field, props.object)
+   const data = useField(props.field, props.object)
 
-    return (
-        <div className={styles.row}>
-            {data}
-            {props.selfContained ?
-                <div className={styles.footer}>
-                    {props.field.label}
-                </div>
-                :
-                null
-            }
-        </div>
-    )
+   return (
+      <div className={styles.row}>
+            <span title={data} className={[styles.cell, props.className].join(' ')} style={props.styles}>
+               {data}
+            </span>
+         {props.selfContained ?
+            <label className={styles.footer}>
+               {props.field.label}
+            </label>
+            :
+            null
+         }
+      </div>
+   )
 
 }
 
 RowKey.propTypes = {
-    index: PropTypes.number,
-    selfContained: PropTypes.bool,
-    object: PropTypes.object.isRequired,
-    field: PropTypes.shape({
-        label: PropTypes.string,
-        key: PropTypes.string.isRequired,
-        type: PropTypes.oneOf(['number', 'string', 'bool', 'date']).isRequired,
-        hoursOffset: PropTypes.number
-    }).isRequired
+   className: PropTypes.string,
+   styles: PropTypes.object,
+   index: PropTypes.number,
+   selfContained: PropTypes.bool,
+   object: PropTypes.object.isRequired,
+   field: PropTypes.shape({
+      label: PropTypes.string,
+      key: PropTypes.string.isRequired,
+      type: PropTypes.oneOf(['number', 'string', 'bool', 'date']).isRequired,
+      hoursOffset: PropTypes.number
+   }).isRequired,
+
 }

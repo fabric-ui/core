@@ -1,0 +1,9 @@
+.container {
+   height: fit-content;
+   display: grid;
+   align-content: flex-start;
+   gap: 4px;
+   overflow-y: auto;
+   max-height: 100%;
+
+}
