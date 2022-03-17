@@ -2,10 +2,10 @@ import React, {useMemo} from 'react'
 import {addHours} from "../../../inputs/date/misc/useDate";
 import useLocale from "../../../misc/hooks/useLocale";
 
-export default function useField(field, entity) {
+export default function useField(field, entity,method, setColor) {
     const translate = useLocale()
     return useMemo(() => {
-        if (entity && entity[field.key] !== undefined && entity[field.key] !== null && ((field.type === 'object' && entity[field.key][field.subfieldKey]) || field.type !== 'object'))
+        if (!method && entity && entity[field.key] !== undefined && entity[field.key] !== null && ((field.type === 'object' && entity[field.key][field.subfieldKey]) || field.type !== 'object'))
             switch (field.type) {
                 case 'string':
                     return (field.maskStart ? field.maskStart : '') + entity[field.key] + (field.maskEnd ? field.maskEnd : '')
@@ -26,7 +26,9 @@ export default function useField(field, entity) {
                 default:
                     return entity[field.key]
             }
-        else
+        else if(!method)
             return translate('empty')
+         else
+            return  method(setColor, field, entity)
     }, [field, entity])
 }

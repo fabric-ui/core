@@ -4,7 +4,7 @@ import styles from '../styles/Row.module.css'
 import React from 'react'
 
 export default function RowKey(props) {
-   const data = useField(props.field, props.object)
+   const data = useField(props.field, props.object, props.method)
 
    return (
       <div className={styles.row}>
@@ -12,7 +12,7 @@ export default function RowKey(props) {
                {data}
             </span>
          {props.selfContained ?
-            <label className={styles.footer}>
+            <label className={styles.footer} title={props.field.label}>
                {props.field.label}
             </label>
             :
@@ -33,7 +33,8 @@ RowKey.propTypes = {
       label: PropTypes.string,
       key: PropTypes.string.isRequired,
       type: PropTypes.oneOf(['number', 'string', 'bool', 'date']).isRequired,
-      hoursOffset: PropTypes.number
+      hoursOffset: PropTypes.number,
+      method: PropTypes.func
    }).isRequired,
 
 }

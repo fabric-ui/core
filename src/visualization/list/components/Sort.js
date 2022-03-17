@@ -1,3 +1,4 @@
+import React from 'react'
 import styles from '../styles/Sort.module.css'
 import {useContext} from "react";
 import DataProvider from "../hooks/DataProvider";
@@ -12,7 +13,7 @@ export default function Sort(props) {
             <Button
                disabled={k.sortDisabled}
                key={index + '-sort-key-' + k.key} className={styles.cell}
-                    styles={{borderLeft: index < context.data.length ? 'var(--fabric-border-primary) 1px solid' : undefined}}
+                    styles={{borderLeft: index < context.data.length && index > 0? 'var(--fabric-border-primary) 1px solid' : undefined}}
                     onClick={() => {
                        if(!context.currentSort[index])
                           context.setCurrentSort(prev => {
@@ -66,7 +67,10 @@ export default function Sort(props) {
                        }
                     }}
             >
-               {k.label}
+               <label className={styles.label} title={k.label}>
+                  {k.label}
+               </label>
+
                <span className={'material-icons-round'} style={{fontSize: '1.1rem', transform: context.currentSort[index]?.sort === 'asc' ? 'rotate(180deg)' : undefined, color: !context.currentSort[index]?.sort ? '#999999' : undefined}}>
                   keyboard_arrow_down
                </span>

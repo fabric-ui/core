@@ -1,0 +1,32 @@
+.wrapper{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   overflow: hidden;
+   height: 35px;
+
+   position: sticky;
+   top: 0;
+   left: 0;
+
+   z-index: 10;
+
+   border-bottom: var(--fabric-border-primary) 1px solid;
+   color: var(--fabric-color-primary);
+   padding: 0 4px;
+
+   background: var(--fabric-background-primary);
+}
+.group{
+   display: flex;
+   align-items: center;
+   gap: 4px;
+}
+
+.group[data-end = 'true']{
+   justify-content: flex-end;
+}
+.group[data-end = 'false']{
+   justify-content: flex-start;
+}

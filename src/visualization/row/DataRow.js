@@ -8,11 +8,13 @@ export default function DataRow(props) {
    const context = useContext(DataProvider)
    const {
       keys,
-      data
+      data,
+      selfContained
    } = useMemo(() => {
       return {
          keys: context ? context.keys : props.keys,
-         data: context && typeof props.index === 'number' ? context.data[props.index] : props.object
+         data: context && typeof props.index === 'number' ? context.data[props.index] : props.object,
+         selfContained: context   ? context.selfContained : props.selfContained,
       }
    }, [context, props.index, props.keys, props.object])
 
@@ -20,7 +22,7 @@ export default function DataRow(props) {
       <div className={[styles.wrapper, props.className].join(' ')} style={props.styles}>
          {keys.map((k, i) => (
             <React.Fragment key={'key-' + k.key + '-' + i}>
-               <RowKey index={i} className={props.cellClassName} styles={props.cellStyles} field={k} object={data} selfContained={props.selfContained}/>
+               <RowKey index={i} className={props.cellClassName} styles={props.cellStyles} field={k} object={data} selfContained={selfContained}/>
             </React.Fragment>
          ))}
       </div>
@@ -42,6 +44,6 @@ DataRow.propTypes = {
       key: PropTypes.string.isRequired,
       type: PropTypes.oneOf(['number', 'string', 'bool', 'date']),
       hoursOffset: PropTypes.number,
-      sortDisabled: PropTypes.bool
+      method: PropTypes.func
    }))
 }

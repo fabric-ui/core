@@ -1,6 +1,9 @@
 .container{
    display: flex;
-   padding: 0  4px;
+   padding: 2px  4px;
+   background: var(--fabric-background-secondary);
+   border: var(--fabric-border-primary) 1px solid;
+   border-radius: 5px;
 }
 
 .cell{
@@ -15,4 +18,10 @@
 
    border-radius: 0 !important;
    color: var(--fabric-color-secondary);
+}
+.label{
+   white-space: nowrap;
+   max-width: 100%;
+   overflow: hidden;
+   text-overflow: ellipsis;
 }

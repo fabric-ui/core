@@ -45,28 +45,28 @@
 
 
 .enterFade {
-    animation: fadeInAnim ease-in-out 250ms forwards;
+    animation: fadeInAnim ease-in-out 150ms forwards;
 }
 
 .exitFade {
-    animation: fadeOutAnim ease-in-out 250ms forwards;
+    animation: fadeOutAnim ease-in-out 150ms forwards;
 }
 
 
 .slideLeftEnter {
-    animation: slideLeftEnterAnim ease-in-out 250ms;
+    animation: slideLeftEnterAnim ease-in-out 150ms;
 }
 
 .slideLeftExit {
-    animation: slideLeftExitAnim ease-in-out 250ms;
+    animation: slideLeftExitAnim ease-in-out 150ms;
 }
 
 .slideRightEnter {
-    animation: slideRightEnterAnim ease-in-out 250ms;
+    animation: slideRightEnterAnim ease-in-out 150ms;
 }
 
 .slideRightExit {
-    animation: slideRightExitAnim ease-in-out 250ms;
+    animation: slideRightExitAnim ease-in-out 150ms;
 }
 
 @keyframes slideLeftEnterAnim {
@@ -112,10 +112,10 @@
 }
 
 .slideBottomEnter{
-    animation: slideBottomEnterAnim ease-in-out 250ms;
+    animation: slideBottomEnterAnim ease-in-out 150ms;
 }
 .slideBottomExit{
-    animation: slideBottomExitAnim ease-in-out 250ms;
+    animation: slideBottomExitAnim ease-in-out 150ms;
 }
 
 @keyframes slideBottomEnterAnim {

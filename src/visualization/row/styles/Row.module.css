@@ -7,6 +7,10 @@
    border: var(--fabric-border-primary) 1px solid;
 
    padding: 4px;
+
+   max-width: 100%;
+   overflow: hidden;
+
 }
 
 .row {
@@ -28,6 +32,10 @@
    font-size: .7rem;
    font-weight: normal;
    color: var(--fabric-color-secondary);
+   white-space: nowrap;
+   max-width: 100%;
+   overflow: hidden;
+   text-overflow: ellipsis;
 }
 
 .cell{

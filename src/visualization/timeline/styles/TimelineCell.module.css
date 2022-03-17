@@ -7,7 +7,7 @@
    border: var(--fabric-border-primary) 1px solid;
    border-radius: 5px;
    padding: 8px;
-   transition: 250ms ease;
+   transition: 150ms ease;
 }
 
 .wrapper:hover{

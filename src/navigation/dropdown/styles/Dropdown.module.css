@@ -17,7 +17,7 @@
   max-height: clamp(250px, 10vh, 300px);
 
   display: grid;
-  transition: 250ms ease;
+  transition: 150ms ease;
 }
 
 .iconSpace {
@@ -55,7 +55,11 @@
   font-weight: 550;
   height: 25px;
 }
+.button:disabled{
+   background: transparent;
+   color: #999999;
 
+}
 .button:hover {
   background-color: rgba(0, 149, 255, .5);
   color: var(--fabric-color-secondary);

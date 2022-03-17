@@ -1,6 +1,7 @@
+import React from 'react'
 import {useMemo, useState} from "react";
 
-export default function useListData(keys, initialData = []) {
+export default function useListData(keys, initialData = [], selfContained=false) {
 
    const [currentSort, setCurrentSort] = useState([])
    const sortedData = useMemo(() => {
@@ -48,6 +49,7 @@ export default function useListData(keys, initialData = []) {
       data: sortedData,
       keys,
       currentSort,
-      setCurrentSort
+      setCurrentSort,
+      selfContained
    }
 }

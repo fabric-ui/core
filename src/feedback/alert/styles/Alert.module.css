@@ -19,7 +19,7 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   transition: 250ms ease;
+   transition: 150ms ease;
 
    padding: 8px;
    width: fit-content;
@@ -34,11 +34,11 @@
    overflow: hidden;
 
    opacity: 0;
-   animation: enter 250ms ease-in-out forwards;
+   animation: enter 150ms ease-in-out forwards;
 }
 
 .outAnimation {
-   animation: exit 250ms ease-in-out forwards;
+   animation: exit 150ms ease-in-out forwards;
 }
 
 @keyframes exit {

@@ -8,7 +8,7 @@
     /*box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;*/
     opacity: 0;
 
-    animation: show 250ms ease-in-out forwards 750ms;
+    animation: show 150ms ease-in-out forwards 750ms;
 
     position: relative;
 
@@ -35,7 +35,7 @@
 
 }
 .exitAnim{
-    animation: exit 250ms ease-in-out;
+    animation: exit 150ms ease-in-out;
     transform-origin: top left;
 }
 
