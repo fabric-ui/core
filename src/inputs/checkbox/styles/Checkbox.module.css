@@ -5,8 +5,8 @@
     outline: none;
 
     border: var(--fabric-color-tertiary) 1px solid;
-    width: 17px;
-    height: 17px;
+    width: 15px;
+    height: 15px;
 
     border-radius: 50%;
     background: transparent;

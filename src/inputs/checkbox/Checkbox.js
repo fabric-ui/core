@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Checkbox(props) {
     return (
-        <div style={{display: 'flex', alignItems: 'center', gap: '16px', opacity: props.disabled ? '.8' : 1}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: '6px', opacity: props.disabled ? '.8' : 1}}>
             <button
                 className={styles.container}
                 disabled={props.disabled}
@@ -22,9 +22,9 @@ export default function Checkbox(props) {
 
             </button>
             {props.label ?
-                <div style={{fontSize: '.9rem'}}>
+                <label style={{fontSize: '.7rem', fontWeight: '550'}}>
                     {props.label}
-                </div>
+                </label>
                 : null}
         </div>
     )

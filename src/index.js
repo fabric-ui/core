@@ -45,9 +45,13 @@ import NavigationGroup from './navigation/nav/NavigationGroup'
 import List from './visualization/list/List'
 import Sort from './visualization/list/components/Sort'
 import Header from './visualization/header/Header'
+import DataProvider from './visualization/list/hooks/DataProvider'
+import useListData from './visualization/list/hooks/useListData'
 
 
 export {
+   DataProvider,
+   useListData,
    List,
    Sort,
    Header,

@@ -28,7 +28,7 @@ export default function useListData(keys, initialData = [], selfContained=false)
                   case 'string':
                      keyA = a[s.key]
                      keyB = b[s.key]
-                     console.log(keyA)
+
                      if (s.sort === 'asc') {
                         if (keyA < keyB) return -1;
                         if (keyA > keyB) return 1;

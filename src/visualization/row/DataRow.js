@@ -14,15 +14,17 @@ export default function DataRow(props) {
       return {
          keys: context ? context.keys : props.keys,
          data: context && typeof props.index === 'number' ? context.data[props.index] : props.object,
-         selfContained: context   ? context.selfContained : props.selfContained,
+         selfContained: context ? context.selfContained : props.selfContained,
       }
    }, [context, props.index, props.keys, props.object])
 
    return (
-      <div className={[styles.wrapper, props.className].join(' ')} style={props.styles}>
+      <div ref={props.reference} onClick={props.onClick} className={[styles.wrapper, props.className].join(' ')}
+           style={props.styles}>
          {keys.map((k, i) => (
             <React.Fragment key={'key-' + k.key + '-' + i}>
-               <RowKey index={i} className={props.cellClassName} styles={props.cellStyles} field={k} object={data} selfContained={selfContained}/>
+               <RowKey index={i} className={props.cellClassName} styles={props.cellStyles} field={k} object={data}
+                       selfContained={selfContained}/>
             </React.Fragment>
          ))}
       </div>
@@ -45,5 +47,7 @@ DataRow.propTypes = {
       type: PropTypes.oneOf(['number', 'string', 'bool', 'date']),
       hoursOffset: PropTypes.number,
       method: PropTypes.func
-   }))
+   })),
+   onClick: PropTypes.func,
+   reference: PropTypes.any
 }
