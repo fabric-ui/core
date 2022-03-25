@@ -44,7 +44,7 @@ export default function SelectField(props) {
          >
             <Button
                disabled={props.disabled}
-               variant={"outlined"}
+
                reference={buttonRef}
                highlight={open}
                styles={{
@@ -78,7 +78,7 @@ export default function SelectField(props) {
                         borderRadius: '0',
                         borderTop: index > 0 ? 'var(--fabric-border-primary) 1px solid' : 'none'
                      }}
-                     highlight={choice.key === props.value}
+                     variant={choice.key === props.value ? 'filled' : undefined}
                      onClick={e => {
 
                         props.handleChange(choice.key)

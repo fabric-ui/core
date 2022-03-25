@@ -55,9 +55,13 @@ export default function Dropdown(props) {
    return (
       <>
          <Button
+
             highlight={open || props.highlight}
             attributes={{
-               'data-open': `${open}`
+               ...props.attributes,
+               ...{
+                  'data-open': `${open}`
+               }
             }}
             reference={ref}
             styles={{
@@ -100,6 +104,7 @@ export default function Dropdown(props) {
 }
 
 Dropdown.propTypes = {
+   attributes: PropTypes.object,
    hideArrow: PropTypes.bool,
    wrapperClassname: PropTypes.string,
    highlight: PropTypes.bool,

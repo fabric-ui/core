@@ -16,6 +16,8 @@ function Input(props) {
          case "file":
             return (<FileField
                {...props.customProps}
+               width={props.width}
+               height={props.height}
                handleChange={(f) => {
                   props.handleChange({
                      event: f, key: props.fieldKey
@@ -28,6 +30,8 @@ function Input(props) {
          case "text":
             return (<TextField
                {...props.customProps}
+               width={props.width}
+               height={props.height}
                handleChange={(f) => {
 
                   props.handleChange({
@@ -42,6 +46,8 @@ function Input(props) {
          case "date":
             return (<DateField
                {...props.customProps}
+               width={props.width}
+               height={props.height}
                handleChange={(f) => {
                   props.handleChange({
                      event: f, key: props.fieldKey
@@ -54,6 +60,8 @@ function Input(props) {
          case "multi-select":
             return (<MultiSelectField
                {...props.customProps}
+               width={props.width}
+               height={props.height}
                handleChange={(f) => {
                   props.handleChange({
                      event: f, key: props.fieldKey
@@ -67,6 +75,8 @@ function Input(props) {
          case "select":
             return (<SelectField
                {...props.customProps}
+               width={props.width}
+               height={props.height}
                handleChange={(f) => {
                   props.handleChange({
                      event: f, key: props.fieldKey
@@ -81,6 +91,8 @@ function Input(props) {
             return (<Checkbox
                {...props.customProps}
                label={props.label}
+               width={props.width}
+               height={props.height}
 
                checked={props.value}
                disabled={props.disabled}
@@ -120,7 +132,7 @@ export default function EmbeddedForm(props) {
    return (<Form {...props}>
          {(data, handleChange) => props.sections.map((section, sectionIndex) => (
             <React.Fragment key={sectionIndex + '-section-input-row'}>
-               <FormRow title={section.title} groups={section.groups}>
+               <FormRow rowGap={section.rowGap} title={section.title} groups={section.groups} columnGap={section.columnGap}>
                   {section.inputs.map((input, inputIndex) => (
                      <React.Fragment key={sectionIndex + '-section-input-row-' + inputIndex}>
                         <Input {...input} fieldKey={input.key} value={data[input.key]} handleChange={handleChange}/>
@@ -136,7 +148,8 @@ EmbeddedForm.propTypes = {
    sections: PropTypes.arrayOf(PropTypes.shape({
       title: PropTypes.string, groups: PropTypes.string,
 
-
+      columnGap: PropTypes.string,
+      rowGap: PropTypes.string,
       inputs: PropTypes.arrayOf(PropTypes.shape({
 
          required: PropTypes.bool,

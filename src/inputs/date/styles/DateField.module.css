@@ -94,18 +94,18 @@
 }
 
 .calendar {
-   width: 350px;
+   width: 270px;
 
    background: var(--fabric-background-primary);
    border-radius: 5px;
    box-shadow: var(--fabric-boxshadow);
-   height: 223px;
+   height: 200px;
    overflow-y: auto;
 
    position: absolute;
    bottom: 0;
    z-index: 999;
-   transform: translateY(calc(100% + 4px));
+   transform: translateY(calc(100% - 16px));
 }
 
 .monthContainer {
@@ -135,46 +135,33 @@
 }
 
 .daysContainer {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 7.45px;
+   display: grid;
+   gap: 6px;
+   grid-template-columns: repeat(7, 1fr);
+   justify-items: center;
    width: 100%;
-   padding: 8px;
+   padding: 8px 0;
    overflow: auto;
 }
 
 .dayContainer {
-   height: 35px;
-   width: 35px;
+   height: 30px;
+   width: 30px;
+   padding: 0 !important;
    background: var(--fabric-background-primary);
 
    display: flex;
    align-items: center;
    justify-content: center;
+   justify-items: center;
 
    text-align: center;
 
-   font-size: .85rem;
-   font-weight: bold;
+   font-size: .8rem;
+   font-weight: 550;
    font-family: "Roboto";
    color: var(--fabric-color-tertiary);
-   border-radius: 8px;
-   border: transparent 2px solid;
 
-   cursor: pointer;
-   transition: 150ms linear;
-}
-
-.dayContainer:hover {
-   color: var(--fabric-accent-color);
-   border: rgba(0, 149, 255, .5) 2px solid;
-}
-
-.dayContainer:active {
-   background: var(--fabric-background-quaternary);
-
-   color: var(--fabric-accent-color);
-   border: rgba(0, 149, 255, .5) 2px solid;
 }
 
 .currentDate {
@@ -195,4 +182,16 @@
    color: red;
 
    margin-top: 2px;
+}
+
+
+.button{
+   padding: 2px !important;
+   width: 25px;
+   height: 25px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
 }

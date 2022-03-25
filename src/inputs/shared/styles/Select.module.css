@@ -19,13 +19,9 @@
     background: var(--fabric-background-primary);
     width: 100%;
     padding: 5px;
-    border-radius: 5px;
-}
-.selectContainer:hover{
-    border-color: var(--fabric-accent-color);
+    border-radius: 3px;
 }
 .selectContainer:disabled {
-    border-color: var(--fabric-border-primary);
     cursor: default;
     color: var(--fabric-color-quinary);
 }
@@ -47,7 +43,7 @@
    position: absolute;
    z-index: 50;
    bottom: 0;
-   transform: translateY(100%);
+   transform: translateY(calc(100% - 16px));
 }
 
 .dropDownButton {

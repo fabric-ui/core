@@ -33,9 +33,9 @@ export default function DateField(props) {
             res.push(
                <React.Fragment key={month + '-month-' + (i + 1) + '-day'}>
                   <Button
-                     styles={{padding: '8px', width: '35px', height: '35px'}}
+                     className={styles.dayContainer}
                      highlight={date.day === (i + 1)}
-                     variant={'minimal'}
+                     variant={date.day === (i + 1) ? 'filled' : 'outlined'}
                      onClick={() => {
                         const currentDate = new Date()
                         const newDay = i + 1
@@ -79,18 +79,19 @@ export default function DateField(props) {
             label={props.label}
             mask={mask}
             maskEnd={(
-               <Button onClick={() => setOpen(true)} disabled={props.disabled} reference={buttonRef}>
+               <Button
+                  onClick={() => setOpen(true)}
+                  disabled={props.disabled}
+                  className={styles.button}
+                  reference={buttonRef}>
                         <span style={{
-                           fontSize: '1.2rem'
+                           fontSize: '1.1rem'
                         }} className="material-icons-round">calendar_today</span>
                </Button>
             )} noMargin={true}
             required={props.required}
          />
-         <div style={{display: date.valid ? 'none' : undefined}} className={styles.errorWrapper}>
-            <span style={{fontSize: '1.1rem'}} className={'material-icons-round'}>info</span>
-            {translate('invalid_date')}
-         </div>
+
          <div className={styles.calendar} ref={dropdownRef}
               style={{padding: '0 8px', display: open ? undefined : 'none'}}>
             <div className={styles.monthContainer}>
@@ -116,17 +117,18 @@ export default function DateField(props) {
                      {!date.year ? new Date().getFullYear() : date.year}
                   </div>
                </div>
-               <Button className={styles.buttonContainer} styles={{width: 'fit-content', margin: 'unset'}}
-                       onClick={() => {
-                          const d = new Date()
-                          const newDay = date.day ? date.day : d.getDate()
-                          const newMonth = (date.month && date.month === 12) || (!date.month && d.getMonth() === 12) ? 1 : (date.month ? date.month : d.getMonth() + 1) + 1
-                          const newYear = newMonth === 1 ? (date.year ? date.year + 1 : d.getFullYear() + 1) : (date.year ? date.year : d.getFullYear())
-                          props.handleChange(parseDate(newDay, newMonth, newYear))
-                       }}>
-                            <span
-                               style={{fontSize: '1.1rem', transform: 'rotate(180deg'}}
-                               className="material-icons-round">arrow_back_ios</span>
+               <Button
+                  className={styles.buttonContainer}
+                  styles={{width: 'fit-content', margin: 'unset'}}
+                  onClick={() => {
+                     const d = new Date()
+                     const newDay = date.day ? date.day : d.getDate()
+                     const newMonth = (date.month && date.month === 12) || (!date.month && d.getMonth() === 12) ? 1 : (date.month ? date.month : d.getMonth() + 1) + 1
+                     const newYear = newMonth === 1 ? (date.year ? date.year + 1 : d.getFullYear() + 1) : (date.year ? date.year : d.getFullYear())
+                     props.handleChange(parseDate(newDay, newMonth, newYear))
+                  }}>
+                  <span style={{fontSize: '1.1rem', transform: 'rotate(180deg'}}
+                        className="material-icons-round">arrow_back_ios</span>
 
                </Button>
             </div>
