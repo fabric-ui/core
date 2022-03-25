@@ -7,7 +7,7 @@ import DropdownProvider from "./DropdownProvider";
 export default function DropdownOption(props) {
   const context = useContext(DropdownProvider)
   return (
-    <div data-keepalive={`${props.option.keepAlive}`} style={{width: '100%'}}>
+    <div data-keepalive={`${props.option.keepAlive}`} style={{...{width: '100%'}, ...props.styles}} className={props.className}>
       <Button
         disabled={props.option.disabled}
         onClick={() => {
@@ -35,7 +35,8 @@ export default function DropdownOption(props) {
   )
 }
 DropdownOption.propTypes = {
-
+styles: PropTypes.object,
+   className: PropTypes.string,
   option: PropTypes.shape({
     label: PropTypes.any,
     icon: PropTypes.object,

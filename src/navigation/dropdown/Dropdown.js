@@ -53,10 +53,12 @@ export default function Dropdown(props) {
       return React.Children.toArray(props.children).filter(e => !e?.type?.name || e?.type.name !== DropdownOptions.name)
    }, [props.children])
    return (
-
-      <div className={styles.wrapper}>
+      <>
          <Button
             highlight={open || props.highlight}
+            attributes={{
+               'data-open': `${open}`
+            }}
             reference={ref}
             styles={{
                ...props.styles, ...{
@@ -71,27 +73,29 @@ export default function Dropdown(props) {
             {label.map(l => l)}
 
             {props.hideArrow ? null : <span className={'material-icons-round'}>arrow_drop_down</span>}
-         </Button>
-         <Modal
-            variant={"fit"}
-            styles={{transform: translation}}
-            blurIntensity={0} className={[styles.buttons, props.wrapperClassname].join(' ')}
-            animationStyle={'fade'}
-            open={open}
-            handleClose={() => {
-               setOpen(false)
-               setTranslation('')
-            }}>
-            <div ref={modalRef}>
-               <DropdownProvider.Provider value={{
-                  setOpen,
-                  open
+
+            <Modal
+               variant={"fit"}
+               styles={{transform: translation}}
+               blurIntensity={0} className={[styles.buttons, props.wrapperClassname].join(' ')}
+               animationStyle={'fade'}
+               open={open}
+               handleClose={() => {
+                  setOpen(false)
+                  setTranslation('')
                }}>
-                  {content}
-               </DropdownProvider.Provider>
-            </div>
-         </Modal>
-      </div>
+               <div ref={modalRef}>
+                  <DropdownProvider.Provider value={{
+                     setOpen,
+                     open
+                  }}>
+                     {content}
+                  </DropdownProvider.Provider>
+               </div>
+            </Modal>
+         </Button>
+
+      </>
    )
 }
 

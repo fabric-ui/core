@@ -11,12 +11,11 @@ export default function Header(props) {
         <div className={styles.header} style={{boxShadow: props.scrolled ? undefined : 'none'}}>
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                 <div className={styles.headerContent}>
-                    <Button className={styles.buttonContainer} color={'secondary'}
+                    <Button className={styles.buttonContainer}
                             styles={{display: props.returnButton ? undefined : 'none'}}
                             onClick={() => props.handleClose()}>
                         <span
                             className="material-icons-round">arrow_back</span>
-
                     </Button>
                     {props.title}
                 </div>
@@ -34,24 +33,7 @@ export default function Header(props) {
                     </Button>
                 </div>
             </div>
-            <div className={styles.buttons}
-                 style={{display: !props.options || props.options.length === 0 ? 'none' : undefined}}>
-                {props.options?.map((b, index) => (
-                    <React.Fragment key={index + '-option-button'}>
-                        <div className={styles.divider} style={{display: index === 0 ? 'none' : undefined}}/>
-                        <Button
-                            align={'bottom'} variant={'minimal'}
-                            className={styles.buttonContainer}
-                            disabled={b.disabled}
-                            onClick={b.onClick}
-                        >
-                            {b.icon}
-                            {b.label}
-                        </Button>
-                    </React.Fragment>
 
-                ))}
-            </div>
         </div>
     )
 }
@@ -64,19 +46,10 @@ Header.propTypes = {
     title: PropTypes.string,
     hook: PropTypes.object.isRequired,
     create: PropTypes.bool,
-    dependencies: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
-        type: PropTypes.oneOf(['string', 'number', 'object', 'bool', 'date', 'array'])
-    })),
+
     handleSubmit: PropTypes.func.isRequired,
-    metadata: PropTypes.shape({
-        lastModified: PropTypes.any,
-        creator: PropTypes.any,
-    }),
+
     handleClose: PropTypes.func,
     submitLabel: PropTypes.string,
-    options: PropTypes.arrayOf(PropTypes.shape({
-        icon: PropTypes.any, label: PropTypes.string, onClick: PropTypes.func,
-        disabled: PropTypes.bool
-    }))
+
 }

@@ -11,7 +11,7 @@
     background: transparent;
 
     border-radius: 5px;
-    border: var(--fabric-border-primary) 1px solid;
+   border: none;
     box-shadow: unset;
     transition: 150ms ease;
 
@@ -39,8 +39,6 @@
 
 .inputContainer:hover{
     color: var(--fabric-color-primary);
-      border-color: var(--fabric-accent-color);
-
 }
 .inputContainer:focus{
    background: var(--fabric-background-secondary);
@@ -48,9 +46,7 @@
 }
 
 .inputContainer:disabled {
-    border: var(--fabric-border-primary) 1px solid;
-    /*background: var(--fabric-background-secondary);*/
-    color: var(--fabric-color-quinary);
+    color: #999999;
 }
 
 .mask {
@@ -61,7 +57,7 @@
     transform: translateY(-50%);
     left: 8px;
     color: var(--fabric-color-secondary);
-    font-family: "Roboto";
+
     font-size: .95rem;
 
     max-width: 25%;

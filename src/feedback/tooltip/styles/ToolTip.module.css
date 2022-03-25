@@ -8,7 +8,8 @@
     /*box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;*/
     opacity: 0;
 
-    animation: show 150ms ease-in-out forwards 750ms;
+    animation: show 150ms ease-in-out forwards ;
+   animation-delay: 750ms;
 
     position: relative;
 
@@ -28,7 +29,7 @@
     border-radius: 5px;
     background: rgba(38,38,38,1);
     color: white;
-    font-family: "Roboto";
+
     font-size: .8rem;
     font-weight: bold;
     text-align: center;

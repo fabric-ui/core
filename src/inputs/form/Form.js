@@ -13,12 +13,13 @@ export default function Form(props) {
         let completed = true
 
         childNodes.forEach((e) => {
+           console.log(e)
             completed = completed && JSON.parse(e.getAttribute('data-completed'))
         })
 
         setDisabled(!completed || !props.hook.changed)
-    })
-    // const {ref, maxHeight} = useMaxHeight()
+    }, [props.hook.changed, props.hook.data])
+
     const [scrolled, setScrolled] = useState(false)
 
     return (
@@ -30,8 +31,6 @@ export default function Form(props) {
                     setScrolled(false)
             }}
             className={styles.wrapper}
-            // style={{maxHeight: maxHeight}}
-            // ref={ref}
         >
             <Header {...props} disabled={disabled} scrolled={scrolled}/>
             <div className={styles.content} ref={contentRef}>
@@ -49,19 +48,9 @@ Form.propTypes = {
     children: PropTypes.func.isRequired,
 
     create: PropTypes.bool,
-    dependencies: PropTypes.arrayOf(PropTypes.shape({
-        key: PropTypes.string,
-        type: PropTypes.oneOf(['string', 'number', 'object', 'bool', 'date', 'array'])
-    })),
+
     handleSubmit: PropTypes.func.isRequired,
-    metadata: PropTypes.shape({
-        lastModified: PropTypes.any,
-        creator: PropTypes.any,
-    }),
+
     handleClose: PropTypes.func,
-    submitLabel: PropTypes.string,
-    options: PropTypes.arrayOf(PropTypes.shape({
-        icon: PropTypes.any, label: PropTypes.string, onClick: PropTypes.func,
-        disabled: PropTypes.bool
-    }))
+    submitLabel: PropTypes.string
 }

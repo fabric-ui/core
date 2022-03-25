@@ -25,7 +25,6 @@ export default function Modal(props) {
 
             renderContent((
                 <div
-
                     style={{
                       ...props.variant === 'fit' ? {} : {backdropFilter: `blur(${props.blurIntensity ? props.blurIntensity : '10px'})`},
                       ...position,
@@ -58,9 +57,7 @@ export default function Modal(props) {
 
     useEffect(() => {
         document.addEventListener('mousedown', handleMouseDown)
-        return () => {
-            document.removeEventListener('mousedown', handleMouseDown)
-        }
+        return () => document.removeEventListener('mousedown', handleMouseDown)
     }, [alreadyRendered, props.open, props.children])
 
     return <div ref={source} style={{display: 'none'}}/>
@@ -72,7 +69,7 @@ Modal.propTypes = {
     variant: PropTypes.oneOf(['fill', 'fit']),
     animationStyle: PropTypes.oneOf(['slide-left', 'slide-right', 'fade', 'slide-bottom']),
     className: PropTypes.string,
-    blurIntensity: PropTypes.string,
+    blurIntensity: PropTypes.any,
     styles: PropTypes.object,
     open: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,

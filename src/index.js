@@ -47,6 +47,8 @@ import Sort from './visualization/list/components/Sort'
 import Header from './visualization/header/Header'
 import DataProvider from './visualization/list/hooks/DataProvider'
 import useListData from './visualization/list/hooks/useListData'
+import useData from './inputs/form/useData'
+import EmbeddedForm from './inputs/form/EmbeddedForm'
 
 
 export {
@@ -56,6 +58,8 @@ export {
    Sort,
    Header,
 
+   useData,
+   EmbeddedForm,
    Navigation, NavigationGroup,
    Timeline, TimelineCell,
    AlertProvider, ContextMenu,

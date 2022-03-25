@@ -1,18 +1,19 @@
 import PropTypes from "prop-types";
 import useField from "../hooks/useField";
 import styles from '../styles/Row.module.css'
-import React from 'react'
+import React, {useState} from 'react'
 
 export default function RowKey(props) {
-   const data = useField(props.field, props.object, props.method)
+   const [color, setColor] = useState()
+   const data = useField(props.field, props.object, props.field.method, setColor)
 
    return (
-      <div className={styles.row}>
-            <span title={data} className={[styles.cell, props.className].join(' ')} style={props.styles}>
+      <div className={styles.row} style={{color: color}}>
+            <span title={props.noTitle ? undefined : data} className={[styles.cell, props.className].join(' ')} style={props.styles}>
                {data}
             </span>
          {props.selfContained ?
-            <label className={styles.footer} title={props.field.label}>
+            <label className={styles.footer} title={props.noTitle ? undefined : props.field.label}>
                {props.field.label}
             </label>
             :
@@ -36,5 +37,6 @@ RowKey.propTypes = {
       hoursOffset: PropTypes.number,
       method: PropTypes.func
    }).isRequired,
+   noTitle: PropTypes.bool
 
 }

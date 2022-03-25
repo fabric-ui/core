@@ -5,50 +5,89 @@ import Button from "../button/Button";
 import shared from './styles/Form.module.css'
 import ToolTip from "../../feedback/tooltip/ToolTip";
 import useLocale from "../../misc/hooks/useLocale";
+import Accordion from "../../navigation/accordion/Accordion";
+import AccordionSummary from "../../navigation/accordion/AccordionSummary";
 
 export default function FormRow(props) {
-    useEffect(() => {
-        setIndex(Array.prototype.indexOf.call(ref.current.parentNode.children, ref.current) + 1)
-    }, [])
-    const children = React.Children.toArray(props.children)
-    const completed = useMemo(() => {
-        let res = true
-        children.forEach(e => {
+   useEffect(() => {
+      setIndex(Array.prototype.indexOf.call(ref.current.parentNode.children, ref.current) + 1)
+   }, [])
+   const checkEl = (dd, res, setRes) => {
+      const isText = typeof dd.props.value === 'string' ? (dd.props.value.length > 0) : true
+      setRes(res && (!dd.props.required || (dd.props.value !== undefined && dd.props.value !== null && isText && dd.props.required)))
+   }
 
-            const isText = typeof e.props.value === 'string' ? (e.props.value.length > 0) : true
-            res = res && (!e.props.required || (e.props.value !== undefined && e.props.value !== null && isText && e.props.required))
-        })
 
-        return res
-    }, [props.children])
+   const completed = useMemo(() => {
+      let res = true
+      React.Children.toArray(props.children).forEach(e => {
+         if (e.type === React.Fragment) {
+            const c = React.Children.toArray(e.props.children)
+            c.forEach(dd => checkEl(dd, res, (r) => res = r))
+         } else
+            checkEl(e, res, (r) => res = r)
 
-    const [open, setOpen] = useState(true)
-    const [index, setIndex] = useState()
-    const ref = useRef()
-    const translate = useLocale()
-    return (
-        <div className={styles.wrapper} ref={ref} data-completed={completed}>
-            <div className={styles.legendContent}>
-                <ToolTip content={!completed ? translate('not_completed')  :translate('complete')} justify={"start"} align={'middle'}/>
-                <div className={[styles.indicator, !completed ? styles.notCompleted : undefined].join(' ')}/>
-                <Button
-                    onClick={() => setOpen(!open)}
-                    highlight={!open}
-                    color={'secondary'}
-                    className={shared.buttonContainer}>
-                    <span
-                        style={{transform: open ? undefined : 'rotate(180deg)', transition: 'inherit'}}
-                        className="material-icons-round">arrow_drop_down</span>
+      })
 
-                </Button>
-                <h1 className={styles.legend}>{props.title ? props.title : (translate('step') + ' ' + index)}</h1>
-            </div>
-            {open ? props.children : null}
-        </div>
-    )
+      return res
+   }, [props.children])
+
+   const [index, setIndex] = useState()
+   const ref = useRef()
+   const translate = useLocale()
+   const groups = useMemo(() => {
+      return props.groups ? props.groups.split(' ').map(e => parseInt(e)) : []
+
+
+   }, [props.groups])
+
+   const childrenToRender = useMemo(() => {
+      const c = React.Children.toArray(props.children)
+      let res = [], currentIndex = 0
+      for (let i = 0; i < groups.length; i++) {
+         res[i] = c.slice(currentIndex, currentIndex + groups[i])
+
+         currentIndex += groups[i]
+      }
+
+      if (currentIndex < c.length) {
+         res[res.length] = c.slice(currentIndex, c.length)
+      }
+
+
+      return res
+   }, [props.children, groups])
+   return (
+
+      <Accordion reference={ref} attributes={{
+         'data-completed': `${completed}`
+      }}>
+         <AccordionSummary styles={{position: 'relative'}}>
+            <div className={styles.indicator} style={{background: completed ? '#0095ff' : '#ff5555'}}/>
+            <ToolTip content={!completed ? translate('not_completed') : translate('complete')} justify={"start"}
+                     align={'middle'}/>
+            {props.title ? props.title : (translate('step') + ' ' + index)}
+         </AccordionSummary>
+         <div className={styles.wrapper} style={{rowGap: props.rowGap}}>
+            {childrenToRender.map((g, i) => (
+               <div className={styles.group} key={i + '-form-group-' + index} style={{columnGap: props.columnGap}}>
+                  {g.map((child, ind) => (
+                     <React.Fragment key={i + '-form-group-' + index + '-input-' + ind}>
+                        {child}
+                     </React.Fragment>
+                  ))}
+               </div>
+            ))}
+         </div>
+      </Accordion>
+   )
 }
 
 FormRow.propTypes = {
-    children: PropTypes.node,
-    title: PropTypes.string,
+   rowGap: PropTypes.string,
+   columnGap: PropTypes.string,
+
+   groups: PropTypes.string,
+   children: PropTypes.node,
+   title: PropTypes.string,
 }

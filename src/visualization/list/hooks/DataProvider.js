@@ -2,5 +2,6 @@ import React from 'react'
 export default React.createContext({
    data: [],
    keys: [],
-   currentSort: []
+   currentSort: [],
+   notValid: true
 })

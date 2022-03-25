@@ -12,18 +12,20 @@ export default function DataRow(props) {
       selfContained
    } = useMemo(() => {
       return {
-         keys: context ? context.keys : props.keys,
-         data: context && typeof props.index === 'number' ? context.data[props.index] : props.object,
-         selfContained: context ? context.selfContained : props.selfContained,
+         keys: !context.notValid ? context.keys : props.keys,
+         data: !context.notValid && typeof props.index === 'number' ? context.data[props.index] : props.object,
+         selfContained: !context.notValid ? context.selfContained : props.selfContained,
       }
-   }, [context, props.index, props.keys, props.object])
+   }, [context, props.index, props.keys, props.object, props.selfContained])
 
    return (
       <div ref={props.reference} onClick={props.onClick} className={[styles.wrapper, props.className].join(' ')}
            style={props.styles}>
          {keys.map((k, i) => (
             <React.Fragment key={'key-' + k.key + '-' + i}>
-               <RowKey index={i} className={props.cellClassName} styles={props.cellStyles} field={k} object={data}
+               <RowKey
+                  noTitle={props.noTitle}
+                  index={i} className={props.cellClassName} styles={props.cellStyles} field={k} object={data}
                        selfContained={selfContained}/>
             </React.Fragment>
          ))}
@@ -49,5 +51,6 @@ DataRow.propTypes = {
       method: PropTypes.func
    })),
    onClick: PropTypes.func,
-   reference: PropTypes.any
+   reference: PropTypes.any,
+   noTitle: PropTypes.bool
 }

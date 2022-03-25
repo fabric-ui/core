@@ -13,11 +13,21 @@ export default function Accordion(props) {
   const [maxHeight, setMaxHeight] = useState(undefined)
 
   useEffect(() => {
-      setMaxHeight(ref.current.scrollHeight)
+      setMaxHeight((props.reference ? props.reference : ref).current.scrollHeight)
   }, [])
 
+   useEffect(() => {
+      if(props.attributes){
+         const r = props.reference ? props.reference : ref
+         Object.keys(props.attributes)
+            .forEach(a => {
+               r.current.setAttribute(a, props.attributes[a])
+            })
+      }
+   }, [props.attributes])
+
   return (
-    <div className={[styles.details, props.className].join(' ')} ref={ref} style={maxHeight ? {...(props.styles ? props.styles : {}), height: open  ? maxHeight + 'px' : '38px'} : undefined} >
+    <div className={[styles.details, props.className].join(' ')} ref={props.reference ? props.reference : ref} style={maxHeight ? {...(props.styles ? props.styles : {}), height: open  ? maxHeight + 'px' : '38px'} : undefined} >
       <Button
         onClick={() => setOpen(!open)}
         className={[styles.summary, summary?.props.className].join(' ')}
@@ -33,6 +43,8 @@ export default function Accordion(props) {
 
 }
 Accordion.propTypes = {
+   attributes: PropTypes.object,
+   reference: PropTypes.object,
    className: PropTypes.string,
    styles: PropTypes.object,
   children: PropTypes.node

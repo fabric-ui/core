@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types'
-import React from "react";
+import React, {useMemo} from "react";
 import styles from './styles/Vertical.module.css'
 import Switcher from "../switcher/Switcher";
 import Row from "./components/Row";
 
 export default function VerticalTabs(props) {
-    const children = React.Children.toArray(props.children)
-    const groups = [...new Set(children.map(item => item.props.group))]
+   const children = React.Children.toArray(props.children)
+    const groups = useMemo(() => {
+
+       return [...new Set(children.map(item => item.props.group))]
+    }, [props.children])
 
     return (
         <div className={[props.className, styles.wrapper].join(' ')} style={{...props.styles, ...{position: 'relative'}}}>

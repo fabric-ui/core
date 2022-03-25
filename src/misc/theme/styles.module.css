@@ -14,12 +14,12 @@
     --fabric-color-quaternary: #777777;
     --fabric-color-quinary: #999999;
     --fabric-color-senary: white;
-
+   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
    --fabric-boxshadow: rgba(0, 0, 0, .1) 2px 4px 10px 2px;
 }
 
 .dark {
-
+   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
    --fabric-accent-color: #0095ff;
     --fabric-background-primary: #303030;
     --fabric-background-secondary: #2b2b2b;

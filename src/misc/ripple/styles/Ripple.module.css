@@ -18,7 +18,8 @@
     left: var(--x);
     top: var(--y);
 
-    animation: rippleAnim 1s ease-in forwards;
+
+    animation: rippleAnim 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes rippleAnim {
@@ -27,8 +28,11 @@
         width: 0;
         height: 0;
     }
+      10%{
+         opacity: var(--opacity) ;
+      }
     50% {
-        opacity: var(--opacity);
+       opacity: 0;
         width: calc(var(--size) * 2);
         height: calc(var(--size) * 2);
     }
