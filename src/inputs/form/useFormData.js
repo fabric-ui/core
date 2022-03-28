@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 
-export default function useData(initialData) {
+export default function useFormData(initialData) {
     const [changed, setChanged] = useState(false)
     const [data, setData] = useState(initialData === undefined || initialData === null ? {} : initialData)
     const handleChange = ({event, key}) => {
