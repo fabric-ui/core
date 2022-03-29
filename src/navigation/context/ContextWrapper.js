@@ -1,10 +1,9 @@
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import PropTypes from "prop-types";
 import styles from './styles/Context.module.css'
-import Button from "../../inputs/button/Button";
 
 
-export default function ContextMenu(props) {
+export default function ContextWrapper(props) {
    const ref = useRef()
    const contextRef = useRef()
    const [selected, setSelected] = useState()
@@ -70,20 +69,27 @@ export default function ContextMenu(props) {
          })
       }
 
-         document.addEventListener('mousedown', handleMouseDown)
-         ref.current?.parentNode.addEventListener('contextmenu', handleContext)
+      document.addEventListener('mousedown', handleMouseDown)
+      ref.current?.parentNode.addEventListener('contextmenu', handleContext)
 
       return () => {
          document.removeEventListener('mousedown', handleMouseDown)
          ref.current?.parentNode.removeEventListener('contextmenu', handleContext)
       }
-   }, [props.attributes,   selected])
+   }, [props.attributes, selected])
 
 
    return (
       <>
-         <div className={[styles.wrapper, props.wrapperClassName].join(' ')} style={props.wrapperStyles} ref={contextRef}>
-            {props.content(selected)}
+         <div className={[styles.wrapper, props.wrapperClassName].join(' ')} style={props.wrapperStyles}
+              ref={contextRef}>
+            {props.content(selected, () => {
+               if (selected) {
+                  setSelected(undefined)
+                  if (contextRef.current)
+                     contextRef.current.style.zIndex = '-1'
+               }
+            })}
          </div>
          <div className={props.className} data-self={'true'} style={props.styles} ref={ref}>
             {props.children}
@@ -92,7 +98,7 @@ export default function ContextMenu(props) {
    )
 }
 
-ContextWrappe.propTypes = {
+ContextWrapper.propTypes = {
    onContext: PropTypes.func,
    onContextOut: PropTypes.func,
 

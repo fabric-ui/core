@@ -49,9 +49,10 @@ import DataProvider from './visualization/list/hooks/DataProvider'
 import useListData from './visualization/list/hooks/useListData'
 import useFormData from './inputs/form/useFormData'
 import EmbeddedForm from './inputs/form/EmbeddedForm'
-
+import ContextWrapper from './navigation/context/ContextWrapper'
 
 export {
+   ContextWrapper,
    DataProvider,
    useListData,
    List,
