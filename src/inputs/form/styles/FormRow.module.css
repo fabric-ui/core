@@ -16,7 +16,7 @@
    width: 100%;
    gap: 4px;
 
-   align-items: flex-end;
+   align-items: flex-start;
 }
 
 .indicator{

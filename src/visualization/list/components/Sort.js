@@ -1,6 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styles from '../styles/Sort.module.css'
-import {useContext} from "react";
 import DataProvider from "../hooks/DataProvider";
 import {Button} from "@f-ui/core";
 

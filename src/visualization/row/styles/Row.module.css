@@ -21,7 +21,7 @@
    font-weight: bold;
    color: var(--fabric-color-tertiary);
 
-   font-family: 'Roboto';
+   cursor: inherit;
    width: 100%;
 
    display: grid;
@@ -29,6 +29,7 @@
 }
 
 .footer {
+   cursor: inherit;
    font-size: .7rem;
    font-weight: normal;
    color: var(--fabric-color-secondary);
@@ -43,7 +44,6 @@
    max-width: 100%;
    overflow: hidden;
    text-overflow: ellipsis;
-   /*transform: translateX(0);*/
-   /*transition: 1s;*/
+   cursor: inherit;
 }
 

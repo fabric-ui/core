@@ -91,6 +91,7 @@ height: 35px;
    padding-bottom: 100px;
    display: grid;
    gap: 8px;
+   overflow: hidden;
 }
 
 .buttons {

@@ -10,7 +10,6 @@ import SelectField from "../select/SelectField";
 import Form from "./Form";
 
 function Input(props) {
-   console.log(props)
    return useMemo(() => {
       switch (props.type) {
          case "file":

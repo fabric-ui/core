@@ -44,10 +44,19 @@ DataRow.propTypes = {
    selfContained: PropTypes.bool,
    object: PropTypes.object,
    keys: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string,
+
       key: PropTypes.string.isRequired,
-      type: PropTypes.oneOf(['number', 'string', 'bool', 'date']),
+      label: PropTypes.string.isRequired,
+      type: PropTypes.oneOf(['string', 'number', 'object', 'date', 'bool', 'array']),
+      getColor: PropTypes.func,
+      subfieldKey: PropTypes.string,
+      visible: PropTypes.bool,
+      maskStart: PropTypes.any,
+      maskEnd: PropTypes.any,
+      subType:  PropTypes.oneOf(['string', 'number', 'object', 'date', 'bool']),
       hoursOffset: PropTypes.number,
+
+
       method: PropTypes.func
    })),
    onClick: PropTypes.func,

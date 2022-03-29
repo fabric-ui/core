@@ -1,9 +1,7 @@
 import stylesClass from './styles/List.module.css'
-import Filter from "./components/Filter";
 import PropTypes from 'prop-types'
 import useListData from "./hooks/useListData";
 import React from "react";
-import {DataRow} from "../../index";
 import DataProvider from "./hooks/DataProvider";
 
 export default function List(props) {

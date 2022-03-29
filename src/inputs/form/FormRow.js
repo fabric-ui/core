@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types'
 import styles from "./styles/FormRow.module.css";
 import React, {useEffect, useMemo, useRef, useState} from "react";
-import Button from "../button/Button";
-import shared from './styles/Form.module.css'
 import ToolTip from "../../feedback/tooltip/ToolTip";
 import useLocale from "../../misc/hooks/useLocale";
 import Accordion from "../../navigation/accordion/Accordion";
@@ -59,7 +57,9 @@ export default function FormRow(props) {
    }, [props.children, groups])
    return (
 
-      <Accordion reference={ref} attributes={{
+      <Accordion reference={ref}
+                 styles={{   overflow:' visible'}}
+                 attributes={{
          'data-completed': `${completed}`
       }}>
          <AccordionSummary styles={{position: 'relative'}}>

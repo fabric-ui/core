@@ -23,6 +23,12 @@ export default function useField(field, entity,method, setColor) {
                         dateObj = addHours(field.hoursOffset, dateObj)
                     return (field.maskStart ? field.maskStart : '') + dateObj.toLocaleDateString() +(field.maskEnd ? field.maskEnd : '')
                 }
+               case 'object': {
+                  if (entity[field.key] !== null || (entity[field.key] !== null && entity[field.key][field.subfieldKey] === undefined))
+                     return (field.maskStart ? field.maskStart : '') + (entity[field.key][field.subfieldKey]) + (field.maskEnd ? field.maskEnd : '')
+                  else
+                     return field.fallback
+               }
                 default:
                     return entity[field.key]
             }

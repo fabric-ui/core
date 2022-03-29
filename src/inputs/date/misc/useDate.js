@@ -66,7 +66,7 @@ export default function useDate(value, pattern, hoursOffset) {
     const [initialized, setInitialized] = useState(false)
     const [changed, setChanged] = useState(false)
     const parseDate = (day, month, year) => {
-        return pattern.replace('dd', day < 10 ? '0' + day : day).replace('mm', month < 10 ? '0' + month : month).replace('yyyy', year)
+        return pattern.replace('dd', day < 10 ? '0' + day : day).replace('mm', month < 10 ? '0' + month : month).replace('yyyy', year).replaceAll('_', '')
     }
     useEffect(() => {
         const timestamp = Date.parse(value);

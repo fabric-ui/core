@@ -52,7 +52,7 @@ export default function FileField(props) {
                styles={{
                   height: props.height ? props.height : '45px',
                   overflow: "hidden", maxWidth: 'unset', marginTop: 'unset'
-               }} color={props.colorVariant === 'secondary' ? 'secondary' : 'primary'}
+               }}
                className={[styles.button, shared.labelContainer].join(' ')}
                onClick={() => setOpenModal(true)}
             >

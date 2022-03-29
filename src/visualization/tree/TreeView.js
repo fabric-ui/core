@@ -1,7 +1,6 @@
-import React from 'react'
+import React, {useLayoutEffect, useState} from 'react'
 import PropTypes from "prop-types";
 import styles from './styles/TreeView.module.css'
-import {useEffect, useLayoutEffect, useMemo, useRef, useState} from "react";
 import {v4} from 'uuid';
 import Node from "./utils/Node";
 
