@@ -57,10 +57,15 @@ export default function ToolTip(props) {
    }
 
    useEffect(() => {
-      if (!mountingPoint.current) {
+      console.log()
+      const m = document.getElementById('tooltip-mounting-point')
+      if (!mountingPoint.current && !m) {
          mountingPoint.current = document.createElement("div")
+         mountingPoint.current.setAttribute('id', 'tooltip-mounting-point')
+
          document.body.appendChild(mountingPoint.current)
-      }
+      }else
+         mountingPoint.current = m
       ref.current?.parentNode.addEventListener('mouseenter', hover)
 
       return () => ref.current?.parentNode.removeEventListener('mouseenter', hover)

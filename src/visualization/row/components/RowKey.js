@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import useField from "../hooks/useField";
 import styles from '../styles/Row.module.css'
 import React, {useState} from 'react'
+import {ToolTip} from "../../../index";
 
 export default function RowKey(props) {
    const [color, setColor] = useState()
@@ -9,7 +10,15 @@ export default function RowKey(props) {
 
    return (
       <div className={styles.row} style={{color: color}}>
-            <span title={props.noTitle ? undefined : data} className={[styles.cell, props.className].join(' ')} style={props.styles}>
+         <ToolTip>
+            <div>
+               {data}
+            </div>
+            <label className={styles.footer} style={{color: 'inherit'}}>
+               {props.field.label}
+            </label>
+         </ToolTip>
+            <span className={[styles.cell, props.className].join(' ')} style={props.styles}>
                {data}
             </span>
          {props.selfContained ?
