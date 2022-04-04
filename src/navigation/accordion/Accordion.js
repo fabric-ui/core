@@ -5,19 +5,27 @@ import AccordionSummary from "./AccordionSummary";
 import Button from "../../inputs/button/Button";
 
 export default function Accordion(props) {
-  const summary = React.Children.toArray(props.children).find(e => e.type === AccordionSummary)
-  const content = React.Children.toArray(props.children).filter(e => e.type !== AccordionSummary)
-  const ref = useRef()
+   const summary = React.Children.toArray(props.children).find(e => e.type === AccordionSummary)
+   const content = React.Children.toArray(props.children).filter(e => e.type !== AccordionSummary)
+   const ref = useRef()
 
-  const [open, setOpen] = useState(true)
-  const [maxHeight, setMaxHeight] = useState(undefined)
-
-  useEffect(() => {
-      setMaxHeight((props.reference ? props.reference : ref).current.scrollHeight)
-  }, [])
+   const [open, setOpen] = useState(true)
+   const [maxHeight, setMaxHeight] = useState(undefined)
 
    useEffect(() => {
-      if(props.attributes){
+      const resize = new MutationObserver(() => {
+         setMaxHeight((props.reference ? props.reference : ref).current.scrollHeight)
+      })
+      resize.observe((props.reference ? props.reference : ref).current, {
+         childList: true
+      })
+      return () => {
+         resize.disconnect()
+      }
+   }, [])
+
+   useEffect(() => {
+      if (props.attributes) {
          const r = props.reference ? props.reference : ref
          Object.keys(props.attributes)
             .forEach(a => {
@@ -26,26 +34,35 @@ export default function Accordion(props) {
       }
    }, [props.attributes])
 
-  return (
-    <div className={[styles.details, props.className].join(' ')} ref={props.reference ? props.reference : ref} style={maxHeight ? {...(props.styles ? props.styles : {}), height: open  ? maxHeight + 'px' : '38px'} : undefined} >
-      <Button
-        onClick={() => setOpen(!open)}
-        className={[styles.summary, summary?.props.className].join(' ')}
-        styles={summary?.props.styles}
-      >
+   return (
+      <div className={[styles.details, props.className].join(' ')} ref={props.reference ? props.reference : ref}
+           style={maxHeight ? {
+              ...(props.styles ? props.styles : {}),
+              height: open ? maxHeight + 'px' : '38px'
+           } : undefined}>
+         <Button
+            onClick={() => setOpen(!open)}
+            className={[styles.summary, summary?.props.className].join(' ')}
+            styles={summary?.props.styles}
+         >
         <span style={{transform: !open ? 'rotate(-90deg)' : undefined, fontSize: '1.25rem', transition: '150ms linear'}}
               className={'material-icons-round'}>expand_more</span>
-        {summary}
-      </Button>
-      {open ? content : null}
-    </div>
-  )
+            {summary}
+         </Button>
+         <div className={props.contentClassName}
+              style={{...{display: open ? undefined : 'none'}, ...props.contentStyles}}>
+            {content}
+         </div>
+      </div>
+   )
 
 }
 Accordion.propTypes = {
+   contentClassName: PropTypes.string,
+   contentStyles: PropTypes.object,
    attributes: PropTypes.object,
    reference: PropTypes.object,
    className: PropTypes.string,
    styles: PropTypes.object,
-  children: PropTypes.node
+   children: PropTypes.node
 }

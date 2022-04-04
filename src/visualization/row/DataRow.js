@@ -47,13 +47,16 @@ DataRow.propTypes = {
 
       key: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
-      type: PropTypes.oneOf(['string', 'number', 'object', 'date', 'bool', 'array']),
-      getColor: PropTypes.func,
+      type: PropTypes.oneOf(['string', 'number', 'object', 'date', 'bool']),
       subfieldKey: PropTypes.string,
+      subType: PropTypes.oneOf(['number', 'string', 'bool', 'date', 'object']),
+
+      getColor: PropTypes.func,
+
       visible: PropTypes.bool,
       maskStart: PropTypes.any,
       maskEnd: PropTypes.any,
-      subType:  PropTypes.oneOf(['string', 'number', 'object', 'date', 'bool']),
+
       hoursOffset: PropTypes.number,
 
 

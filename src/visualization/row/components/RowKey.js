@@ -42,7 +42,9 @@ RowKey.propTypes = {
    field: PropTypes.shape({
       label: PropTypes.string,
       key: PropTypes.string.isRequired,
-      type: PropTypes.oneOf(['number', 'string', 'bool', 'date']).isRequired,
+      type: PropTypes.oneOf(['number', 'string', 'bool', 'date', 'object']).isRequired,
+      subfieldKey: PropTypes.string,
+      subType: PropTypes.oneOf(['number', 'string', 'bool', 'date', 'object']),
       hoursOffset: PropTypes.number,
       method: PropTypes.func
    }).isRequired,

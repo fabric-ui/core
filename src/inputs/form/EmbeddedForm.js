@@ -87,19 +87,21 @@ function Input(props) {
                label={props.label}
             />)
          case "check":
-            return (<Checkbox
-               {...props.customProps}
-               label={props.label}
-               width={props.width}
-               height={props.height}
-
-               checked={props.value}
-               disabled={props.disabled}
-               handleCheck={(f) => {
-                  props.handleChange({
-                     event: !f, key: props.fieldKey
-                  })
-               }}/>)
+            return (
+               <Checkbox
+                  {...props.customProps}
+                  label={props.label}
+                  width={props.width}
+                  height={props.height}
+                  required={props.required}
+                  checked={props.value}
+                  disabled={props.disabled}
+                  handleCheck={(f) => {
+                     props.handleChange({
+                        event: !f, key: props.fieldKey
+                     })
+                  }}/>
+            )
          default:
             return props.children
       }
@@ -129,16 +131,17 @@ Input.propTypes = {
 
 export default function EmbeddedForm(props) {
    return (<Form {...props}>
-         {(data, handleChange) => props.sections.map((section, sectionIndex) => (
-            <React.Fragment key={sectionIndex + '-section-input-row'}>
-               <FormRow rowGap={section.rowGap} title={section.title} groups={section.groups} columnGap={section.columnGap}>
-                  {section.inputs.map((input, inputIndex) => (
-                     <React.Fragment key={sectionIndex + '-section-input-row-' + inputIndex}>
-                        <Input {...input} fieldKey={input.key} value={data[input.key]} handleChange={handleChange}/>
-                     </React.Fragment>))}
-               </FormRow>
-            </React.Fragment>))}
-      </Form>)
+      {(data, handleChange) => props.sections.map((section, sectionIndex) => (
+         <React.Fragment key={sectionIndex + '-section-input-row'}>
+            <FormRow rowGap={section.rowGap} title={section.title} groups={section.groups}
+                     columnGap={section.columnGap}>
+               {section.inputs.map((input, inputIndex) => (
+                  <React.Fragment key={sectionIndex + '-section-input-row-' + inputIndex}>
+                     <Input {...input} fieldKey={input.key} value={data[input.key]} handleChange={handleChange}/>
+                  </React.Fragment>))}
+            </FormRow>
+         </React.Fragment>))}
+   </Form>)
 }
 
 

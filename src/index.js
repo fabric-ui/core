@@ -9,7 +9,6 @@ import MultiSelectField from './inputs/multiselect/MultiSelectField'
 import TextField from './inputs/text/TextField'
 import Button from './inputs/button/Button'
 import Checkbox from './inputs/checkbox/Checkbox'
-import CheckboxGroup from './inputs/checkbox/CheckboxGroup'
 import FileField from './inputs/file/FileField'
 import ThemeContext from './misc/context/ThemeContext'
 import Fabric from './misc/theme/Fabric'
@@ -72,7 +71,7 @@ export {
    Form, FormRow,
    SelectField, MultiSelectField,
    TextField, Button,
-   Checkbox, CheckboxGroup,
+   Checkbox,
    FileField, ThemeContext,
 
    Fabric, Ripple,

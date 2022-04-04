@@ -12,7 +12,7 @@ export default function FormRow(props) {
    }, [])
    const checkEl = (dd, res, setRes) => {
       const isText = typeof dd.props.value === 'string' ? (dd.props.value.length > 0) : true
-      setRes(res && (!dd.props.required || (dd.props.value !== undefined && dd.props.value !== null && isText && dd.props.required)))
+      setRes(res && (!dd.props.required || ((dd.props.value !== undefined && dd.props.value !== null || typeof dd.props.checked === "boolean") && isText && dd.props.required)))
    }
 
 
