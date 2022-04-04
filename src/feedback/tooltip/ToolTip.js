@@ -70,10 +70,8 @@ export default function ToolTip(props) {
    useEffect(() => {
       return () => {
          try {
-            ReactDOM.unmountComponentAtNode(
-               mountingPoint.current
-            )
-            document.body.removeChild(mountingPoint.current)
+            if(mountingPoint.current)
+               try{ReactDOM.unmountComponentAtNode(mountingPoint.current)}catch(e){}
          } catch (e) {
          }
       }
