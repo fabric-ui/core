@@ -67,7 +67,7 @@ Modal.propTypes = {
 
     wrapperClassName: PropTypes.string,
     variant: PropTypes.oneOf(['fill', 'fit']),
-    animationStyle: PropTypes.oneOf(['slide-left', 'slide-right', 'fade', 'slide-bottom']),
+    animationStyle: PropTypes.oneOf(['slide-left', 'slide-right', 'fade-scale', 'fade', 'slide-bottom']),
     className: PropTypes.string,
     blurIntensity: PropTypes.any,
     styles: PropTypes.object,

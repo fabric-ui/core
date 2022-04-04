@@ -9,7 +9,7 @@ export default function Header(props) {
 
     return (
         <div className={styles.header} style={{boxShadow: props.scrolled ? undefined : 'none'}}>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingLeft: props.returnButton ? undefined : '4px'}}>
                 <div className={styles.headerContent}>
                     <Button className={styles.buttonContainer}
                             styles={{display: props.returnButton ? undefined : 'none'}}

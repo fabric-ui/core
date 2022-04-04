@@ -1,138 +1,170 @@
 
-
 .wrapper {
-    /*overflow: hidden;*/
-    position: fixed;
-    z-index: 300;
-    transition: opacity 150ms ease-in-out;
-    bottom: 0;
+   /*overflow: hidden;*/
+   position: fixed;
+   z-index: 300;
+   transition: opacity 150ms ease-in;
+   bottom: 0;
 }
 
 .fitContent {
-    height: fit-content;
-    width: fit-content;
+   height: fit-content;
+   width: fit-content;
 }
 
 .fitPage {
-    height: 100vh;
-    width: 100vw;
+   height: 100vh;
+   width: 100vw;
 }
 
 .modalContainer {
-    width: 100%;
-    height: 100%;
+   width: 100%;
+   height: 100%;
 }
-
 
 
 @keyframes fadeOutAnim {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+   0% {
+      opacity: 1;
+
+   }
+   100% {
+
+      opacity: 0;
+   }
 }
 
 @keyframes fadeInAnim {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+   0% {
+      opacity: 0;
+
+   }
+   100% {
+
+      opacity: 1;
+   }
+}
+@keyframes fadeOutScaleAnim {
+   0% {
+      opacity: 1;
+      transform: scale(1);
+   }
+   100% {
+      transform: scale(.5);
+      opacity: 0;
+   }
 }
 
+@keyframes fadeInScaleAnim {
+   0% {
+      opacity: 0;
+      transform: scale(.5);
+   }
+   100% {
+      transform: scale(1);
+      opacity: 1;
+   }
+}
+.enterFadeScale {
+   transform-origin: center;
+   animation: fadeInScaleAnim ease-in 150ms forwards;
+}
+
+.exitFadeScale {
+   transform-origin: center;
+   animation: fadeOutScaleAnim ease-in 150ms forwards;
+}
 
 .enterFade {
-    animation: fadeInAnim ease-in-out 150ms forwards;
+   animation: fadeInAnim ease-in 150ms forwards;
 }
 
 .exitFade {
-    animation: fadeOutAnim ease-in-out 150ms forwards;
+   animation: fadeOutAnim ease-in 150ms forwards;
 }
 
 
 .slideLeftEnter {
-    animation: slideLeftEnterAnim ease-in-out 150ms;
+   animation: slideLeftEnterAnim ease-in 150ms;
 }
 
 .slideLeftExit {
-    animation: slideLeftExitAnim ease-in-out 150ms;
+   animation: slideLeftExitAnim ease-in 150ms;
 }
 
 .slideRightEnter {
-    animation: slideRightEnterAnim ease-in-out 150ms;
+   animation: slideRightEnterAnim ease-in 150ms;
 }
 
 .slideRightExit {
-    animation: slideRightExitAnim ease-in-out 150ms;
+   animation: slideRightExitAnim ease-in 150ms;
 }
 
 @keyframes slideLeftEnterAnim {
-    0% {
-        transform: translateX(-100%);
+   0% {
+      transform: translateX(-100%);
 
-    }
-    100% {
-        transform: translateX(0);
-    }
+   }
+   100% {
+      transform: translateX(0);
+   }
 }
 
 @keyframes slideLeftExitAnim {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+   0% {
+      transform: translateX(0);
+   }
+   100% {
+      transform: translateX(-100%);
+   }
 }
 
 @keyframes slideRightEnterAnim {
-    0% {
-        transform: translateX(100%);
+   0% {
+      transform: translateX(100%);
 
-    }
-    100% {
-        transform: translateX(0);
-    }
+   }
+   100% {
+      transform: translateX(0);
+   }
 }
 
 @keyframes slideRightExitAnim {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(100%);
-    }
+   0% {
+      transform: translateX(0);
+   }
+   100% {
+      transform: translateX(100%);
+   }
 }
 
 .background {
-    background-color: var(--fabric-background-primary);
+   background-color: var(--fabric-background-primary);
 }
 
-.slideBottomEnter{
-    animation: slideBottomEnterAnim ease-in-out 150ms;
+.slideBottomEnter {
+   animation: slideBottomEnterAnim ease-in 150ms;
 }
-.slideBottomExit{
-    animation: slideBottomExitAnim ease-in-out 150ms;
+
+.slideBottomExit {
+   animation: slideBottomExitAnim ease-in 150ms;
 }
 
 @keyframes slideBottomEnterAnim {
-    0% {
-        transform: translateY(100%);
+   0% {
+      transform: translateY(100%);
 
-    }
-    100% {
-        transform: translateY(0);
-    }
+   }
+   100% {
+      transform: translateY(0);
+   }
 }
 
 @keyframes slideBottomExitAnim {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(100%);
-    }
+   0% {
+      transform: translateY(0);
+   }
+   100% {
+      transform: translateY(100%);
+   }
 }

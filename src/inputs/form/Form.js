@@ -13,7 +13,6 @@ export default function Form(props) {
         let completed = true
 
         childNodes.forEach((e) => {
-           console.log(e)
             completed = completed && JSON.parse(e.getAttribute('data-completed'))
         })
 

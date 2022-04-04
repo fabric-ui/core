@@ -47,17 +47,14 @@ export default function ToolTip(props) {
          document.addEventListener('mousemove', handleMouseMove)
 
          ref.current?.parentNode.addEventListener('mouseleave', () => {
-
             document.removeEventListener('mousemove', handleMouseMove)
-            ReactDOM.unmountComponentAtNode(
-               mountingPoint.current
-            )
+            if(mountingPoint.current)
+               try{ReactDOM.unmountComponentAtNode(mountingPoint.current)}catch(e){}
          }, {once: true})
       }
    }
 
    useEffect(() => {
-      console.log()
       const m = document.getElementById('tooltip-mounting-point')
       if (!mountingPoint.current && !m) {
          mountingPoint.current = document.createElement("div")

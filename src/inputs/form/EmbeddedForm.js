@@ -89,6 +89,7 @@ function Input(props) {
          case "check":
             return (
                <Checkbox
+
                   {...props.customProps}
                   label={props.label}
                   width={props.width}
