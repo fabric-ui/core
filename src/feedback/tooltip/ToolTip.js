@@ -18,24 +18,27 @@ export default function ToolTip(props) {
    )
    const ref = useRef()
    const mountingPoint = useRef();
+
    const handleMouseMove = (event) => {
+      const bBox = mountingPoint.current?.getBoundingClientRect()
 
       mountingPoint.current.style.left = (event.clientX + 10) + 'px'
       mountingPoint.current.style.top = (event.clientY + 10) + 'px'
 
       let transform = {x: '0px', y: '0px'}
-      if ((event.clientX + 10 + mountingPoint.current?.offsetWidth) > document.body.offsetWidth)
+      if ((event.clientX + 10 + bBox.width) > document.body.offsetWidth)
          transform.x = 'calc(-100% - 10px)'
-      if ((event.clientY + 10 + mountingPoint.current?.offsetHeight) > document.body.offsetHeight)
+      if ((event.clientY + 10 + bBox.height) > document.body.offsetHeight)
          transform.y = 'calc(-100% - 10px)'
 
       mountingPoint.current.style.transform = `translate(${transform.x}, ${transform.y})`
    }
    const hover = (event) => {
-      mountingPoint.current.style.position = 'fixed'
-      mountingPoint.current.style.zIndex = '999'
+
 
       if (ref.current?.parentNode) {
+         mountingPoint.current.style.position = 'fixed'
+         mountingPoint.current.style.zIndex = '999'
          ReactDOM.render(
             toolTip,
             mountingPoint.current
@@ -43,14 +46,8 @@ export default function ToolTip(props) {
          mountingPoint.current.style.left = (event.clientX + 10) + 'px'
          mountingPoint.current.style.top = (event.clientY + 10) + 'px'
 
-
          document.addEventListener('mousemove', handleMouseMove)
-
-         ref.current?.parentNode.addEventListener('mouseleave', () => {
-            document.removeEventListener('mousemove', handleMouseMove)
-            if(mountingPoint.current)
-               try{ReactDOM.unmountComponentAtNode(mountingPoint.current)}catch(e){}
-         }, {once: true})
+         ref.current?.parentNode.addEventListener('mouseleave', () => onExit(), {once: true})
       }
    }
 
@@ -60,21 +57,33 @@ export default function ToolTip(props) {
          mountingPoint.current = document.createElement("div")
          mountingPoint.current.setAttribute('id', 'tooltip-mounting-point')
 
+
          document.body.appendChild(mountingPoint.current)
-      }else
+      } else
          mountingPoint.current = m
       ref.current?.parentNode.addEventListener('mouseenter', hover)
 
-      return () => ref.current?.parentNode.removeEventListener('mouseenter', hover)
-   }, [props.children, props.content])
-   useEffect(() => {
       return () => {
-         try {
-            if(mountingPoint.current)
-               try{ReactDOM.unmountComponentAtNode(mountingPoint.current)}catch(e){}
-         } catch (e) {
-         }
+         ref.current?.parentNode.removeEventListener('mouseenter', hover)
+         document.removeEventListener('mousemove', handleMouseMove)
       }
+   }, [])
+
+   const onExit = () => {
+      try {
+         ref.current?.parentNode.removeEventListener('mouseenter', hover)
+         document.removeEventListener('mousemove', handleMouseMove)
+         if (mountingPoint.current)
+            try {
+               ReactDOM.unmountComponentAtNode(mountingPoint.current)
+            } catch (e) {
+            }
+      } catch (e) {
+      }
+   }
+
+   useEffect(() => {
+      return () => onExit()
    }, [])
 
    return <div ref={ref} style={{display: 'none'}}/>

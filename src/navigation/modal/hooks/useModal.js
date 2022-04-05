@@ -35,13 +35,7 @@ export default function useModal({animationStyle, variant}) {
             }
             break
          }
-         case 'fade-scale': {
-            anim = {
-               enter: styles.enterFadeScale,
-               exit: styles.exitFadeScale,
-            }
-            break
-         }
+
          default:
             break
 
@@ -82,18 +76,16 @@ export default function useModal({animationStyle, variant}) {
       }
    }, [])
    const getParentPosition = () => {
-      if (variant === 'fit') {
-         const bBox = source.current?.parentNode?.getBoundingClientRect()
-         if (bBox)
-            return {
-               top: (bBox.top + bBox.height / 2) + 'px',
-               left: (bBox.left + bBox.width / 2) + 'px',
-               transform: 'translate(-50%, -50%)'
-            }
-         else
-            return {}
+      const bBox = source.current?.parentNode?.getBoundingClientRect()
+
+      if (bBox && variant === 'fit') {
+         return {
+            top: (bBox.top + bBox.height / 2) + 'px',
+            left: (bBox.left + bBox.width / 2) + 'px',
+            transform: 'translate(-50%, -50%)'
+         }
       } else
          return {}
    }
-   return {animations: animation, renderContent, animate, unmountContent, target, source, getParentPosition}
+   return {animations: animation, renderContent, animate, unmountContent, target, source, getParentPosition, mountingPoint}
 }

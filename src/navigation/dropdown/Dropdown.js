@@ -18,18 +18,18 @@ export default function Dropdown(props) {
             offY = props.offsetY ? props.offsetY : 4
          let y = `calc(50% + ${button.height / 2}px)`, x = 0
          if (bBox.y < 0)
-            y = 'calc(50% + '+((-bBox.y + offY + button.height)/2) + 'px)'
+            y = 'calc(50% + ' + ((-bBox.y + offY + button.height) / 2) + 'px)'
 
          if (bBox.x < 0)
             x = (-bBox.x + offX) + 'px'
 
 
          if ((bBox.y + bBox.height) > document.body.offsetHeight)
-            y =  (document.body.offsetHeight - (bBox.y + bBox.height) - offY - button.height) + 'px'
+            y = (document.body.offsetHeight - (bBox.y + bBox.height) - offY - button.height) + 'px'
 
          if ((bBox.x + bBox.width) > document.body.offsetWidth)
             x = (document.body.offsetWidth - (bBox.x + bBox.width) - offX) + 'px'
-
+         console.log(y)
 
          setTranslation(`translate(${x}, ${y})`)
       }
@@ -68,10 +68,15 @@ export default function Dropdown(props) {
                ...props.styles, ...{
                   display: props.hideArrow ? undefined : 'flex',
                   alignItems: props.hideArrow ? undefined : 'center',
-                  gap:  props.hideArrow ? undefined : '4px'
+                  gap: props.hideArrow ? undefined : '4px'
                }
             }}
-            variant={props.variant} color={props.color} onClick={() => setOpen(true)}
+            variant={props.variant} color={props.color}
+            onClick={() => {
+               if(props.onOpen)
+                  props.onOpen()
+               setOpen(true)
+            }}
             disabled={props.disabled}
             className={props.className}>
             {label.map(l => l)}
@@ -81,12 +86,15 @@ export default function Dropdown(props) {
             <Modal
                variant={"fit"}
                styles={{transform: translation}}
-               blurIntensity={0} className={[styles.buttons, props.wrapperClassname].join(' ')}
+               blurIntensity={0}
+               className={[styles.buttons, props.wrapperClassname].join(' ')}
                animationStyle={'fade'}
                open={open}
                handleClose={() => {
                   setOpen(false)
                   setTranslation('')
+                  if(props.onClose)
+                     props.onClose()
                }}>
                <div ref={modalRef}>
                   <DropdownProvider.Provider value={{
@@ -104,6 +112,9 @@ export default function Dropdown(props) {
 }
 
 Dropdown.propTypes = {
+   onOpen: PropTypes.func,
+   onClose: PropTypes.func,
+
    attributes: PropTypes.object,
    hideArrow: PropTypes.bool,
    wrapperClassname: PropTypes.string,
