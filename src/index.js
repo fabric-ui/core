@@ -31,8 +31,6 @@ import LoaderProvider from './feedback/loader/LoaderProvider'
 import ContextMenu from './navigation/context/ContextMenu'
 import AlertProvider from './feedback/alert/hooks/AlertProvider'
 
-import Navigation from './navigation/nav/Navigation'
-import NavigationGroup from './navigation/nav/NavigationGroup'
 
 import List from './visualization/list/List'
 import Sort from './visualization/list/components/Sort'
@@ -42,6 +40,7 @@ import useListData from './visualization/list/hooks/useListData'
 import useFormData from './inputs/form/useFormData'
 import EmbeddedForm from './inputs/form/EmbeddedForm'
 import ContextWrapper from './navigation/context/ContextWrapper'
+import Masonry from './visualization/masonry/Masonry'
 
 export {
    ContextWrapper,
@@ -53,7 +52,6 @@ export {
 
    useFormData,
    EmbeddedForm,
-   Navigation, NavigationGroup,
 
    AlertProvider, ContextMenu,
    Loader, LoaderProvider,
@@ -72,6 +70,7 @@ export {
    VerticalTabs, Modal,
    Breadcrumbs, Dropdown,
    DataRow, Switcher,
-   useInfiniteScroll
+   useInfiniteScroll,
+   Masonry
 }
 

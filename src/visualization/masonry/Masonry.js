@@ -5,7 +5,7 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 export default function Masonry(props) {
 
   const [quantityPerRow, setQuantityPerRow] = useState(0)
-  const resizeObs = useRef()
+
   const ref = useRef()
   const callback = () => {
     const q = Math.floor(ref.current?.offsetWidth / (props.maxCellWidth ? props.maxCellWidth : 250))
@@ -18,8 +18,10 @@ export default function Masonry(props) {
   }
 
   useEffect(() => {
-    resizeObs.current = new ResizeObserver(callback)
-    resizeObs.current.observe(ref.current)
+    const resize = new ResizeObserver(callback)
+    resize.observe(ref.current)
+
+    return () => resize.disconnect()
   }, [])
 
   const columns = useMemo(() => {
@@ -45,8 +47,8 @@ export default function Masonry(props) {
   return (
     <div className={props.className} style={props.styles}>
       <div ref={ref} className={styles.wrapper} style={{gap: props.gap}}>
-        {columns.map(column => (
-          <div className={styles.column} style={{gap: props.gap}}>
+        {columns.map((column, i) => (
+          <div className={styles.column} key={'masonry-column-'+i} style={{gap: props.gap}}>
             {column.map(row => row)}
           </div>
         ))}

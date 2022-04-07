@@ -14,13 +14,6 @@
     padding: 5px;
 
     max-width: 100%;
-    overflow: hidden;
+   border: none;
 }
 
-.button:hover {
-    border-color: var(--fabric-accent-color);
-}
-
-.button:disabled {
-    border-color: var(--fabric-border-primary);
-}

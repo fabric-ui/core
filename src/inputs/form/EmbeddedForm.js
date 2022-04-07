@@ -104,7 +104,7 @@ function Input(props) {
                   }}/>
             )
          default:
-            return props.children
+            return props.children ? props.children : null
       }
    }, [props])
 

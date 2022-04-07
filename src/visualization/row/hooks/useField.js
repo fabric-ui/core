@@ -1,6 +1,7 @@
 import React, {useMemo} from 'react'
 import {addHours} from "../../../inputs/date/misc/useDate";
 import useLocale from "../../../misc/hooks/useLocale";
+import styles from '../styles/Row.module.css'
 
 export default function useField(field, entity,method, setColor) {
     const translate = useLocale()
@@ -29,8 +30,12 @@ export default function useField(field, entity,method, setColor) {
                   else
                      return field.fallback
                }
+               case 'image':
+                  return <img className={styles.image} alt={field.label} src={entity[field.key]}/>
+
                 default:
                     return entity[field.key]
+
             }
         else if(!method)
             return translate('empty')

@@ -6,12 +6,11 @@
   width: 100%;
   color: var(--fabric-color-secondary);
 
-  transition: 150ms ease-in-out;
+
   overflow: hidden;
 
-  height: fit-content;
-  min-height: 38px;
-
+  min-height: 35px;
+   height: auto;
    max-width: 100%;
 }
 

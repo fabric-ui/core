@@ -10,19 +10,6 @@ export default function Accordion(props) {
    const ref = useRef()
 
    const [open, setOpen] = useState(true)
-   const [maxHeight, setMaxHeight] = useState(undefined)
-
-   useEffect(() => {
-      const resize = new MutationObserver(() => {
-         setMaxHeight((props.reference ? props.reference : ref).current.scrollHeight)
-      })
-      resize.observe((props.reference ? props.reference : ref).current, {
-         childList: true
-      })
-      return () => {
-         resize.disconnect()
-      }
-   }, [])
 
    useEffect(() => {
       if (props.attributes) {
@@ -36,10 +23,7 @@ export default function Accordion(props) {
 
    return (
       <div className={[styles.details, props.className].join(' ')} ref={props.reference ? props.reference : ref}
-           style={maxHeight ? {
-              ...(props.styles ? props.styles : {}),
-              height: open ? maxHeight + 'px' : '38px'
-           } : undefined}>
+           style={props.styles}>
          <Button
             onClick={() => setOpen(!open)}
             className={[styles.summary, summary?.props.className].join(' ')}
@@ -50,7 +34,10 @@ export default function Accordion(props) {
             {summary}
          </Button>
          <div className={props.contentClassName}
-              style={{...{display: open ? undefined : 'none'}, ...props.contentStyles}}>
+              onTransitionEnd={(e) => {
+                 e.currentTarget.style.maxHeight = e.currentTarget.getBoundingClientRect().height + 'px'
+              }}
+              style={{...{maxHeight: !open ? 0 : '100vh', transition: '150ms ease-in'}, ...props.contentStyles}}>
             {content}
          </div>
       </div>

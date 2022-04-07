@@ -25,7 +25,6 @@ export default function FileField(props) {
    return (
       <div style={{
          width: props.width,
-
          display: "grid",
          gap: '4px'
       }}>
@@ -51,23 +50,13 @@ export default function FileField(props) {
                highlight={openModal}
                styles={{
                   height: props.height ? props.height : '45px',
-                  overflow: "hidden", maxWidth: 'unset', marginTop: 'unset'
+                  maxWidth: 'unset', marginTop: 'unset'
                }}
                className={[styles.button, shared.labelContainer].join(' ')}
                onClick={() => setOpenModal(true)}
             >
-               <div
-                  className={shared.labelContainer}
-                  style={{
-                     alignItems: 'center',
-                     height: '100%',
-                     gap: '16px',
-                     display: 'flex',
-                     color: themes ? 'var(--fabric-color-primary)' : '#555555'
-                  }}
-               >
-                  {translate('upload_files')}
-
+               <div className={shared.labelContainer}>
+                  {props.placeholder}
                   {files.length > 0 ?
                      <div style={{
                         fontSize: '.7rem',
@@ -102,10 +91,12 @@ export default function FileField(props) {
             }
          </div>
 
-         <FileModal open={openModal} setOpen={setOpenModal} files={files} multiple={props.multiple}
-                    setFiles={props.handleChange}
-                    accept={props.acceptTypes && Array.isArray(props.acceptTypes) ? props.acceptTypes : []}
-                    handleFileRemoval={props.handleFileRemoval}/>
+         <FileModal
+            {...props}
+            open={openModal} setOpen={setOpenModal} files={files} multiple={props.multiple}
+            setFiles={props.handleChange}
+            accept={props.acceptTypes && Array.isArray(props.acceptTypes) ? props.acceptTypes : []}
+            handleFileRemoval={props.handleFileRemoval}/>
       </div>
    )
 }
@@ -113,14 +104,15 @@ export default function FileField(props) {
 FileField.propTypes = {
    helperText: PropTypes.string,
 
-   handleFileRemoval: PropTypes.func,
+   handleFileRemoval: PropTypes.func.isRequired,
    value: PropTypes.array,
    multiple: PropTypes.bool,
    acceptTypes: PropTypes.array,
-   handleChange: PropTypes.func,
+   handleChange: PropTypes.func.isRequired,
    label: PropTypes.string,
    width: PropTypes.string,
    required: PropTypes.bool,
    disabled: PropTypes.bool,
    height: PropTypes.string,
+   placeholder: PropTypes.string
 }

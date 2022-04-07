@@ -19,14 +19,19 @@ export default function DataRow(props) {
    }, [context, props.index, props.keys, props.object, props.selfContained])
 
    return (
-      <div ref={props.reference} onClick={props.onClick} className={[styles.wrapper, props.className].join(' ')}
-           style={props.styles}>
+      <div
+         ref={props.reference}
+         onClick={props.onClick}
+         data-card={`${props.asCard ? props.asCard : false}`}
+
+         className={[styles.wrapper, props.className].join(' ')}
+         style={props.styles}>
          {keys.map((k, i) => (
             <React.Fragment key={'key-' + k.key + '-' + i}>
                <RowKey
                   noTitle={props.noTitle}
                   index={i} className={props.cellClassName} styles={props.cellStyles} field={k} object={data}
-                       selfContained={selfContained}/>
+                  selfContained={selfContained}/>
             </React.Fragment>
          ))}
       </div>
@@ -37,7 +42,7 @@ DataRow.propTypes = {
    index: PropTypes.number,
    className: PropTypes.string,
    styles: PropTypes.object,
-
+asCard: PropTypes.bool,
    cellClassName: PropTypes.string,
    cellStyles: PropTypes.object,
 
@@ -47,20 +52,15 @@ DataRow.propTypes = {
 
       key: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
-      type: PropTypes.oneOf(['string', 'number', 'object', 'date', 'bool']),
+      type: PropTypes.oneOf(['string', 'number', 'object', 'date', 'bool', 'image']),
       subfieldKey: PropTypes.string,
-      subType: PropTypes.oneOf(['number', 'string', 'bool', 'date', 'object']),
-
-      getColor: PropTypes.func,
-
       visible: PropTypes.bool,
       maskStart: PropTypes.any,
       maskEnd: PropTypes.any,
-
       hoursOffset: PropTypes.number,
-
-
-      method: PropTypes.func
+      method: PropTypes.func,
+      additionalWidth: PropTypes.string,
+      onClick: PropTypes.func,
    })),
    onClick: PropTypes.func,
    reference: PropTypes.any,
