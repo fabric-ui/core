@@ -66,6 +66,7 @@ export default function DateField(props) {
       <div style={{position: 'relative', width: props.width, height: 'fit-content'}}>
          <TextField
             {...props}
+
             handleChange={e => {
                setChanged(true)
                props.handleChange(e.target.value)
@@ -154,5 +155,6 @@ DateField.propTypes = {
    required: PropTypes.bool,
    disabled: PropTypes.bool,
    size: PropTypes.oneOf(['small', 'default']),
-   pattern: PropTypes.oneOf(['yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy-dd-mm', 'yyyy/dd/mm', 'mm/dd/yyyy', 'mm-dd-yyyy', 'dd/mm/yyyy', 'dd-mm-yyyy'])
+   pattern: PropTypes.oneOf(['yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy-dd-mm', 'yyyy/dd/mm', 'mm/dd/yyyy', 'mm-dd-yyyy', 'dd/mm/yyyy', 'dd-mm-yyyy']),
+   onEnter: PropTypes.func
 }

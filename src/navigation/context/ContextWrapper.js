@@ -103,7 +103,7 @@ ContextWrapper.propTypes = {
    onContextOut: PropTypes.func,
 
    triggers: PropTypes.arrayOf(PropTypes.string),
-   content: PropTypes.node,
+   content: PropTypes.func,
    attributes: PropTypes.object,
 
    children: PropTypes.node,

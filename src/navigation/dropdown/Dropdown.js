@@ -29,7 +29,7 @@ export default function Dropdown(props) {
 
          if ((bBox.x + bBox.width) > document.body.offsetWidth)
             x = (document.body.offsetWidth - (bBox.x + bBox.width) - offX) + 'px'
-         console.log(y)
+
 
          setTranslation(`translate(${x}, ${y})`)
       }

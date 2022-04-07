@@ -27,11 +27,19 @@ export default function TextField(props) {
             {props.maskStart}
          </div>
          <input
+            onKeyDown={e => {
+               if(e.code === 'Enter' && props.onEnter)
+                  props.onEnter()
+            }}
             disabled={props.disabled} lang={''}
             placeholder={props.placeholder}
 
             type={props.type !== 'password' ? props.type : (!props.visible ? 'password' : 'text')}
             value={value} ref={ref}
+            onBlur={() => {
+               if(props.onBlur)
+                  props.onBlur()
+            }}
             className={styles.inputContainer}
             style={{
                height: props.height ? props.height : '45px',
@@ -71,6 +79,14 @@ export default function TextField(props) {
                      transition: 'border 150ms ease-in, background 150ms ease-in',
                      position: 'relative',
                      zIndex: 5
+                  }}
+                  onBlur={() => {
+                     if(props.onBlur)
+                     props.onBlur()
+                  }}
+                  onKeyDown={e => {
+                     if(e.code === 'Enter' && props.onEnter)
+                        props.onEnter()
                   }}
                   onChange={props.handleChange}
                   maxLength={props.maxLength}
@@ -170,6 +186,7 @@ export default function TextField(props) {
 TextField.propTypes = {
    noNumberIndicator: PropTypes.bool,
    helperText: PropTypes.string,
+   onBlur: PropTypes.func,
 
    width: PropTypes.string,
    placeholder: PropTypes.string,
