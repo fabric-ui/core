@@ -7,46 +7,50 @@ import Tab from "./Tab";
 import ToolTip from "../../feedback/tooltip/ToolTip";
 
 export default function Tabs(props) {
-    const children = React.Children.toArray(props.children).filter(e => e.type === Tab)
-    return (
-        <div className={props.className} style={props.styles}>
-            <div className={styles.header}>
-                <div className={styles.tabs}>
-                    {children.map((e, i) => (
-                        <React.Fragment key={i + '-button-header-tab'}>
-                            <Button
-                                variant={'minimal'}
-                                highlight={props.open === i}
+   const children = React.Children.toArray(props.children).filter(e => e.type === Tab)
+   return (
+      <div className={props.className} style={props.styles}>
+         <div className={[styles.header, props.headerClassName].join(' ')} style={props.headerStyles}>
 
-                                className={styles.button}
-                                onClick={() => {
-                                    props.setOpen(i)
-                                }}>
-                                {e.props.label}
-                                <ToolTip content={e.props.label}/>
-                            </Button>
-                        </React.Fragment>
-                    ))}
-                </div>
-            </div>
+            {children.map((e, i) => (
+               <React.Fragment key={i + '-button-header-tab'}>
+                  <Button
+                     variant={'minimal'}
+                     highlight={props.open === i}
+                     disabled={e.props.disabled}
+                     className={styles.button}
+                     onClick={() => {
+                        props.setOpen(i)
+                     }}>
+                     {e.props.label}
+                     <ToolTip content={e.props.label}/>
+                  </Button>
+               </React.Fragment>
+            ))}
 
-            <Switcher className={children[props.open]?.props.className} styles={children[props.open]?.props.styles}
-                      openChild={props.open}>
-                {children.map((el, index) => (
-                    <React.Fragment key={index + '-tab'}>
-                        {el}
-                    </React.Fragment>
-                ))}
-            </Switcher>
-        </div>
-    )
+         </div>
+
+         <Switcher className={children[props.open]?.props.className} styles={children[props.open]?.props.styles}
+                   openChild={props.open}>
+            {children.map((el, index) => (
+               <React.Fragment key={index + '-tab'}>
+                  {el}
+               </React.Fragment>
+            ))}
+         </Switcher>
+      </div>
+   )
 }
 
 Tabs.propTypes = {
-    open: PropTypes.number.isRequired,
-    setOpen: PropTypes.func.isRequired,
-    className: PropTypes.string,
-    styles: PropTypes.object,
-    children: PropTypes.node.isRequired
+   open: PropTypes.number.isRequired,
+   setOpen: PropTypes.func.isRequired,
+   className: PropTypes.string,
+   styles: PropTypes.object,
+
+   headerClassName: PropTypes.string,
+   headerStyles: PropTypes.object,
+
+   children: PropTypes.node.isRequired
 
 }

@@ -17,6 +17,7 @@ function Input(props) {
                {...props.customProps}
                width={props.width}
                height={props.height}
+
                handleChange={(f) => {
                   props.handleChange({
                      event: f, key: props.fieldKey
@@ -25,7 +26,10 @@ function Input(props) {
                value={props.value}
                disabled={props.disabled}
                required={props.required}
-               label={props.label}/>)
+               label={props.label}
+               placeholder={props.placeHolder}
+
+            />)
          case "text":
             return (<TextField
                {...props.customProps}

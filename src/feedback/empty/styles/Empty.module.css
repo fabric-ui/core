@@ -11,8 +11,7 @@
     justify-content: center;
     justify-items: center;
 
-    background: var(--fabric-background-tertiary);
-    border: var(--fabric-border-primary) 1px solid;
+
     border-radius: 5px;
     color: var(--fabric-color-quinary);
 }

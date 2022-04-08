@@ -35,7 +35,6 @@ export default function ToolTip(props) {
    }
    const hover = (event) => {
 
-
       if (ref.current?.parentNode) {
          mountingPoint.current.style.position = 'fixed'
          mountingPoint.current.style.zIndex = '999'
@@ -71,7 +70,7 @@ export default function ToolTip(props) {
 
    const onExit = () => {
       try {
-         ref.current?.parentNode.removeEventListener('mouseenter', hover)
+
          document.removeEventListener('mousemove', handleMouseMove)
          if (mountingPoint.current)
             try {
@@ -83,7 +82,10 @@ export default function ToolTip(props) {
    }
 
    useEffect(() => {
-      return () => onExit()
+      return () => {
+         ref.current?.parentNode.removeEventListener('mouseenter', hover)
+         onExit()
+      }
    }, [])
 
    return <div ref={ref} style={{display: 'none'}}/>

@@ -14,22 +14,18 @@ export default function TextField(props) {
    const maskStartRef = useRef()
    const ref = useRef()
    useEffect(() => {
-      if (props.maskStart)
-         ref.current.style.paddingLeft = (maskStartRef.current.offsetWidth + 10) + 'px'
-      if (props.maskEnd)
-         ref.current.style.paddingRight = (maskEndRef.current.offsetWidth + 10) + 'px'
+      if (props.maskStart) ref.current.style.paddingLeft = (maskStartRef.current.offsetWidth + 10) + 'px'
+      if (props.maskEnd) ref.current.style.paddingRight = (maskEndRef.current.offsetWidth + 10) + 'px'
    }, [props.maskStart, props.maskEnd])
 
 
-   const content = (value) => (
-      <div style={{position: 'relative', width: '100%'}}>
+   const content = (value) => (<div style={{position: 'relative', width: '100%'}}>
          <div className={styles.mask} ref={maskStartRef}>
             {props.maskStart}
          </div>
          <input
             onKeyDown={e => {
-               if(e.code === 'Enter' && props.onEnter)
-                  props.onEnter()
+               if (e.code === 'Enter' && props.onEnter) props.onEnter()
             }}
             disabled={props.disabled} lang={''}
             placeholder={props.placeholder}
@@ -37,14 +33,11 @@ export default function TextField(props) {
             type={props.type !== 'password' ? props.type : (!props.visible ? 'password' : 'text')}
             value={value} ref={ref}
             onBlur={() => {
-               if(props.onBlur)
-                  props.onBlur()
+               if (props.onBlur) props.onBlur()
             }}
             className={styles.inputContainer}
             style={{
-               height: props.height ? props.height : '45px',
-               position: 'relative',
-               zIndex: 5
+               height: props.height ? props.height : '45px', position: 'relative', zIndex: 5
             }}
             onChange={e => {
 
@@ -66,8 +59,7 @@ export default function TextField(props) {
    const getField = () => {
       switch (true) {
          case props.variant === 'area':
-            return (
-               <textarea
+            return (<textarea
                   disabled={props.disabled}
                   placeholder={props.placeholder}
                   value={props.value ? props.value : ''}
@@ -81,12 +73,10 @@ export default function TextField(props) {
                      zIndex: 5
                   }}
                   onBlur={() => {
-                     if(props.onBlur)
-                     props.onBlur()
+                     if (props.onBlur) props.onBlur()
                   }}
                   onKeyDown={e => {
-                     if(e.code === 'Enter' && props.onEnter)
-                        props.onEnter()
+                     if (e.code === 'Enter' && props.onEnter) props.onEnter()
                   }}
                   onChange={props.handleChange}
                   maxLength={props.maxLength}
@@ -100,14 +90,12 @@ export default function TextField(props) {
          case
          props.mask && props.mask !== 'currency' && props.variant !== 'area'
          :
-            return (
-               <InputMask
+            return (<InputMask
                   mask={props.mask} maskPlaceholder={''}
                   value={props.value ? props.value : ''} alwaysShowMask={false}
                >
                   {event => content(event.value)}
-               </InputMask>
-            )
+               </InputMask>)
          default:
             return null
       }
@@ -118,8 +106,7 @@ export default function TextField(props) {
       return ((props.value && props.value.toString().length > 0) || props.value === 0 || props.value === '0')
    }, [props.value])
 
-   return (
-      <div
+   return (<div
          data-valid={`${valid}`}
          style={{
             width: props.width,
@@ -133,8 +120,7 @@ export default function TextField(props) {
          <div
             className={shared.labelContainer}
             style={{
-               visibility: valid ? 'visible' : 'hidden',
-               opacity: valid ? '1' : '0',
+               visibility: valid ? 'visible' : 'hidden', opacity: valid ? '1' : '0',
             }}
          >
             <div className={shared.overflow}>
@@ -153,41 +139,29 @@ export default function TextField(props) {
                  color: !valid ? '#ff5555' : undefined,
                  display: props.noMargin && !props.required && !props.helperText ? 'none' : undefined
               }}>
-            {props.required ?
-               <div className={shared.overflow}>
-                  {translate('required')}
-               </div>
-               :
-               undefined}
-            {props.helperText ?
-               <div className={shared.helperText}>
+            {props.required ? <div className={shared.overflow}>
+               {translate('required')}
+            </div> : undefined}
+            {props.helperText ? <div className={shared.helperText}>
                          <span
                             style={{fontSize: '1rem'}}
                             className="material-icons-round">info</span>
-                  <ToolTip content={props.helperText} align={'start'}/>
-               </div>
-               :
-               null
-            }
-            {props.type === 'number' && !props.noNumberIndicator ?
-               <div className={shared.helperText}>
-                  <div className={styles.icon}>123</div>
-                  <ToolTip content={translate('numeric')} align={'start'}/>
-               </div>
-               :
-               null
-            }
+               <ToolTip content={props.helperText} align={'start'}/>
+            </div> : null}
+            {props.type === 'number' && !props.noNumberIndicator ? <div className={shared.helperText}>
+               <div className={styles.icon}>123</div>
+               <ToolTip content={translate('numeric')} align={'start'}/>
+            </div> : null}
          </div>
 
-      </div>
-   )
+      </div>)
 }
 
 TextField.propTypes = {
    noNumberIndicator: PropTypes.bool,
    helperText: PropTypes.string,
    onBlur: PropTypes.func,
-
+   onEnter: PropTypes.func,
    width: PropTypes.string,
    placeholder: PropTypes.string,
    label: PropTypes.string,
@@ -199,10 +173,7 @@ TextField.propTypes = {
 
    maxLength: PropTypes.number,
    disabled: PropTypes.bool,
-   variant: PropTypes.oneOf([
-      'default',
-      'area'
-   ]),
+   variant: PropTypes.oneOf(['default', 'area']),
    type: PropTypes.oneOf(['number', 'text', 'password']),
 
    maskStart: PropTypes.any,

@@ -19,7 +19,6 @@ export default function FileModal(props) {
                   handleDelete={props.handleFileRemoval}/>
          </React.Fragment>))
    }, [props.files])
-   const themes = useContext(ThemeContext)
    const translate = useLocale()
    return (<Modal
       open={props.open}

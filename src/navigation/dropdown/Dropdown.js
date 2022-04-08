@@ -11,14 +11,16 @@ export default function Dropdown(props) {
    const [translation, setTranslation] = useState('')
 
    const modalRef = useCallback((node) => {
+
       if (node && translation.length === 0) {
          const bBox = node.parentNode.getBoundingClientRect()
          const button = ref.current?.getBoundingClientRect()
          const offX = props.offsetX ? props.offsetX : 4,
             offY = props.offsetY ? props.offsetY : 4
          let y = `calc(50% + ${button.height / 2}px)`, x = 0
+
          if (bBox.y < 0)
-            y = 'calc(50% + ' + ((-bBox.y + offY + button.height) / 2) + 'px)'
+            y = 'calc(50% + ' + ((-bBox.y/2 - offY + button.height/2) / 2) + 'px)'
 
          if (bBox.x < 0)
             x = (-bBox.x + offX) + 'px'
@@ -88,6 +90,7 @@ export default function Dropdown(props) {
                styles={{transform: translation}}
                blurIntensity={0}
                className={[styles.buttons, props.wrapperClassname].join(' ')}
+
                animationStyle={'fade'}
                open={open}
                handleClose={() => {

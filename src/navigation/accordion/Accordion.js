@@ -29,15 +29,16 @@ export default function Accordion(props) {
             className={[styles.summary, summary?.props.className].join(' ')}
             styles={summary?.props.styles}
          >
-        <span style={{transform: !open ? 'rotate(-90deg)' : undefined, fontSize: '1.25rem', transition: '150ms linear'}}
-              className={'material-icons-round'}>expand_more</span>
+        <span
+           style={{transform: !open ? 'rotate(-90deg)' : undefined, fontSize: '1.25rem', transition: '150ms linear'}}
+           className={'material-icons-round'}>expand_more</span>
             {summary}
          </Button>
          <div className={props.contentClassName}
               onTransitionEnd={(e) => {
                  e.currentTarget.style.maxHeight = e.currentTarget.getBoundingClientRect().height + 'px'
               }}
-              style={{...{maxHeight: !open ? 0 : '100vh', transition: '150ms ease-in'}, ...props.contentStyles}}>
+              style={{...{maxHeight: !open ? 0 : '100vh', transition: '150ms ease-in', overflow: 'hidden'}, ...props.contentStyles}}>
             {content}
          </div>
       </div>
