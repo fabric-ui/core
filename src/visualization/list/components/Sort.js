@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import styles from '../styles/Sort.module.css'
 import DataProvider from "../hooks/DataProvider";
-import {Button} from "@f-ui/core";
+import Button from "../../../inputs/button/Button";
 
 export default function Sort(props) {
    const context = useContext(DataProvider)

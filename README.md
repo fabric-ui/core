@@ -37,7 +37,7 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 
 | Package    | Version | NPM                      | Github                                 |
 |------------|---------|--------------------------|----------------------------------------|
-| imask      | ^6.4.2 | npm i react-input-mask   | https://github.com/uNmAnNeR/imaskjs    |
+| react-imask      | ^6.4.2 | npm i react-imask  | https://github.com/uNmAnNeR/imaskjs |
 | prop-types | ^15.7.2  | npm i prop-types   | https://github.com/facebook/prop-types |
 
 ## Documentation and examples
@@ -65,7 +65,7 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
   - **SelectField**: Basic DropDown component
   - **MultiSelectField**: Multi-select field, supports array or string divided with pattern.
   - **TextField**: A basic text input, customizable with masks (Thanks
-    to <a href='https://github.com/sanniassin/react-input-mask'>react-input-mask</a>), Adornments and more.
+    to <a href='https://github.com/uNmAnNeR/imaskjs'>react-imask</a>), Adornments and more.
   - **Button**: Basic button with many beautiful and clean design variants.
   - **Checkbox**: Basic checkbox.
   - **CheckboxGroup**: Group your checkboxes in a wrapper with a clean layout with CheckboxGroup.

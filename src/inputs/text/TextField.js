@@ -5,23 +5,35 @@ import ParseCurrency from "./methods/ParseCurrency";
 import shared from '../shared/styles/Shared.module.css'
 import ToolTip from "../../feedback/tooltip/ToolTip";
 import useLocale from "../../misc/hooks/useLocale";
-import IMask from "imask";
+import {useIMask} from "react-imask";
 
 
 export default function TextField(props) {
    const translate = useLocale()
    const maskEndRef = useRef()
    const maskStartRef = useRef()
-   const ref = useRef()
-   useEffect(() => {
-
-      if (props.mask) IMask(ref.current, {
+   const opts = useMemo(() => {
+      return props.mask ?  {
          mask: props.mask,
 
          lazy: true, ...props.maskAttributes
-      });
+      } : {}
    }, [props.mask])
+   const {ref,
+      maskRef,
+      value,
+      setValue,
+      unmaskedValue,
+      setUnmaskedValue,
+      typedValue,
+      setTypedValue,} = useIMask(opts);
+
+
    useEffect(() => {
+      setValue(typeof props.value === 'string' ? props.value : '')
+   }, [props.value])
+   useEffect(() => {
+
       if (props.maskStart) ref.current.style.paddingLeft = (maskStartRef.current.offsetWidth + 10) + 'px'
       if (props.maskEnd) ref.current.style.paddingRight = (maskEndRef.current.offsetWidth + 10) + 'px'
    }, [props.maskStart, props.maskEnd])
@@ -29,8 +41,8 @@ export default function TextField(props) {
 
 
    const valid = useMemo(() => {
-      return ((props.value && props.value.toString().length > 0) || props.value === 0 || props.value === '0')
-   }, [props.value])
+      return ((value && value.toString().length > 0) || value === 0 || value === '0')
+   }, [value])
 
    return (<div
       data-valid={`${valid}`}
@@ -38,7 +50,7 @@ export default function TextField(props) {
          width: props.width,
          height: 'fit-content',
          display: 'grid',
-         alignItems: props.value ? 'unset' : 'flex-start',
+         alignItems: value ? 'unset' : 'flex-start',
          gap: '4px',
          overflow: 'visible'
       }}
@@ -61,7 +73,7 @@ export default function TextField(props) {
                <textarea
             disabled={props.disabled}
             placeholder={props.placeholder}
-            value={props.value ? props.value : ''}
+            value={value }
             className={styles.inputContainer}
             style={{
             minHeight: props.size === 'small' ? '36px' : '56px',
@@ -94,7 +106,7 @@ export default function TextField(props) {
                   placeholder={props.placeholder}
 
                   type={props.type !== 'password' ? props.type : (!props.visible ? 'password' : 'text')}
-                  value={typeof props.value === 'string' || props.value === 'number' ? props.value.toString() : ''}
+                  value={value}
                   ref={ref}
                   onBlur={() => {
                      if (props.onBlur) props.onBlur()

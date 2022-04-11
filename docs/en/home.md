@@ -6,17 +6,17 @@ To set up the package you can run the command below using your package installer
 
 ```shell
 // with npm
-npm install react-input-mask prop-types @f-ui/core
+npm install react-imask prop-types @f-ui/core
 // with yarn
-yarn add react-input-mask prop-types @f-ui/core
+yarn add react-imask prop-types @f-ui/core
 ```
 
 ### Additional Dependencies
 
 | Package            | Version | NPM                      | Github                                         |
 |--------------------|---------|--------------------------|------------------------------------------------|
-| react-input-mask   | ^2.0.4  | npm i react-input-mask   | https://github.com/sanniassin/react-input-mask |
-| prop-types   | ^15.7.2  | npm i prop-types   | https://github.com/facebook/prop-types |
+| react-imask   | ^6.4.2  | npm i react-imask   | https://github.com/uNmAnNeR/imaskjs |
+| prop-types   | ^15.7.2 | npm i prop-types   | https://github.com/facebook/prop-types |
 
 ### Usage
 

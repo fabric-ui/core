@@ -37,7 +37,7 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 - ***variant***:  Input variant `one of string`.
   - ***area***.
   - ***default***.
-- ***mask***: Input mask (thanks to [react-input-mask](https://www.npmjs.com/package/react-input-mask)) `string`.
+- ***mask***: Input mask (thanks to [react-imask](https://github.com/uNmAnNeR/imaskjs)) `string`.
 - ***maxLength***: Input max value length `number`.
 - ***noNumberIndicator***: Hides number icon/tooltip indicator `boolean`.
 - ***maskStart***: Fixed mask to be rendered before input content `string`.
