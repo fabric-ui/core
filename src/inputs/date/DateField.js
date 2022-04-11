@@ -4,13 +4,11 @@ import styles from './styles/DateField.module.css'
 import Button from "../button/Button";
 import TextField from "../text/TextField";
 import useDate from "./misc/useDate";
-import useLocale from "../../misc/hooks/useLocale";
-import useDropdown from "../shared/useDropdown";
+import Modal from "../../navigation/modal/Modal";
 
 export default function DateField(props) {
 
    const [open, setOpen] = useState()
-   const translate = useLocale()
    const pattern = useMemo(() => {
       if (props.pattern)
          return props.pattern
@@ -55,12 +53,32 @@ export default function DateField(props) {
    }
 
    const [mask, setMask] = useState()
+   const maskAttributes = useMemo(() => {
+      return {
+         blocks: {
+            YYYY: {
+               mask: '0000',
+            },
+
+            MM: {
+               mask: IMask.MaskedRange,
+               from: 1,
+               to: 12
+            },
+
+            DD: {
+               mask: IMask.MaskedRange,
+               from: 1,
+               to: 31
+            }
+         }
+      }
+   }, [])
    useEffect(() => {
-      setMask(pattern.replaceAll('y', '9').replaceAll('d', '9').replaceAll('m', '9'))
+      setMask(pattern.replaceAll('y', 'Y').replaceAll('d', 'D').replaceAll('m', 'M'))
    }, [pattern])
 
    const buttonRef = useRef()
-   const dropdownRef = useDropdown(open, setOpen, buttonRef)
 
    return (
       <div style={{position: 'relative', width: props.width, height: 'fit-content'}}>
@@ -79,6 +97,7 @@ export default function DateField(props) {
             placeholder={props.label}
             label={props.label}
             mask={mask}
+            maskAttributes={maskAttributes}
             maskEnd={(
                <Button
                   onClick={() => setOpen(true)}
@@ -92,9 +111,8 @@ export default function DateField(props) {
             )} noMargin={true}
             required={props.required}
          />
+        <Modal open={open} handleClose={() => setOpen(false)} variant={'fit'} className={styles.calendar} blurIntensity={'0'}>
 
-         <div className={styles.calendar} ref={dropdownRef}
-              style={{padding: '0 8px', display: open ? undefined : 'none'}}>
             <div className={styles.monthContainer}>
                <Button className={styles.buttonContainer} styles={{width: 'fit-content', margin: 'unset'}}
                        onClick={() => {
@@ -137,8 +155,7 @@ export default function DateField(props) {
             <div className={styles.daysContainer}>
                {getDays(!date.month || date.month > 12 || date.month < 1 ? (new Date()).getMonth() : date.month).map(e => e)}
             </div>
-
-         </div>
+         </Modal>
       </div>
    )
 }

@@ -34,16 +34,12 @@
     background-color: var(--fabric-background-primary);
     border-radius: 5px;
     box-shadow: var(--fabric-boxshadow);
-    width: 100%;
+    width: 270px;
     max-height: 200px;
     height: fit-content;
     overflow: auto;
 
 
-   position: absolute;
-   z-index: 50;
-   bottom: 0;
-   transform: translateY(calc(100% - 16px));
 }
 
 .dropDownButton {

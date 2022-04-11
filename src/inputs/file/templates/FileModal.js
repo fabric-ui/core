@@ -1,10 +1,9 @@
-import React, {useContext, useMemo, useRef} from "react";
+import React, {useMemo, useRef} from "react";
 import styles from '../styles/File.module.css'
 import File from "./File";
 import PropTypes from "prop-types";
 import Empty from "../../../feedback/empty/Empty";
 import Modal from "../../../navigation/modal/Modal";
-import ThemeContext from "../../../misc/context/ThemeContext";
 import Button from "../../button/Button";
 import useLocale from "../../../misc/hooks/useLocale";
 

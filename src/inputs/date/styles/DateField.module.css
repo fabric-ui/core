@@ -102,10 +102,9 @@
    height: 200px;
    overflow-y: auto;
 
-   position: absolute;
-   bottom: 0;
-   z-index: 999;
-   transform: translateY(100%);
+
+
+
 }
 
 .monthContainer {

@@ -35,10 +35,10 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 
 ## Additional Dependencies
 
-| Package            | Version | NPM                      | Github                                         |
-|--------------------|---------|--------------------------|------------------------------------------------|
-| react-input-mask   | ^2.0.4  | npm i react-input-mask   | https://github.com/sanniassin/react-input-mask |
-| prop-types   | ^15.7.2  | npm i prop-types   | https://github.com/facebook/prop-types |
+| Package    | Version | NPM                      | Github                                 |
+|------------|---------|--------------------------|----------------------------------------|
+| imask      | ^6.4.2 | npm i react-input-mask   | https://github.com/uNmAnNeR/imaskjs    |
+| prop-types | ^15.7.2  | npm i prop-types   | https://github.com/facebook/prop-types |
 
 ## Documentation and examples
 

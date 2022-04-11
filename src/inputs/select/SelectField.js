@@ -6,7 +6,7 @@ import ToolTip from "../../feedback/tooltip/ToolTip";
 import shared from '../shared/styles/Shared.module.css'
 import Button from "../button/Button";
 import useLocale from "../../misc/hooks/useLocale";
-import useDropdown from "../shared/useDropdown";
+import Modal from "../../navigation/modal/Modal";
 
 export default function SelectField(props) {
    const [open, setOpen] = useState(false)
@@ -16,8 +16,6 @@ export default function SelectField(props) {
    const selected = useMemo(() => {
       return props.choices.find(e => e.key === props.value)
    }, [props.value])
-
-   const dropdownRef = useDropdown(open, setOpen, buttonRef)
 
    return (
       <div
@@ -68,8 +66,12 @@ export default function SelectField(props) {
             </Button>
          </div>
 
-         <div className={styles.dropDownChoicesContainer} ref={dropdownRef}
-              style={{display: open ? undefined : 'none'}}>
+         <Modal
+            open={open}
+            handleClose={() => setOpen(false)}
+                variant={'fit'}
+            className={styles.dropDownChoicesContainer}
+            blurIntensity={'0'}>
 
             {props.choices.map((choice, index) => (
                <React.Fragment key={index + '-choice-button'}>
@@ -94,7 +96,7 @@ export default function SelectField(props) {
                </React.Fragment>
 
             ))}
-         </div>
+         </Modal>
 
          <div className={shared.alertLabel}
               style={{

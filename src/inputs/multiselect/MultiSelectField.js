@@ -7,7 +7,7 @@ import Checkbox from "../checkbox/Checkbox";
 import shared from '../shared/styles/Shared.module.css'
 import Button from "../button/Button";
 import useLocale from "../../misc/hooks/useLocale";
-import useDropdown from "../shared/useDropdown";
+import Modal from "../../navigation/modal/Modal";
 
 export default function MultiSelectField(props) {
    const [open, setOpen] = useState(false)
@@ -24,7 +24,6 @@ export default function MultiSelectField(props) {
 
 
    const buttonRef = useRef()
-   const dropdownRef = useDropdown(open, setOpen, buttonRef)
 
    return (
       <div
@@ -76,49 +75,55 @@ export default function MultiSelectField(props) {
          </div>
 
 
-            <div className={styles.dropDownChoicesContainer} ref={dropdownRef} style={{padding: '0 8px', display: open ? undefined : 'none'}}>
-               {props.choices.map((choice, index) => (
-                  <div
-                     style={{overflow: "hidden"}}
-                     className={styles.multiSelectRow}
-                     key={'multi-choice-' + index}>
-                     <Checkbox
-                        type={'checkbox'}
-                        handleCheck={() => {
-                           let newSelected = [...selected]
-                           if (selected.includes(choice.key)) {
-                              newSelected.splice(newSelected.indexOf(choice.key), 1)
-                              setSelected(newSelected)
-                           } else {
-                              newSelected.push(choice.key)
-                              setSelected(newSelected)
-                           }
+         <Modal
+            open={open}
+            handleClose={() => setOpen(false)}
+            variant={'fit'}
+            className={styles.dropDownChoicesContainer}
+            blurIntensity={'0'}>
 
-                           if (!props.asArray) {
-                              let newData = ''
-                              newSelected.forEach(e => {
-                                 if (e.length > 0)
-                                    newData = newData + '-*/' + e
-                              })
-                              props.handleChange(newData)
-                           } else
-                              props.handleChange(newSelected)
-                        }} className={styles.multiSelectRowCheckbox}
-                        checked={selected.includes(choice.key)}
-                        label={
-                           <div
-                              style={{color: choice.color ? choice.color : undefined}}
-                              className={styles.multiSelectRowContent}
-                           >
-                              {choice.value}
-                           </div>
+            {props.choices.map((choice, index) => (
+               <div
+                  style={{overflow: "hidden"}}
+                  className={styles.multiSelectRow}
+                  key={'multi-choice-' + index}>
+                  <Checkbox
+                     type={'checkbox'}
+                     handleCheck={() => {
+                        let newSelected = [...selected]
+                        if (selected.includes(choice.key)) {
+                           newSelected.splice(newSelected.indexOf(choice.key), 1)
+                           setSelected(newSelected)
+                        } else {
+                           newSelected.push(choice.key)
+                           setSelected(newSelected)
                         }
-                     />
 
-                     <ToolTip content={choice.value} align={'middle'} justify={'start'}/>
-                  </div>
-               ))}
-            </div>
+                        if (!props.asArray) {
+                           let newData = ''
+                           newSelected.forEach(e => {
+                              if (e.length > 0)
+                                 newData = newData + '-*/' + e
+                           })
+                           props.handleChange(newData)
+                        } else
+                           props.handleChange(newSelected)
+                     }} className={styles.multiSelectRowCheckbox}
+                     checked={selected.includes(choice.key)}
+                     label={
+                        <div
+                           style={{color: choice.color ? choice.color : undefined}}
+                           className={styles.multiSelectRowContent}
+                        >
+                           {choice.value}
+                        </div>
+                     }
+                  />
+
+                  <ToolTip content={choice.value} align={'middle'} justify={'start'}/>
+               </div>
+            ))}
+         </Modal>
 
          <div className={shared.alertLabel}
               style={{
