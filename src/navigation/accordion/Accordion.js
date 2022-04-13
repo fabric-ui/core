@@ -35,9 +35,7 @@ export default function Accordion(props) {
             {summary}
          </Button>
          <div className={props.contentClassName}
-              onTransitionEnd={(e) => {
-                 e.currentTarget.style.maxHeight = e.currentTarget.getBoundingClientRect().height + 'px'
-              }}
+
               style={{...{maxHeight: !open ? 0 : '100vh', transition: '150ms ease-in', overflow: 'hidden'}, ...props.contentStyles}}>
             {content}
          </div>

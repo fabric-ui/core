@@ -29,6 +29,7 @@ export default function DataRow(props) {
          {keys.map((k, i) => (
             <React.Fragment key={'key-' + k.key + '-' + i}>
                <RowKey
+                  asCard={props.asCard}
                   noTitle={props.noTitle}
                   index={i} className={props.cellClassName} styles={props.cellStyles} field={k} object={data}
                   selfContained={selfContained}/>

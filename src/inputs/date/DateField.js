@@ -80,11 +80,11 @@ export default function DateField(props) {
 
    const buttonRef = useRef()
 
+    console.log(initialized, initialized && !changed ? parseDate(date.day, date.month, date.year) : props.value)
    return (
       <div style={{position: 'relative', width: props.width, height: 'fit-content'}}>
          <TextField
             {...props}
-
             handleChange={e => {
                setChanged(true)
                props.handleChange(e.target.value)
@@ -92,7 +92,7 @@ export default function DateField(props) {
             disabled={props.disabled}
             helperText={props.helperText}
             width={'100%'} highlight={open}
-            value={initialized && !changed ? parseDate(date.day, date.month, date.year) : props.value}
+            value={!initialized ? '' : (initialized && !changed ? parseDate(date.day, date.month, date.year) : props.value)}
 
             placeholder={props.label}
             label={props.label}

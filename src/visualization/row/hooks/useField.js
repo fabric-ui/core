@@ -3,7 +3,7 @@ import {addHours} from "../../../inputs/date/misc/useDate";
 import useLocale from "../../../misc/hooks/useLocale";
 import styles from '../styles/Row.module.css'
 
-export default function useField(field, entity,method, setColor) {
+export default function useField(field, entity,method, setColor, setLoading) {
     const translate = useLocale()
     return useMemo(() => {
         if (!method && entity && entity[field.key] !== undefined && entity[field.key] !== null && ((field.type === 'object' && entity[field.key][field.subfieldKey]) || field.type !== 'object'))
@@ -31,8 +31,8 @@ export default function useField(field, entity,method, setColor) {
                      return field.fallback
                }
                case 'image':
-                  return <img className={styles.image} alt={field.label} src={entity[field.key]}/>
-
+                  setLoading(true)
+                  return <img className={styles.image} onLoad={() => setLoading(false)} alt={field.label} src={entity[field.key]}/>
                 default:
                     return entity[field.key]
 

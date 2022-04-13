@@ -96,10 +96,10 @@
 .calendar {
    width: 270px;
 
-   background: var(--fabric-background-primary);
+   background: var(--fabric-background-tertiary);
    border-radius: 5px;
    box-shadow: var(--fabric-boxshadow);
-   height: 200px;
+   height: 220px;
    overflow-y: auto;
 
 
@@ -139,7 +139,7 @@
    grid-template-columns: repeat(7, 1fr);
    justify-items: center;
    width: 100%;
-   padding: 8px 0;
+   padding: 4px;
    overflow: auto;
 }
 

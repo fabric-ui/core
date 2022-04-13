@@ -13,20 +13,18 @@ export default function TextField(props) {
    const maskEndRef = useRef()
    const maskStartRef = useRef()
    const opts = useMemo(() => {
-      return props.mask ?  {
+      return props.mask ? {
          mask: props.mask,
 
          lazy: true, ...props.maskAttributes
       } : {}
-   }, [props.mask])
-   const {ref,
-      maskRef,
+   }, [props.mask, props.maskAttributes])
+   const {
+      ref,
+
       value,
       setValue,
-      unmaskedValue,
-      setUnmaskedValue,
-      typedValue,
-      setTypedValue,} = useIMask(opts);
+   } = useIMask(opts);
 
 
    useEffect(() => {
@@ -37,7 +35,6 @@ export default function TextField(props) {
       if (props.maskStart) ref.current.style.paddingLeft = (maskStartRef.current.offsetWidth + 10) + 'px'
       if (props.maskEnd) ref.current.style.paddingRight = (maskEndRef.current.offsetWidth + 10) + 'px'
    }, [props.maskStart, props.maskEnd])
-
 
 
    const valid = useMemo(() => {
@@ -70,30 +67,30 @@ export default function TextField(props) {
          data-disabled={props.disabled ? props.disabled : undefined}
       >
          {props.variant === 'area' ? (
-               <textarea
-            disabled={props.disabled}
-            placeholder={props.placeholder}
-            value={value }
-            className={styles.inputContainer}
-            style={{
-            minHeight: props.size === 'small' ? '36px' : '56px',
-            resize: props.disabled ? 'none' : 'vertical',
-            overflow: 'hidden',
-            transition: 'border 150ms ease-in, background 150ms ease-in',
-            position: 'relative',
-            zIndex: 5
-         }}
-            onBlur={() => {
-            if (props.onBlur) props.onBlur()
-         }}
-            onKeyDown={e => {
-            if (e.code === 'Enter' && props.onEnter) props.onEnter()
-         }}
-            onChange={props.handleChange}
-            maxLength={props.maxLength}
+            <textarea
+               disabled={props.disabled}
+               placeholder={props.placeholder}
+               value={value}
+               className={styles.inputContainer}
+               style={{
+                  minHeight: props.size === 'small' ? '36px' : '56px',
+                  resize: props.disabled ? 'none' : 'vertical',
+                  overflow: 'hidden',
+                  transition: 'border 150ms ease-in, background 150ms ease-in',
+                  position: 'relative',
+                  zIndex: 5
+               }}
+               onBlur={() => {
+                  if (props.onBlur) props.onBlur()
+               }}
+               onKeyDown={e => {
+                  if (e.code === 'Enter' && props.onEnter) props.onEnter()
+               }}
+               onChange={props.handleChange}
+               maxLength={props.maxLength}
             />
 
-            ) : (
+         ) : (
             <div style={{position: 'relative', width: '100%'}}>
                <div className={styles.mask} ref={maskStartRef}>
                   {props.maskStart}
