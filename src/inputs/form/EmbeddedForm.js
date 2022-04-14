@@ -122,7 +122,7 @@ Input.propTypes = {
    required: PropTypes.bool,
    disabled: PropTypes.bool,
    fieldKey: PropTypes.string,
-   type: PropTypes.oneOf(['text', 'select', 'multi-select', 'check', 'date', 'file']).isRequired,
+   type: PropTypes.oneOf(['custom', 'text', 'select', 'multi-select', 'check', 'date', 'file']).isRequired,
    customProps: PropTypes.object,
    width: PropTypes.string,
    height: PropTypes.string,

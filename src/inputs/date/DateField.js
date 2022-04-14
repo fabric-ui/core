@@ -20,7 +20,7 @@ export default function DateField(props) {
       initialized,
       setChanged,
       changed,
-      parseDate
+      parseDate, setInitialized
    } = useDate(props.value, pattern, props.hoursOffset)
 
    const getDays = (month) => {
@@ -39,6 +39,9 @@ export default function DateField(props) {
                         const newDay = i + 1
 
                         setOpen(false)
+                        if(!initialized)
+                           setInitialized(true)
+                        console.log(parseDate(newDay, month, !date.year ? currentDate.getFullYear() : date.year))
                         props.handleChange(parseDate(newDay, month, !date.year ? currentDate.getFullYear() : date.year))
                         setChanged(true)
                      }}
@@ -57,7 +60,9 @@ export default function DateField(props) {
       return {
          blocks: {
             YYYY: {
-               mask: '0000',
+               mask: IMask.MaskedRange,
+               from: 1753,
+               to: 9998
             },
 
             MM: {
@@ -79,8 +84,6 @@ export default function DateField(props) {
    }, [pattern])
 
    const buttonRef = useRef()
-
-    console.log(initialized, initialized && !changed ? parseDate(date.day, date.month, date.year) : props.value)
    return (
       <div style={{position: 'relative', width: props.width, height: 'fit-content'}}>
          <TextField

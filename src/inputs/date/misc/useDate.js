@@ -72,7 +72,7 @@ export default function useDate(value, pattern, hoursOffset) {
         const timestamp = Date.parse(value);
         let parsed = new Date(value)
         parsed = !isNaN(timestamp) ? `${parsed.getFullYear()}/${parsed.getMonth() + 1}/${parsed.getDate()}` : new Date(parsed.getTime() - parsed.getTimezoneOffset() * 60000).toLocaleDateString()
-
+       console.log("HERE", parsedDate, initialized, value)
         const date = `${parsedDate.year}/${parsedDate.month}/${parsedDate.day}`
         if (!isNaN(timestamp) && parsed !== date && !initialized) {
             setInitialized(true)
@@ -82,8 +82,8 @@ export default function useDate(value, pattern, hoursOffset) {
 
             setDate(splitDate(parseDate(d.getDate(), d.getMonth() + 1, d.getFullYear())))
         }
-    }, [value])
+    }, [value, parsedDate, initialized])
 
 
-    return {calendar, date: parsedDate, initialized, setChanged, changed, parseDate}
+    return {calendar, date: parsedDate, initialized, setChanged, changed, parseDate, setInitialized}
 }

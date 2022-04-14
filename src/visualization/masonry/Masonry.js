@@ -32,20 +32,27 @@ export default function Masonry(props) {
             newColumns[onColumn].push(child)
          else
             newColumns[onColumn] = [child]
-         if (onColumn < quantityPerRow - 1)
-            onColumn += 1
-         else
+
+         if (onColumn === quantityPerRow)
             onColumn = 0
+         else
+            onColumn += 1
       }
       setColumns(newColumns)
    }
    const [columns, setColumns] = useState([])
+   const [changed, setChanged] = useState(false)
+   useEffect(() => {
+      setChanged(true)
+   }, [props.changeListener])
    useEffect(() => {
       callbackSort()
    }, [props.quantityPerRow, props.gap, quantityPerRow])
    useEffect(() => {
-      if (columns.flat().length !== children.length) {
-         console.log('UPDATE')
+      console.log('HERE')
+      if (columns.flat().length !== children.length || changed) {
+         setChanged(false)
+         console.log('OP')
          callbackSort()
       }
    }, [children])
@@ -65,6 +72,7 @@ export default function Masonry(props) {
 }
 
 Masonry.propTypes = {
+   changeListener: PropTypes.any,
    gap: PropTypes.string,
    maxCellWidth: PropTypes.number,
    minCellWidth: PropTypes.number,

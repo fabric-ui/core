@@ -15,21 +15,22 @@ export default function TextField(props) {
    const opts = useMemo(() => {
       return props.mask ? {
          mask: props.mask,
-
          lazy: true, ...props.maskAttributes
       } : {}
    }, [props.mask, props.maskAttributes])
    const {
       ref,
-
-      value,
-      setValue,
-   } = useIMask(opts);
+      setValue
+   } = useIMask(opts, {
+      onAccept: e => {
+            props.handleChange({target: {value: e}})
+      }
+   });
 
 
    useEffect(() => {
-      setValue(typeof props.value === 'string' ? props.value : '')
-   }, [props.value])
+      setValue(props.value ? props.value : '')
+   }, [])
    useEffect(() => {
 
       if (props.maskStart) ref.current.style.paddingLeft = (maskStartRef.current.offsetWidth + 10) + 'px'
@@ -38,8 +39,8 @@ export default function TextField(props) {
 
 
    const valid = useMemo(() => {
-      return ((value && value.toString().length > 0) || value === 0 || value === '0')
-   }, [value])
+      return ((props.value && props.value.toString().length > 0) || props.value === 0 || props.value === '0')
+   }, [props.value])
 
    return (<div
       data-valid={`${valid}`}
@@ -47,7 +48,7 @@ export default function TextField(props) {
          width: props.width,
          height: 'fit-content',
          display: 'grid',
-         alignItems: value ? 'unset' : 'flex-start',
+         alignItems: props.value ? 'unset' : 'flex-start',
          gap: '4px',
          overflow: 'visible'
       }}
@@ -70,7 +71,7 @@ export default function TextField(props) {
             <textarea
                disabled={props.disabled}
                placeholder={props.placeholder}
-               value={value}
+               value={props.value}
                className={styles.inputContainer}
                style={{
                   minHeight: props.size === 'small' ? '36px' : '56px',
@@ -103,7 +104,7 @@ export default function TextField(props) {
                   placeholder={props.placeholder}
 
                   type={props.type !== 'password' ? props.type : (!props.visible ? 'password' : 'text')}
-                  value={value}
+                  value={props.value}
                   ref={ref}
                   onBlur={() => {
                      if (props.onBlur) props.onBlur()
@@ -114,7 +115,6 @@ export default function TextField(props) {
                      height: props.height ? props.height : '45px', position: 'relative', zIndex: 5
                   }}
                   onChange={e => {
-
                      let data = e.target.value
                      if (props.type === 'number' && props.floatFilter) {
                         data = ParseCurrency(e.target.value)
