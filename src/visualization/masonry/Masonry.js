@@ -5,6 +5,7 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 export default function Masonry(props) {
    const children = React.Children.toArray(props.children)
    const [quantityPerRow, setQuantityPerRow] = useState(0)
+   const [initialized, setInitialized] = useState(false)
 
    const ref = useRef()
    const callback = () => {
@@ -57,7 +58,9 @@ export default function Masonry(props) {
       callbackSort()
    }, [props.quantityPerRow, props.gap, quantityPerRow])
    useEffect(() => {
-      if (columns.flat().length !== (children.length > quantityPerRow ? children.length : quantityPerRow) || changed) {
+      if (children.length > 0 && (columns.flat().length !== (children.length > quantityPerRow ? children.length : quantityPerRow) || changed || !initialized)) {
+         console.log('HER')
+         setInitialized(true)
          setChanged(false)
          callbackSort()
       }
