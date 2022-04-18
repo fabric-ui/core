@@ -52,7 +52,7 @@ asCard: PropTypes.bool,
    keys: PropTypes.arrayOf(PropTypes.shape({
 
       key: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
+      label: PropTypes.string,
       type: PropTypes.oneOf(['string', 'number', 'object', 'date', 'bool', 'image']),
       subfieldKey: PropTypes.string,
       visible: PropTypes.bool,

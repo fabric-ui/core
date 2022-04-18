@@ -8,7 +8,7 @@ import Modal from "../../navigation/modal/Modal";
 
 export default function DateField(props) {
 
-   const [open, setOpen] = useState()
+   const [open, setOpen] = useState(false)
    const pattern = useMemo(() => {
       if (props.pattern)
          return props.pattern

@@ -8,8 +8,8 @@ export default function Masonry(props) {
 
    const ref = useRef()
    const callback = () => {
-      const q = Math.floor(ref.current?.offsetWidth / (props.maxCellWidth ? props.maxCellWidth : 250))
-      if (q > props.quantityPerRow || (props.quantityPerRow && q >= props.minCellWidth && (q * props.quantityPerRow) < ref.current?.offsetWidth))
+      const q = Math.floor(ref.current?.offsetWidth / 250)
+      if (q > props.quantityPerRow || (props.quantityPerRow && (q * props.quantityPerRow) < ref.current?.offsetWidth))
          setQuantityPerRow(props.quantityPerRow)
       else
          setQuantityPerRow(q <= 0 ? 1 : q)
@@ -24,16 +24,24 @@ export default function Masonry(props) {
 
    const callbackSort = () => {
       let newColumns = Array(quantityPerRow)
+
       let onColumn = 0
-      for (let i = 0; i < children.length; i++) {
+      for (let i = 0; i < (children.length > quantityPerRow ? children.length : quantityPerRow); i++) {
          const child = children[i]
+         if (child) {
 
-         if (newColumns[onColumn] !== undefined)
-            newColumns[onColumn].push(child)
-         else
-            newColumns[onColumn] = [child]
+            if (newColumns[onColumn] !== undefined)
+               newColumns[onColumn].push(child)
+            else
+               newColumns[onColumn] = [child]
 
-         if (onColumn === quantityPerRow)
+         } else {
+            if (newColumns[onColumn] !== undefined)
+               newColumns[onColumn].push(<div key={'filled-child-' + i}/>)
+            else
+               newColumns[onColumn] = [<div key={'filled-child-' + i}/>]
+         }
+         if (onColumn === quantityPerRow - 1)
             onColumn = 0
          else
             onColumn += 1
@@ -49,23 +57,22 @@ export default function Masonry(props) {
       callbackSort()
    }, [props.quantityPerRow, props.gap, quantityPerRow])
    useEffect(() => {
-      console.log('HERE')
-      if (columns.flat().length !== children.length || changed) {
+      if (columns.flat().length !== (children.length > quantityPerRow ? children.length : quantityPerRow) || changed) {
          setChanged(false)
-         console.log('OP')
          callbackSort()
       }
    }, [children])
 
-
    return (
       <div className={props.className} style={props.styles}>
          <div ref={ref} className={styles.wrapper} style={{gap: props.gap}}>
-            {columns.map((column, i) => (
-               <div className={styles.column} key={'masonry-column-' + i} style={{gap: props.gap}}>
-                  {column.map(row => row)}
-               </div>
-            ))}
+            {columns.map((column, i) => {
+               return (
+                  <div className={styles.column} key={'masonry-column-' + i} style={{gap: props.gap}}>
+                     {column.map(row => row)}
+                  </div>
+               )
+            })}
          </div>
       </div>
    )
@@ -75,7 +82,6 @@ Masonry.propTypes = {
    changeListener: PropTypes.any,
    gap: PropTypes.string,
    maxCellWidth: PropTypes.number,
-   minCellWidth: PropTypes.number,
    quantityPerRow: PropTypes.number,
 
    children: PropTypes.node.isRequired,

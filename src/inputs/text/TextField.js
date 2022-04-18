@@ -12,6 +12,7 @@ export default function TextField(props) {
    const translate = useLocale()
    const maskEndRef = useRef()
    const maskStartRef = useRef()
+
    const opts = useMemo(() => {
       return props.mask ? {
          mask: props.mask,
@@ -104,7 +105,7 @@ export default function TextField(props) {
                   placeholder={props.placeholder}
 
                   type={props.type !== 'password' ? props.type : (!props.visible ? 'password' : 'text')}
-                  value={props.value}
+                  value={props.value ? props.value : ''}
                   ref={ref}
                   onBlur={() => {
                      if (props.onBlur) props.onBlur()
