@@ -59,7 +59,6 @@ export default function Masonry(props) {
    }, [props.quantityPerRow, props.gap, quantityPerRow])
    useEffect(() => {
       if (children.length > 0 && (columns.flat().length !== (children.length > quantityPerRow ? children.length : quantityPerRow) || changed || !initialized)) {
-         console.log('HER')
          setInitialized(true)
          setChanged(false)
          callbackSort()

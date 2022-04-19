@@ -30,8 +30,6 @@ import Loader from './feedback/loader/Loader'
 import LoaderProvider from './feedback/loader/LoaderProvider'
 import ContextMenu from './navigation/context/ContextMenu'
 import AlertProvider from './feedback/alert/hooks/AlertProvider'
-
-
 import List from './visualization/list/List'
 import Sort from './visualization/list/components/Sort'
 import Header from './visualization/header/Header'
