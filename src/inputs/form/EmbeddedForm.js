@@ -59,6 +59,7 @@ function Input(props) {
                value={props.value}
                required={props.required}
                disabled={props.disabled}
+               placeholder={props.placeHolder}
                label={props.label}/>)
          case "multi-select":
             return (<MultiSelectField

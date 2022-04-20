@@ -24,7 +24,7 @@ export default function TextField(props) {
       setValue
    } = useIMask(opts, {
       onAccept: e => {
-            props.handleChange({target: {value: e}})
+         props.handleChange({target: {value: e}})
       }
    });
 
@@ -57,7 +57,7 @@ export default function TextField(props) {
       <div
          className={shared.labelContainer}
          style={{
-            display: valid ? undefined : 'none'
+            display: valid || !props.noMargin ? undefined : 'none'
          }}
       >
          <div className={shared.overflow}>
@@ -134,7 +134,7 @@ export default function TextField(props) {
       <div className={shared.alertLabel}
            style={{
               color: !valid ? '#ff5555' : undefined,
-              display: !props.required && !props.helperText ? 'none' : undefined
+              display: props.noMargin && !props.required && !props.helperText ? 'none' : undefined
            }}>
          {props.required ? <div className={shared.overflow}>
             {translate('required')}

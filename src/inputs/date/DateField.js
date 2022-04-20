@@ -92,6 +92,7 @@ export default function DateField(props) {
                setChanged(true)
                props.handleChange(e.target.value)
             }}
+            noMargin={false}
             disabled={props.disabled}
             helperText={props.helperText}
             width={'100%'} highlight={open}
@@ -109,7 +110,7 @@ export default function DateField(props) {
                            fontSize: '1.1rem'
                         }} className="material-icons-round">calendar_today</span>
                </Button>
-            )} noMargin={true}
+            )}
             required={props.required}
          />
         <Modal open={open} handleClose={() => setOpen(false)} variant={'fit'} className={styles.calendar} blurIntensity={'0'}>
