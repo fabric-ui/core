@@ -97,8 +97,6 @@ export default function DateField(props) {
             width={'100%'} highlight={open}
             value={!initialized ? '' : (initialized && !changed ? parseDate(date.day, date.month, date.year) : props.value)}
 
-            placeholder={props.label}
-            label={props.label}
             mask={mask}
             maskAttributes={maskAttributes}
             maskEnd={(
@@ -170,6 +168,8 @@ DateField.propTypes = {
 
    width: PropTypes.string,
    label: PropTypes.string,
+   placeholder: PropTypes.string,
+
    handleChange: PropTypes.func.isRequired,
    value: PropTypes.string,
    required: PropTypes.bool,

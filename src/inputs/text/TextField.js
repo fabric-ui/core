@@ -57,7 +57,7 @@ export default function TextField(props) {
       <div
          className={shared.labelContainer}
          style={{
-            visibility: valid ? 'visible' : 'hidden', opacity: valid ? '1' : '0',
+            display: valid ? undefined : 'none'
          }}
       >
          <div className={shared.overflow}>
@@ -134,7 +134,7 @@ export default function TextField(props) {
       <div className={shared.alertLabel}
            style={{
               color: !valid ? '#ff5555' : undefined,
-              display: props.noMargin && !props.required && !props.helperText ? 'none' : undefined
+              display: !props.required && !props.helperText ? 'none' : undefined
            }}>
          {props.required ? <div className={shared.overflow}>
             {translate('required')}

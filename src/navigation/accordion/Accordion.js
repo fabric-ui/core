@@ -8,7 +8,6 @@ export default function Accordion(props) {
    const summary = React.Children.toArray(props.children).find(e => e.type === AccordionSummary)
    const content = React.Children.toArray(props.children).filter(e => e.type !== AccordionSummary)
    const ref = useRef()
-
    const [open, setOpen] = useState(true)
 
    useEffect(() => {
@@ -34,9 +33,15 @@ export default function Accordion(props) {
            className={'material-icons-round'}>expand_more</span>
             {summary}
          </Button>
-         <div className={props.contentClassName}
-
-              style={{...{maxHeight: !open ? 0 : '100vh', transition: '150ms ease-in', overflow: 'hidden'}, ...props.contentStyles}}>
+         <div
+            className={props.contentClassName}
+            style={{
+               ...props.contentStyles,
+               ...{
+                  display: !open ? 'none' : props.contentStyles?.display,
+                  overflow: 'hidden'
+               },
+            }}>
             {content}
          </div>
       </div>
