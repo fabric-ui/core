@@ -29,7 +29,7 @@ export default function Accordion(props) {
             styles={summary?.props.styles}
          >
         <span
-           style={{transform: !open ? 'rotate(-90deg)' : undefined, fontSize: '1.25rem', transition: '150ms linear'}}
+           style={{transform: !open ? 'rotate(-90deg)' : undefined, fontSize: '1.25rem'}}
            className={'material-icons-round'}>expand_more</span>
             {summary}
          </Button>

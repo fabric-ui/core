@@ -41,7 +41,7 @@ export default function DateField(props) {
                         setOpen(false)
                         if(!initialized)
                            setInitialized(true)
-                        console.log(parseDate(newDay, month, !date.year ? currentDate.getFullYear() : date.year))
+
                         props.handleChange(parseDate(newDay, month, !date.year ? currentDate.getFullYear() : date.year))
                         setChanged(true)
                      }}

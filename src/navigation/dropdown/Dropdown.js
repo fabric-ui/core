@@ -11,9 +11,8 @@ export default function Dropdown(props) {
    const [translation, setTranslation] = useState('')
 
    const modalRef = useCallback((node) => {
-
       if (node && translation.length === 0) {
-         const bBox = node.parentNode.getBoundingClientRect()
+         const bBox = node.getBoundingClientRect()
          const button = ref.current?.getBoundingClientRect()
          const offX = props.offsetX ? props.offsetX : 4,
             offY = props.offsetY ? props.offsetY : 4
@@ -24,10 +23,8 @@ export default function Dropdown(props) {
 
          if (bBox.x < 0)
             x = (-bBox.x + offX) + 'px'
-
-
          if ((bBox.y + bBox.height) > document.body.offsetHeight)
-            y = (document.body.offsetHeight - (bBox.y + bBox.height) - offY - button.height) + 'px'
+            y = (document.body.offsetHeight - (bBox.y + bBox.height) - offY - button.height ) + 'px'
 
          if ((bBox.x + bBox.width) > document.body.offsetWidth)
             x = (document.body.offsetWidth - (bBox.x + bBox.width) - offX) + 'px'
@@ -37,12 +34,13 @@ export default function Dropdown(props) {
       }
    }, [props.offsetX, props.offsetY, translation.length])
    const ref = useRef()
-   const resizeObs = useRef()
+
    useEffect(() => {
-      resizeObs.current = new ResizeObserver(() => {
+      const resizeOBS= new ResizeObserver(() => {
          setOpen(false)
       })
-      resizeObs.current?.observe(document.body)
+      resizeOBS.observe(document.body)
+      return() => resizeOBS.disconnect()
    }, [])
 
    const content = useMemo(() => {
@@ -87,11 +85,11 @@ export default function Dropdown(props) {
 
             <Modal
                variant={"fit"}
-               styles={{transform: translation}}
+               styles={{transform: translation, transition: props.animate ? undefined : 'none'}}
                blurIntensity={0}
                className={[styles.buttons, props.wrapperClassname].join(' ')}
 
-               animationStyle={'fade'}
+               animationStyle={props.animate ?  'fade' : 'none'}
                open={open}
                handleClose={() => {
                   setOpen(false)
@@ -115,6 +113,7 @@ export default function Dropdown(props) {
 }
 
 Dropdown.propTypes = {
+   animate: PropTypes.bool,
    onOpen: PropTypes.func,
    onClose: PropTypes.func,
 

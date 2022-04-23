@@ -21,7 +21,16 @@
 .modalContainer {
    width: 100%;
    height: 100%;
+
 }
+.emptyAnimExit{
+   animation: fadeOutAnim linear 0ms forwards;
+}
+.emptyAnim{
+   animation: fadeInAnim linear 0ms forwards;
+}
+
+
 
 
 @keyframes fadeOutAnim {

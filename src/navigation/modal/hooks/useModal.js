@@ -35,7 +35,12 @@ export default function useModal({animationStyle, variant}) {
             }
             break
          }
-
+         case 'none':
+            anim = {
+               enter: styles.emptyAnim,
+               exit: styles.emptyAnimExit,
+            }
+            break
          default:
             break
 
@@ -87,5 +92,14 @@ export default function useModal({animationStyle, variant}) {
       } else
          return {}
    }
-   return {animations: animation, renderContent, animate, unmountContent, target, source, getParentPosition, mountingPoint}
+   return {
+      animations: animation,
+      renderContent,
+      animate,
+      unmountContent,
+      target,
+      source,
+      getParentPosition,
+      mountingPoint
+   }
 }

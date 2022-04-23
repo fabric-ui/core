@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import useField from "../hooks/useField";
 import styles from '../styles/Row.module.css'
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import ToolTip from "../../../feedback/tooltip/ToolTip";
 
 export default function RowKey(props) {
