@@ -22,20 +22,29 @@ export default function Masonry(props) {
    }, [])
 
    const columns = useMemo(() => {
-      let newColumns = new Array(quantityPerRow)
+      let newColumns = Array(quantityPerRow)
+
       let onColumn = 0
+      for (let i = 0; i < (children.length > quantityPerRow ? children.length : quantityPerRow); i++) {
+         const child = children[i]
+         if (child) {
 
-      children.forEach(child => {
-         if (newColumns[onColumn] !== undefined)
-            newColumns[onColumn].push(child)
-         else
-            newColumns[onColumn] = [child]
+            if (newColumns[onColumn] !== undefined)
+               newColumns[onColumn].push(child)
+            else
+               newColumns[onColumn] = [child]
 
-         if (onColumn < quantityPerRow - 1)
-            onColumn += 1
-         else
+         } else {
+            if (newColumns[onColumn] !== undefined)
+               newColumns[onColumn].push(<div key={'filled-child-' + i}/>)
+            else
+               newColumns[onColumn] = [<div key={'filled-child-' + i}/>]
+         }
+         if (onColumn === quantityPerRow - 1)
             onColumn = 0
-      })
+         else
+            onColumn += 1
+      }
 
       return newColumns
    }, [props.quantityPerRow, props.gap, quantityPerRow, props.children])
@@ -43,9 +52,13 @@ export default function Masonry(props) {
    return (
       <div className={props.className} style={props.styles}>
          <div ref={ref} className={styles.wrapper} style={{gap: props.gap}}>
-            {columns.map(column => (
-               <div className={styles.column} style={{gap: props.gap}}>
-                  {column.map(row => row)}
+            {columns.map((column, j)=> (
+               <div className={styles.column} style={{gap: props.gap}} key={'masonry-column-data-' + j}>
+                  {column.map((row, i) => (
+                     <React.Fragment key={j+'-masonry-row-data-' + i}>
+                        {row}
+                     </React.Fragment>
+                  ))}
                </div>
             ))}
          </div>

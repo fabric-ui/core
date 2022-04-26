@@ -8,39 +8,43 @@ import DropdownProvider from './DropdownProvider'
 
 export default function Dropdown(props) {
    const [open, setOpen] = useState(false)
-   const [translation, setTranslation] = useState('')
+
 
    const modalRef = useCallback((node) => {
-      if (node && translation.length === 0) {
+      if(node) {
          const bBox = node.getBoundingClientRect()
          const button = ref.current?.getBoundingClientRect()
-         const offX = props.offsetX ? props.offsetX : 4,
-            offY = props.offsetY ? props.offsetY : 4
-         let y = `calc(50% + ${button.height / 2}px)`, x = 0
+         const body = document.body.getBoundingClientRect()
+         const offX = 4,
+            offY = 4
+         let y = `calc(50% + ${button.height / 2}px)`,
+            x = 0
+
 
          if (bBox.y < 0)
-            y = 'calc(50% + ' + ((-bBox.y/2 - offY + button.height/2) / 2) + 'px)'
+            y = 'calc(50% + ' + ((-bBox.y / 2 - offY + button.height / 2) / 2) + 'px)'
 
          if (bBox.x < 0)
             x = (-bBox.x + offX) + 'px'
-         if ((bBox.y + bBox.height) > document.body.offsetHeight)
-            y = (document.body.offsetHeight - (bBox.y + bBox.height) - offY - button.height ) + 'px'
 
-         if ((bBox.x + bBox.width) > document.body.offsetWidth)
-            x = (document.body.offsetWidth - (bBox.x + bBox.width) - offX) + 'px'
+         if ((bBox.y + bBox.height) > body.height)
+            y = (body.height - (bBox.y + bBox.height) - offY - button.height) + 'px'
 
 
-         setTranslation(`translate(${x}, ${y})`)
+         if ((bBox.x + bBox.width) > body.width)
+            x = (body.width - (bBox.x + bBox.width) - offX) + 'px'
+
+         node.parentNode.style.transform = `translate(${x}, ${y})`
       }
-   }, [props.offsetX, props.offsetY, translation.length])
+   }, [])
    const ref = useRef()
 
    useEffect(() => {
-      const resizeOBS= new ResizeObserver(() => {
+      const resizeOBS = new ResizeObserver(() => {
          setOpen(false)
       })
       resizeOBS.observe(document.body)
-      return() => resizeOBS.disconnect()
+      return () => resizeOBS.disconnect()
    }, [])
 
    const content = useMemo(() => {
@@ -73,7 +77,7 @@ export default function Dropdown(props) {
             }}
             variant={props.variant} color={props.color}
             onClick={() => {
-               if(props.onOpen)
+               if (props.onOpen)
                   props.onOpen()
                setOpen(true)
             }}
@@ -85,16 +89,15 @@ export default function Dropdown(props) {
 
             <Modal
                variant={"fit"}
-               styles={{transform: translation, transition: props.animate ? undefined : 'none'}}
+               styles={{transition: props.animate ? undefined : 'none'}}
                blurIntensity={0}
                className={[styles.buttons, props.wrapperClassname].join(' ')}
 
-               animationStyle={props.animate ?  'fade' : 'none'}
+               animationStyle={props.animate ? 'fade' : 'none'}
                open={open}
                handleClose={() => {
                   setOpen(false)
-                  setTranslation('')
-                  if(props.onClose)
+                  if (props.onClose)
                      props.onClose()
                }}>
                <div ref={modalRef}>
@@ -126,6 +129,4 @@ Dropdown.propTypes = {
    styles: PropTypes.object,
    disabled: PropTypes.bool,
    children: PropTypes.node,
-   offsetX: PropTypes.number,
-   offsetY: PropTypes.number
 }
