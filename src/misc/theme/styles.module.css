@@ -8,12 +8,10 @@
    --fabric-border-primary: #F1F1F5;
    --fabric-border-secondary: #e0e0e0;
 
-   --fabric-color-primary: #333333;
-   --fabric-color-secondary: #555555;
-   --fabric-color-tertiary: #666666;
-   --fabric-color-quaternary: #777777;
-   --fabric-color-quinary: #999999;
-   --fabric-color-senary: white;
+   --fabric-color-primary: #444444;
+   --fabric-color-secondary: #454545;
+   --fabric-color-tertiary: #555555;
+   --fabric-color-quaternary: #999999;
    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
    --fabric-boxshadow: rgba(0, 0, 0, .1) 2px 4px 10px 2px;
 }
@@ -32,9 +30,8 @@
    --fabric-color-primary: #F7F7F7;
    --fabric-color-secondary: #f5f5f5;
    --fabric-color-tertiary: #f3f3f3;
-   --fabric-color-quaternary: #eeeeee;
-   --fabric-color-quinary: #eaeaea;
-   --fabric-color-senary: #e0e0e0;
+   --fabric-color-quaternary: #999999;
+
 
    --fabric-boxshadow: rgba(0, 0, 0, .2) 2px 4px 10px 2px;
 

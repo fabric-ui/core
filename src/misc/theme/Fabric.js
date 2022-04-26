@@ -26,8 +26,8 @@ export default function Fabric(props) {
             :
             {},
          ...props.borders ? {
-            '--fabric-border-primary': dark ? props.backgrounds?.darkPrimary : props.backgrounds?.primary,
-            '--fabric-border-secondary': dark ? props.backgrounds?.darkSecondary : props.backgrounds?.secondary,
+            '--fabric-border-primary': dark ? props.border?.darkPrimary : props.border?.primary,
+            '--fabric-border-secondary': dark ? props.border?.darkSecondary : props.border?.secondary,
          } : {},
          '--fabric-accent-color': props.accentColor ? props.accentColor : '#0095ff'
       }
