@@ -13,6 +13,8 @@
 
     position: relative;
 
+   box-shadow: var(--fabric-boxshadow);
+
 
 }
 
@@ -31,7 +33,7 @@
     color: white;
 
     font-size: .8rem;
-    font-weight: bold;
+    font-weight: 550;
     text-align: center;
 
 }

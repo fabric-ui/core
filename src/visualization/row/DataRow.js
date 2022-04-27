@@ -62,6 +62,7 @@ asCard: PropTypes.bool,
       method: PropTypes.func,
       additionalWidth: PropTypes.string,
       onClick: PropTypes.func,
+      hideLabel: PropTypes.bool
    })),
    onClick: PropTypes.func,
    reference: PropTypes.any,

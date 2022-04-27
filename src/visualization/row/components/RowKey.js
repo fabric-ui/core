@@ -11,23 +11,27 @@ export default function RowKey(props) {
    const data = useField(props.field, props.object, props.field.method, setColor, setLoading)
 
    return (
-      <div className={styles.row} style={{color: color}}>
+      <div className={styles.row} style={{
+         color: color,
+         width: props.field.additionalWidth ? `calc(100% + ${props.field.additionalWidth})` : undefined
+      }}>
 
          <div
-            className={[styles.cell, props.className, ].join(' ')}
+            className={[styles.cell, props.className,].join(' ')}
             onClick={props.field.onClick}
             style={{
                ...props.styles, ...{
 
-                  width: props.additionalWidth ? `calc(100% + ${props.additionalWidth})` : undefined,
-                  display:loading ? 'none' : props.asCard && props.field.type === 'image' ? 'flex' : undefined,
-                  justifyContent: props.asCard && props.field.type === 'image' ? 'center' : undefined
+
+                  display: loading ? 'none' : props.asCard && props.field.type === 'image' ? 'flex' : undefined,
+                  justifyContent: props.asCard && props.field.type === 'image' ? 'center' : undefined,
+                  alignItems:  props.field.hideLabel ? 'center' : undefined
                }
             }}
          >
             {props.field.type !== 'image' ?
                <ToolTip>
-                  {data}
+                  {props.field.type === 'string' ? props.object[props.field.key] : data}
                </ToolTip>
                : null}
             {props.selfContained && props.asCard && props.field.label ?
@@ -38,8 +42,8 @@ export default function RowKey(props) {
                null
             } {data}
          </div>
-         {loading ? <div className={styles.pulse}/>: null}
-         {props.selfContained && !props.asCard && props.field.label ?
+         {loading ? <div className={styles.pulse}/> : null}
+         {props.selfContained && !props.asCard && props.field.label && !props.field.hideLabel?
             <label className={styles.footer} title={props.noTitle ? undefined : props.field.label}>
                {props.field.label}
             </label>
@@ -70,6 +74,7 @@ RowKey.propTypes = {
       maskEnd: PropTypes.any,
       additionalWidth: PropTypes.string,
       onClick: PropTypes.func,
+      hideLabel: PropTypes.bool,
    }).isRequired,
 
    noTitle: PropTypes.bool
