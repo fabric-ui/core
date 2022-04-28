@@ -11,7 +11,9 @@ export default function RowKey(props) {
    const data = useField(props.field, props.object, props.field.method, setColor, setLoading)
 
    return (
-      <div className={styles.row} style={{
+      <div className={styles.row}
+
+           style={{
          color: color,
          width: props.field.additionalWidth ? `calc(100% + ${props.field.additionalWidth})` : undefined
       }}>
@@ -19,21 +21,20 @@ export default function RowKey(props) {
          <div
             className={[styles.cell, props.className,].join(' ')}
             onClick={props.field.onClick}
+            title={props.field.type !== 'image' ?
+               props.field.type === 'string' ? props.object[props.field.key] : data
+               : null}
             style={{
                ...props.styles, ...{
 
 
                   display: loading ? 'none' : props.asCard && props.field.type === 'image' ? 'flex' : undefined,
                   justifyContent: props.asCard && props.field.type === 'image' ? 'center' : undefined,
-                  alignItems:  props.field.hideLabel ? 'center' : undefined
+                  alignItems: props.field.hideLabel ? 'center' : undefined
                }
             }}
          >
-            {props.field.type !== 'image' ?
-               <ToolTip>
-                  {props.field.type === 'string' ? props.object[props.field.key] : data}
-               </ToolTip>
-               : null}
+
             {props.selfContained && props.asCard && props.field.label ?
                <label className={styles.footer} title={props.noTitle ? undefined : props.field.label}>
                   {props.field.label}:
@@ -43,7 +44,7 @@ export default function RowKey(props) {
             } {data}
          </div>
          {loading ? <div className={styles.pulse}/> : null}
-         {props.selfContained && !props.asCard && props.field.label && !props.field.hideLabel?
+         {props.selfContained && !props.asCard && props.field.label && !props.field.hideLabel ?
             <label className={styles.footer} title={props.noTitle ? undefined : props.field.label}>
                {props.field.label}
             </label>

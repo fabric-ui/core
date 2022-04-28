@@ -39,7 +39,7 @@ import useFormData from './inputs/form/useFormData'
 import EmbeddedForm from './inputs/form/EmbeddedForm'
 import ContextWrapper from './navigation/context/ContextWrapper'
 import Masonry from './visualization/masonry/Masonry'
-
+import DropdownProvider from "./navigation/dropdown/DropdownProvider";
 export {
    ContextWrapper,
    DataProvider,
@@ -54,6 +54,7 @@ export {
    AlertProvider, ContextMenu,
    Loader, LoaderProvider,
 
+   DropdownProvider,
    ToolTip, DropdownOption,
    DropdownOptions, DateField,
    Form, FormRow,

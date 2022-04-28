@@ -24,10 +24,10 @@
 
 }
 .emptyAnimExit{
-   animation: fadeOutAnim linear 0ms forwards;
+   animation: fadeOutAnim linear 10ms forwards;
 }
 .emptyAnim{
-   animation: fadeInAnim linear 0ms forwards;
+   animation: fadeInAnim linear 10ms forwards;
 }
 
 
