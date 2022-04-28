@@ -26,8 +26,6 @@ import AccordionSummary from './navigation/accordion/AccordionSummary'
 import Switcher from './navigation/switcher/Switcher'
 import DataRow from './visualization/row/DataRow'
 import useInfiniteScroll from './misc/hooks/useInfiniteScroll'
-import Loader from './feedback/loader/Loader'
-import LoaderProvider from './feedback/loader/LoaderProvider'
 import ContextMenu from './navigation/context/ContextMenu'
 import AlertProvider from './feedback/alert/hooks/AlertProvider'
 import List from './visualization/list/List'
@@ -52,7 +50,6 @@ export {
    EmbeddedForm,
 
    AlertProvider, ContextMenu,
-   Loader, LoaderProvider,
 
    DropdownProvider,
    ToolTip, DropdownOption,

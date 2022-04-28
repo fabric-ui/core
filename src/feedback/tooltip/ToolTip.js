@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import styles from './styles/ToolTip.module.css'
 import ThemeContext from "../../misc/context/ThemeContext";
-import themeStyles from '../../misc/theme/styles.module.css'
+import themeStyles from '../../misc/theme/styles/Fabric.module.css'
 
 export default function ToolTip(props) {
    const theme = useContext(ThemeContext)

@@ -1,11 +1,9 @@
-import styles from './styles.module.css'
+import styles from './styles/Fabric.module.css'
 import React, {useMemo} from "react";
 import ThemeContext from "../context/ThemeContext";
 import PropTypes from "prop-types";
 import LanguageContext from "../context/LanguageContext";
 import AlertProvider from "../../feedback/alert/hooks/AlertProvider";
-import LoaderProvider from "../../feedback/loader/LoaderProvider";
-import useLoader from "../../feedback/loader/useLoader";
 import useAlert from "../../feedback/alert/hooks/useAlert";
 
 export default function Fabric(props) {
@@ -32,7 +30,7 @@ export default function Fabric(props) {
          '--fabric-accent-color': props.accentColor ? props.accentColor : '#0095ff'
       }
    }, [props.styles, props.backgrounds, props.borders, props.accentColor, dark])
-   const loader = useLoader(dark, themes['--fabric-accent-color']), alert = useAlert(dark)
+   const alert = useAlert(dark)
    return (
       <LanguageContext.Provider value={props.language !== undefined ? props.language : 'pt'}>
          <ThemeContext.Provider value={{
@@ -41,7 +39,6 @@ export default function Fabric(props) {
             themes: themes,
             accentColor: themes['--fabric-accent-color']
          }}>
-            <LoaderProvider.Provider value={loader}>
                <AlertProvider.Provider value={alert}>
                   <link
                      rel="stylesheet"
@@ -54,7 +51,6 @@ export default function Fabric(props) {
                      {props.children}
                   </div>
                </AlertProvider.Provider>
-            </LoaderProvider.Provider>
          </ThemeContext.Provider>
       </LanguageContext.Provider>
    )

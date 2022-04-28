@@ -1,4 +1,4 @@
-import styles from '../theme/styles.module.css'
+import styles from '../theme/styles/Fabric.module.css'
 import React from "react"
 
 export default React.createContext({

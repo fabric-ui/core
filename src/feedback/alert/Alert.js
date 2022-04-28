@@ -2,7 +2,7 @@ import React, {useEffect, useMemo} from 'react'
 import styles from "./styles/Alert.module.css";
 import Button from "../../inputs/button/Button";
 import PropTypes from "prop-types";
-import fabricStyles from '../../misc/theme/styles.module.css'
+import fabricStyles from '../../misc/theme/styles/Fabric.module.css'
 
 export default function Alert(props) {
 
