@@ -5,6 +5,8 @@ import Button from "../button/Button";
 import TextField from "../text/TextField";
 import useDate from "./misc/useDate";
 import Modal from "../../navigation/modal/Modal";
+import Dropdown from "../../navigation/dropdown/Dropdown";
+import DropdownOptions from "../../navigation/dropdown/DropdownOptions";
 
 export default function DateField(props) {
 
@@ -39,7 +41,7 @@ export default function DateField(props) {
                         const newDay = i + 1
 
                         setOpen(false)
-                        if(!initialized)
+                        if (!initialized)
                            setInitialized(true)
 
                         props.handleChange(parseDate(newDay, month, !date.year ? currentDate.getFullYear() : date.year))
@@ -101,63 +103,68 @@ export default function DateField(props) {
             mask={mask}
             maskAttributes={maskAttributes}
             maskEnd={(
-               <Button
-                  onClick={() => setOpen(true)}
+               <Dropdown
+                  modalContentClassname={styles.calendar}
+                  wrapperClassname={styles.wrapper}
                   disabled={props.disabled}
                   className={styles.button}
+                  hideArrow={true}
                   reference={buttonRef}>
                         <span style={{
                            fontSize: '1.1rem'
                         }} className="material-icons-round">calendar_today</span>
-               </Button>
+
+                  <DropdownOptions>
+
+                     <div className={styles.monthContainer}>
+                        <Button className={styles.buttonContainer} styles={{width: 'fit-content', margin: 'unset'}}
+                                onClick={() => {
+                                   const d = new Date()
+                                   const newDay = date.day ? date.day : d.getDate()
+                                   const newMonth = (date.month && date.month === 1) || (!date.month && d.getMonth() === 1) ? 12 : (date.month ? date.month : d.getMonth()) - 1
+                                   const newYear = newMonth === 12 ? (date.year ? date.year - 1 : d.getFullYear() - 1) : (date.year ? date.year : d.getFullYear())
+                                   props.handleChange(parseDate(newDay, newMonth, newYear))
+                                }}>
+                            <span style={{
+                               fontSize: '1rem'
+                            }} className="material-icons-round">arrow_back_ios</span>
+
+                        </Button>
+                        <div className={styles.currentDate}>
+                           <div>
+                              {!date.month || date.month > 12 || date.month < 1 ? calendar[(new Date()).getMonth()].month : calendar[date.month - 1].month}
+                           </div>
+                           -
+                           <div>
+                              {!date.year ? new Date().getFullYear() : date.year}
+                           </div>
+                        </div>
+                        <Button
+                           className={styles.buttonContainer}
+                           styles={{width: 'fit-content', margin: 'unset'}}
+                           onClick={() => {
+                              const d = new Date()
+                              const newDay = date.day ? date.day : d.getDate()
+                              const newMonth = (date.month && date.month === 12) || (!date.month && d.getMonth() === 12) ? 1 : (date.month ? date.month : d.getMonth() + 1) + 1
+                              const newYear = newMonth === 1 ? (date.year ? date.year + 1 : d.getFullYear() + 1) : (date.year ? date.year : d.getFullYear())
+                              props.handleChange(parseDate(newDay, newMonth, newYear))
+                           }}>
+                  <span style={{fontSize: '1rem', transform: 'rotate(180deg'}}
+                        className="material-icons-round">arrow_back_ios</span>
+
+                        </Button>
+                     </div>
+
+                     <div className={styles.daysContainer}>
+                        {getDays(!date.month || date.month > 12 || date.month < 1 ? (new Date()).getMonth() : date.month).map(e => e)}
+                     </div>
+
+                  </DropdownOptions>
+               </Dropdown>
             )}
             required={props.required}
          />
-        <Modal open={open} handleClose={() => setOpen(false)} variant={'fit'} className={styles.calendar} blurIntensity={'0'}>
 
-            <div className={styles.monthContainer}>
-               <Button className={styles.buttonContainer} styles={{width: 'fit-content', margin: 'unset'}}
-                       onClick={() => {
-                          const d = new Date()
-                          const newDay = date.day ? date.day : d.getDate()
-                          const newMonth = (date.month && date.month === 1) || (!date.month && d.getMonth() === 1) ? 12 : (date.month ? date.month : d.getMonth()) - 1
-                          const newYear = newMonth === 12 ? (date.year ? date.year - 1 : d.getFullYear() - 1) : (date.year ? date.year : d.getFullYear())
-                          props.handleChange(parseDate(newDay, newMonth, newYear))
-                       }}>
-                            <span style={{
-                               fontSize: '1.1rem'
-                            }} className="material-icons-round">arrow_back_ios</span>
-
-               </Button>
-               <div className={styles.currentDate}>
-                  <div>
-                     {!date.month || date.month > 12 || date.month < 1 ? calendar[(new Date()).getMonth()].month : calendar[date.month - 1].month}
-                  </div>
-                  -
-                  <div>
-                     {!date.year ? new Date().getFullYear() : date.year}
-                  </div>
-               </div>
-               <Button
-                  className={styles.buttonContainer}
-                  styles={{width: 'fit-content', margin: 'unset'}}
-                  onClick={() => {
-                     const d = new Date()
-                     const newDay = date.day ? date.day : d.getDate()
-                     const newMonth = (date.month && date.month === 12) || (!date.month && d.getMonth() === 12) ? 1 : (date.month ? date.month : d.getMonth() + 1) + 1
-                     const newYear = newMonth === 1 ? (date.year ? date.year + 1 : d.getFullYear() + 1) : (date.year ? date.year : d.getFullYear())
-                     props.handleChange(parseDate(newDay, newMonth, newYear))
-                  }}>
-                  <span style={{fontSize: '1.1rem', transform: 'rotate(180deg'}}
-                        className="material-icons-round">arrow_back_ios</span>
-
-               </Button>
-            </div>
-
-            <div className={styles.daysContainer}>
-               {getDays(!date.month || date.month > 12 || date.month < 1 ? (new Date()).getMonth() : date.month).map(e => e)}
-            </div>
-         </Modal>
       </div>
    )
 }

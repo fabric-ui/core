@@ -72,7 +72,7 @@
    align-items: center;
    justify-content: center;
 
-   height: 25px;
+   height: 100%;
 
    width: 35px;
    padding: 4px !important;
@@ -94,16 +94,29 @@
 }
 
 .calendar {
-   width: 270px;
+   width: 100%;
+
+   max-height: unset !important;
+   max-width: unset !important;
 
    background: var(--fabric-background-tertiary);
    border-radius: 5px;
    box-shadow: var(--fabric-boxshadow);
-   height: 220px;
+
    overflow-y: auto;
+   overflow-x: hidden;
 
+   display: grid;
+   justify-content: center;
+   justify-items: center;
 
-
+}
+.wrapper{
+   width: 270px !important;
+   height: 220px !important;
+   max-height: unset !important;
+   max-width: unset !important;
+   overflow: hidden;
 
 }
 
@@ -114,18 +127,19 @@
    background: var(--fabric-background-primary);
    z-index: 10;
    font-family: "Roboto";
-   height: 35px;
+
    user-select: none;
 
    transition: 150ms linear;
 
-   padding: 8px 4px;
+   padding: 0 4px;
    color: var(--fabric-color-secondary);
    width: 100%;
 
    display: flex;
    align-items: center;
    justify-content: space-between;
+   height: 25px !important;
 }
 
 .activeContainer {
@@ -184,7 +198,7 @@
 }
 
 
-.button{
+.button {
    padding: 2px !important;
    width: 25px;
    height: 25px;

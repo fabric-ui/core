@@ -15,6 +15,7 @@ export default function Dropdown(props) {
          const bBox = node.getBoundingClientRect()
          const button = ref.current?.getBoundingClientRect()
          const body = document.body.getBoundingClientRect()
+         console.log()
          const offX = 4,
             offY = 4
          let y = `calc(50% + ${button.height / 2 }px)`,
@@ -27,7 +28,7 @@ export default function Dropdown(props) {
          if (bBox.x < 0)
             x = (-bBox.x + offX) + 'px'
 
-         console.log((button.y + bBox.height + button.height),body.height )
+         console.log((button.y + bBox.height + button.height),body)
          if ((button.y + bBox.height + button.height) > body.height)
             y = `calc(-50% - ${button.height/2}px)`
 
@@ -101,7 +102,7 @@ export default function Dropdown(props) {
                   if (props.onClose)
                      props.onClose()
                }}>
-               <div ref={modalRef}>
+               <div ref={modalRef} className={props.modalContentClassname} style={props.modalContentStyles}>
                   <DropdownProvider.Provider value={{
                      setOpen,
                      open
@@ -117,6 +118,9 @@ export default function Dropdown(props) {
 }
 
 Dropdown.propTypes = {
+   modalContentClassname: PropTypes.string,
+   modalContentStyles: PropTypes.object,
+
    animate: PropTypes.bool,
    onOpen: PropTypes.func,
    onClose: PropTypes.func,
