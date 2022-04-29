@@ -88,3 +88,10 @@
       opacity: .1;
    }
 }
+
+.overflow{
+   overflow: hidden;
+   max-width: 100%;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}

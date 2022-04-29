@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import useField from "../hooks/useField";
 import styles from '../styles/Row.module.css'
 import React, {useState} from 'react'
-import ToolTip from "../../../feedback/tooltip/ToolTip";
 
 export default function RowKey(props) {
    const [loading, setLoading] = useState(false)
@@ -41,7 +40,10 @@ export default function RowKey(props) {
                </label>
                :
                null
-            } {data}
+            }
+            <div className={styles.overflow}>
+               {data}
+            </div>
          </div>
          {loading ? <div className={styles.pulse}/> : null}
          {props.selfContained && !props.asCard && props.field.label && !props.field.hideLabel ?

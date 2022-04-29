@@ -15,13 +15,11 @@ export default function TextField(props) {
 
    const opts = useMemo(() => {
       return props.mask ? {
-         mask: props.mask,
-         lazy: true, ...props.maskAttributes
+         mask: props.mask, lazy: true, ...props.maskAttributes
       } : {}
    }, [props.mask, props.maskAttributes])
    const {
-      ref,
-      setValue
+      ref, setValue
    } = useIMask(opts, {
       onAccept: e => {
          props.handleChange({target: {value: e}})
@@ -68,8 +66,7 @@ export default function TextField(props) {
          className={[shared.wrapper, styles.focus].join(' ')}
          data-disabled={props.disabled ? props.disabled : undefined}
       >
-         {props.variant === 'area' ? (
-            <textarea
+         {props.variant === 'area' ? (<textarea
                disabled={props.disabled}
                placeholder={props.placeholder}
                value={props.value}
@@ -92,8 +89,7 @@ export default function TextField(props) {
                maxLength={props.maxLength}
             />
 
-         ) : (
-            <div style={{position: 'relative', width: '100%'}}>
+         ) : (<div style={{position: 'relative', width: '100%'}}>
                <div className={styles.mask} ref={maskStartRef}>
                   {props.maskStart}
                </div>
@@ -127,16 +123,14 @@ export default function TextField(props) {
                <div className={styles.mask} style={{right: '8px', left: 'unset'}} ref={maskEndRef}>
                   {props.maskEnd}
                </div>
-            </div>
-         )}
+            </div>)}
       </div>
 
       <div className={shared.alertLabel}
            style={{
-              color: !valid ? '#ff5555' : undefined,
               display: props.noMargin && !props.required && !props.helperText ? 'none' : undefined
            }}>
-         {props.required ? <div className={shared.overflow}>
+         {props.required ? <div className={shared.overflow} style={{color: !valid ? '#ff5555' : undefined,}}>
             {translate('required')}
          </div> : undefined}
          {props.helperText ? <div className={shared.helperText}>
@@ -145,17 +139,11 @@ export default function TextField(props) {
                             className="material-icons-round">info</span>
             <ToolTip content={props.helperText} align={'start'}/>
          </div> : null}
-         {props.type === 'number' && !props.noNumberIndicator ? <div className={shared.helperText}>
-            <div className={styles.icon}>123</div>
-            <ToolTip content={translate('numeric')} align={'start'}/>
-         </div> : null}
       </div>
-
    </div>)
 }
 
 TextField.propTypes = {
-   noNumberIndicator: PropTypes.bool,
    helperText: PropTypes.string,
    onBlur: PropTypes.func,
    onEnter: PropTypes.func,
