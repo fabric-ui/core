@@ -38,6 +38,7 @@ import EmbeddedForm from './inputs/form/EmbeddedForm'
 import ContextWrapper from './navigation/context/ContextWrapper'
 import Masonry from './visualization/masonry/Masonry'
 import DropdownProvider from "./navigation/dropdown/DropdownProvider";
+import LanguageContext from "./misc/context/LanguageContext";
 
 export {
    ContextWrapper,
@@ -51,7 +52,7 @@ export {
    EmbeddedForm,
 
    AlertProvider, ContextMenu,
-
+   LanguageContext,
    DropdownProvider,
    ToolTip, DropdownOption,
    DropdownOptions, DateField,

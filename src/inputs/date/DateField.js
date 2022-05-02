@@ -4,7 +4,6 @@ import styles from './styles/DateField.module.css'
 import Button from "../button/Button";
 import TextField from "../text/TextField";
 import useDate from "./misc/useDate";
-import Modal from "../../navigation/modal/Modal";
 import Dropdown from "../../navigation/dropdown/Dropdown";
 import DropdownOptions from "../../navigation/dropdown/DropdownOptions";
 

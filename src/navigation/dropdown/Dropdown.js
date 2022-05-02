@@ -15,7 +15,7 @@ export default function Dropdown(props) {
          const bBox = node.getBoundingClientRect()
          const button = ref.current?.getBoundingClientRect()
          const body = document.body.getBoundingClientRect()
-         console.log()
+
          const offX = 4,
             offY = 4
          let y = `calc(50% + ${button.height / 2 }px)`,
@@ -27,8 +27,7 @@ export default function Dropdown(props) {
 
          if (bBox.x < 0)
             x = (-bBox.x + offX) + 'px'
-
-         console.log((button.y + bBox.height + button.height),body)
+ 
          if ((button.y + bBox.height + button.height) > body.height)
             y = `calc(-50% - ${button.height/2}px)`
 

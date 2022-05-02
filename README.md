@@ -48,11 +48,6 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 
 ## Available components and hooks
 
-- ### Hooks
-
-  - **useCopyToClipboard**: Copy any text to the clipboard.
-  - **useFile**: Easy way to read the content from a local file.
-
 - ### Feedback
   - **Alerts**: Alerts wrapper, ideal for showing any notification.
   - **ToolTip**: Tooltip that doesn't modify the parent layout and super easy to set up inside your system
@@ -75,32 +70,23 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 - ### Navigation
   - **Accordion**: Simple basic accordion.
   - **AccordionSummary**: Accordion summary wrapper.
-  - **ScrollStepper**: Replace scroll with vertical steps.
-  - **StepperWrapper**: Content wrapper for the ScrollStepper component.
+
   - **Tab**: Wrapper for your components that will be rendered inside the Tabs or VerticalTabs component.
   - **Tabs**: Beautiful tab system with enter and exit animations.
   - **VerticalTabs**: Vertical tabs system with enter and exit animations.
   - **Modal**: Animated modal window
   - **Dropdown**: A dropdown menu, with everything you would expect.
-  - **NavigationRail**: Main vertical bar.
-  - **RailActionWrapper**.
-  - **RailActionButton**: Minimal dynamic button.
+
   - **Breadcrumbs**.
   - **Switcher**: Animate enter and exit of content from the visible dom elements.
 
 - ### Data display and visualization
   - **useInfiniteScroll**: Hook for infinite scroll.
   - **Masonry**: Masonry layout list.
-  - **Card**: Card compatible with the Masonry component.
 
 - ### Misc
   - **Fabric**: Necessary to load correctly the icons, language and color.
   - **Ripple**: Ripple effect activated with a mouse down event.
 
 
-## Roadmap
 
-1. Documentation.
-   1. Work in progress, most of the basis are available inside de [docs](https://github.com/FacoBackup/fabric-ui/tree/next/docs/en) directory.
-2. Bug fixes.
-   1. Calendar issue.
