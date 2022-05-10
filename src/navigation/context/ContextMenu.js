@@ -10,10 +10,10 @@ export default function ContextMenu(props) {
    const [selected, setSelected] = useState()
 
    const options = useMemo(() => {
-      if(selected)
+      if (selected)
          return props.options.filter(o => Array.from(selected.attributes).find(attr => attr.nodeName === o.requiredTrigger))
       else {
-         if(contextRef.current)
+         if (contextRef.current)
             contextRef.current.style.zIndex = -1
          return []
       }
@@ -74,11 +74,6 @@ export default function ContextMenu(props) {
    }
 
    useEffect(() => {
-      if (props.attributes) {
-         Object.keys(props.attributes).forEach((attr) => {
-            ref.current?.setAttribute(attr, `${props.attributes[attr]}`)
-         })
-      }
       if (props.options.length > 0) {
          document.addEventListener('mousedown', handleMouseDown)
          ref.current?.parentNode.addEventListener('contextmenu', handleContext)
@@ -87,7 +82,7 @@ export default function ContextMenu(props) {
          document.removeEventListener('mousedown', handleMouseDown)
          ref.current?.parentNode.removeEventListener('contextmenu', handleContext)
       }
-   }, [selected, props.options, props.attributes])
+   }, [selected, props.options])
 
 
    return (
@@ -115,7 +110,8 @@ export default function ContextMenu(props) {
                </React.Fragment>
             ))}
          </div>
-         <div className={props.className} data-self={'true'} style={props.styles} ref={ref}>
+         <div        {...props.attributes} className={props.className} data-self={'true'} style={props.styles}
+                     ref={ref}>
             {props.children}
          </div>
       </>

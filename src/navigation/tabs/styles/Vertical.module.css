@@ -6,7 +6,6 @@
 
 
 .wrapper {
-   background-color: var(--fabric-background-primary);
    display: grid;
    grid-template-columns: clamp(100px, 25%, 250px) calc(100% - clamp(100px, 25%, 250px));
    gap: 8px;

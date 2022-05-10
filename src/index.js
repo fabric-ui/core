@@ -40,7 +40,14 @@ import Masonry from './visualization/masonry/Masonry'
 import DropdownProvider from "./navigation/dropdown/DropdownProvider";
 import LanguageContext from "./misc/context/LanguageContext";
 
+import Timeline from "./visualization/timeline/Timeline";
+import TimelineCell from "./visualization/timeline/TimelineCell";
+
+
 export {
+   TimelineCell,
+   Timeline,
+
    ContextWrapper,
    DataProvider,
    useListData,

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useRef, useState} from 'react'
 import styles from './styles/Accordion.module.css'
 import PropTypes from "prop-types";
 import AccordionSummary from "./AccordionSummary";
@@ -10,18 +10,10 @@ export default function Accordion(props) {
    const ref = useRef()
    const [open, setOpen] = useState(true)
 
-   useEffect(() => {
-      if (props.attributes) {
-         const r = props.reference ? props.reference : ref
-         Object.keys(props.attributes)
-            .forEach(a => {
-               r.current.setAttribute(a, props.attributes[a])
-            })
-      }
-   }, [props.attributes])
-
    return (
-      <div className={[styles.details, props.className].join(' ')} ref={props.reference ? props.reference : ref}
+      <div
+         {...props.attributes}
+         className={[styles.details, props.className].join(' ')} ref={props.reference ? props.reference : ref}
            style={props.styles}>
          <Button
             onClick={() => setOpen(!open)}

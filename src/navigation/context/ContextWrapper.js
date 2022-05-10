@@ -63,12 +63,6 @@ export default function ContextWrapper(props) {
    }
 
    useEffect(() => {
-      if (props.attributes) {
-         Object.keys(props.attributes).forEach((attr) => {
-            ref.current?.setAttribute(attr, `${props.attributes[attr]}`)
-         })
-      }
-
       document.addEventListener('mousedown', handleMouseDown)
       ref.current?.parentNode.addEventListener('contextmenu', handleContext)
 
@@ -76,7 +70,7 @@ export default function ContextWrapper(props) {
          document.removeEventListener('mousedown', handleMouseDown)
          ref.current?.parentNode.removeEventListener('contextmenu', handleContext)
       }
-   }, [props.attributes, selected])
+   }, [ selected])
 
 
    return (
@@ -91,7 +85,7 @@ export default function ContextWrapper(props) {
                }
             })}
          </div>
-         <div className={props.className} data-self={'true'} style={props.styles} ref={ref}>
+         <div        {...props.attributes} className={props.className} data-self={'true'} style={props.styles} ref={ref}>
             {props.children}
          </div>
       </>

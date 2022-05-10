@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import styles from './styles/Button.module.css'
-import React, {useEffect, useMemo, useRef} from "react";
+import React, {useMemo, useRef} from "react";
 import Ripple from "../../misc/ripple/Ripple";
 
 export default function Button(props) {
@@ -36,18 +36,10 @@ export default function Button(props) {
       }
    }, [props.variant, props.highlight]);
 
-   useEffect(() => {
-      if (props.attributes) {
-         const refA = props.reference ? props.reference : ref
-         Object.keys(props.attributes)
-            .forEach(a => {
-               refA.current?.setAttribute(a, props.attributes[a])
-            })
-      }
-   }, [props.attributes, props.reference])
 
    return (
       <button
+         {...props.attributes}
          className={[styles.button, variant.normal, props.highlight ? variant.highlight : undefined, props.className].join(' ')}
          onClick={props.onClick} ref={props.reference ? props.reference : ref}
          style={props.styles}

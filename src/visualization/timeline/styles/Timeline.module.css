@@ -1,30 +1,36 @@
-.wrapper{
+.wrapper {
    display: flex;
+   gap: 4px;
+
 }
-.content{
+
+.content {
+   display: grid;
+   width: 100%;
+}
+
+.wrapper[data-variant = 'horizontal'] {
    display: grid;
 }
-.wrapper[data-variant = 'horizontal']{
-   display: grid ;
-}
-.wrapper[data-variant = 'horizontal'] .content{
+
+.wrapper[data-variant = 'horizontal'] .content {
    display: flex;
 }
-.wrapper[data-variant = 'horizontal'] .column{
+
+.wrapper[data-variant = 'horizontal'] .column {
    height: 5px;
    background: var(--fabric-accent-color);
-   margin:  16px 0;
    width: 100%;
    border-radius: 5px;
 }
-.column{
-   width: 5px;
+
+.column {
+   min-width: 3px;
    background: var(--fabric-accent-color);
-   margin: 0 16px;
    border-radius: 5px;
 }
 
 
-.filler{
+.filler {
    height: 150px;
 }
