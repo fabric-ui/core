@@ -4,10 +4,10 @@ import styles from '../styles/Row.module.css'
 import React, {useState} from 'react'
 
 export default function RowKey(props) {
-   const [loading, setLoading] = useState(false)
+
 
    const [color, setColor] = useState()
-   const data = useField(props.field, props.object, props.field.method, setColor, setLoading)
+   const data = useField(props.field, props.object, props.field.method, setColor)
 
    return (
       <div className={styles.row}
@@ -27,7 +27,7 @@ export default function RowKey(props) {
                ...props.styles, ...{
 
 
-                  display: loading ? 'none' : props.asCard && props.field.type === 'image' ? 'flex' : undefined,
+                  display: props.asCard && props.field.type === 'image' ? 'flex' : undefined,
                   justifyContent: props.asCard && props.field.type === 'image' ? 'center' : undefined,
                   alignItems: props.field.hideLabel ? 'center' : undefined
                }
@@ -45,7 +45,6 @@ export default function RowKey(props) {
                {data}
             </div>
          </div>
-         {loading ? <div className={styles.pulse}/> : null}
          {props.selfContained && !props.asCard && props.field.label && !props.field.hideLabel ?
             <label className={styles.footer} title={props.noTitle ? undefined : props.field.label}>
                {props.field.label}
