@@ -3,7 +3,7 @@ import {addHours} from "../../../inputs/date/misc/useDate";
 import useLocale from "../../../misc/hooks/useLocale";
 import styles from '../styles/Row.module.css'
 
-export default function useField(field, entity, method, setColor) {
+export default function useField(field, entity, method, setColor, card) {
    const translate = useLocale()
    return useMemo(() => {
       if (!method && entity && entity[field.key] !== undefined && entity[field.key] !== null && ((field.type === 'object' && entity[field.key][field.subfieldKey]) || field.type !== 'object'))
@@ -46,6 +46,6 @@ export default function useField(field, entity, method, setColor) {
       else if (!method)
          return translate('empty')
       else
-         return method(setColor, field, entity)
+         return method(setColor, field, entity, card)
    }, [field, entity])
 }

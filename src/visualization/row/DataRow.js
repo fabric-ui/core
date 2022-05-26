@@ -18,6 +18,8 @@ export default function DataRow(props) {
       }
    }, [context, props.index, props.keys, props.object, props.selfContained])
 
+   if (!data)
+      return null
    return (
       <div
          ref={props.reference}
@@ -37,13 +39,14 @@ export default function DataRow(props) {
          ))}
       </div>
    )
+
 }
 
 DataRow.propTypes = {
    index: PropTypes.number,
    className: PropTypes.string,
    styles: PropTypes.object,
-asCard: PropTypes.bool,
+   asCard: PropTypes.bool,
    cellClassName: PropTypes.string,
    cellStyles: PropTypes.object,
 

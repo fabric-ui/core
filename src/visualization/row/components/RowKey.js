@@ -1,40 +1,35 @@
 import PropTypes from "prop-types";
 import useField from "../hooks/useField";
 import styles from '../styles/Row.module.css'
-import React, {useState} from 'react'
+import React, {useMemo, useState} from 'react'
 
 export default function RowKey(props) {
 
 
    const [color, setColor] = useState()
-   const data = useField(props.field, props.object, props.field.method, setColor)
-
+   const data = useField(props.field, props.object, props.field.method, setColor, props.asCard)
+   const hiddenLabel = useMemo( () => {
+      return props.selfContained && props.field.label && !props.field.hideLabel
+   }, [props])
    return (
       <div className={styles.row}
-
            style={{
-         color: color,
-         width: props.field.additionalWidth ? `calc(100% + ${props.field.additionalWidth})` : undefined
-      }}>
+              color: color,
+              padding: props.field.type !== 'image' ? props.asCard ? '2px 6px' : undefined : '0',
+              width: props.field.additionalWidth ? `calc(100% + ${props.field.additionalWidth})` : undefined
+           }}
+      >
 
          <div
-            className={[styles.cell, props.className,].join(' ')}
+            className={[styles.cell, props.className].join(' ')}
             onClick={props.field.onClick}
             title={props.field.type !== 'image' ?
                props.field.type === 'string' ? props.object[props.field.key] : data
                : null}
-            style={{
-               ...props.styles, ...{
-
-
-                  display: props.asCard && props.field.type === 'image' ? 'flex' : undefined,
-                  justifyContent: props.asCard && props.field.type === 'image' ? 'center' : undefined,
-                  alignItems: props.field.hideLabel ? 'center' : undefined
-               }
-            }}
+            style={props.styles}
          >
 
-            {props.selfContained && props.asCard && props.field.label ?
+            {hiddenLabel && props.asCard ?
                <label className={styles.footer} title={props.noTitle ? undefined : props.field.label}>
                   {props.field.label}:
                </label>
@@ -45,7 +40,7 @@ export default function RowKey(props) {
                {data}
             </div>
          </div>
-         {props.selfContained && !props.asCard && props.field.label && !props.field.hideLabel ?
+         {hiddenLabel  && !props.asCard?
             <label className={styles.footer} title={props.noTitle ? undefined : props.field.label}>
                {props.field.label}
             </label>

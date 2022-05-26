@@ -4,7 +4,6 @@
    background: var(--fabric-background-primary);
    border: var(--fabric-border-primary) 1px solid;
 
-   padding: 4px;
    overflow: hidden;
 }
 
@@ -22,7 +21,7 @@
 
 .row {
    overflow: hidden;
-   padding: 4px;
+   padding: 6px;
    font-size: .8rem;
 
    font-weight: 550;
@@ -55,7 +54,7 @@
    text-overflow: ellipsis;
    cursor: inherit;
    max-height: inherit;
-
+   gap: 4px;
    display: flex;
 }
 
@@ -65,7 +64,7 @@
    max-width: 100%;
    max-height: 100%;
    overflow: hidden;
-   border-radius: 5px;
+   border-radius: 3px;
 }
 
 
@@ -91,7 +90,7 @@
    }
 }
 
-.overflow{
+.overflow {
    overflow: hidden;
    max-width: 100%;
    text-overflow: ellipsis;
