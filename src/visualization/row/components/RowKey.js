@@ -8,47 +8,41 @@ export default function RowKey(props) {
 
    const [color, setColor] = useState()
    const data = useField(props.field, props.object, props.field.method, setColor, props.asCard)
-   const hiddenLabel = useMemo( () => {
+   const hiddenLabel = useMemo(() => {
       return props.selfContained && props.field.label && !props.field.hideLabel
    }, [props])
-   return (
-      <div className={styles.row}
-           style={{
-              color: color,
-              padding: props.field.type !== 'image' ? props.asCard ? '2px 6px' : undefined : '0',
-              width: props.field.additionalWidth ? `calc(100% + ${props.field.additionalWidth})` : undefined
-           }}
+   return (<div className={styles.row}
+                style={{
+                   height: props.field.type === 'image' ? '100%' : undefined,
+                   color: color,
+                   padding: props.field.type !== 'image' ? props.asCard ? '2px 6px' : undefined : '0',
+                   width: props.field.additionalWidth ? `calc(100% + ${props.field.additionalWidth})` : undefined
+                }}
+   >
+
+      <div
+         className={[styles.cell, props.className].join(' ')}
+         onClick={props.field.onClick}
+         title={props.field.type !== 'image' ? props.field.type === 'string' ? props.object[props.field.key] : data : null}
+         style={props.styles}
       >
 
-         <div
-            className={[styles.cell, props.className].join(' ')}
-            onClick={props.field.onClick}
-            title={props.field.type !== 'image' ?
-               props.field.type === 'string' ? props.object[props.field.key] : data
-               : null}
-            style={props.styles}
-         >
-
-            {hiddenLabel && props.asCard ?
-               <label className={styles.footer} title={props.noTitle ? undefined : props.field.label}>
-                  {props.field.label}:
-               </label>
-               :
-               null
-            }
+         {hiddenLabel && props.asCard ?
+            <label className={styles.footer} title={props.noTitle ? undefined : props.field.label}>
+               {props.field.label}:
+            </label> : null}
+         {typeof data === 'string' ?
             <div className={styles.overflow}>
                {data}
             </div>
-         </div>
-         {hiddenLabel  && !props.asCard?
-            <label className={styles.footer} title={props.noTitle ? undefined : props.field.label}>
-               {props.field.label}
-            </label>
-            :
-            null
-         }
+            : data}
+
       </div>
-   )
+      {hiddenLabel && !props.asCard ?
+         <label className={styles.footer} title={props.noTitle ? undefined : props.field.label}>
+            {props.field.label}
+         </label> : null}
+   </div>)
 
 }
 
