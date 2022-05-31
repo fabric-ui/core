@@ -24,7 +24,11 @@ export default function RowKey(props) {
          className={[styles.cell, props.className].join(' ')}
          onClick={props.field.onClick}
          title={props.field.type !== 'image' ? props.field.type === 'string' ? props.object[props.field.key] : data : null}
-         style={props.styles}
+         style={{
+            ...props.styles, ...{
+               alignItems: (props.field.hideLabel || !props.selfContained)  && !props.asCard? 'center' : undefined
+            }
+         }}
       >
 
          {hiddenLabel && props.asCard ?
