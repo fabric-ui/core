@@ -13,36 +13,45 @@ export default function ContextWrapper(props) {
 
     function handler(event) {
         if (event.type === "mouseup") {
-            if (
-                Math.abs(startPosition.x - event.clientX) < 10 &&
-            Math.abs(startPosition.y - event.clientY) < 10
-            ) {
+            if (Math.abs(startPosition.x - event.clientX) < 10 && Math.abs(startPosition.y - event.clientY) < 10) {
                 targets = document.elementsFromPoint(event.clientX, event.clientY)
-                targets = targets.filter((t) => {
+                let trigger
+                targets = targets.filter((t ) => {
                     let hasAttribute = false
                     Array.from(t.attributes).forEach((attr) => {
                         const has = props.triggers.find((f) => attr.nodeName === f)
-                        if (has) hasAttribute = hasAttribute || has
+                        if (has)
+                            hasAttribute = hasAttribute || has
+
                     })
                     if (hasAttribute) return t
                 })
+
                 if (targets.length > 0) {
                     const currentTarget = targets[0]
-                    setSelected(currentTarget)
+                    Array.from(currentTarget.attributes).forEach((attr) => {
+                        const has = props.triggers.find((f) => attr.nodeName === f)
+                        if (has)
+                            trigger =  has
+                    })
+
+                    setSelected({selected: currentTarget, trigger})
                     if (props.onContext !== undefined)
                         props.onContext(currentTarget)
+
+                    contextRef.current.style.zIndex = "999"
+                    const bBox = contextRef.current?.getBoundingClientRect()
+                    if (event.clientX + bBox.width > document.body.offsetWidth) {
+                        contextRef.current.style.left =
+                         event.clientX - bBox.width + "px"
+                    } else contextRef.current.style.left = event.clientX + "px"
+                    if (event.clientY + bBox.height > document.body.offsetHeight) {
+                        contextRef.current.style.top = event.clientY + "px"
+                    } else
+                        contextRef.current.style.top =
+                         event.clientY + bBox.height + "px"
                 } else setSelected(undefined)
-                contextRef.current.style.zIndex = "999"
-                const bBox = contextRef.current?.getBoundingClientRect()
-                if (event.clientX + bBox.width > document.body.offsetWidth) {
-                    contextRef.current.style.left =
-                  event.clientX - bBox.width + "px"
-                } else contextRef.current.style.left = event.clientX + "px"
-                if (event.clientY + bBox.height > document.body.offsetHeight) {
-                    contextRef.current.style.top = event.clientY + "px"
-                } else
-                    contextRef.current.style.top =
-                  event.clientY + bBox.height + "px"
+
             }
             startPosition = {x: 0, y: 0}
         } else {
@@ -60,7 +69,6 @@ export default function ContextWrapper(props) {
             }
         }
     }
-
     useEffect(() => {
         document.addEventListener("mousedown", handler)
         ref.current?.parentNode.addEventListener("mouseup", handler)
@@ -68,7 +76,7 @@ export default function ContextWrapper(props) {
             document.removeEventListener("mousedown", handler)
             ref.current?.parentNode.removeEventListener("mouseup", handler)
         }
-    }, [selected])
+    }, [selected, props.triggers])
 
     return (
         <>
