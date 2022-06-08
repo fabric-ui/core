@@ -7,7 +7,7 @@ The _useInfiniteScroll_ hook gives you the fast way to set up an infinite scroll
 ```jsx
 import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Alerts} from '@f-ui/core';
+import {ThemeProvider, Alerts} from '@f-ui/core';
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -21,7 +21,7 @@ function App() {
   }, [currentPage])
 
   return (
-    <Fabric>
+    <ThemeProvider>
       {sampleData.map((data, index) => {
         if (index === sampleData.length - 1)
           return (
@@ -40,7 +40,7 @@ function App() {
             </React.Fragment>
           )
       })}
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

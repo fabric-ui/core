@@ -7,19 +7,19 @@ _Tooltip_ component doesn't change your app layout and can be used to provide mo
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Tooltip, Button} from '@f-ui/core';
+import {ThemeProvider, Tooltip, Button} from '@f-ui/core';
 
 function App() {
 
   return (
-    <Fabric>
+    <ThemeProvider>
       <Button>
         <Tooltip content={'Or here as string'}>
           Your message here
         </Tooltip>
         Hover me to show tooltip
       </Button>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

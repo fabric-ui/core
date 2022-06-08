@@ -38,7 +38,7 @@ export default function ContextWrapper(props) {
                     setSelected({selected: currentTarget, trigger})
                     if (props.onContext !== undefined)
                         props.onContext(currentTarget)
-
+                   contextRef.current.style.visibility = "visible"
                     contextRef.current.style.zIndex = "999"
                     const bBox = contextRef.current?.getBoundingClientRect()
                     if (event.clientX + bBox.width > document.body.offsetWidth) {
@@ -55,6 +55,7 @@ export default function ContextWrapper(props) {
             }
             startPosition = {x: 0, y: 0}
         } else {
+
             if (event.button === CONTEXT_BUTTON)
                 startPosition = {x: event.clientX, y: event.clientY}
             if (
@@ -64,7 +65,7 @@ export default function ContextWrapper(props) {
             ) {
                 if (props.onContextOut !== undefined) props.onContextOut(selected)
                 setSelected(undefined)
-                if (contextRef.current) contextRef.current.style.zIndex = "-1"
+                if (contextRef.current) contextRef.current.style.visibility = "hidden"
                 startMoment.current = -1
             }
         }
@@ -74,7 +75,7 @@ export default function ContextWrapper(props) {
         ref.current?.parentNode.addEventListener("mouseup", handler)
         return () => {
             document.removeEventListener("mousedown", handler)
-            ref.current?.parentNode.removeEventListener("mouseup", handler)
+            ref.current?.parentNode?.removeEventListener("mouseup", handler)
         }
     }, [selected, props.triggers])
 
@@ -89,16 +90,18 @@ export default function ContextWrapper(props) {
                     if (selected) {
                         setSelected(undefined)
                         if (contextRef.current)
-                            contextRef.current.style.zIndex = "-1"
+                            contextRef.current.style.visibility = "hidden"
                     }
                 })}
             </div>
             <div
                 {...props.attributes}
+               onContextMenu={e => e.preventDefault()}
                 className={props.className}
                 data-self={"true"}
                 style={props.styles}
                 ref={ref}
+
             >
                 {props.children}
             </div>

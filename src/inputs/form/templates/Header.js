@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "../../button/Button";
 import useLocale from "../../../misc/hooks/useLocale";
+import Icon from "../../../visualization/icon/Icon";
 
 export default function Header(props) {
     const translate = useLocale()
@@ -14,8 +15,7 @@ export default function Header(props) {
                     <Button className={styles.buttonContainer}
                             styles={{display: props.returnButton ? undefined : 'none'}}
                             onClick={() => props.handleClose()}>
-                        <span
-                            className="material-icons-round">arrow_back</span>
+                        <Icon>arrow_back</Icon>
                     </Button>
                     {props.title}
                 </div>

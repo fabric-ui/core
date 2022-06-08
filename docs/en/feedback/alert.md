@@ -6,16 +6,16 @@ The _Alert_ component provides a fast and visually intuitive way to inform your 
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Alerts} from '@f-ui/core';
+import {ThemeProvider, Alerts} from '@f-ui/core';
 
 function App() {
   const [open, setOpen] = useState(false)
   return (
-    <Fabric>
+    <ThemeProvider>
       <Alerts open={open} handleClose={() => setOpen(false)} variant={'success'}>
         Your message
       </Alerts>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

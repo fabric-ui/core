@@ -7,6 +7,7 @@ import shared from '../shared/styles/Shared.module.css'
 import Button from "../button/Button";
 import useLocale from "../../misc/hooks/useLocale";
 import Modal from "../../navigation/modal/Modal";
+import Icon from "../../visualization/icon/Icon";
 
 export default function SelectField(props) {
    const [open, setOpen] = useState(false)
@@ -53,9 +54,9 @@ export default function SelectField(props) {
                className={[styles.selectContainer, shared.labelContainer].join(' ')}
                onClick={() => setOpen(!open)}
             >
-                    <span
-                       style={{transform: !open ? 'unset' : 'rotate(180deg)', transition: '150ms linear'}}
-                       className="material-icons-round">arrow_drop_down</span>
+                    <Icon
+                       styles={{transform: !open ? 'unset' : 'rotate(180deg)', transition: '150ms linear'}}
+                       >arrow_drop_down</Icon>
 
                {selected ?
                   <div className={styles.overflow} style={{color: selected.color}}>
@@ -106,9 +107,9 @@ export default function SelectField(props) {
             {props.required ? translate('required') : undefined}
             {props.helperText ?
                <div className={shared.helperText}>
-                        <span style={{
+                        <Icon styles={{
                            fontSize: '1rem'
-                        }} className="material-icons-round">info</span>
+                        }} >info</Icon>
                   <ToolTip content={props.helperText} align={'start'}/>
                </div>
                :

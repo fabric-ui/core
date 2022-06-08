@@ -2,34 +2,15 @@ import * as PropTypes from "prop-types";
 import React, {useMemo} from "react";
 import FormRow from "./FormRow";
 import Checkbox from "../checkbox/Checkbox";
-import MultiSelectField from "../multiselect/MultiSelectField";
 import DateField from "../date/DateField";
 import TextField from "../text/TextField";
-import FileField from "../file/FileField";
 import SelectField from "../select/SelectField";
 import Form from "./Form";
 
 function Input(props) {
    return useMemo(() => {
       switch (props.type) {
-         case "file":
-            return (<FileField
-               {...props.customProps}
-               width={props.width}
-               height={props.height}
 
-               handleChange={(f) => {
-                  props.handleChange({
-                     event: f, key: props.fieldKey
-                  })
-               }}
-               value={props.value}
-               disabled={props.disabled}
-               required={props.required}
-               label={props.label}
-               placeholder={props.placeHolder}
-
-            />)
          case "text":
             return (<TextField
                {...props.customProps}
@@ -61,21 +42,7 @@ function Input(props) {
                disabled={props.disabled}
                placeholder={props.placeHolder}
                label={props.label}/>)
-         case "multi-select":
-            return (<MultiSelectField
-               {...props.customProps}
-               width={props.width}
-               height={props.height}
-               handleChange={(f) => {
-                  props.handleChange({
-                     event: f, key: props.fieldKey
-                  })
-               }}
-               value={props.value}
-               required={props.required}
-               disabled={props.disabled}
-               label={props.label}
-            />)
+
          case "select":
             return (<SelectField
                {...props.customProps}
@@ -167,7 +134,7 @@ EmbeddedForm.propTypes = {
 
          disabled: PropTypes.bool,
          key: PropTypes.string,
-         type: PropTypes.oneOf(['text', 'select', 'multi-select', 'check', 'date', 'file', 'custom']).isRequired,
+         type: PropTypes.oneOf(['text', 'select', 'multi-select', 'check', 'date', 'custom']).isRequired,
          customProps: PropTypes.object,
          width: PropTypes.string,
          height: PropTypes.string,

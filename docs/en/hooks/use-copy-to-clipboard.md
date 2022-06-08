@@ -5,7 +5,7 @@ _useCopyToClipboard_ hook provides a simple method to copy your text content to 
 ```jsx
 import React, {useRef} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Button, useCopyToClipboard} from '@f-ui/core';
+import {ThemeProvider, Button, useCopyToClipboard} from '@f-ui/core';
 
 function App() {
   const ref = useRef()
@@ -13,7 +13,7 @@ function App() {
   const copyWithRef = useCopyToClipboard(ref.current)
 
   return (
-    <Fabric>
+    <ThemeProvider>
       <div ref={ref}>
         Sample text
       </div>
@@ -23,7 +23,7 @@ function App() {
       <Button onClick={() => copyWithRef()}>
         Copy inner text from ref
       </Button>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

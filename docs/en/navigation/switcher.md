@@ -7,18 +7,18 @@ The _Switcher_ component animates the change between elements.
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Switcher} from '@f-ui/core';
+import {ThemeProvider, Switcher} from '@f-ui/core';
 
 function App() {
 
   return (
-    <Fabric>
+    <ThemeProvider>
       <Switcher openChild={2}>
         <button>First child</button>
         <div>Second child</div>
         <article>Third child (on render)</article>
       </Switcher>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

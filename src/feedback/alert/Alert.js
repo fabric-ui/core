@@ -2,20 +2,21 @@ import React, {useEffect, useMemo} from 'react'
 import styles from "./styles/Alert.module.css";
 import Button from "../../inputs/button/Button";
 import PropTypes from "prop-types";
-import fabricStyles from '../../misc/theme/styles/Fabric.module.css'
+import fabricStyles from '../../Fabric.module.css'
+import Icon from "../../visualization/icon/Icon";
 
 export default function Alert(props) {
 
    const variant = useMemo(() => {
       switch (props.type) {
          case 'success':
-            return {color: '#00F400', icon: <span className="material-icons-round">done</span>}
+            return {color: '#00F400', icon: <Icon>done</Icon>}
          case 'alert':
-            return {color: '#FFFF3E', icon: <span className="material-icons-round">warning</span>}
+            return {color: '#FFFF3E', icon: <Icon>warning</Icon>}
          case 'info':
-            return {color: '#0095ff', icon: <span className="material-icons-round">info</span>}
+            return {color: '#0095ff', icon: <Icon>info</Icon>}
          default:
-            return {color: '#ff5555', icon: <span className="material-icons-round">error</span>}
+            return {color: '#ff5555', icon: <Icon>error</Icon>}
       }
    }, [props.type])
 
@@ -41,7 +42,7 @@ export default function Alert(props) {
             className={styles.button}
             onClick={() => props.handleClose()}
          >
-            <span style={{fontSize: '1.1rem'}} className="material-icons-round">close</span>
+            <Icon styles={{fontSize: '1.1rem'}}>close</Icon>
          </Button>
       </div>
    )

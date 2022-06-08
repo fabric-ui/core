@@ -1,16 +1,16 @@
 import React, {useContext, useEffect, useRef} from "react";
 
 import PropTypes from 'prop-types'
-import ReactDOM from 'react-dom'
 import styles from './styles/ToolTip.module.css'
-import ThemeContext from "../../misc/context/ThemeContext";
-import themeStyles from '../../misc/theme/styles/Fabric.module.css'
+import ThemeContext from "../../misc/hooks/ThemeContext";
+import fabricStyles from '../../Fabric.module.css'
+import * as DOM from 'react-dom/client'
 
 export default function ToolTip(props) {
    const theme = useContext(ThemeContext)
    const toolTip = (
-      <div className={[styles.container, theme.dark ? themeStyles.dark : themeStyles.light].join(' ')}
-           style={{animationDelay: props.animation}}>
+      <div className={[styles.container,theme.dark ? fabricStyles.dark : fabricStyles.light].join(' ')}
+           style={{animationDelay: props.animationDelay}}>
          <div className={[styles.content, props.className].join(' ')} style={props.styles}>
             {props.content === undefined ? props.children : props.content}
          </div>
@@ -38,15 +38,13 @@ export default function ToolTip(props) {
       if (ref.current?.parentNode) {
          mountingPoint.current.style.position = 'fixed'
          mountingPoint.current.style.zIndex = '999'
-         ReactDOM.render(
-            toolTip,
-            mountingPoint.current
-         )
+         const root = DOM.createRoot(mountingPoint.current)
+         root.render(toolTip)
          mountingPoint.current.style.left = (event.clientX + 10) + 'px'
          mountingPoint.current.style.top = (event.clientY + 10) + 'px'
 
          document.addEventListener('mousemove', handleMouseMove)
-         ref.current?.parentNode.addEventListener('mouseleave', () => onExit(), {once: true})
+         ref.current?.parentNode.addEventListener('mouseleave', () => root.unmount(), {once: true})
       }
    }
 
@@ -55,8 +53,6 @@ export default function ToolTip(props) {
       if (!mountingPoint.current && !m) {
          mountingPoint.current = document.createElement("div")
          mountingPoint.current.setAttribute('id', 'tooltip-mounting-point')
-
-
          document.body.appendChild(mountingPoint.current)
       } else
          mountingPoint.current = m
@@ -65,26 +61,8 @@ export default function ToolTip(props) {
       return () => {
          ref.current?.parentNode.removeEventListener('mouseenter', hover)
          document.removeEventListener('mousemove', handleMouseMove)
-      }
-   }, [])
-
-   const onExit = () => {
-      try {
-
-         document.removeEventListener('mousemove', handleMouseMove)
-         if (mountingPoint.current)
-            try {
-               ReactDOM.unmountComponentAtNode(mountingPoint.current)
-            } catch (e) {
-            }
-      } catch (e) {
-      }
-   }
-
-   useEffect(() => {
-      return () => {
          ref.current?.parentNode.removeEventListener('mouseenter', hover)
-         onExit()
+         document.removeEventListener('mousemove', handleMouseMove)
       }
    }, [])
 
@@ -97,6 +75,5 @@ ToolTip.propTypes = {
 
    content: PropTypes.string,
    children: PropTypes.node,
-   color: PropTypes.string,
-   animation: PropTypes.string
+   animationDelay: PropTypes.string
 }

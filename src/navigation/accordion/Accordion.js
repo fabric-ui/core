@@ -3,6 +3,7 @@ import styles from './styles/Accordion.module.css'
 import PropTypes from "prop-types";
 import AccordionSummary from "./AccordionSummary";
 import Button from "../../inputs/button/Button";
+import Icon from "../../visualization/icon/Icon";
 
 export default function Accordion(props) {
    const summary = React.Children.toArray(props.children).find(e => e.type === AccordionSummary)
@@ -20,9 +21,9 @@ export default function Accordion(props) {
             className={[styles.summary, summary?.props.className].join(' ')}
             styles={summary?.props.styles}
          >
-        <span
-           style={{transform: !open ? 'rotate(-90deg)' : undefined, fontSize: '1.25rem'}}
-           className={'material-icons-round'}>expand_more</span>
+        <Icon
+           styles={{transform: !open ? 'rotate(-90deg)' : undefined, fontSize: '1.25rem'}}
+           >expand_more</Icon>
             {summary}
          </Button>
          <div

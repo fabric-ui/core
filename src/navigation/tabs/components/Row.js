@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import PropTypes from "prop-types";
 import Button from "../../../inputs/button/Button";
 import ToolTip from "../../../feedback/tooltip/ToolTip";
+import Icon from "../../../visualization/icon/Icon";
 
 export default function Row(props) {
     const [hidden, setHidden] = useState(false)
@@ -23,10 +24,12 @@ export default function Row(props) {
                     {props.groupName}
                 </div>
                 <ToolTip content={props.groupName}/>
-                <span className="material-icons-round" style={{
-                    transform: hidden ? 'rotate(180deg)' : "unset",
-                    transition: '150ms linear'
-                }}>arrow_drop_down</span>
+               <Icon styles={{
+                  transform: hidden ? 'rotate(180deg)' : "unset",
+                  transition: '150ms linear'
+               }}>
+                  arrow_drop_down
+               </Icon>
             </Button>
 
             {hidden ? null : props.buttons.map((b, bI) => b.group === props.groupName ? (

@@ -1,3 +1,9 @@
+@font-face {
+   font-family: "Roboto";
+   src: url("./Roboto/Roboto-Regular.ttf");
+
+}
+
 .light {
    --fabric-accent-color: #0095ff;
    --fabric-background-primary: white;
@@ -12,12 +18,12 @@
    --fabric-color-secondary: #454545;
    --fabric-color-tertiary: #555555;
    --fabric-color-quaternary: #999999;
-   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+   font-family: "Roboto";
    --fabric-boxshadow: rgba(0, 0, 0, .1) 2px 4px 10px 2px;
 }
 
 .dark {
-   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+   font-family: "Roboto";
    --fabric-accent-color: #0095ff;
    --fabric-background-primary: #303030;
    --fabric-background-secondary: #2b2b2b;

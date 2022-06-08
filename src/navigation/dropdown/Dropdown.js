@@ -5,6 +5,7 @@ import Button from "../../inputs/button/Button";
 import Modal from "../modal/Modal";
 import DropdownOptions from "./DropdownOptions";
 import DropdownProvider from './DropdownProvider'
+import Icon from "../../visualization/icon/Icon";
 
 export default function Dropdown(props) {
    const [open, setOpen] = useState(false)
@@ -27,7 +28,7 @@ export default function Dropdown(props) {
 
          if (bBox.x < 0)
             x = (-bBox.x + offX) + 'px'
- 
+
          if ((button.y + bBox.height + button.height) > body.height)
             y = `calc(-50% - ${button.height/2}px)`
 
@@ -86,7 +87,7 @@ export default function Dropdown(props) {
             className={props.className}>
             {label.map(l => l)}
 
-            {props.hideArrow ? null : <span className={'material-icons-round'}>arrow_drop_down</span>}
+            {props.hideArrow ? null : <Icon>arrow_drop_down</Icon>}
 
             <Modal
                variant={"fit"}

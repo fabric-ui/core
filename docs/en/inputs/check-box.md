@@ -4,14 +4,14 @@
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, CheckBox} from '@f-ui/core';
+import {ThemeProvider, CheckBox} from '@f-ui/core';
 
 function App() {
   const [checked, setChecked] = useState(false)
   return (
-    <Fabric>
+    <ThemeProvider>
       <CheckBox label={'Checkbox'} handleCheck={state => setChecked(!state)} checked={checked}/>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 
@@ -32,19 +32,19 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, CheckBox, CheckboxGroup} from '@f-ui/core';
+import {ThemeProvider, CheckBox, CheckboxGroup} from '@f-ui/core';
 
 function App() {
   const [checked, setChecked] = useState(null)
   return (
-    <Fabric>
+    <ThemeProvider>
       <CheckboxGroup label={'My checkbox group'} value={checked} helperText={'HELP'}>
         <CheckBox label={'Checkbox'} handleCheck={state => setChecked(state ? null : 0)} checked={checked === 0}/>
         <CheckBox label={'Checkbox 1'} handleCheck={state => setChecked(state ? null : 1)} checked={checked === 1}/>
         <CheckBox label={'Checkbox 2'} handleCheck={state => setChecked(state ? null : 2)} checked={checked === 2}/>
         <CheckBox label={'Checkbox 3'} handleCheck={state => setChecked(state ? null : 3)} checked={checked === 3}/>
       </CheckboxGroup>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

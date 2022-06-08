@@ -2,6 +2,7 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 import PropTypes from "prop-types";
 import styles from './styles/Context.module.css'
 import Button from "../../inputs/button/Button";
+import Icon from "../../visualization/icon/Icon";
 
 
 export default function ContextMenu(props) {
@@ -48,7 +49,8 @@ export default function ContextMenu(props) {
             setSelected(undefined)
 
 
-         contextRef.current.style.zIndex = '999'
+         contextRef.current.style.visibility = "visible"
+         contextRef.current.style.zIndex = "999"
          const bBox = contextRef.current?.getBoundingClientRect()
          if (event.clientX + bBox.width > document.body.offsetWidth)
             contextRef.current.style.left = (event.clientX - bBox.width) + 'px'
@@ -69,7 +71,8 @@ export default function ContextMenu(props) {
             props.onContextOut(selected)
          setSelected(undefined)
          if (contextRef.current)
-            contextRef.current.style.zIndex = '-1'
+            contextRef.current.style.visibility = "hidden"
+
       }
    }
 
@@ -88,7 +91,7 @@ export default function ContextMenu(props) {
    return (
       <>
 
-         <div className={styles.wrapper} ref={contextRef}>
+         <div className={styles.wrapper} ref={contextRef} style={{display: options && options.length > 0 ? undefined : "none"}}>
             {options.map((el, i) => (
                <React.Fragment key={'options-' + i}>
                   <Button
@@ -97,13 +100,18 @@ export default function ContextMenu(props) {
                      onClick={e => {
                         el.onClick(selected, e)
                         if (contextRef.current)
-                           contextRef.current.style.zIndex = '-1'
+                           contextRef.current.style.visibility = "hidden"
                         if (selected)
                            selected.style.outline = 'transparent 2px solid'
                         setSelected(undefined)
                      }}>
                      <div className={styles.basicIconWrapper}>
-                        {el.icon}
+                        {el.icon ?
+                           <Icon styles={el.iconStyles}>
+                              {el.icon}
+                           </Icon>
+                           :
+                           null}
                      </div>
                      {el.label}
                   </Button>
@@ -122,14 +130,16 @@ ContextMenu.propTypes = {
    onContext: PropTypes.func,
    onContextOut: PropTypes.func,
 
-   triggers: PropTypes.arrayOf(PropTypes.string),
+   triggers: PropTypes.arrayOf(PropTypes.string).isRequired,
    options: PropTypes.arrayOf(PropTypes.shape({
       onClick: PropTypes.func,
       label: PropTypes.string,
       shortcut: PropTypes.any,
-      icon: PropTypes.node,
-      requiredTrigger: PropTypes.string
-   })),
+      icon: PropTypes.string,
+      iconStyles: PropTypes.object,
+
+      requiredTrigger: PropTypes.string.isRequired
+   })).isRequired,
    attributes: PropTypes.object,
 
    children: PropTypes.node,

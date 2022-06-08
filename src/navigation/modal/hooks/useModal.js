@@ -1,5 +1,4 @@
-import React, {useEffect, useMemo, useRef} from "react";
-import ReactDOM from "react-dom";
+import React, {useMemo, useRef} from "react";
 import styles from "../styles/Modal.module.css";
 
 export default function useModal({animationStyle, variant}) {
@@ -48,17 +47,7 @@ export default function useModal({animationStyle, variant}) {
       return anim
    }, [])
 
-   const unmountContent = () => {
 
-      try {
-         ReactDOM.unmountComponentAtNode(mountingPoint.current)
-      } catch (e) {
-      }
-   }
-
-   const renderContent = (content) => {
-      ReactDOM.render(content, mountingPoint.current)
-   }
 
    const animate = (enter) => {
       if (enter)
@@ -68,18 +57,7 @@ export default function useModal({animationStyle, variant}) {
          target.current?.classList.add(animation.exit)
       }
    }
-   const mount = () => {
-      mountingPoint.current = document.createElement('div')
-      document.body.appendChild(mountingPoint.current)
-      mountingPoint.current.style.position = 'fixed'
-      mountingPoint.current.style.zIndex = 999
-   }
-   useEffect(() => {
-      mount()
-      return () => {
-         unmountContent()
-      }
-   }, [])
+
    const getParentPosition = () => {
       const bBox = source.current?.parentNode?.getBoundingClientRect()
 
@@ -94,9 +72,8 @@ export default function useModal({animationStyle, variant}) {
    }
    return {
       animations: animation,
-      renderContent,
+
       animate,
-      unmountContent,
       target,
       source,
       getParentPosition,

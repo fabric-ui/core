@@ -6,14 +6,14 @@ Flexible date input with interactive calendar and multiple date masks. Supports 
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, DateField} from '@f-ui/core';
+import {ThemeProvider, DateField} from '@f-ui/core';
 
 function App() {
     const [state, setState] = useState('09/03/2021')
   return (
-    <Fabric>
+    <ThemeProvider>
         <DateField hoursOffset={3} value={state} handleChange={s => setState(s)} required={true} pattern={'dd/mm/yyyy'} width={'100%'}/>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

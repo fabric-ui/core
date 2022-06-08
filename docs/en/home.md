@@ -23,15 +23,15 @@ yarn add react-imask prop-types @f-ui/core
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Button} from '@f-ui/core';
+import {ThemeProvider, Button} from '@f-ui/core';
 
 function App() {
   return (
-    <Fabric language={'en'}>
+    <ThemeProvider language={'en'}>
       <Button variant="filled" color="primary">
         Hello World
       </Button>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

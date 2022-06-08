@@ -10,13 +10,13 @@
 
 [comment]: <> (import ReactDOM from 'react-dom';)
 
-[comment]: <> (import {Fabric, Button} from '@f-ui/core';)
+[comment]: <> (import {ThemeProvider, Button} from '@f-ui/core';)
 
 [comment]: <> (function App&#40;&#41; {)
 
 [comment]: <> (  return &#40;)
 
-[comment]: <> (    <Fabric>)
+[comment]: <> (    <ThemeProvider>)
 
 [comment]: <> (        <Button>)
 
@@ -24,7 +24,7 @@
 
 [comment]: <> (        </Button>)
 
-[comment]: <> (    </Fabric>)
+[comment]: <> (    </ThemeProvider>)
 
 [comment]: <> (  &#41;;)
 

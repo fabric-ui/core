@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import LanguageContext from "../context/LanguageContext";
+import LanguageContext from "./LanguageContext";
 import LocaleEN from "../../locales/LocaleEN";
 import LocalePT from "../../locales/LocalePT";
 

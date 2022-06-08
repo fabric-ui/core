@@ -7,16 +7,16 @@ The _Dropdown_ component allows you to show more options without changing your a
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Dropdown} from '@f-ui/core';
+import {ThemeProvider, Dropdown} from '@f-ui/core';
 
 function App() {
 
   return (
-    <Fabric>
+    <ThemeProvider>
         <Dropdown options={[{label: 'My first option', onClick: (e) => alert(e)}]}>
           Children
         </Dropdown>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

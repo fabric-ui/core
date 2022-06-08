@@ -1,15 +1,14 @@
 import PropTypes from "prop-types";
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import styles from "./styles/Modal.module.css";
-import ThemeContext from "../../misc/context/ThemeContext";
+import ThemeContext from "../../misc/hooks/ThemeContext";
 import useModal from "./hooks/useModal";
-import ReactDOM from "react-dom";
+import * as DOM from "react-dom/client";
 
 export default function Modal(props) {
 
    const {
-      animations, renderContent, animate, unmountContent, target, source, getParentPosition,
-      mountingPoint
+      animations, mountingPoint, animate, target, source, getParentPosition
    } = useModal({
       animationStyle: props.animationStyle,
       variant: props.variant
@@ -20,13 +19,26 @@ export default function Modal(props) {
          props.handleClose()
    }
    const [alreadyRendered, setAlreadyRendered] = useState(false)
+   const localRoot = useRef()
+   const rooted = useRef(false)
+   useEffect(() => {
+      const  renderTarget = document.createElement('div')
+      document.body.appendChild(renderTarget)
+      renderTarget.style.position = 'fixed'
+      renderTarget.style.zIndex = "999"
+      mountingPoint.current = renderTarget
+
+      return () => document.body.removeChild(renderTarget)
+   }, [])
 
    useEffect(() => {
-
       if (props.open) {
          const position = getParentPosition()
-
-         renderContent((
+         if(!localRoot.current || !rooted.current) {
+            rooted.current = true
+            localRoot.current = DOM.createRoot(mountingPoint.current)
+         }
+         localRoot.current.render((
             <div
                style={{
                   ...props.variant === 'fit' ? {} : {backdropFilter: `blur(${props.blurIntensity ? props.blurIntensity : '10px'})`},
@@ -45,8 +57,8 @@ export default function Modal(props) {
                      if (e.target.classList.contains(animations.exit)) {
                         setAlreadyRendered(false)
                         props.handleClose()
-
-                        unmountContent()
+                        rooted.current = false
+                        localRoot.current.unmount()
                      }
                   }}>
                   {props.children}
@@ -57,14 +69,8 @@ export default function Modal(props) {
       } else if (alreadyRendered)
          animate()
    }, [props.children, props.open])
-   useEffect(() => {
-      return () => {
-         try{
-            ReactDOM.unmountComponentAtNode(mountingPoint.current)
-            document.body.removeChild(mountingPoint.current)
-         }catch (e){}
-      }
-   }, [])
+
+
    useEffect(() => {
       document.addEventListener('mousedown', handleMouseDown)
       return () => document.removeEventListener('mousedown', handleMouseDown)

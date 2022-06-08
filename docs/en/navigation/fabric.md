@@ -1,4 +1,4 @@
-## *Fabric* - navigation
+## *ThemeProvider* - navigation
 
 _Fabric_ component provides support for localization, theme switching and material icons, it is the basis for every other component to work correctly.
 
@@ -7,13 +7,13 @@ _Fabric_ component provides support for localization, theme switching and materi
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Button} from '@f-ui/core';
+import {ThemeProvider, Button} from '@f-ui/core';
 
 function App() {
   return (
-    <Fabric>
+    <ThemeProvider>
         {/*Your @f-ui/core components here*/}
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

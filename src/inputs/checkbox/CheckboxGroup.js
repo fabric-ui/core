@@ -4,6 +4,7 @@ import shared from '../shared/styles/Shared.module.css'
 import React from "react";
 import ToolTip from "../../feedback/tooltip/ToolTip";
 import useLocale from "../../misc/hooks/useLocale";
+import Icon from "../../visualization/icon/Icon";
 
 export default function CheckboxGroup(props){
     const translate = useLocale()
@@ -28,9 +29,9 @@ export default function CheckboxGroup(props){
                 {props.required ?translate('required') : undefined}
                 {props.helperText ?
                     <div className={shared.helperText}>
-                         <span
-                             style={{fontSize: '1rem'}}
-                             className="material-icons-round">info</span>
+                         <Icon
+                             styles={{fontSize: '1rem'}}
+                             >info</Icon>
                         <ToolTip content={props.helperText} align={'start'}/>
                     </div>
                     :

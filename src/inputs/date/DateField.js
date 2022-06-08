@@ -6,6 +6,7 @@ import TextField from "../text/TextField";
 import useDate from "./misc/useDate";
 import Dropdown from "../../navigation/dropdown/Dropdown";
 import DropdownOptions from "../../navigation/dropdown/DropdownOptions";
+import Icon from "../../visualization/icon/Icon";
 
 export default function DateField(props) {
 
@@ -109,9 +110,9 @@ export default function DateField(props) {
                   className={styles.button}
                   hideArrow={true}
                   reference={buttonRef}>
-                        <span style={{
+                        <Icon styles={{
                            fontSize: '1.1rem'
-                        }} className="material-icons-round">calendar_today</span>
+                        }} >calendar_today</Icon>
 
                   <DropdownOptions>
 
@@ -124,9 +125,10 @@ export default function DateField(props) {
                                    const newYear = newMonth === 12 ? (date.year ? date.year - 1 : d.getFullYear() - 1) : (date.year ? date.year : d.getFullYear())
                                    props.handleChange(parseDate(newDay, newMonth, newYear))
                                 }}>
-                            <span style={{
+                            <Icon
+                               styles={{
                                fontSize: '1rem'
-                            }} className="material-icons-round">arrow_back_ios</span>
+                            }} >arrow_back_ios</Icon>
 
                         </Button>
                         <div className={styles.currentDate}>
@@ -148,8 +150,7 @@ export default function DateField(props) {
                               const newYear = newMonth === 1 ? (date.year ? date.year + 1 : d.getFullYear() + 1) : (date.year ? date.year : d.getFullYear())
                               props.handleChange(parseDate(newDay, newMonth, newYear))
                            }}>
-                  <span style={{fontSize: '1rem', transform: 'rotate(180deg'}}
-                        className="material-icons-round">arrow_back_ios</span>
+                  <Icon styles={{fontSize: '1rem', transform: 'rotate(180deg'}}>arrow_back_ios</Icon>
 
                         </Button>
                      </div>

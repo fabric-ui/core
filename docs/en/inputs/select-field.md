@@ -6,15 +6,15 @@ One of the most useful components, the _Button_ provides a single tap action.
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Button} from '@f-ui/core';
+import {ThemeProvider, Button} from '@f-ui/core';
 
 function App() {
   return (
-    <Fabric>
+    <ThemeProvider>
         <Button>
           Children
         </Button>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

@@ -4,12 +4,12 @@
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, VerticalTabs, Tab} from '@f-ui/core';
+import {ThemeProvider, VerticalTabs, Tab} from '@f-ui/core';
 
 function App() {
   const [open, setOpen] = useState(0)
   return (
-    <Fabric>
+    <ThemeProvider>
       <VerticalTabs open={open} setOpen={(currentTab) => setOpen(currentTab)}>
         <Tab label={'My first tab'}>
           Im on render
@@ -26,7 +26,7 @@ function App() {
           Also something
         </Tab>
       </VerticalTabs>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 
@@ -48,12 +48,12 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, Tabs, Tab} from '@f-ui/core';
+import {ThemeProvider, Tabs, Tab} from '@f-ui/core';
 
 function App() {
   const [open, setOpen] = useState(false)
   return (
-    <Fabric>
+    <ThemeProvider>
       <Tabs open={open} setOpen={(currentTab) => setOpen(currentTab)}>
         <Tab label={'My first tab'}>
           Im on render
@@ -65,7 +65,7 @@ function App() {
           Im disabled
         </Tab>
       </Tabs>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 
@@ -87,18 +87,18 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 ```jsx
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, VerticalTabs, Tab} from '@f-ui/core';
+import {ThemeProvider, VerticalTabs, Tab} from '@f-ui/core';
 
 function App() {
   const [open, setOpen] = useState(0)
   return (
-    <Fabric>
+    <ThemeProvider>
       <VerticalTabs open={open} setOpen={(currentTab) => setOpen(currentTab)}>
         <Tab label={'My first tab in a group'} group={'First group'}>
           Some thing here
         </Tab>
       </VerticalTabs>
-    </Fabric>
+    </ThemeProvider>
   );
 }
 

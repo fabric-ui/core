@@ -6,7 +6,7 @@ The _useFile_ hook provides fast access to your local file content.
 ```jsx
 import React, {useRef} from 'react';
 import ReactDOM from 'react-dom';
-import {Fabric, useFile} from '@f-ui/core';
+import {ThemeProvider, useFile} from '@f-ui/core';
 
 function App() {
   const file = useFile('./my-file.extension', false)
