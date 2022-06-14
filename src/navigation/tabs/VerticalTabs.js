@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
-import React, {useMemo} from "react";
-import styles from './styles/Vertical.module.css'
-import Switcher from "../switcher/Switcher";
-import Row from "./components/Row";
+import PropTypes from "prop-types"
+import React, {useMemo} from "react"
+import styles from "./styles/Vertical.module.css"
+import Switcher from "../switcher/Switcher"
+import Row from "./components/Row"
 
 export default function VerticalTabs(props) {
    const children = React.Children.toArray(props.children)

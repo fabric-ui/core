@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types'
-import styles from './styles/Checkbox.module.css'
-import shared from '../shared/styles/Shared.module.css'
-import React from "react";
-import ToolTip from "../../feedback/tooltip/ToolTip";
-import useLocale from "../../misc/hooks/useLocale";
-import Icon from "../../visualization/icon/Icon";
+import PropTypes from "prop-types"
+import styles from "./styles/Checkbox.module.css"
+import shared from "../shared/styles/Shared.module.css"
+import React from "react"
+import ToolTip from "../../feedback/tooltip/ToolTip"
+import useLocale from "../../misc/hooks/useLocale"
+import Icon from "../../visualization/icon/Icon"
 
 export default function CheckboxGroup(props){
     const translate = useLocale()

@@ -1,6 +1,6 @@
-import styles from './styles/Ripple.module.css'
-import PropTypes from 'prop-types'
-import React, {useEffect, useRef} from "react";
+import styles from "./styles/Ripple.module.css"
+import PropTypes from "prop-types"
+import React, {useEffect, useRef} from "react"
 
 export default function Ripple(props) {
     const ref = useRef()

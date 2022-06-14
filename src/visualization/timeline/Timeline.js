@@ -1,7 +1,7 @@
-import React, {useRef} from 'react'
+import React, {useRef} from "react"
 
-import PropTypes from "prop-types";
-import styles from './styles/Timeline.module.css'
+import PropTypes from "prop-types"
+import styles from "./styles/Timeline.module.css"
 
 export default function Timeline(props) {
    const children = React.Children.toArray(props.children)

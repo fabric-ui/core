@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import useField from "../hooks/useField";
-import styles from '../styles/Row.module.css'
-import React, {useMemo, useState} from 'react'
+import PropTypes from "prop-types"
+import useField from "../hooks/useField"
+import styles from "../styles/Row.module.css"
+import React, {useMemo, useState} from "react"
 
 export default function RowKey(props) {
 

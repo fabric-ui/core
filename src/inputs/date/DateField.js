@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types'
-import React, {useEffect, useMemo, useRef, useState} from 'react'
-import styles from './styles/DateField.module.css'
-import Button from "../button/Button";
-import TextField from "../text/TextField";
-import useDate from "./misc/useDate";
-import Dropdown from "../../navigation/dropdown/Dropdown";
-import DropdownOptions from "../../navigation/dropdown/DropdownOptions";
-import Icon from "../../visualization/icon/Icon";
+import PropTypes from "prop-types"
+import React, {useEffect, useMemo, useRef, useState} from "react"
+import styles from "./styles/DateField.module.css"
+import Button from "../button/Button"
+import TextField from "../text/TextField"
+import useDate from "./misc/useDate"
+import Dropdown from "../../navigation/dropdown/Dropdown"
+import DropdownOptions from "../../navigation/dropdown/DropdownOptions"
+import Icon from "../../visualization/icon/Icon"
 
 export default function DateField(props) {
 

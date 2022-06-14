@@ -1,7 +1,7 @@
-import React, {useContext} from 'react'
-import LanguageContext from "./LanguageContext";
-import LocaleEN from "../../locales/LocaleEN";
-import LocalePT from "../../locales/LocalePT";
+import React, {useContext} from "react"
+import LanguageContext from "./LanguageContext"
+import LocaleEN from "../../locales/LocaleEN"
+import LocalePT from "../../locales/LocalePT"
 
 export default function useLocale() {
   const locale = useContext(LanguageContext)

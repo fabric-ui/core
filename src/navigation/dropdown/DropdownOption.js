@@ -1,9 +1,9 @@
-import styles from './styles/Dropdown.module.css'
-import PropTypes from "prop-types";
-import Button from "../../inputs/button/Button";
-import React, {useContext} from "react";
-import DropdownProvider from "./DropdownProvider";
-import Icon from "../../visualization/icon/Icon";
+import styles from "./styles/Dropdown.module.css"
+import PropTypes from "prop-types"
+import Button from "../../inputs/button/Button"
+import React, {useContext} from "react"
+import DropdownProvider from "./DropdownProvider"
+import Icon from "../../visualization/icon/Icon"
 
 export default function DropdownOption(props) {
    const context = useContext(DropdownProvider)

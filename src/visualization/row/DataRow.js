@@ -1,8 +1,8 @@
-import React, {useContext, useMemo} from 'react'
-import PropTypes from "prop-types";
-import styles from './styles/Row.module.css'
-import RowKey from "./components/RowKey";
-import DataProvider from "../../misc/hooks/DataProvider";
+import React, {useContext, useMemo} from "react"
+import PropTypes from "prop-types"
+import styles from "./styles/Row.module.css"
+import RowKey from "./components/RowKey"
+import DataProvider from "../../misc/hooks/DataProvider"
 
 export default function DataRow(props) {
    const context = useContext(DataProvider)

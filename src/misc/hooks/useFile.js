@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from "react"
 
 export default function useFile(pathname, asJson){
     const [data, setData] = useState()

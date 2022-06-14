@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import styles from './styles/Button.module.css'
-import React, {useMemo, useRef} from "react";
-import Ripple from "../../misc/ripple/Ripple";
+import PropTypes from "prop-types"
+import styles from "./styles/Button.module.css"
+import React, {useMemo, useRef} from "react"
+import Ripple from "../../misc/ripple/Ripple"
 
 export default function Button(props) {
    const ref = useRef()

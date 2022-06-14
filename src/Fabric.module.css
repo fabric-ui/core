@@ -1,45 +1,62 @@
 @font-face {
-   font-family: "Roboto";
-   src: url("./Roboto/Roboto-Regular.ttf");
+  font-family: Roboto;
+  src: url("./Roboto/Roboto-Regular.ttf");
+}
 
+@font-face {
+  font-family: "Material Icons Round";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialiconsround/v104/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flwmP.woff2) format("woff2");
+}
+
+[data-icon="true"] {
+  font-family: "Material Icons Round" !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
 }
 
 .light {
-   --fabric-accent-color: #0095ff;
-   --fabric-background-primary: white;
-   --fabric-background-secondary: #f8f6f6;
-   --fabric-background-tertiary: #f6f4f4;
-   --fabric-background-quaternary: #E8F0FE;
+  --fabric-accent-color: #0095ff;
+  --fabric-background-primary: white;
+  --fabric-background-secondary: #f8f6f6;
+  --fabric-background-tertiary: #f6f4f4;
+  --fabric-background-quaternary: #e8f0fe;
+  --fabric-border-primary: #f1f1f5;
+  --fabric-border-secondary: #e0e0e0;
+  --fabric-color-primary: #444;
+  --fabric-color-secondary: #454545;
+  --fabric-color-tertiary: #555;
+  --fabric-color-quaternary: #999;
 
-   --fabric-border-primary: #F1F1F5;
-   --fabric-border-secondary: #e0e0e0;
+  font-family: Roboto;
 
-   --fabric-color-primary: #444444;
-   --fabric-color-secondary: #454545;
-   --fabric-color-tertiary: #555555;
-   --fabric-color-quaternary: #999999;
-   font-family: "Roboto";
-   --fabric-boxshadow: rgba(0, 0, 0, .1) 2px 4px 10px 2px;
+  --fabric-boxshadow: rgb(0 0 0 / 10%) 2px 4px 10px 2px;
 }
 
 .dark {
-   font-family: "Roboto";
-   --fabric-accent-color: #0095ff;
-   --fabric-background-primary: #303030;
-   --fabric-background-secondary: #2b2b2b;
-   --fabric-background-tertiary: #282828;
-   --fabric-background-quaternary: #111111;
+  font-family: Roboto;
 
-   --fabric-border-primary: #3F3F3F;
-   --fabric-border-secondary: #707070;
-
-   --fabric-color-primary: #F7F7F7;
-   --fabric-color-secondary: #f5f5f5;
-   --fabric-color-tertiary: #f3f3f3;
-   --fabric-color-quaternary: #999999;
-
-
-   --fabric-boxshadow: rgba(0, 0, 0, .2) 2px 4px 10px 2px;
-
+  --fabric-accent-color: #0095ff;
+  --fabric-background-primary: #303030;
+  --fabric-background-secondary: #2b2b2b;
+  --fabric-background-tertiary: #282828;
+  --fabric-background-quaternary: #111;
+  --fabric-border-primary: #3f3f3f;
+  --fabric-border-secondary: #707070;
+  --fabric-color-primary: #f7f7f7;
+  --fabric-color-secondary: #f5f5f5;
+  --fabric-color-tertiary: #f3f3f3;
+  --fabric-color-quaternary: #999;
+  --fabric-boxshadow: rgb(0 0 0 / 20%) 2px 4px 10px 2px;
 }
-

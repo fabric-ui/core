@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react"
 
-import PropTypes from "prop-types";
-import styles from './styles/TimelineCell.module.css'
+import PropTypes from "prop-types"
+import styles from "./styles/TimelineCell.module.css"
 
 export default function TimelineCell(props) {
    return (

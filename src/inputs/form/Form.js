@@ -1,7 +1,7 @@
-import styles from './styles/Form.module.css'
-import React, {useEffect, useRef, useState} from "react";
-import Header from "./templates/Header";
-import PropTypes from "prop-types";
+import styles from "./styles/Form.module.css"
+import React, {useEffect, useRef, useState} from "react"
+import Header from "./templates/Header"
+import PropTypes from "prop-types"
 
 
 export default function Form(props) {

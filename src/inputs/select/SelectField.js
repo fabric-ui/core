@@ -1,13 +1,13 @@
-import styles from '../shared/styles/Select.module.css'
-import PropTypes from 'prop-types'
-import React, {useMemo, useRef, useState} from 'react'
-import ToolTip from "../../feedback/tooltip/ToolTip";
+import styles from "../shared/styles/Select.module.css"
+import PropTypes from "prop-types"
+import React, {useMemo, useRef, useState} from "react"
+import ToolTip from "../../feedback/tooltip/ToolTip"
 
-import shared from '../shared/styles/Shared.module.css'
-import Button from "../button/Button";
-import useLocale from "../../misc/hooks/useLocale";
-import Modal from "../../navigation/modal/Modal";
-import Icon from "../../visualization/icon/Icon";
+import shared from "../shared/styles/Shared.module.css"
+import Button from "../button/Button"
+import useLocale from "../../misc/hooks/useLocale"
+import Modal from "../../navigation/modal/Modal"
+import Icon from "../../visualization/icon/Icon"
 
 export default function SelectField(props) {
    const [open, setOpen] = useState(false)

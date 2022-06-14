@@ -1,9 +1,9 @@
-import styles from "../styles/Form.module.css";
-import React from "react";
-import PropTypes from "prop-types";
-import Button from "../../button/Button";
-import useLocale from "../../../misc/hooks/useLocale";
-import Icon from "../../../visualization/icon/Icon";
+import styles from "../styles/Form.module.css"
+import React from "react"
+import PropTypes from "prop-types"
+import Button from "../../button/Button"
+import useLocale from "../../../misc/hooks/useLocale"
+import Icon from "../../../visualization/icon/Icon"
 
 export default function Header(props) {
     const translate = useLocale()

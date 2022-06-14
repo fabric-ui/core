@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types'
-import styles from "./styles/FormRow.module.css";
-import React, {useEffect, useMemo, useRef, useState} from "react";
-import ToolTip from "../../feedback/tooltip/ToolTip";
-import useLocale from "../../misc/hooks/useLocale";
-import Accordion from "../../navigation/accordion/Accordion";
-import AccordionSummary from "../../navigation/accordion/AccordionSummary";
+import PropTypes from "prop-types"
+import styles from "./styles/FormRow.module.css"
+import React, {useEffect, useMemo, useRef, useState} from "react"
+import ToolTip from "../../feedback/tooltip/ToolTip"
+import useLocale from "../../misc/hooks/useLocale"
+import Accordion from "../../navigation/accordion/Accordion"
+import AccordionSummary from "../../navigation/accordion/AccordionSummary"
 
 export default function FormRow(props) {
    useEffect(() => {

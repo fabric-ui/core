@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types'
-import React from "react";
-import styles from './styles/Tabs.module.css'
-import Switcher from "../switcher/Switcher";
-import Button from "../../inputs/button/Button";
-import Tab from "./Tab";
-import ToolTip from "../../feedback/tooltip/ToolTip";
+import PropTypes from "prop-types"
+import React from "react"
+import styles from "./styles/Tabs.module.css"
+import Switcher from "../switcher/Switcher"
+import Button from "../../inputs/button/Button"
+import Tab from "./Tab"
+import ToolTip from "../../feedback/tooltip/ToolTip"
 
 export default function Tabs(props) {
    const children = React.Children.toArray(props.children).filter(e => e.type === Tab)

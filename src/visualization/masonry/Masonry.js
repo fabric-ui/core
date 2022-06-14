@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import styles from './styles/Masonry.module.css'
-import React, {useEffect, useMemo, useRef, useState} from "react";
+import PropTypes from "prop-types"
+import styles from "./styles/Masonry.module.css"
+import React, {useEffect, useMemo, useRef, useState} from "react"
 
 export default function Masonry(props) {
    const children = React.Children.toArray(props.children)

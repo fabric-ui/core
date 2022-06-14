@@ -1,8 +1,8 @@
-import React, {useEffect, useMemo, useRef, useState} from "react";
-import PropTypes from "prop-types";
-import styles from './styles/Context.module.css'
-import Button from "../../inputs/button/Button";
-import Icon from "../../visualization/icon/Icon";
+import React, {useEffect, useMemo, useRef, useState} from "react"
+import PropTypes from "prop-types"
+import styles from "./styles/Context.module.css"
+import Button from "../../inputs/button/Button"
+import Icon from "../../visualization/icon/Icon"
 
 
 export default function ContextMenu(props) {

@@ -1,10 +1,10 @@
-import React, {useContext, useEffect, useRef} from "react";
+import React, {useContext, useEffect, useRef} from "react"
 
-import PropTypes from 'prop-types'
-import styles from './styles/ToolTip.module.css'
-import ThemeContext from "../../misc/hooks/ThemeContext";
-import fabricStyles from '../../Fabric.module.css'
-import * as DOM from 'react-dom/client'
+import PropTypes from "prop-types"
+import styles from "./styles/ToolTip.module.css"
+import ThemeContext from "../../misc/hooks/ThemeContext"
+import fabricStyles from "../../Fabric.module.css"
+import * as DOM from "react-dom/client"
 
 export default function ToolTip(props) {
    const theme = useContext(ThemeContext)

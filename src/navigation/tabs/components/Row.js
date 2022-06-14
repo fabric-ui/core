@@ -1,9 +1,9 @@
-import styles from "../styles/Vertical.module.css";
-import React, {useState} from "react";
-import PropTypes from "prop-types";
-import Button from "../../../inputs/button/Button";
-import ToolTip from "../../../feedback/tooltip/ToolTip";
-import Icon from "../../../visualization/icon/Icon";
+import styles from "../styles/Vertical.module.css"
+import React, {useState} from "react"
+import PropTypes from "prop-types"
+import Button from "../../../inputs/button/Button"
+import ToolTip from "../../../feedback/tooltip/ToolTip"
+import Icon from "../../../visualization/icon/Icon"
 
 export default function Row(props) {
     const [hidden, setHidden] = useState(false)

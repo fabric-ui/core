@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import React, {useEffect, useRef, useState} from "react";
-import styles from './styles/Switcher.module.css'
+import PropTypes from "prop-types"
+import React, {useEffect, useRef, useState} from "react"
+import styles from "./styles/Switcher.module.css"
 
 export default function Switcher(props) {
     const ref = useRef()
