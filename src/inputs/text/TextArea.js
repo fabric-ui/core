@@ -56,7 +56,7 @@ export default function TextArea(props) {
                 onKeyDown={e => {
                     if (e.code === "Enter" && props.onEnter) props.onEnter()
                 }}
-                onChange={props.handleChange}
+                onChange={e => props.handleChange(e.target.value)}
                 maxLength={props.maxLength}
             />
         </div>

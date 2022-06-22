@@ -34,7 +34,6 @@ export default function ToolTip(props) {
       mountingPoint.current.style.transform = `translate(${transform.x}, ${transform.y})`
    }
    const hover = (event) => {
-
       if (ref.current?.parentNode) {
          mountingPoint.current.style.position = 'fixed'
          mountingPoint.current.style.zIndex = '999'
@@ -44,7 +43,10 @@ export default function ToolTip(props) {
          mountingPoint.current.style.top = (event.clientY + 10) + 'px'
 
          document.addEventListener('mousemove', handleMouseMove)
-         ref.current?.parentNode.addEventListener('mouseleave', () => root.unmount(), {once: true})
+         ref.current?.parentNode.addEventListener('mouseleave', () => {
+            root.unmount()
+            document.removeEventListener('mousemove', handleMouseMove)
+         }, {once: true})
       }
    }
 
@@ -59,8 +61,7 @@ export default function ToolTip(props) {
       ref.current?.parentNode.addEventListener('mouseenter', hover)
 
       return () => {
-         ref.current?.parentNode.removeEventListener('mouseenter', hover)
-         document.removeEventListener('mousemove', handleMouseMove)
+
          ref.current?.parentNode.removeEventListener('mouseenter', hover)
          document.removeEventListener('mousemove', handleMouseMove)
       }

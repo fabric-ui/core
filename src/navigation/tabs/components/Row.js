@@ -7,7 +7,6 @@ import Icon from "../../../visualization/icon/Icon"
 
 export default function Row(props) {
     const [hidden, setHidden] = useState(false)
-
     return (
         <div className={styles.rowWrapper}>
             <Button
@@ -32,12 +31,12 @@ export default function Row(props) {
                </Icon>
             </Button>
 
-            {hidden ? null : props.buttons.map((b, bI) => b.group === props.groupName ? (
+            {hidden ? null : props.buttons.map((b, bI) => b.label && b.group === props.groupName ? (
                 <React.Fragment key={props.index + '-button-header-tab-' + bI}>
                     <Button
                         variant={'minimal-horizontal'}
                         className={[styles.button, styles.color].join(' ')}
-                        styles={{fontWeight: 'normal', maxWidth: '100%', width: '100%'}}
+                        styles={{fontWeight: 'normal', maxWidth: '100%', width: '100%', color: b.disabled ? "#999" : undefined}}
                         highlight={props.open === bI}
                         disabled={b.disabled}
                         onClick={() => {

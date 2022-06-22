@@ -24,7 +24,6 @@ import Switcher from "./navigation/switcher/Switcher"
 import DataRow from "./visualization/row/DataRow"
 import useInfiniteScroll from "./misc/hooks/useInfiniteScroll"
 import ContextMenu from "./navigation/context/ContextMenu"
-import AlertContext from "./feedback/alert/hooks/AlertContext"
 
 import DataProvider from "./misc/hooks/DataProvider"
 import useListData from "./misc/hooks/useListData"
@@ -47,16 +46,12 @@ export {
     Icon,
     TimelineCell,
     Timeline,
-
     ContextWrapper,
     DataProvider,
     useListData,
-
-
     useFormData,
     EmbeddedForm,
-
-    AlertContext, ContextMenu,
+    ContextMenu,
     LanguageContext,
     DropdownProvider,
     ToolTip, DropdownOption,

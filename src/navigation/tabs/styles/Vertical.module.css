@@ -59,11 +59,6 @@
 .color {
    color: var(--fabric-color-tertiary)
 }
-
-.color:disabled {
-   color: var(--fabric-color-quinary) !important;
-}
-
 .color:hover, .color:active, .highlight {
    color: var(--color)
 }
