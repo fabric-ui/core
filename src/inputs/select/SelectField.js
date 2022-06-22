@@ -82,8 +82,7 @@ export default function SelectField(props) {
                         borderTop: index > 0 ? 'var(--fabric-border-primary) 1px solid' : 'none'
                      }}
                      variant={choice.key === props.value ? 'filled' : undefined}
-                     onClick={e => {
-
+                     onClick={() => {
                         props.handleChange(choice.key)
                         setOpen(false)
                      }}

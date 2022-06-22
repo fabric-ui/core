@@ -23,12 +23,9 @@
 }
 .selectContainer:disabled {
     cursor: default;
-    color: var(--fabric-color-quinary);
+    color: var(--fabric-color-quaternary);
 }
 
-.dropDownContainer {
-    display: grid;
-}
 
 .dropDownChoicesContainer {
     background-color: var(--fabric-background-primary);
@@ -48,8 +45,7 @@
     display: flex;
     align-items: center;
     text-align: left;
-    font-weight: 600;
-    font-family: "Roboto";
+    font-weight: 550;
     font-size: .75rem;
 }
 
@@ -58,31 +54,4 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
-}
-
-.multiSelectRow {
-    display: flex;
-    user-select: none;
-    overflow: hidden;
-    align-items: center;
-    justify-content: flex-start;
-    height: 40px;
-    background: var(--fabric-background-primary);
-    gap: 8px;
-}
-
-.multiSelectRowContent {
-    user-select: none;
-    color: var(--fabric-color-secondary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: left;
-    font-weight: 600;
-    font-family: "Roboto";
-    font-size: .8rem;
-}
-
-.multiSelectRowCheckbox {
-    cursor: pointer;
 }

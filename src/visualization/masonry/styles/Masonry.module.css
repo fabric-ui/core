@@ -31,8 +31,3 @@
   white-space: nowrap;
 }
 
-.titleDivider {
-  height: 1px;
-  width: 100%;
-  background: var(--fabric-border-secondary);
-}

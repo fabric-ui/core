@@ -1,7 +1,4 @@
-@import url('http://fonts.cdnfonts.com/css/roboto');
-
 .header {
-
    background-color: var(--fabric-background-primary);
    display: flex;
    justify-content: flex-start;
@@ -28,7 +25,6 @@
 
 .button {
    text-transform: capitalize;
-   /*font-family: "Roboto" !important;*/
    text-rendering: optimizeLegibility;
    color: var(--fabric-color-tertiary);
    font-weight: 550;
@@ -43,7 +39,7 @@
    white-space: nowrap;
 }
 .button:disabled{
-   color: #999999 !important;
+   color: var(--fabric-color-quaternary) !important;
 }
 .button:hover, .button:active, .button[data-highlight="true"] {
    color: var(--color) ;

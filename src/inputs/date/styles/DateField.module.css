@@ -1,71 +1,3 @@
-
-.fieldsContainer {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   gap: 10px;
-   height: 56px;
-   border-radius: 5px;
-   border: var(--fabric-border-primary) 1px solid;
-   color: var(--fabric-color-tertiary);
-   background: var(--fabric-background-primary);
-   position: relative;
-   overflow: hidden;
-
-   --delay: 0;
-}
-
-.fieldsContainer:hover {
-   --delay: 500ms;
-}
-
-.fieldsContainer::after {
-   position: absolute;
-   content: '';
-   width: 100%;
-   height: 100%;
-   top: 0;
-   left: 0;
-   background: var(--color);
-   opacity: 0;
-   transition: 150ms linear var(--delay);
-}
-
-.fieldsContainer:disabled::after {
-   content: none;
-}
-
-.fieldsContainer:focus-within::after, .fieldsContainer:focus-within::after {
-   opacity: .15;
-}
-
-
-.inputContainer {
-   text-align: center;
-   border: none;
-   box-shadow: unset;
-
-   background: var(--fabric-background-primary);
-   font-family: "Roboto";
-   height: 100%;
-   width: 30px;
-   outline: none;
-   font-size: 1rem;
-
-   color: var(--fabric-color-secondary);
-}
-
-.inputContainer::-webkit-outer-spin-button,
-.inputContainer::-webkit-inner-spin-button {
-   -webkit-appearance: none;
-   margin: 0;
-}
-
-/* Firefox */
-.inputContainer[type=number] {
-   -moz-appearance: textfield;
-}
-
 .buttonContainer {
 
    display: flex;
@@ -126,26 +58,17 @@
    top: 0;
    background: var(--fabric-background-primary);
    z-index: 10;
-   font-family: "Roboto";
-
    user-select: none;
-
    transition: 150ms linear;
-
    padding: 0 4px;
    color: var(--fabric-color-secondary);
    width: 100%;
-
    display: flex;
    align-items: center;
    justify-content: space-between;
    height: 25px !important;
 }
 
-.activeContainer {
-   background: var(--fabric-background-quaternary);
-   color: var(--fabric-accent-color);
-}
 
 .daysContainer {
    display: grid;
@@ -162,19 +85,14 @@
    width: 30px;
    padding: 0 !important;
    background: var(--fabric-background-primary);
-
    display: flex;
    align-items: center;
    justify-content: center;
    justify-items: center;
-
    text-align: center;
-
    font-size: .8rem;
    font-weight: 550;
-   font-family: "Roboto";
    color: var(--fabric-color-tertiary);
-
 }
 
 .currentDate {
@@ -184,17 +102,6 @@
    font-size: .8rem;
    font-weight: normal;
    color: var(--fabric-color-tertiary);
-}
-
-
-.errorWrapper {
-   display: flex;
-   align-items: center;
-   gap: 4px;
-   font-size: .7rem;
-   color: red;
-
-   margin-top: 2px;
 }
 
 

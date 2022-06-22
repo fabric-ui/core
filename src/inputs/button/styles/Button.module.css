@@ -1,12 +1,9 @@
-@import url('http://fonts.cdnfonts.com/css/roboto');
-
 .button {
     border-radius: 5px;
     outline: none;
     background: unset;
     border: none;
     font-size: .8rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     cursor: pointer;
     --color: var(--fabric-accent-color);
     --darker-color: #0080DB;
@@ -16,7 +13,6 @@
 
     overflow: hidden;
     position: relative;
-
     --delay: 0ms;
 }
 
@@ -52,10 +48,6 @@
     opacity: .15;
 }
 
-.secondaryVariant {
-    --darker-color: #FF2626;
-    --color: #ff5555
-}
 
 .baseHighlight::after {
     position: absolute;

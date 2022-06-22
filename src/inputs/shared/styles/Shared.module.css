@@ -59,7 +59,7 @@
 }
 .helperText{
     transition: 150ms linear;
-    color: var(--fabric-color-quinary);
+    color: var(--fabric-color-quaternary);
     cursor: help;
 }
 .helperText:hover{

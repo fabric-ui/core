@@ -27,7 +27,7 @@
 
 .container:disabled {
    background: transparent;
-   border-color: var(--fabric-color-quinary);
+   border-color: var(--fabric-color-quaternary);
    cursor: unset;
 }
 

@@ -63,19 +63,6 @@
    color: var(--color)
 }
 
-.rowLabel {
-   display: flex;
-   align-content: center;
-   align-items: center;
-   justify-content: space-between;
-   font-weight: 600;
-   font-family: "Roboto";
-   color: var(--fabric-color-secondary);
-   font-size: .8rem;
-   padding: 4px 0 4px 16px;
-   margin-top: 8px;
-}
-
 .overflow {
    max-width: 100%;
 
@@ -91,11 +78,6 @@
    height: auto;
    display: grid;
    gap: 4px;
-   /*padding-bottom: 16px;*/
-
-
    align-items: flex-start;
-
-   /*overflow-x: hidden;*/
    overflow-y: visible;
 }

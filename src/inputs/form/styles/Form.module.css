@@ -93,12 +93,3 @@ height: 35px;
    gap: 8px;
    overflow: hidden;
 }
-
-.buttons {
-   padding: 8px 0 0 0;
-   border-top: var(--fabric-border-primary) 1px solid;
-   display: flex;
-   justify-content: flex-start;
-   gap: 8px;
-   align-items: center
-}

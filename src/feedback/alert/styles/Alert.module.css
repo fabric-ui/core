@@ -101,9 +101,3 @@
    gap: 4px;
    color: var(--fabric-color-primary) !important;
 }
-
-.contentWrapper {
-   display: grid;
-   align-items: flex-end;
-   gap: 6px;
-}

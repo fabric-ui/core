@@ -18,11 +18,6 @@
    width: 100vw;
 }
 
-.modalContainer {
-   width: 100%;
-   height: 100%;
-
-}
 .emptyAnimExit{
    animation: fadeOutAnim linear 10ms forwards;
 }
