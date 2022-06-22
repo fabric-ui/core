@@ -12,21 +12,15 @@ export default function DropdownOption(props) {
            className={props.className}>
          <Button
             disabled={props.option.disabled}
-            onClick={() => {
+            onClick={event => {
                if (context?.setOpen && !props.option.keepAlive)
                   context?.setOpen(false)
-               props.option.onClick(props.option.onClickEvent)
+               if(props.option.onClick)
+                  props.option.onClick(event, props.option, () => context.setOpen(false))
             }}
             className={styles.button}>
             <div className={styles.iconSpace}>
-
-               {props.option.icon ?
-                  <Icon styles={props.option.iconStyles}>
-                     {props.option.icon}
-                  </Icon>
-                  :
-                  null
-               }
+               {props.option.icon}
             </div>
 
             <div className={[styles.buttonLabel, styles.overflow].join(' ')}>
@@ -48,10 +42,8 @@ DropdownOption.propTypes = {
    className: PropTypes.string,
    option: PropTypes.shape({
       label: PropTypes.any,
-      icon: PropTypes.string,
-      iconStyles: PropTypes.object,
-
-      onClick: PropTypes.func.isRequired,
+      icon: PropTypes.node,
+      onClick: PropTypes.func,
       disabled: PropTypes.bool,
       keepAlive: PropTypes.bool,
       shortcut: PropTypes.string
