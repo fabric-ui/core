@@ -5,21 +5,7 @@
   src: url(https://fonts.gstatic.com/s/materialiconsround/v104/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flwmP.woff2) format("woff2");
 }
 
-/*[data-icon="true"] {*/
-/*  font-family: "Material Icons Round" !important;*/
-/*  font-weight: normal;*/
-/*  font-style: normal;*/
-/*  font-size: 24px;*/
-/*  line-height: 1;*/
-/*  letter-spacing: normal;*/
-/*  text-transform: none;*/
-/*  display: inline-block;*/
-/*  white-space: nowrap;*/
-/*  word-wrap: normal;*/
-/*  direction: ltr;*/
-/*  font-feature-settings: "liga";*/
-/*  -webkit-font-smoothing: antialiased;*/
-/*}*/
+
 
 .light {
   --fabric-accent-color: #0095ff;
@@ -33,15 +19,10 @@
   --fabric-color-secondary: #454545;
   --fabric-color-tertiary: #555;
   --fabric-color-quaternary: #999;
-
-  font-family: Roboto;
-
   --fabric-boxshadow: rgb(0 0 0 / 10%) 2px 4px 10px 2px;
 }
 
 .dark {
-  font-family: Roboto;
-
   --fabric-accent-color: #0095ff;
   --fabric-background-primary: #303030;
   --fabric-background-secondary: #2b2b2b;
@@ -54,4 +35,21 @@
   --fabric-color-tertiary: #f3f3f3;
   --fabric-color-quaternary: #999;
   --fabric-boxshadow: rgb(0 0 0 / 20%) 2px 4px 10px 2px;
+}
+
+
+.light > span[data-icon="true"] , .dark > span[data-icon="true"] {
+   font-family: "Material Icons Round" !important;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 24px;
+   line-height: 1;
+   letter-spacing: normal;
+   text-transform: none;
+   display: inline-block;
+   white-space: nowrap;
+   word-wrap: normal;
+   direction: ltr;
+   font-feature-settings: "liga";
+   -webkit-font-smoothing: antialiased;
 }
