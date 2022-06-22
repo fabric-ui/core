@@ -19,9 +19,7 @@ export default function TextField(props) {
         } : {}
     }, [props.mask, props.maskAttributes])
     const {ref, setValue} = useIMask(opts, {
-        onAccept: e => {
-            props.handleChange(e.target.value, ref)
-        }
+        onAccept: props.handleChange
     })
     useEffect(() => {
         setValue(props.value ? props.value : "")
@@ -84,9 +82,11 @@ export default function TextField(props) {
                         height: props.height ? props.height : "45px", position: "relative", zIndex: 5
                     }}
                     onChange={e => {
-                        let data = e.target.value
+                       if(!props.mask) {
+                          let data = e.target.value
 
-                        if (props.maxLength && (data.toString().length <= props.maxLength) || !props.maxLength) props.handleChange(data)
+                          if (props.maxLength && (data.toString().length <= props.maxLength) || !props.maxLength) props.handleChange(data)
+                       }
                     }}
                     maxLength={props.maxLength}
                 />
