@@ -12,7 +12,6 @@ export default function TextField(props) {
     const translate = useLocale()
     const maskEndRef = useRef()
     const maskStartRef = useRef()
-
     const opts = useMemo(() => {
         return props.mask ? {
             mask: props.mask, lazy: true, ...props.maskAttributes

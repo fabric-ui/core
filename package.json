@@ -1,6 +1,6 @@
 {
    "name": "@f-ui/core",
-   "version": "0.2.16-alpha",
+   "version": "0.2.18-alpha",
    "author": "facobackup",
    "license": "MIT",
    "main": "dist/index.js",
