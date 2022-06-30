@@ -1,7 +1,7 @@
-import React, {useCallback, useEffect, useRef} from "react"
-import * as PropTypes from "prop-types";
-import * as ReactDOM from "react-dom";
-import styles from "./styles/Dropdown.module.css";
+import React, {useEffect, useRef} from "react"
+import * as PropTypes from "prop-types"
+import * as ReactDOM from "react-dom"
+import styles from "./styles/Dropdown.module.css"
 
 export default function Content(props) {
    const getParentPosition = (node) => {

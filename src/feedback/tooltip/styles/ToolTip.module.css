@@ -7,8 +7,9 @@
   opacity: 0;
   animation: show 150ms ease forwards;
   animation-delay: 250ms;
-  position: relative;
   box-shadow: rgb(0 0 0 / 20%) 0 0 2px 2px;
+  position: fixed !important;
+  z-index: 999 !important;
 }
 
 @keyframes show {

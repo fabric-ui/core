@@ -1,27 +1,23 @@
-import React, {useContext, useEffect, useId, useRef} from "react"
+import React, {useContext, useEffect, useRef, useState} from "react"
 
 import PropTypes from "prop-types"
 import styles from "./styles/ToolTip.module.css"
 import ThemeContext from "../../misc/hooks/ThemeContext"
 import fabricStyles from "../../Fabric.module.css"
-import * as DOM from "react-dom/client"
+import * as ReactDOM from "react-dom"
 
 export default function ToolTip(props) {
     const theme = useContext(ThemeContext)
-    const toolTip = (
-        <div className={[styles.container,theme.dark ? fabricStyles.dark : fabricStyles.light].join(" ")}
-            style={{animationDelay: props.animationDelay}}>
-            <div className={[styles.content, props.className].join(" ")} style={props.styles}>
-                {props.content === undefined ? props.children : props.content}
-            </div>
-        </div>
-    )
+    const contentRef = useRef()
     const ref = useRef({})
-    const id = useId()
+    const [open, setOpen] = useState(false)
+    let bBox
     const handleMouseMove = (event) => {
-        const bBox = document[id]?.getBoundingClientRect()
-        document[id].style.left = (event.clientX + 10) + "px"
-        document[id].style.top = (event.clientY + 10) + "px"
+        const node = contentRef.current
+        if(!bBox)
+            bBox = node.getBoundingClientRect()
+        node.style.left = (event.clientX + 10) + "px"
+        node.style.top = (event.clientY + 10) + "px"
 
         let transform = {x: "0px", y: "0px"}
         if ((event.clientX + 10 + bBox.width) > document.body.offsetWidth)
@@ -29,40 +25,52 @@ export default function ToolTip(props) {
         if ((event.clientY + 10 + bBox.height) > document.body.offsetHeight)
             transform.y = "calc(-100% - 10px)"
 
-        document[id].style.transform = `translate(${transform.x}, ${transform.y})`
+        node.style.transform = `translate(${transform.x}, ${transform.y})`
     }
 
     const hover = (event) => {
-        document[id] = document.createElement("div")
-        document.body.appendChild(document[id])
-        document[id].setAttribute("id", id)
-        document[id].style.position = "fixed"
-        document[id].style.zIndex = "999"
-        const root = DOM.createRoot(document[id])
-        root.render(toolTip)
-        document[id].style.left = (event.clientX + 10) + "px"
-        document[id].style.top = (event.clientY + 10) + "px"
+        setOpen(true)
+        contentRef.current.style.left = (event.clientX + 10) + "px"
+        contentRef.current.style.top = (event.clientY + 10) + "px"
         document.addEventListener("mousemove", handleMouseMove)
-        ref.current?.parentNode.addEventListener("mouseleave", () => {
-            try{
-                root.unmount()
-                document.body.removeChild(document[id])
-            }catch (err){
-                console.error(err)
-            }
-            document.removeEventListener("mousemove", handleMouseMove)
-        }, {once: true})
+        ref.current?.parentNode.addEventListener(
+            "mouseleave",
+            () => {
+                document.removeEventListener("mousemove", handleMouseMove)
+                setOpen(false)
+                bBox = undefined
+            },
+            {once: true}
+        )
     }
 
     useEffect(() => {
-        ref.current?.parentNode.addEventListener("mouseenter", hover)
-        return () => {
-            ref.current?.parentNode.removeEventListener("mouseenter", hover)
-            document.removeEventListener("mousemove", handleMouseMove)
-        }
-    }, [props.children, props.content])
+        ref.current.parentNode.addEventListener("mouseenter", hover)
+        return () => ref.current.parentNode.removeEventListener("mouseenter", hover)
+    }, [open])
 
-    return <div ref={ref} style={{display: "none"}}/>
+
+
+    return (
+        <div ref={ref} style={{display: "none"}}>
+            {typeof window !== "undefined" && open ?
+                ReactDOM.createPortal(
+                    <div
+                        ref={contentRef}
+                        className={[styles.container, theme.dark ? fabricStyles.dark : fabricStyles.light].join(" ")}
+                        style={{animationDelay: props.animationDelay}}
+                    >
+                        <div className={[styles.content, props.className].join(" ")} style={props.styles}>
+                            {props.content === undefined ? props.children : props.content}
+                        </div>
+                    </div>,
+                    document.body
+                )
+                :
+                null
+            }
+        </div>
+    )
 }
 
 ToolTip.propTypes = {

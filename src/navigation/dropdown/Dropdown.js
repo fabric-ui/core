@@ -1,11 +1,10 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import PropTypes from "prop-types"
-import styles from "./styles/Dropdown.module.css"
 import Button from "../../inputs/button/Button"
 import DropdownOptions from "./DropdownOptions"
 import DropdownProvider from "./DropdownProvider"
 import Icon from "../../visualization/icon/Icon"
-import Content from "./Content";
+import Content from "./Content"
 
 export default function Dropdown(props) {
    const [open, setOpen] = useState(false)
