@@ -54,20 +54,16 @@ export default function Dropdown(props) {
                     close={() => {
                         if (props.onClose)
                             props.onClose()
-
                         setOpen(false)
                     }}>
-                    {open ? (
-                        <DropdownProvider.Provider
-                            value={{
-                                setOpen,
-                                open
-                            }}
-                        >
-
-                            {children.find(e => e?.type?.name === DropdownOptions.name)}
-                        </DropdownProvider.Provider>
-                    ) : null}
+                    <DropdownProvider.Provider
+                        value={{
+                            setOpen,
+                            open
+                        }}
+                    >
+                        {children.find(e => e?.type?.name === DropdownOptions.name)}
+                    </DropdownProvider.Provider>
                 </Content>
                 :
                 null

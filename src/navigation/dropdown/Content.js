@@ -15,7 +15,7 @@ export default function Content(props) {
         const body = document.body.getBoundingClientRect()
         const offX = 8,
             offY = 4
-        let y = `calc(-50% + ${bBox.height}px)`,
+        let y = `${halfHeight + offY}px`,
             x = "-50%"
         if (nBox.y < 0)
             y = "calc(50% + " + ((-nBox.y / 2 - offY + halfHeight) / 2) + "px)"
@@ -31,8 +31,6 @@ export default function Content(props) {
     useEffect(() => {
         const node = ref.current
         const t = getParentPosition(node)
-        node.style.position = "fixed"
-        node.style.zIndex = "999"
 
         node.style.transform = t
     }, [])
@@ -43,7 +41,7 @@ export default function Content(props) {
     useEffect(() => {
         document.addEventListener("mousedown", handleMouseDown)
         return () => document.removeEventListener("mousedown", handleMouseDown)
-    }, [])
+    }, [props.close])
 
     return ReactDOM.createPortal((
         <div ref={ref} className={[props.theme.dark ? fabricStyles.dark : fabricStyles.light, styles.buttons, props.modalClassName].join(" ")}
