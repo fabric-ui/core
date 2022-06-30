@@ -29,24 +29,29 @@ export default function ToolTip(props) {
     }
 
     const hover = (event) => {
-        setOpen(true)
-        contentRef.current.style.left = (event.clientX + 10) + "px"
-        contentRef.current.style.top = (event.clientY + 10) + "px"
-        document.addEventListener("mousemove", handleMouseMove)
-        ref.current?.parentNode.addEventListener(
-            "mouseleave",
-            () => {
-                document.removeEventListener("mousemove", handleMouseMove)
-                setOpen(false)
-                bBox = undefined
-            },
-            {once: true}
-        )
+        if(ref.current && contentRef.current) {
+            setOpen(true)
+            contentRef.current.style.left = (event.clientX + 10) + "px"
+            contentRef.current.style.top = (event.clientY + 10) + "px"
+            document.addEventListener("mousemove", handleMouseMove)
+            ref.current.parentNode.addEventListener(
+                "mouseleave",
+                () => {
+                    document.removeEventListener("mousemove", handleMouseMove)
+                    setOpen(false)
+                    bBox = undefined
+                },
+                {once: true}
+            )
+        }
     }
 
     useEffect(() => {
         ref.current.parentNode.addEventListener("mouseenter", hover)
-        return () => ref.current.parentNode.removeEventListener("mouseenter", hover)
+        return () => {
+            if(ref.current && ref.current.parentNode)
+                ref.current.parentNode.removeEventListener("mouseenter", hover)
+        }
     }, [open])
 
 
