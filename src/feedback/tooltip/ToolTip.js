@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef, useState} from "react"
+import React, {useContext, useEffect, useId, useRef, useState} from "react"
 
 import PropTypes from "prop-types"
 import styles from "./styles/ToolTip.module.css"
@@ -8,12 +8,11 @@ import * as ReactDOM from "react-dom"
 
 export default function ToolTip(props) {
     const theme = useContext(ThemeContext)
-    const contentRef = useRef()
+    const id = useId()
     const ref = useRef({})
     const [open, setOpen] = useState(false)
-    let bBox
+    let bBox, node
     const handleMouseMove = (event) => {
-        const node = contentRef.current
         if(!bBox)
             bBox = node.getBoundingClientRect()
         node.style.left = (event.clientX + 10) + "px"
@@ -29,10 +28,12 @@ export default function ToolTip(props) {
     }
 
     const hover = (event) => {
-        if(ref.current && contentRef.current) {
-            setOpen(true)
-            contentRef.current.style.left = (event.clientX + 10) + "px"
-            contentRef.current.style.top = (event.clientY + 10) + "px"
+
+        setOpen(true)
+        node = document.getElementById(id)
+        if(ref.current && node) {
+            node.style.left = (event.clientX + 10) + "px"
+            node.style.top = (event.clientY + 10) + "px"
             document.addEventListener("mousemove", handleMouseMove)
             ref.current.parentNode.addEventListener(
                 "mouseleave",
@@ -61,7 +62,7 @@ export default function ToolTip(props) {
             {typeof window !== "undefined" && open ?
                 ReactDOM.createPortal(
                     <div
-                        ref={contentRef}
+                        id={id}
                         className={[styles.container, theme.dark ? fabricStyles.dark : fabricStyles.light].join(" ")}
                         style={{animationDelay: props.animationDelay}}
                     >
