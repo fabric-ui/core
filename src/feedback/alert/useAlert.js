@@ -10,7 +10,7 @@ export default function useAlert(dark) {
             target.current.removeChild(newElement)
         }, {once: true})
     }
-    const pushAlert = (message, type, delay = 50000) => {
+    const pushAlert = (message, type, delay = 3500) => {
         const newElement = document.createElement("div")
         target.current.appendChild(newElement)
         target.current.style.zIndex = 999
@@ -30,10 +30,7 @@ export default function useAlert(dark) {
             break
         }
 
-        setTimeout(() => {
-            close(newElement)
-        }, delay)
-
+        setTimeout(() => close(newElement), delay)
         newElement.innerHTML = `
         <div class="${[styles.alertContainer, dark ? fabricStyles.dark : fabricStyles.light].join(" ")}" style="--background: ${variant.color}">
             <div class="${styles.content}">

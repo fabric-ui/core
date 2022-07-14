@@ -1,55 +1,56 @@
 .details {
-  background: var(--fabric-background-tertiary);
-
-  border-radius: 5px;
-  border: var(--fabric-border-primary) 1px solid;
-  width: 100%;
-  color: var(--fabric-color-secondary);
-
-
-  overflow: hidden;
-
-  min-height: 35px;
+   border-radius: 3px;
+   width: 100%;
+   color: var(--fabric-color-secondary);
+   overflow: hidden;
+   min-height: 35px;
    height: auto;
    max-width: 100%;
 }
+.details > div {
+   background: var(--fabric-background-tertiary);
+}
+
+.details:not([open]) > summary > span[data-accordion="true"] {
+   transform: rotate(-90deg);
+}
 
 .summary {
-  position: relative;
-  overflow: hidden;
-  user-select: none;
-  cursor: pointer;
+   position: relative;
+   overflow: hidden;
+   user-select: none;
+   cursor: pointer;
 
-  border-radius: 5px;
-  color: var(--fabric-color-secondary);
-  width: 100%;
-max-width: 100%;
-  padding: 8px !important;
-  background: var(--fabric-background-primary);
+   border-radius: 5px;
+   color: var(--fabric-color-secondary);
+   width: 100%;
+   max-width: 100%;
+   padding: 8px !important;
+   background: var(--fabric-background-primary);
 
 
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
 
 
 }
 
 .summary::after {
-  content: '';
-  background: var(--fabric-accent-color);
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  transition: opacity 150ms ease 500ms;
+   content: '';
+   background: var(--fabric-accent-color);
+   opacity: 0;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   position: absolute;
+   transition: opacity 150ms ease 500ms;
 
-  z-index: -1;
+   z-index: -1;
 }
 
 .summary:active::after {
-  z-index: 0;
-  opacity: .15;
+   z-index: 0;
+   opacity: .15;
 }
